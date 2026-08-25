@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f4efe6" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <title>Emelyn Campos Bertolini | Lyn Campos — IA, Fé, Criatividade & Projetos</title>
   <meta name="description" content="Emelyn Campos Bertolini, também Lyn Campos nos projetos autorais, cria marcas, produtos, projetos editoriais e experimentos digitais com IA — sem terceirizar intenção, julgamento e autoria." />
   <link rel="canonical" href="https://emelyncbertolini-lyncampos.github.io/emelyn-campos/" />
@@ -103,6 +106,26 @@
     .strip-copy{font-size:14px;color:var(--muted);line-height:1.7}
     .project-note{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:16px;margin:28px 0 0}
 
+    .brand-work{background:var(--bg)}
+    .identity-cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+    .identity-case{background:var(--paper);padding:34px;display:flex;flex-direction:column;gap:28px;min-height:100%}
+    .case-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+    .case-meta{display:grid;gap:8px}
+    .case-kicker{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--muted);font-weight:650}
+    .case-title{font-family:Georgia,"Times New Roman",serif;font-size:30px;line-height:1.08;letter-spacing:-.02em;margin:0}
+    .case-tag{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+    .case-copy{font-size:15px;color:var(--muted);line-height:1.75;margin:0}
+    .case-media{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;align-items:stretch}
+    .case-media.case-stack{grid-template-columns:1fr}
+    .case-shot{border:1px solid var(--line);background:#f7f1e9;overflow:hidden;box-shadow:var(--shadow)}
+    .case-shot img{width:100%;height:100%;object-fit:cover}
+    .case-shot.tall{aspect-ratio:4/5}
+    .case-shot.square{aspect-ratio:1/1}
+    .case-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 18px;padding-top:2px}
+    .case-list div{border-top:1px solid var(--line);padding-top:10px}
+    .case-list strong{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+    .case-list span{display:block;font-size:14px;line-height:1.55;color:var(--ink)}
+
     .method-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:84px}
     blockquote{font-family:Georgia,"Times New Roman",serif;font-size:31px;line-height:1.22;margin:36px 0 22px;border-left:2px solid var(--terracotta);padding-left:22px;letter-spacing:-.015em}
     .method-copy{color:var(--muted);font-size:15px;line-height:1.75}
@@ -147,6 +170,7 @@
       .card.wide{grid-template-columns:1fr;gap:32px}
       .main-projects{grid-template-columns:1fr}
       .project-strip{grid-template-columns:1fr;gap:10px}
+      .identity-cases{grid-template-columns:1fr}
       .method-grid{grid-template-columns:1fr;gap:52px}
       .ideas-grid{grid-template-columns:1fr}
       .editorial-paths{grid-template-columns:1fr}
@@ -167,6 +191,9 @@
       section{padding:68px 0}
       .card{padding:28px;min-height:auto}
       .card h3{font-size:28px}
+      .identity-case{padding:28px}
+      .case-media{grid-template-columns:1fr}
+      .case-list{grid-template-columns:1fr}
       .craft-grid{grid-template-columns:1fr}
       .portrait-wrap:before{inset:-10px -10px 16px 15px}
       .portrait-cap{font-size:9px;letter-spacing:.14em}
@@ -286,6 +313,58 @@
         </div>
 
         <p class="project-note reveal">E provavelmente ainda existe alguma ideia nova esperando para entrar aqui.</p>
+      </div>
+    </section>
+
+    <section class="brand-work rule" id="identidades">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Identidades que construí</div>
+            <h2>Quando uma ideia ganha linguagem visual.</h2>
+          </div>
+          <div class="section-note">Além dos projetos em si, também desenvolvi sistemas de marca completos — com logo, monograma, paleta, aplicações e direção visual capaz de sustentar presença editorial e digital.</div>
+        </div>
+
+        <div class="identity-cases reveal">
+          <article class="identity-case">
+            <div class="case-top">
+              <div class="case-meta">
+                <div class="case-kicker">Branding · Identidade visual · Sistema de marca</div>
+                <h3 class="case-title">Casa Editorial E se...?</h3>
+              </div>
+              <span class="case-tag">Case de marca</span>
+            </div>
+            <p class="case-copy">Desenvolvi a identidade da Casa Editorial E se...? como um sistema editorial completo — da marca e linguagem visual às aplicações em conteúdo, site, materiais editoriais e presença digital.</p>
+            <div class="case-media">
+              <figure class="case-shot tall"><img src="assets/ese-painel.webp" alt="Painel da identidade visual da Casa Editorial E se...? com logo, paleta e repertório visual" loading="lazy" /></figure>
+              <figure class="case-shot square"><img src="assets/ese-aplicacoes.webp" alt="Painel de aplicações da identidade visual da Casa Editorial E se...?" loading="lazy" /></figure>
+            </div>
+            <div class="case-list">
+              <div><strong>Inclui</strong><span>logo, paleta, tipografia, elementos visuais e direção editorial.</span></div>
+              <div><strong>Aplicações</strong><span>conteúdo, presença digital, capas, papelaria e peças de marca.</span></div>
+            </div>
+          </article>
+
+          <article class="identity-case">
+            <div class="case-top">
+              <div class="case-meta">
+                <div class="case-kicker">Marca autoral · Identidade visual · Direção criativa</div>
+                <h3 class="case-title">Lyn Campos</h3>
+              </div>
+              <span class="case-tag">Marca autoral</span>
+            </div>
+            <p class="case-copy">Criei a identidade autoral de Lyn Campos para dar forma visual à minha escrita: uma marca própria, conectada ao universo editorial de E se...? sem se confundir com ele.</p>
+            <div class="case-media">
+              <figure class="case-shot square"><img src="assets/lyn-painel.webp" alt="Painel da identidade visual de Lyn Campos" loading="lazy" /></figure>
+              <figure class="case-shot square"><img src="assets/lyn-monograma.webp" alt="Painel oficial do monograma LC da marca Lyn Campos" loading="lazy" /></figure>
+            </div>
+            <div class="case-list">
+              <div><strong>Inclui</strong><span>assinatura autoral, monograma LC, selo e variações de marca.</span></div>
+              <div><strong>Aplicações</strong><span>marca da autora, presença editorial e base visual para futuras obras.</span></div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
