@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">E | L</title>
+  <desc id="desc">Monograma tipográfico de Emelyn e Lyn Campos em creme, carvão e terracota.</desc>
+  <rect width="512" height="512" rx="86" fill="#f4efe6"/>
+  <text x="151" y="329" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="252" font-weight="700" fill="#211d19">E</text>
+  <rect x="246" y="139" width="20" height="234" rx="10" fill="#b85f45"/>
+  <text x="361" y="329" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="252" font-weight="700" fill="#211d19">L</text>
+</svg>
