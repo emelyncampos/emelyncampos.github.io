@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4efe6" />
+  <title>Emelyn Campos — IA, Fé & Criação</title>
+  <meta name="description" content="Emelyn Campos cria marcas, produtos, projetos editoriais e experimentos digitais com IA — e pensa sobre fé, criatividade, trabalho e vida nessa nova era." />
+  <meta property="og:title" content="Emelyn Campos — IA, Fé & Criação" />
+  <meta property="og:description" content="Construindo com as ferramentas do futuro sem terceirizar o que nos faz humanos." />
+  <style>
+    :root{
+      --bg:#f4efe6;
+      --paper:#fbf8f2;
+      --ink:#211d19;
+      --muted:#766d63;
+      --line:#d9cfc1;
+      --terracotta:#b85f45;
+      --olive:#5e674d;
+      --soft:#e9ded1;
+      --dark:#1e1a17;
+      --shadow:0 20px 60px rgba(51,42,34,.08);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button{font:inherit}
+    ::selection{background:#d9b8a6;color:var(--ink)}
+    .wrap{width:min(1180px,calc(100% - 56px));margin-inline:auto}
+    .serif{font-family:Georgia,"Times New Roman",serif}
+    .eyebrow{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:650}
+    .rule{border-top:1px solid var(--line)}
+
+    .nav{position:sticky;top:0;z-index:30;background:rgba(244,239,230,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(217,207,193,.8)}
+    .nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-family:Georgia,"Times New Roman",serif;font-size:21px;letter-spacing:-.02em}
+    .nav-links{display:flex;gap:28px;font-size:13px;color:var(--muted)}
+    .nav-links a{position:relative;padding:8px 0}
+    .nav-links a:after{content:"";position:absolute;left:0;right:100%;bottom:4px;height:1px;background:var(--terracotta);transition:right .25s ease}
+    .nav-links a:hover:after{right:0}
+
+    .hero{padding:98px 0 92px;overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(340px,.82fr);gap:78px;align-items:center}
+    h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(52px,5.6vw,76px);line-height:.99;letter-spacing:-.045em;margin:21px 0 30px;max-width:800px}
+    h1 em{font-style:normal;color:var(--terracotta)}
+    .lead{font-size:18px;color:var(--muted);max-width:660px;margin:0 0 14px}
+    .sublead{font-size:15px;color:var(--muted);max-width:640px;margin:0;line-height:1.7}
+    .ctas{display:flex;gap:20px;align-items:center;margin-top:34px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 23px;border-radius:999px;background:var(--dark);color:#fff;font-size:13px;font-weight:750;letter-spacing:.01em;transition:transform .2s ease,box-shadow .2s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(30,26,23,.16)}
+    .text-link{font-size:13px;border-bottom:1px solid #9c9287;padding-bottom:3px;color:var(--muted)}
+    .portrait-wrap{position:relative;max-width:470px;justify-self:end;width:100%}
+    .portrait-wrap:before{content:"";position:absolute;inset:-15px -16px 22px 28px;border:1px solid rgba(184,95,69,.48);z-index:0}
+    .portrait{position:relative;z-index:1;aspect-ratio:4/5;object-fit:cover;object-position:center 38%;width:100%;background:var(--soft);box-shadow:var(--shadow)}
+    .portrait-cap{display:flex;justify-content:space-between;gap:14px;margin-top:13px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+    section{padding:90px 0}
+    .section-head{display:grid;grid-template-columns:1fr 390px;gap:44px;align-items:end;margin-bottom:46px}
+    h2{font-family:Georgia,"Times New Roman",serif;font-size:clamp(42px,4.5vw,55px);font-weight:400;letter-spacing:-.035em;line-height:1.02;margin:12px 0 0}
+    .section-note{font-size:14px;color:var(--muted);line-height:1.7}
+
+    .projects-bg{background:var(--paper)}
+    .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border:1px solid var(--line);background:var(--line);gap:1px}
+    .card{background:var(--paper);padding:35px;min-height:350px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;transition:background .25s ease,transform .25s ease}
+    .card:hover{background:#fffdf9}
+    .card.wide{grid-column:1/-1;min-height:335px;display:grid;grid-template-columns:1.18fr .82fr;gap:54px;align-items:end}
+    .card:before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--line)}
+    .card.active:before{background:rgba(94,103,77,.72)}
+    .card.build:before{background:rgba(184,95,69,.72)}
+    .card.exp:before{background:#aaa095}
+    .card-index{font-family:Georgia,"Times New Roman",serif;font-style:italic;color:var(--muted);font-size:14px}
+    .status{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:6px 10px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;float:right}
+    .status.active{color:var(--olive);border-color:rgba(94,103,77,.45)}
+    .status.build{color:var(--terracotta);border-color:rgba(184,95,69,.45)}
+    .status.exp{color:var(--muted)}
+    .card h3{font-family:Georgia,"Times New Roman",serif;font-size:32px;line-height:1.12;font-weight:400;margin:28px 0 14px;max-width:620px;letter-spacing:-.02em}
+    .card p{color:var(--muted);font-size:15px;margin:0;max-width:670px;line-height:1.7}
+    .card-cta{margin-top:30px;font-size:13px;display:inline-flex;gap:8px;align-items:center;border-bottom:1px solid #a69b90;padding-bottom:3px;width:max-content;color:var(--ink)}
+    .card-cta.disabled{color:var(--muted);border-bottom-color:var(--line);cursor:default}
+    .ecosystem{border-left:2px solid rgba(184,95,69,.45);padding-left:18px}
+    .ecosystem-title{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+    .eco-item{padding:12px 0;border-top:1px solid var(--line)}
+    .eco-item:first-of-type{border-top:0}
+    .eco-item strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:17px;font-weight:400}
+    .eco-item span{font-size:10px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase}
+
+    .other{margin-top:58px}
+    .other-top{display:flex;justify-content:space-between;gap:24px;align-items:baseline}
+    .other h3{font-family:Georgia,"Times New Roman",serif;font-size:30px;font-weight:400;margin:0}
+    .other-item{display:grid;grid-template-columns:1.1fr 2fr auto;gap:24px;align-items:center;padding:28px 0;border-top:1px solid var(--line);margin-top:22px}
+    .other-name{font-family:Georgia,"Times New Roman",serif;font-size:22px}
+    .other-desc{color:var(--muted);font-size:14px;line-height:1.7}
+
+    .method-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:84px}
+    blockquote{font-family:Georgia,"Times New Roman",serif;font-size:31px;line-height:1.22;margin:36px 0 22px;border-left:2px solid var(--terracotta);padding-left:22px;letter-spacing:-.015em}
+    .method-copy{color:var(--muted);font-size:15px;line-height:1.75}
+    .craft-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 42px}
+    .craft{border-top:1px solid var(--line);padding-top:14px}
+    .craft strong{font-size:14px}
+    .craft p{font-size:13px;color:var(--muted);margin:8px 0 0;line-height:1.6}
+
+    .about{background:var(--paper)}
+    .about-inner{max-width:940px}
+    .about h2{font-size:clamp(42px,4.5vw,53px);max-width:900px}
+    .about p{font-size:18px;color:var(--muted);max-width:850px;margin-top:30px;line-height:1.75}
+
+    .ideas-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px}
+    .idea{border-top:1px solid var(--line);padding-top:18px}
+    .idea-top{display:flex;gap:10px;align-items:center}
+    .pill{font-size:9px;letter-spacing:.14em;text-transform:uppercase;background:var(--soft);padding:5px 8px;border-radius:999px;color:var(--muted)}
+    .idea h3{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:25px;line-height:1.12;margin:20px 0 10px;letter-spacing:-.015em}
+    .idea p{font-size:13px;color:var(--muted);margin:0;line-height:1.65}
+
+    footer{background:var(--dark);color:#f6f0e7;padding:78px 0 38px}
+    footer h2{font-size:clamp(44px,4.8vw,56px);margin:0;color:#f6f0e7}
+    .socials{display:flex;gap:32px;flex-wrap:wrap;margin-top:38px}
+    .social{font-family:Georgia,"Times New Roman",serif;font-size:25px;border-bottom:1px solid rgba(255,255,255,.35);padding-bottom:4px;transition:border-color .2s ease}
+    .social:hover{border-color:#fff}
+    .social small{font-family:Inter,ui-sans-serif,sans-serif;font-size:11px;opacity:.55;margin-left:8px}
+    .footline{margin-top:64px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18);display:flex;justify-content:space-between;gap:18px;font-size:12px;opacity:.7}
+
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:980px){
+      .hero-grid{grid-template-columns:1fr;gap:48px}
+      .portrait-wrap{justify-self:start;max-width:540px}
+      .section-head{grid-template-columns:1fr;gap:16px}
+      .project-grid{grid-template-columns:1fr}
+      .card.wide{grid-column:auto;grid-template-columns:1fr;gap:32px}
+      .method-grid{grid-template-columns:1fr;gap:52px}
+      .ideas-grid{grid-template-columns:1fr}
+      .other-item{grid-template-columns:1fr;gap:10px}
+    }
+    @media(max-width:640px){
+      .wrap{width:min(100% - 38px,1180px)}
+      .nav-inner{height:62px}
+      .brand{font-size:18px}
+      .nav-links{gap:13px;font-size:12px}
+      .nav-links a:nth-child(2){display:none}
+      .hero{padding:60px 0 70px}
+      h1{font-size:43px;line-height:1.02}
+      .lead{font-size:17px}
+      section{padding:70px 0}
+      .card{padding:28px;min-height:auto}
+      .card h3{font-size:28px}
+      .craft-grid{grid-template-columns:1fr}
+      .portrait-wrap:before{inset:-10px -10px 16px 15px}
+      .portrait-cap{font-size:9px;letter-spacing:.14em}
+      .other-top{display:block}
+      .other-top .section-note{margin-top:8px}
+      .footline{display:block}
+      .footline span{display:block;margin-top:8px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.btn{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#topo" aria-label="Emelyn Campos — início">Emelyn Campos</a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#projetos">Projetos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#ideias">Ideias</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="topo">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">IA · Fé · Criatividade</div>
+          <h1>Construindo com as ferramentas do futuro <em>sem terceirizar</em> o que nos faz humanos.</h1>
+          <p class="lead">Eu crio marcas, produtos, projetos editoriais e experimentos digitais — usando IA como ferramenta, não como substituta de intenção.</p>
+          <p class="sublead">Enquanto construo, penso sobre fé, criatividade, trabalho e vida nessa nova era — e transformo ideias em coisas reais.</p>
+          <div class="ctas">
+            <a class="btn" href="#projetos">Ver o que estou construindo</a>
+            <a class="text-link" href="#acompanhe">Me acompanhe</a>
+          </div>
+        </div>
+        <div class="portrait-wrap reveal">
+          <img class="portrait" src="assets/emelyn.webp" alt="Retrato de Emelyn Campos" />
+          <div class="portrait-cap"><span>Emelyn Campos</span><span>ideias → coisas reais</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-bg rule" id="projetos">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Projetos principais</div>
+            <h2>O que estou construindo</h2>
+          </div>
+          <div class="section-note">Projetos em fases diferentes. Alguns já vivem no mundo, outros ainda estão em rascunho — todos começaram como uma ideia que virou coisa real.</div>
+        </div>
+
+        <div class="project-grid reveal">
+          <article class="card wide active">
+            <div>
+              <span class="card-index">01</span><span class="status active">Ativo</span>
+              <h3>Histórias da Bíblia com Bento</h3>
+              <p>Livros, experiências e produtos cristãos para aproximar crianças das histórias da Bíblia com beleza, cuidado e linguagem infantil.</p>
+              <span class="card-cta disabled">Conhecer o Bento →</span>
+            </div>
+            <div class="ecosystem">
+              <div class="ecosystem-title">O que esse projeto reúne</div>
+              <div class="eco-item"><strong>Livros ilustrados</strong><span>conteúdo infantil cristão</span></div>
+              <div class="eco-item"><strong>Produtos & experiências</strong><span>família · fé · aprendizagem</span></div>
+              <div class="eco-item"><strong>Ecossistema digital</strong><span>conteúdo · app · expansão</span></div>
+            </div>
+          </article>
+
+          <article class="card build">
+            <div>
+              <span class="card-index">02</span><span class="status build">Em construção</span>
+              <h3>Before You Read</h3>
+              <p>Um produto para ajudar pais cristãos a se prepararem antes de ler passagens difíceis da Bíblia com os filhos — e então voltar ao próprio texto bíblico.</p>
+            </div>
+            <span class="card-cta disabled">Ver projeto →</span>
+          </article>
+
+          <article class="card active">
+            <div>
+              <span class="card-index">03</span><span class="status active">Ativo</span>
+              <h3>Casa Editorial E se...?</h3>
+              <p>Uma casa editorial criada para desenvolver ideias, marcas autorais e obras que nascem de perguntas importantes.</p>
+              <div class="ecosystem" style="margin-top:24px">
+                <div class="ecosystem-title">Dentro deste ecossistema</div>
+                <div class="eco-item"><strong>Lyn Campos</strong><span>marca autoral criada</span></div>
+                <div class="eco-item"><strong>Conhecendo Deus</strong><span>coleção editorial</span></div>
+                <div class="eco-item"><strong>“E se você estiver fazendo a pergunta errada?”</strong><span>obra · livro</span></div>
+              </div>
+            </div>
+            <span class="card-cta disabled">Explorar projeto →</span>
+          </article>
+
+          <article class="card exp">
+            <div>
+              <span class="card-index">04</span><span class="status exp">Experimento</span>
+              <h3>Creators virtuais com IA</h3>
+              <p>Um laboratório de personas digitais, conteúdo e UGC criado com inteligência artificial, testando até onde identidade, narrativa e consistência podem ser construídas.</p>
+            </div>
+            <span class="card-cta disabled">Ver experimento →</span>
+          </article>
+
+          <article class="card">
+            <div>
+              <span class="card-index">05</span><span class="status">Em aberto</span>
+              <h3>O próximo ainda não existe.</h3>
+              <p>Mas provavelmente já está em alguma nota, rascunho ou conversa esperando virar coisa real.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="other reveal">
+          <div class="other-top">
+            <h3>Outras criações</h3>
+            <div class="section-note">Nem tudo precisa virar uma empresa para ser uma construção importante.</div>
+          </div>
+          <div class="other-item">
+            <div class="other-name">Entre Caos e Construção</div>
+            <div class="other-desc">Projeto editorial cristão sobre fé aplicada à vida adulta real: decisões, espera, trabalho, medo, mudanças, propósito e amadurecimento.</div>
+            <span class="card-cta disabled">Conhecer projeto →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rule">
+      <div class="wrap method-grid">
+        <div class="reveal">
+          <div class="eyebrow">Processo</div>
+          <h2>Como eu construo</h2>
+          <blockquote>IA me ajuda a construir mais. Não decide por mim o que vale a pena construir.</blockquote>
+          <p class="method-copy">Uso tecnologia para pesquisar, testar, visualizar, escrever, prototipar e desenvolver. Ela amplia minha capacidade — mas intenção, julgamento, fé, responsabilidade e decisão continuam sendo trabalho humano.</p>
+        </div>
+        <div class="craft-grid reveal">
+          <div class="craft"><strong>Pesquisa</strong><p>Encontrar contexto, referências, padrões e perguntas melhores.</p></div>
+          <div class="craft"><strong>Criação visual</strong><p>Transformar direção em identidade, imagem e linguagem visual.</p></div>
+          <div class="craft"><strong>Prototipagem</strong><p>Dar forma rápida a uma ideia para descobrir se ela funciona.</p></div>
+          <div class="craft"><strong>Escrita</strong><p>Estruturar pensamento, narrativa, produto e comunicação.</p></div>
+          <div class="craft"><strong>Produto</strong><p>Levar uma ideia da intenção até uma experiência utilizável.</p></div>
+          <div class="craft"><strong>Desenvolvimento</strong><p>Construir experiências digitais sem depender de uma equipe inteira.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about rule" id="sobre">
+      <div class="wrap about-inner reveal">
+        <div class="eyebrow">Sobre mim</div>
+        <h2>Eu tenho mais ideias do que seria razoável começar ao mesmo tempo.</h2>
+        <p>Sou autora e criadora. Nos últimos anos, a IA mudou radicalmente o que consigo transformar em realidade — e também aumentou as perguntas que faço sobre criatividade, trabalho, verdade, autoria, fé e futuro. Este é o lugar onde reúno as coisas que estou construindo e o que estou aprendendo no caminho.</p>
+      </div>
+    </section>
+
+    <section class="rule" id="ideias">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div class="eyebrow">Ideias & reflexões</div>
+            <h2>Perguntas para esta nova era</h2>
+          </div>
+          <div class="section-note">Não quero apenas usar as ferramentas novas. Quero prestar atenção no que elas estão mudando em nós.</div>
+        </div>
+        <div class="ideas-grid reveal">
+          <article class="idea"><div class="idea-top"><span class="eyebrow">Autoria</span><span class="pill">Em breve</span></div><h3>Foi você ou foi a IA?</h3><p>Quando a ferramenta participa da criação, o que ainda significa autoria — e onde exatamente mora a intenção?</p></article>
+          <article class="idea"><div class="idea-top"><span class="eyebrow">Limites</span><span class="pill">Em breve</span></div><h3>O que eu não terceirizaria para uma máquina</h3><p>Um inventário pessoal do que continua sendo trabalho humano — por escolha.</p></article>
+          <article class="idea"><div class="idea-top"><span class="eyebrow">Sabedoria</span><span class="pill">Em breve</span></div><h3>Quando inteligência fica barata, o que acontece com a sabedoria?</h3><p>Se responder ficou fácil, perguntar bem virou o trabalho difícil.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="acompanhe">
+    <div class="wrap reveal">
+      <h2>Acompanhe o que vem depois.</h2>
+      <div class="socials">
+        <a class="social" href="https://www.instagram.com/emelyncbertolini/" target="_blank" rel="noopener noreferrer">Instagram <small>@emelyncbertolini</small></a>
+        <a class="social" href="https://www.tiktok.com/@emelyncbertolini" target="_blank" rel="noopener noreferrer">TikTok <small>@emelyncbertolini</small></a>
+      </div>
+      <div class="footline"><span>IA, fé, criatividade e vida em construção.</span><span>© Emelyn Campos</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const reveal = () => {
+      const items = document.querySelectorAll('.reveal:not(.visible)');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){ entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+        });
+      },{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+      items.forEach(el => observer.observe(el));
+    };
+    if('IntersectionObserver' in window) reveal(); else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+  </script>
+</body>
+</html>
