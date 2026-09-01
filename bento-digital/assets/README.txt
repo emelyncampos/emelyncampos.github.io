@@ -1,0 +1,1 @@
+Assets for the Bento Digital landing page. Canonical Bento character and brand files must be used without redesigning the character.
