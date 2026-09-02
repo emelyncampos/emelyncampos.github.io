@@ -94,12 +94,17 @@
     .card p{color:var(--muted);font-size:15px;margin:0;max-width:670px;line-height:1.7}
     .card-cta{margin-top:30px;font-size:13px;display:inline-flex;gap:8px;align-items:center;border-bottom:1px solid #a69b90;padding-bottom:3px;width:max-content;color:var(--ink)}
     .card-cta.disabled{color:var(--muted);border-bottom-color:var(--line);cursor:default}
+    .card-link{color:inherit;text-decoration:none;cursor:pointer}
+    .card-link:focus-visible{outline:2px solid var(--terracotta);outline-offset:4px}
     .ecosystem{border-left:2px solid rgba(184,95,69,.45);padding-left:18px}
     .ecosystem-title{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
     .eco-item{padding:12px 0;border-top:1px solid var(--line)}
     .eco-item:first-of-type{border-top:0}
     .eco-item strong{display:block;font-family:Georgia,"Times New Roman",serif;font-size:17px;font-weight:400}
     .eco-item span{display:block;font-size:10px;color:var(--muted);letter-spacing:.105em;text-transform:uppercase;line-height:1.5;margin-top:3px}
+    .eco-item.book-link{display:block;transition:color .2s ease,transform .2s ease}
+    .eco-item.book-link:hover{color:var(--terracotta);transform:translateX(2px)}
+    .eco-item.book-link .book-description{font-size:12px;letter-spacing:0;text-transform:none;line-height:1.55;margin-top:6px;max-width:34ch}
     .main-projects{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:1px}
     .main-projects .card{min-height:390px}
     .main-projects .card h3{font-size:29px}
@@ -277,27 +282,39 @@
               <h3>Before You Read</h3>
               <p>Uma ferramenta para ajudar pais cristãos a se prepararem antes de ler passagens bíblicas difíceis com os filhos — com orientação por idade, contexto e fontes, sem substituir o texto bíblico.</p>
             </div>
-            <a class="card-cta" href="https://emelyncampos.com.br/before-you-read/pt-br/">Conhecer o projeto →</a>
+            <a class="card-cta" href="/before-you-read/pt-br/">Conhecer o projeto →</a>
           </article>
+
+          <a class="card build card-link" href="/planner/" aria-label="Conhecer o Planner">
+            <div>
+              <span class="card-index">03</span><span class="status build">Em desenvolvimento</span>
+              <h3>Planner</h3>
+              <p>Um sistema pessoal para organizar tarefas, projetos, rotinas, notas e as outras coisas que fazem parte da vida — sem transformar tudo na mesma coisa.</p>
+            </div>
+            <span class="card-cta">Conhecer o Planner →</span>
+          </a>
 
           <article class="card active">
             <div>
-              <span class="card-index">03</span><span class="status active">Ativo</span>
+              <span class="card-index">04</span><span class="status active">Ativo</span>
               <h3>Casa Editorial E se...?</h3>
               <p>Uma casa editorial criada para desenvolver ideias, marcas autorais e obras que nascem de perguntas importantes.</p>
               <div class="ecosystem">
                 <div class="ecosystem-title">Dentro deste ecossistema</div>
                 <div class="eco-item"><strong>Lyn Campos</strong><span>marca autoral criada</span></div>
                 <div class="eco-item"><strong>Conhecendo Deus</strong><span>coleção editorial</span></div>
-                <div class="eco-item"><strong>“E se você estiver fazendo a pergunta errada?”</strong><span>obra · livro</span></div>
+                <a class="eco-item book-link" href="/e-se-voce-estiver-fazendo-a-pergunta-errada/" aria-label="Conhecer o livro E se você estiver fazendo a pergunta errada?">
+                  <strong>“E se você estiver fazendo a pergunta errada?”</strong>
+                  <span class="book-description">Uma jornada pelas Escrituras sobre chamado, propósito e a pergunta que talvez precise vir antes de todas as outras: quem é o Deus que me chama?</span>
+                </a>
               </div>
             </div>
-            <span class="card-cta disabled">Explorar projeto →</span>
+            <a class="card-cta" href="/e-se-voce-estiver-fazendo-a-pergunta-errada/">Conhecer o livro →</a>
           </article>
 
           <article class="card active">
             <div>
-              <span class="card-index">04</span><span class="status active">Ativo</span>
+              <span class="card-index">05</span><span class="status active">Ativo</span>
               <h3>Entre Caos e Construção</h3>
               <p>Projeto editorial cristão sobre fé aplicada à vida adulta real: decisões, espera, trabalho, medo, mudanças, propósito e amadurecimento.</p>
             </div>
