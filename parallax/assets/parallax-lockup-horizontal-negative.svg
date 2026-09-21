@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 130" width="750" height="130" role="img" aria-labelledby="title desc">
+  <title id="title">PARALLAX</title>
+  <desc id="desc">Símbolo linear de dois planos sobrepostos, palavra PARALLAX e assinatura Mude a perspectiva.</desc>
+  <g transform="translate(0 0) scale(.93333 .92857)" fill="none" stroke="#D4B98B" stroke-width="3.2" stroke-linejoin="miter">
+    <polygon points="18,34 60,18 60,108 18,124"/>
+    <polygon points="49,16 100,33 100,117 49,100"/>
+  </g>
+  <text x="140" y="71" fill="#E8E1D6" font-family="Georgia,'Times New Roman',serif" font-size="55" font-weight="400" letter-spacing="9">PARALLAX</text>
+  <line x1="141" y1="84" x2="592" y2="84" stroke="#D4B98B" stroke-opacity=".55" stroke-width="1"/>
+  <text x="141" y="111" fill="#E8E1D6" font-family="Montserrat,Arial,sans-serif" font-size="15" font-weight="500" letter-spacing="6">MUDE A PERSPECTIVA.</text>
+</svg>
