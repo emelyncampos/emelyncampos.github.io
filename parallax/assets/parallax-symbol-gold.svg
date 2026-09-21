@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 140" width="120" height="140" role="img" aria-labelledby="title desc">
+  <title id="title">Símbolo PARALLAX</title>
+  <desc id="desc">Dois planos lineares sobrepostos.</desc>
+  <g fill="none" stroke="#D4B98B" stroke-width="3.2" stroke-linejoin="miter">
+    <polygon points="18,34 60,18 60,108 18,124"/>
+    <polygon points="49,16 100,33 100,117 49,100"/>
+  </g>
+</svg>
