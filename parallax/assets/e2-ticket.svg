@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380">
+  <defs>
+    <filter id="paper" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" seed="17" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="gray"/>
+      <feComponentTransfer in="gray" result="fade"><feFuncA type="table" tableValues="0 0.08"/></feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="fade" mode="multiply"/>
+    </filter>
+    <pattern id="perfs" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="5" fill="#2a211b"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="380" rx="4" fill="#ded0b9" filter="url(#paper)"/>
+  <rect x="0" y="0" width="28" height="380" fill="url(#perfs)" opacity="0.9"/>
+  <rect x="1172" y="0" width="28" height="380" fill="url(#perfs)" opacity="0.9"/>
+  <rect x="45" y="42" width="1110" height="296" fill="none" stroke="#5f4b3e" stroke-width="2" opacity="0.5"/>
+  <text x="72" y="82" fill="#6f6258" font-family="Arial, sans-serif" font-size="22" letter-spacing="5">CANHOTO DE PASSAGEM</text>
+  <text x="72" y="122" fill="#2b241f" font-family="Georgia, serif" font-size="26" letter-spacing="2">HELENA VALENÇA</text>
+  <line x1="72" y1="144" x2="1128" y2="144" stroke="#6f6258" stroke-dasharray="8 8" opacity="0.55"/>
+  <text x="82" y="214" fill="#2b241f" font-family="Georgia, serif" font-size="50">Santa Aurora</text>
+  <text x="558" y="212" fill="#985d49" font-family="Arial, sans-serif" font-size="42">→</text>
+  <text x="720" y="214" fill="#2b241f" font-family="Georgia, serif" font-size="50">Porto das Pedras</text>
+  <line x1="72" y1="244" x2="1128" y2="244" stroke="#6f6258" stroke-dasharray="6 7" opacity="0.45"/>
+  <text x="82" y="280" fill="#75685f" font-family="Arial, sans-serif" font-size="17" letter-spacing="3">EMBARQUE</text>
+  <text x="82" y="320" fill="#2b241f" font-family="Arial, sans-serif" font-size="28" font-weight="700">21h20</text>
+  <text x="270" y="280" fill="#75685f" font-family="Arial, sans-serif" font-size="17" letter-spacing="3">ASSENTO</text>
+  <text x="270" y="320" fill="#2b241f" font-family="Arial, sans-serif" font-size="28" font-weight="700">17</text>
+  <g transform="translate(870 272) rotate(-6)">
+    <rect width="235" height="54" fill="none" stroke="#9a5c48" stroke-width="3" opacity="0.72"/>
+    <text x="117" y="34" text-anchor="middle" fill="#9a5c48" font-family="Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3">EMBARQUE CONFERIDO</text>
+  </g>
+</svg>

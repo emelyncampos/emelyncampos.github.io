@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="1120" viewBox="0 0 820 1120">
+  <defs>
+    <filter id="paper" x="-8%" y="-8%" width="116%" height="116%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.62" numOctaves="4" seed="21" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="gray"/>
+      <feComponentTransfer in="gray" result="fade"><feFuncA type="table" tableValues="0 0.06"/></feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="fade" mode="multiply"/>
+    </filter>
+  </defs>
+  <rect width="820" height="1120" fill="#ddd3bd" filter="url(#paper)"/>
+  <rect x="0" y="0" width="820" height="1120" fill="none" stroke="#887967" stroke-width="1" opacity="0.35"/>
+  <line x1="112" y1="0" x2="112" y2="1120" stroke="#b98272" stroke-width="2" opacity="0.48"/>
+  <g stroke="#90a2a3" stroke-width="1" opacity="0.48">
+    <line x1="56" y1="180" x2="770" y2="180"/><line x1="56" y1="248" x2="770" y2="248"/>
+    <line x1="56" y1="316" x2="770" y2="316"/><line x1="56" y1="384" x2="770" y2="384"/>
+    <line x1="56" y1="452" x2="770" y2="452"/><line x1="56" y1="520" x2="770" y2="520"/>
+    <line x1="56" y1="588" x2="770" y2="588"/><line x1="56" y1="656" x2="770" y2="656"/>
+    <line x1="56" y1="724" x2="770" y2="724"/><line x1="56" y1="792" x2="770" y2="792"/>
+    <line x1="56" y1="860" x2="770" y2="860"/><line x1="56" y1="928" x2="770" y2="928"/>
+    <line x1="56" y1="996" x2="770" y2="996"/>
+  </g>
+  <text x="145" y="92" fill="#75695f" font-family="Arial, sans-serif" font-size="17" letter-spacing="4">AGENDA DE CLARA · INÍCIO DE 2002</text>
+  <g fill="#322820" font-family="'Bradley Hand', 'Segoe Print', 'Noteworthy', 'Snell Roundhand', cursive" font-style="normal" font-size="39">
+    <text x="146" y="232" transform="rotate(-1 146 232)">Perguntei do broche.</text>
+    <text x="150" y="300" transform="rotate(.7 150 300)">Mamãe só disse que ficou com</text>
+    <text x="143" y="368" transform="rotate(-.5 143 368)">Helena e não quis explicar mais.</text>
+    <text x="151" y="468" transform="rotate(.55 151 468)">Eu sabia que aquela briga tinha</text>
+    <text x="145" y="536" transform="rotate(-.7 145 536)">sido séria, mas não achei que ela</text>
+    <text x="149" y="604" transform="rotate(.4 149 604)">fosse fazer uma coisa dessas.</text>
+    <text x="144" y="704" transform="rotate(-.6 144 704)">Eduardo nem quis falar sobre isso.</text>
+  </g>
+  <g transform="translate(600 880) rotate(-8)">
+    <text x="0" y="0" fill="#5c4b3e" font-family="'Bradley Hand', 'Segoe Print', 'Noteworthy', 'Snell Roundhand', cursive" font-style="normal" font-size="52">C.</text>
+  </g>
+  <circle cx="705" cy="1000" r="70" fill="#8e6049" opacity="0.055"/>
+  <circle cx="705" cy="1000" r="50" fill="none" stroke="#8e6049" stroke-width="7" opacity="0.07"/>
+</svg>

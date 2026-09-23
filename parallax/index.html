@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0B0B0D" />
+  <meta name="description" content="PARALLAX — experiência investigativa narrativa sobre perspectiva, interpretação e versões incompletas. Mude a perspectiva." />
+  <link rel="canonical" href="https://emelyncampos.com.br/parallax/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://emelyncampos.com.br/parallax/" />
+  <meta property="og:title" content="PARALLAX — Mude a perspectiva." />
+  <meta property="og:description" content="Uma experiência investigativa narrativa em que contexto muda interpretação." />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="PARALLAX — Mude a perspectiva." />
+  <meta name="twitter:description" content="Uma experiência investigativa narrativa em que contexto muda interpretação." />
+  <title>PARALLAX — Mude a perspectiva.</title>
+  <link rel="icon" href="./assets/parallax-symbol-gold.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --noite: #0B0B0D;
+      --marfim: #E8E1D6;
+      --aco: #8A8F96;
+      --ameixa: #3E1F3B;
+      --ferrugem: #B86B4F;
+      --oliva: #6C735F;
+      --ouro: #D4B98B;
+      --papel: #D8CCB8;
+      --papel-claro: #EEE7DB;
+      --madeira: #241A14;
+      --vinho: #21151E;
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "Montserrat", Arial, sans-serif;
+      --max: 1180px;
+      --line: rgba(232,225,214,.16);
+      --soft-line: rgba(232,225,214,.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--noite); }
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 82% 4%, rgba(62,31,59,.28), transparent 28rem),
+        radial-gradient(circle at 12% 78%, rgba(184,107,79,.08), transparent 24rem),
+        var(--noite);
+      color: var(--marfim);
+      font-family: var(--sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--ferrugem); color: var(--noite); }
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 99;
+      opacity: .16;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 40;
+      transition: background .25s ease, border-color .25s ease, backdrop-filter .25s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-header.is-scrolled {
+      background: rgba(11,11,13,.82);
+      border-color: var(--soft-line);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      width: min(calc(100% - 40px), var(--max));
+      min-height: 76px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .nav-brand img { width: 178px; height: auto; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-weight: 600;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(232,225,214,.72);
+      transition: color .2s ease;
+    }
+    .nav-links a:hover { color: var(--marfim); }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--soft-line);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border: 1px solid rgba(212,185,139,.18);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 44vw;
+      height: 68vh;
+      right: -10vw;
+      top: 10vh;
+      transform: rotate(-8deg);
+    }
+
+    .hero::after {
+      width: 32vw;
+      height: 52vh;
+      right: 7vw;
+      top: 22vh;
+      transform: rotate(7deg);
+      border-color: rgba(184,107,79,.15);
+    }
+
+    .hero-ghost {
+      position: absolute;
+      right: -4vw;
+      bottom: -4vw;
+      font-family: var(--serif);
+      font-size: clamp(5rem, 17vw, 18rem);
+      font-weight: 600;
+      letter-spacing: -.07em;
+      line-height: .72;
+      color: rgba(232,225,214,.024);
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      padding: 150px 0 90px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, .72fr);
+      align-items: center;
+      gap: clamp(40px, 8vw, 120px);
+    }
+
+    .eyebrow {
+      margin: 0 0 24px;
+      color: var(--ouro);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+
+    .hero-logo { width: min(540px, 92%); margin-bottom: 30px; }
+    .hero-tagline {
+      margin: 0 0 18px;
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 5vw, 5.4rem);
+      line-height: .98;
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .hero-tagline em {
+      color: var(--ouro);
+      font-weight: 500;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      margin: 0;
+      color: rgba(232,225,214,.72);
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
+      line-height: 1.8;
+    }
+
+    .hero-aside {
+      position: relative;
+      min-height: 500px;
+      display: grid;
+      place-items: center;
+    }
+
+    .window-stack {
+      position: relative;
+      width: min(360px, 86vw);
+      aspect-ratio: 4 / 5;
+    }
+
+    .window {
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(232,225,214,.22);
+      background: linear-gradient(145deg, rgba(232,225,214,.035), rgba(62,31,59,.08));
+      box-shadow: 0 34px 90px rgba(0,0,0,.42);
+    }
+
+    .window:nth-child(1) { transform: translate(-26px,-22px) rotate(-4deg); }
+    .window:nth-child(2) { transform: translate(24px,24px) rotate(5deg); border-color: rgba(184,107,79,.33); }
+    .window:nth-child(3) {
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(rgba(11,11,13,.54), rgba(11,11,13,.76)),
+        repeating-linear-gradient(90deg, transparent 0 42px, rgba(232,225,214,.025) 42px 43px),
+        repeating-linear-gradient(0deg, transparent 0 42px, rgba(232,225,214,.025) 42px 43px);
+    }
+
+    .window-symbol { width: 92px; opacity: .9; filter: drop-shadow(0 16px 28px rgba(0,0,0,.4)); }
+    .window-caption {
+      position: absolute;
+      left: 22px;
+      bottom: 18px;
+      color: rgba(232,225,214,.5);
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      left: 50%;
+      bottom: 24px;
+      transform: translateX(-50%);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .24em;
+      color: rgba(232,225,214,.4);
+    }
+
+    .hero-scroll::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 32px;
+      margin: 10px auto 0;
+      background: linear-gradient(var(--ouro), transparent);
+    }
+
+    .section {
+      position: relative;
+      padding: clamp(90px, 11vw, 160px) 0;
+      border-bottom: 1px solid var(--soft-line);
+    }
+
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+    .kicker {
+      margin: 0 0 18px;
+      color: var(--ferrugem);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .26em;
+    }
+
+    h2, h3, p { text-wrap: pretty; }
+    .section-title {
+      margin: 0;
+      max-width: 900px;
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6vw, 6.7rem);
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: -.04em;
+    }
+
+    .section-title .muted { color: rgba(232,225,214,.36); }
+    .lead {
+      max-width: 760px;
+      margin: 34px 0 0;
+      color: rgba(232,225,214,.7);
+      font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+      line-height: 1.9;
+    }
+
+    .concept-grid {
+      margin-top: 72px;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(40px, 8vw, 110px);
+      align-items: start;
+    }
+
+    .concept-pull {
+      position: sticky;
+      top: 120px;
+      padding-left: 24px;
+      border-left: 1px solid rgba(212,185,139,.5);
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.4vw, 3.6rem);
+      line-height: 1.12;
+    }
+
+    .concept-copy {
+      display: grid;
+      gap: 34px;
+      color: rgba(232,225,214,.68);
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .concept-copy strong { color: var(--marfim); font-weight: 600; }
+
+    .experience-grid {
+      margin-top: 66px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+    }
+
+    .step {
+      min-height: 310px;
+      padding: 32px 26px 30px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: background .25s ease, transform .25s ease;
+    }
+
+    .step:hover { background: rgba(232,225,214,.025); transform: translateY(-3px); }
+    .step-index { color: var(--ouro); font: 600 11px/1 var(--sans); letter-spacing: .2em; }
+    .step h3 {
+      margin: 48px 0 14px;
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 500;
+    }
+    .step p { margin: 0; color: rgba(232,225,214,.58); font-size: .92rem; }
+
+    .evidence-section {
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(36,26,20,.35), rgba(11,11,13,.95)),
+        radial-gradient(circle at 10% 40%, rgba(212,185,139,.06), transparent 28rem);
+    }
+
+    .evidence-stage {
+      position: relative;
+      min-height: 640px;
+      margin-top: 62px;
+      display: grid;
+      place-items: center;
+    }
+
+    .evidence-card {
+      position: absolute;
+      width: min(380px, 72vw);
+      padding: 12px;
+      background: #cfc3af;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 30px 70px rgba(0,0,0,.5);
+      transition: transform .35s ease, filter .35s ease;
+    }
+    .evidence-card img { width: 100%; opacity: .84; filter: sepia(.1) saturate(.72) contrast(.92); }
+    .evidence-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(11,11,13,.18));
+      pointer-events: none;
+    }
+    .evidence-card.a { transform: translate(-220px,-40px) rotate(-8deg); }
+    .evidence-card.b { transform: translate(150px,-70px) rotate(6deg); }
+    .evidence-card.c { transform: translate(0,145px) rotate(-1.5deg); }
+    .evidence-stage:hover .a { transform: translate(-235px,-50px) rotate(-10deg); }
+    .evidence-stage:hover .b { transform: translate(168px,-82px) rotate(8deg); }
+    .evidence-stage:hover .c { transform: translate(0,155px) rotate(-.5deg); }
+
+    .evidence-label {
+      position: absolute;
+      z-index: 4;
+      top: 46%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      padding: 12px 18px;
+      background: rgba(11,11,13,.86);
+      border: 1px solid rgba(232,225,214,.16);
+      color: var(--marfim);
+      font-size: 9px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: clamp(40px, 7vw, 90px);
+      align-items: start;
+    }
+
+    .case-code {
+      position: sticky;
+      top: 116px;
+      font-family: var(--serif);
+      font-size: clamp(5rem, 11vw, 10rem);
+      line-height: .85;
+      color: rgba(232,225,214,.06);
+      letter-spacing: -.06em;
+    }
+
+    .case-main .section-title { max-width: 720px; }
+    .case-note {
+      margin-top: 36px;
+      max-width: 650px;
+      color: rgba(232,225,214,.66);
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .names {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .name-card {
+      min-height: 150px;
+      padding: 24px;
+      background: var(--noite);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .name-card small { color: var(--aco); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; }
+    .name-card strong { font-family: var(--serif); font-size: 1.65rem; font-weight: 500; }
+
+    .manifesto {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(62,31,59,.32), transparent 36rem),
+        var(--noite);
+    }
+
+    .manifesto-mark { width: 54px; margin: 0 auto 38px; }
+    .manifesto blockquote {
+      margin: 0 auto;
+      max-width: 940px;
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 4.8vw, 5.1rem);
+      line-height: 1.08;
+      font-weight: 500;
+      letter-spacing: -.035em;
+    }
+
+    .manifesto blockquote em { color: var(--ouro); font-weight: 500; }
+    .manifesto p {
+      max-width: 690px;
+      margin: 34px auto 0;
+      color: rgba(232,225,214,.58);
+      line-height: 1.9;
+    }
+
+    .status-shell {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .status-card {
+      padding: clamp(34px, 5vw, 58px);
+      min-height: 350px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(232,225,214,.025), rgba(62,31,59,.08));
+    }
+
+    .status-card.dark { background: var(--vinho); }
+    .status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 40px;
+      color: var(--ouro);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .status-chip::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--ferrugem);
+      box-shadow: 0 0 18px rgba(184,107,79,.72);
+    }
+
+    .status-card h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3.7rem);
+      line-height: 1.08;
+      font-weight: 500;
+    }
+
+    .status-card p { margin: 24px 0 0; color: rgba(232,225,214,.62); max-width: 520px; }
+
+    .closing {
+      min-height: 78svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .closing img { width: min(390px, 76vw); margin: 0 auto 30px; }
+    .closing h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 8.4rem);
+      line-height: .95;
+      font-weight: 500;
+      letter-spacing: -.055em;
+    }
+
+    .closing p {
+      max-width: 560px;
+      margin: 28px auto 0;
+      color: rgba(232,225,214,.58);
+    }
+
+    .back-home {
+      display: inline-flex;
+      margin-top: 36px;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(212,185,139,.55);
+      text-decoration: none;
+      color: var(--marfim);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--soft-line);
+      padding: 28px 0 34px;
+      color: rgba(232,225,214,.4);
+      font-size: 9px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .site-footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.back-link) { display: none; }
+      .hero-inner,
+      .concept-grid,
+      .case-grid,
+      .status-shell { grid-template-columns: 1fr; }
+      .hero-inner { padding-top: 130px; }
+      .hero-aside { min-height: 390px; }
+      .concept-pull, .case-code { position: static; }
+      .experience-grid { grid-template-columns: repeat(2, 1fr); }
+      .case-code { font-size: 6.5rem; }
+    }
+
+    @media (max-width: 640px) {
+      .nav { width: min(calc(100% - 28px), var(--max)); min-height: 68px; }
+      .nav-brand img { width: 148px; }
+      .hero-inner, .wrap { width: min(calc(100% - 28px), var(--max)); }
+      .hero-inner { gap: 24px; padding-bottom: 82px; }
+      .hero-aside { min-height: 320px; }
+      .window-stack { width: min(280px, 78vw); }
+      .window:nth-child(1) { transform: translate(-14px,-12px) rotate(-4deg); }
+      .window:nth-child(2) { transform: translate(14px,14px) rotate(5deg); }
+      .hero-scroll { display: none; }
+      .section { padding: 86px 0; }
+      .experience-grid { grid-template-columns: 1fr; }
+      .step { min-height: 250px; }
+      .evidence-stage { min-height: 500px; }
+      .evidence-card { width: 260px; }
+      .evidence-card.a { transform: translate(-50px,-95px) rotate(-8deg); }
+      .evidence-card.b { transform: translate(45px,-10px) rotate(6deg); }
+      .evidence-card.c { transform: translate(-10px,110px) rotate(-2deg); }
+      .evidence-stage:hover .a { transform: translate(-50px,-95px) rotate(-8deg); }
+      .evidence-stage:hover .b { transform: translate(45px,-10px) rotate(6deg); }
+      .evidence-stage:hover .c { transform: translate(-10px,110px) rotate(-2deg); }
+      .names { grid-template-columns: 1fr; }
+      .status-card { min-height: 300px; }
+      .site-footer .wrap { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="header">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="nav-brand" href="#inicio" aria-label="PARALLAX — início">
+        <img src="./assets/parallax-lockup-horizontal-negative.svg" alt="PARALLAX" />
+      </a>
+      <div class="nav-links">
+        <a href="#conceito">Conceito</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#caso">Caso 001</a>
+        <a href="#status">Projeto</a>
+        <a class="back-link" href="/">Voltar ao site</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-ghost" aria-hidden="true">PARALLAX</div>
+      <div class="hero-inner">
+        <div class="reveal">
+          <p class="eyebrow">Experiência investigativa narrativa</p>
+          <img class="hero-logo" src="./assets/parallax-lockup-horizontal-negative.svg" alt="PARALLAX" />
+          <h1 class="hero-tagline">Mude a <em>perspectiva.</em></h1>
+          <p class="hero-copy">
+            Nem toda versão é mentira. Nem toda verdade está inteira.
+            PARALLAX transforma investigação em leitura: observar, relacionar,
+            questionar e voltar ao que parecia resolvido.
+          </p>
+        </div>
+
+        <aside class="hero-aside reveal" aria-label="Símbolo visual da marca">
+          <div class="window-stack">
+            <div class="window"></div>
+            <div class="window"></div>
+            <div class="window">
+              <img class="window-symbol" src="./assets/parallax-symbol-gold.svg" alt="" aria-hidden="true" />
+              <span class="window-caption">Janelas deslocadas · uma mesma cena, outra leitura</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <div class="hero-scroll" aria-hidden="true">Role para investigar</div>
+    </section>
+
+    <section class="section" id="conceito">
+      <div class="wrap">
+        <p class="kicker reveal">01 · O conceito</p>
+        <h2 class="section-title reveal">
+          O mesmo fato pode parecer <span class="muted">outra coisa</span> quando o ponto de vista muda.
+        </h2>
+
+        <div class="concept-grid">
+          <div class="concept-pull reveal">
+            Em PARALLAX, a resposta não está escondida em um único lugar.
+            Ela emerge da relação entre os fragmentos.
+          </div>
+          <div class="concept-copy reveal">
+            <p>
+              Você não recebe uma linha reta para seguir. Recebe registros, objetos,
+              versões, lacunas e contradições. O trabalho não é apenas encontrar uma pista:
+              é perceber <strong>o que aquela pista passa a significar quando outra informação entra em cena.</strong>
+            </p>
+            <p>
+              O jogo foi construído para recompensar atenção e releitura. Uma informação que parecia
+              periférica pode ganhar peso depois. Um detalhe seguro pode deixar de ser seguro.
+              Uma interpretação pode continuar plausível e, ainda assim, estar incompleta.
+            </p>
+            <p>
+              PARALLAX não trata perspectiva como decoração narrativa.
+              <strong>Perspectiva é a mecânica central da investigação.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experiencia">
+      <div class="wrap">
+        <p class="kicker reveal">02 · A experiência</p>
+        <h2 class="section-title reveal">Investigar é <span class="muted">reconsiderar.</span></h2>
+        <p class="lead reveal">
+          O avanço não depende de acertar o clique certo. Ele depende de construir uma leitura melhor do caso.
+        </p>
+
+        <div class="experience-grid reveal">
+          <article class="step">
+            <span class="step-index">01</span>
+            <div>
+              <h3>Observe</h3>
+              <p>Leia documentos, imagens, registros e sinais sem assumir que o primeiro sentido é o definitivo.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-index">02</span>
+            <div>
+              <h3>Conecte</h3>
+              <p>Relacione pessoas, momentos e informações que parecem independentes até começarem a formar padrões.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-index">03</span>
+            <div>
+              <h3>Questione</h3>
+              <p>Procure fricções entre versões. O que não se encaixa também é informação.</p>
+            </div>
+          </article>
+          <article class="step">
+            <span class="step-index">04</span>
+            <div>
+              <h3>Reinterprete</h3>
+              <p>Volte ao que você já viu. A mesma evidência pode mudar de peso quando o contexto muda.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section evidence-section" aria-label="Fragmentos do universo PARALLAX">
+      <div class="wrap">
+        <p class="kicker reveal">03 · Fragmentos</p>
+        <h2 class="section-title reveal">Nada está ali <span class="muted">por acaso.</span></h2>
+        <p class="lead reveal">
+          O universo do jogo é construído como arquivo: cada documento ocupa um lugar, mas nenhum documento fala sozinho.
+        </p>
+
+        <div class="evidence-stage reveal" aria-hidden="true">
+          <div class="evidence-card a"><img src="./assets/e2-ticket.svg" alt="" /></div>
+          <div class="evidence-card b"><img src="./assets/e3-register.svg" alt="" /></div>
+          <div class="evidence-card c"><img src="./assets/e12-note.svg" alt="" /></div>
+          <span class="evidence-label">Fragmentos oficiais · Caso 001</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="caso">
+      <div class="wrap case-grid">
+        <div class="case-code reveal" aria-hidden="true">001</div>
+        <div class="case-main">
+          <p class="kicker reveal">04 · Primeiro caso</p>
+          <h2 class="section-title reveal">Quatro presenças centrais. <span class="muted">Nenhuma leitura automática.</span></h2>
+          <p class="case-note reveal">
+            O Caso 001 apresenta o universo de PARALLAX sem reduzir a investigação a uma sequência de respostas prontas.
+            Relações, registros e versões precisam ser lidos em conjunto. Esta página não revela a solução — nem pretende
+            dizer ao jogador onde olhar.
+          </p>
+
+          <div class="names reveal" aria-label="Personagens centrais do Caso 001">
+            <div class="name-card"><small>Registro 01</small><strong>Teresa Valença</strong></div>
+            <div class="name-card"><small>Registro 02</small><strong>Clara Valença</strong></div>
+            <div class="name-card"><small>Registro 03</small><strong>Helena Valença</strong></div>
+            <div class="name-card"><small>Registro 04</small><strong>Eduardo Valença</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section manifesto">
+      <div class="wrap">
+        <img class="manifesto-mark reveal" src="./assets/parallax-symbol-gold.svg" alt="" aria-hidden="true" />
+        <blockquote class="reveal">
+          Você não precisa apenas descobrir o que aconteceu.
+          Precisa perceber <em>de onde está olhando.</em>
+        </blockquote>
+        <p class="reveal">
+          PARALLAX nasce da ideia de que contexto muda interpretação. A investigação acontece quando o jogador
+          deixa de tratar informação como resposta isolada e começa a confrontar leituras possíveis.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="status">
+      <div class="wrap">
+        <p class="kicker reveal">05 · O projeto</p>
+        <div class="status-shell">
+          <article class="status-card dark reveal">
+            <span class="status-chip">Em desenvolvimento</span>
+            <h3>Uma experiência digital construída caso a caso.</h3>
+            <p>
+              PARALLAX está em desenvolvimento. A identidade e a linguagem visual já estão definidas,
+              enquanto o primeiro caso segue sendo refinado como experiência jogável.
+            </p>
+          </article>
+
+          <article class="status-card reveal">
+            <span class="status-chip">Sem spoilers</span>
+            <h3>Esta página apresenta a marca. Não abre a investigação.</h3>
+            <p>
+              O objetivo aqui é mostrar a proposta, o universo e a lógica de PARALLAX sem transformar
+              a página institucional em tutorial, demo ou exposição da solução do Caso 001.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section closing">
+      <div class="wrap reveal">
+        <img src="./assets/parallax-lockup-horizontal-negative.svg" alt="PARALLAX" />
+        <h2>Mude a perspectiva.</h2>
+        <p>
+          Às vezes, o detalhe que muda tudo já estava na sua frente.
+        </p>
+        <a class="back-home" href="/">Voltar para emelyncampos.com.br <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>PARALLAX · Mude a perspectiva.</span>
+      <span>Projeto independente · 2026</span>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    const revealItems = document.querySelectorAll('.reveal');
+
+    const syncHeader = () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 18);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealItems.forEach((item) => observer.observe(item));
+    syncHeader();
+    window.addEventListener('scroll', syncHeader, { passive: true });
+  </script>
+</body>
+</html>
