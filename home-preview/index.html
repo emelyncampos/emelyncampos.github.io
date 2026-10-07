@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#1d231c">
 <meta name="robots" content="noindex, nofollow">
-<title>Emelyn Campos — proposta visual da página pessoal</title>
+<title>Emelyn Campos — Home editorial | Prévia</title>
 <meta name="description" content="Produtos digitais, livros, experiências, projetos e ideias de Emelyn Campos.">
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <style>
@@ -197,6 +197,124 @@ button{cursor:pointer;font:inherit}
 }
 @media(max-width:360px){.feature .copy{max-width:70%}.tenderness .phone1{max-height:180px}.tenderness .phone2{max-height:155px}.feature h3,.feature.grao h3{font-size:27px}.about-grid{grid-template-columns:100px 1fr}.about-photo{height:157px}.masthead h1{font-size:32px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+/* Refinamento de proporções e ritmos a partir da referência aprovada (desktop + mobile). */
+:root{--paper:#f5f1e8}
+.page-content{background-image:radial-gradient(rgba(115,91,65,.025) .65px,transparent .65px);background-size:5px 5px}
+.masthead{height:clamp(350px,27vw,432px);min-height:350px}
+.masthead .photo{width:69%;object-position:center 30%;filter:saturate(.8) brightness(.69)}
+.masthead h1{font-size:clamp(36px,3.4vw,52px);max-width:495px;line-height:1.07}
+.masthead .positioning{font-size:12px;margin-top:15px}
+.masthead .smallline{margin-bottom:16px}
+.masthead-aside{bottom:57px}
+.section{padding-top:39px}
+.section-head{position:relative}
+.section-head h2{font-size:clamp(24px,2.15vw,32px)}
+#projetos .section-head h2:after{content:"";display:inline-block;vertical-align:middle;width:62px;border-bottom:1px solid #bcb2a0;margin-left:16px}
+.feature{min-height:328px}
+.feature .copy{padding:29px 30px;max-width:55%}
+.feature.tenderness .copy{max-width:54%}
+.feature .tender-logo{width:min(242px,100%);height:auto;object-fit:contain;filter:brightness(0) invert(1);margin:11px 0 8px}
+.tenderness .overline{font-size:11px;line-height:1.4;letter-spacing:.015em;text-transform:none;font-weight:500}
+.tenderness .copy p{font-size:12px;margin-top:12px}
+.tenderness .photo-tender{width:58%;opacity:.53;object-position:56% 33%}
+.tenderness .phone1{right:15%;max-height:295px}
+.tenderness .phone2{right:-1%;max-height:273px}
+.feature.grao{background:linear-gradient(125deg,#f1efe5,#e0dfd5);overflow:hidden}
+.grao .copy{max-width:54%}
+.grao .overline{font-size:10px}
+.grao .copy h3:before{content:"❧";font-family:Georgia,serif;color:#2b4234;display:inline-block;font-size:.64em;vertical-align:middle;margin-right:8px}
+.grao .copy p{max-width:195px}
+.grao .grao-object{position:absolute;inset:0 0 0 auto;width:70%;background:radial-gradient(ellipse at 70% 7%,rgba(48,75,44,.24),transparent 40%),linear-gradient(125deg,transparent 0%,#d8d5c8 100%)}
+.grao .grao-object:before{content:"";position:absolute;right:-8%;top:-11%;width:48%;height:58%;background:radial-gradient(ellipse at 50% 25%,rgba(65,88,56,.43) 3%,transparent 60%);filter:blur(3px);transform:rotate(-23deg)}
+.grao .grao-tablet{position:absolute;right:-9%;bottom:-27%;height:97%;width:85%;background:#252b26;border:10px solid #292c29;border-radius:23px;transform:rotate(-7deg);box-shadow:-16px 13px 35px rgba(15,28,20,.3);overflow:hidden}
+.grao .grao-tablet .visual{width:100%;height:100%;object-fit:cover;object-position:60% center;filter:saturate(1.1) sepia(.05);position:static}
+.grao:after{background:linear-gradient(90deg,#ebe9df 3%,rgba(235,233,223,.98) 30%,rgba(235,233,223,.03) 80%)}
+.other-section{padding-bottom:32px}
+.project-card{min-height:220px}
+.project-image{height:125px}
+.project-body{padding:11px 12px 12px}
+.project-body p{font-size:10.5px}
+.project-image .image-label{font-size:12px}
+.small-projects{margin-top:18px;padding-top:17px}
+.creative-strip{margin-top:24px;border-top:1px solid var(--line);padding-top:17px;display:grid;grid-template-columns:minmax(220px,.88fr) 1.4fr;gap:25px;align-items:center}
+.creative-strip-copy span{font-family:Georgia,serif;font-size:18px}
+.creative-strip-copy p{font-size:11px;line-height:1.55;color:#746b60;max-width:350px;margin:6px 0 0}
+.creative-strip-works{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+.creative-strip figure{display:grid;grid-template-columns:88px 1fr;align-items:center;gap:13px;margin:0;background:rgba(255,255,255,.38);min-width:0}
+.creative-strip figure img{width:88px;height:68px;object-fit:cover}
+.creative-strip figcaption{font-size:11px;font-weight:650;line-height:1.35;padding-right:10px}
+.thoughts{min-height:285px}
+.thoughts .inner{min-height:285px}
+.thoughts-copy{padding:28px 0}
+.thoughts blockquote{font-size:clamp(25px,2.38vw,36px)}
+.about{padding:31px 0}
+.about-grid{grid-template-columns:250px minmax(0,1fr) minmax(0,1fr);gap:29px}
+.about-photo{height:212px}
+.social-grid b:before{display:inline-block;font-size:18px;font-family:Arial,sans-serif;line-height:1;margin-right:6px;vertical-align:middle}
+.social-grid a:nth-child(1) b:before{content:"◎"}
+.social-grid a:nth-child(2) b:before{content:"♪"}
+.social-grid a:nth-child(3) b:before{content:"𝕏"}
+.social-grid span b:before{content:"▣"}
+@media(max-width:1120px){
+.feature .copy{padding:24px;max-width:58%}
+.feature.tenderness .copy{max-width:57%}
+.tenderness .phone1{max-height:245px}
+.tenderness .phone2{max-height:230px}
+.about-grid{grid-template-columns:210px 1fr 1fr;gap:20px}
+}
+@media(max-width:800px){
+.masthead{height:460px;min-height:460px}
+.masthead .photo{width:83%;object-position:center 33%}
+.masthead h1{font-size:43px}
+.feature{min-height:320px}
+.feature .copy,.feature.tenderness .copy{max-width:58%}
+.grao .grao-tablet{width:72%;right:-5%}
+.project-card{min-height:235px}
+.project-image{height:143px}
+.creative-strip{grid-template-columns:1fr;gap:12px}
+.about-grid{grid-template-columns:160px 1fr;gap:20px}
+}
+@media(max-width:600px){
+.masthead{height:454px;min-height:454px}
+.masthead .photo{width:100%;object-position:67% 24%;opacity:.83}
+.masthead-content{padding-top:106px;padding-bottom:42px}
+.masthead h1{font-size:clamp(33px,8.5vw,43px);max-width:340px}
+.section{padding-top:30px}
+.section-head h2{font-size:24px}
+#projetos .section-head h2:after{width:24px;margin-left:9px}
+.feature{min-height:342px}
+.feature .copy,.feature.tenderness .copy{max-width:68%;padding:19px 17px}
+.feature .tender-logo{width:min(205px,100%);margin:3px 0 11px}
+.tenderness .overline{font-size:10px}
+.tenderness .copy p{font-size:10.5px;line-height:1.55}
+.tenderness .phone1{max-height:202px;right:15%}
+.tenderness .phone2{max-height:176px;right:-4%}
+.feature.grao .copy{max-width:58%}
+.grao .grao-object{width:79%}
+.grao .grao-tablet{height:81%;width:83%;bottom:-22%;right:-13%}
+.grao .copy p{max-width:175px}
+.project-card{min-height:245px}
+.project-image{height:136px}
+.creative-strip{margin-top:16px;padding-top:15px}
+.creative-strip-copy span{font-size:16px}
+.creative-strip-works{gap:9px}
+.creative-strip figure{display:block}
+.creative-strip figure img{width:100%;height:67px}
+.creative-strip figcaption{font-size:10px;padding:7px}
+.thoughts,.thoughts .inner{min-height:420px}
+.thoughts blockquote{font-size:24px}
+.about-grid{grid-template-columns:110px 1fr;gap:15px}
+.about-photo{height:162px}
+.about-copy h2{font-size:22px}
+.socials{padding-top:18px}
+}
+@media(max-width:360px){
+.feature .copy,.feature.tenderness .copy{max-width:73%}
+.feature .tender-logo{width:176px}
+.tenderness .phone1{max-height:181px}
+.tenderness .phone2{max-height:157px}
+}
 </style>
 </head>
 <body>
@@ -205,6 +323,7 @@ button{cursor:pointer;font:inherit}
 <a class="logo" href="/" aria-label="Emelyn Campos, página oficial">EMELYN CAMPOS</a>
 <nav class="header-links" aria-label="Navegação da proposta">
 <a class="item" href="#projetos">Projetos</a>
+<a class="item" href="#escritas">Escritas</a>
 <a class="item" href="#ideias">Ideias</a>
 <a class="item" href="#sobre">Sobre</a>
 <a class="contact" href="#acompanhe">Fale comigo ↗</a>
@@ -214,7 +333,7 @@ button{cursor:pointer;font:inherit}
 <section class="masthead" aria-labelledby="hero-title">
 <img class="photo" src="/assets/emelyn.webp" alt="" fetchpriority="high">
 <div class="inner masthead-content">
-<p class="smallline">Fé · criatividade · tecnologia · projetos</p>
+<p class="smallline">Criatividade · fé · vida real · tecnologia</p>
 <h1 id="hero-title" class="serif">Construindo com as ferramentas do futuro sem <em>terceirizar o que nos faz humanos.</em></h1>
 <p class="positioning">Produtos, livros, experiências e ideias — feitos com tecnologia, intenção e discernimento.</p>
 </div>
@@ -229,11 +348,11 @@ button{cursor:pointer;font:inherit}
 <img class="photo-tender" src="/tenderness/assets/family-hero.webp" alt="" loading="lazy">
 <img class="phone1" src="/tenderness/assets/mockup-consultation.webp" alt="Exemplo ilustrativo da preparação de consultas no Tenderness" loading="lazy">
 <img class="phone2" src="/tenderness/assets/mockup-memories.webp" alt="Exemplo ilustrativo da área de memórias do Tenderness" loading="lazy">
-<div class="copy"><span class="overline">Rotina · saúde · memórias</span><h3>Tenderness</h3><p>Da próxima consulta às primeiras palavras. Um lugar para organizar o que importa hoje e guardar o que você vai querer lembrar para sempre.</p><a class="cta" href="/tenderness/pt/">Conhecer o Tenderness <span aria-hidden="true">↗</span></a></div>
+<div class="copy"><img class="tender-logo" src="/tenderness/assets/logo-horizontal.png" alt="" loading="lazy"><h3 class="sr-only">Tenderness</h3><span class="overline">Registro, cuidado e memórias da primeira infância</span><p>Da próxima consulta às primeiras palavras. Um lugar para organizar o que importa hoje e guardar o que você vai querer lembrar para sempre.</p><a class="cta" href="/tenderness/pt/">Conhecer o Tenderness <span aria-hidden="true">↗</span></a></div>
 </article>
 <article class="feature grao">
-<img class="visual" src="/o-grao/assets/ograo-editorial-manifesto.webp" alt="" loading="lazy">
-<div class="copy"><span class="overline">Fé · estudo · profundidade</span><h3>O Grão</h3><p>Uma experiência de estudo bíblico com leitura atenta, contexto e fontes — sem terceirizar a compreensão.</p><a class="cta" href="/o-grao/">Conhecer O Grão <span aria-hidden="true">↗</span></a></div>
+<div class="grao-object" aria-hidden="true"><div class="grao-tablet"><img class="visual" src="/o-grao/assets/ograo-editorial-manifesto.webp" alt="" loading="lazy"></div></div>
+<div class="copy"><span class="overline">Leitura · contexto · fontes</span><h3>O Grão</h3><p>Explorando a Bíblia com profundidade, contexto e compreensão própria.</p><a class="cta" href="/o-grao/">Conhecer O Grão <span aria-hidden="true">↗</span></a></div>
 </article>
 </div></div></section>
 <section class="other-section" id="outros"><div class="inner">
@@ -265,6 +384,7 @@ button{cursor:pointer;font:inherit}
 <article><span class="small-kicker">Experimento educativo</span><h3>Como as coisas funcionam</h3><p>Exploração em 3D de objetos e mecanismos. Protótipo atualmente em pausa.</p></article>
 <article><span class="small-kicker">Laboratório criativo</span><h3>Creators virtuais com IA</h3><p>Identidade, narrativa e produção de conteúdo com personas digitais.</p></article>
 </div>
+<div class="creative-strip" id="escritas" aria-label="Escritas e identidades visuais"><div class="creative-strip-copy"><span>Escritas &amp; identidade</span><p>Além dos produtos, livros, textos e linguagens visuais também fazem parte do que construo.</p></div><div class="creative-strip-works"><figure><img src="/assets/ese-painel.webp" alt="Painel de identidade visual da Casa Editorial E se...?" loading="lazy"><figcaption>Casa Editorial E se...?</figcaption></figure><figure><img src="/assets/lyn-painel.webp" alt="Painel da identidade autoral Lyn Campos" loading="lazy"><figcaption>Lyn Campos</figcaption></figure></div></div>
 </div></section>
 </div>
 <section class="thoughts" id="ideias" aria-labelledby="ideas-title">
@@ -278,13 +398,13 @@ button{cursor:pointer;font:inherit}
 <div class="about-photo"><img src="/assets/emelyn.webp" alt="Emelyn Campos" loading="lazy"></div>
 <div class="about-copy"><small>Sobre mim</small><h2>Aqui é onde tudo se conecta.</h2><p>Sou Emelyn. Crio produtos digitais, livros, jogos e experiências — com fé, curiosidade e vontade de construir. Tecnologia é uma ferramenta poderosa; não substitui o que nos torna humanos.</p><a href="#acompanhe">Acompanhe meu trabalho ↗</a></div>
 <div class="socials" id="acompanhe"><h3>Acompanhe a construção</h3><div class="social-grid">
-<a href="https://www.instagram.com/byemelyncampos/" target="_blank" rel="noopener noreferrer"><b>Instagram ↗</b><small>Vida e bastidores</small></a>
-<a href="https://www.tiktok.com/@byemelyncampos" target="_blank" rel="noopener noreferrer"><b>TikTok ↗</b><small>Vídeos curtos</small></a>
+<a href="https://www.instagram.com/emelyncbertolini/" target="_blank" rel="noopener noreferrer"><b>Instagram ↗</b><small>Vida e bastidores</small></a>
+<a href="https://www.tiktok.com/@emelyncbertolini" target="_blank" rel="noopener noreferrer"><b>TikTok ↗</b><small>Vídeos curtos</small></a>
 <a href="https://x.com/byemelyncampos" target="_blank" rel="noopener noreferrer"><b>X ↗</b><small>Ideias e processo</small></a>
 <span><b>Substack</b><small>Textos longos · em breve</small></span>
 </div></div>
 </div>
-<div class="inner footer"><span>© Emelyn Campos</span><span>Estudo de implementação · Home oficial preservada</span></div>
+<div class="inner footer"><span>© Emelyn Campos</span><span>Prévia para aprovação · Home oficial preservada</span></div>
 </section>
 <script>
 (function(){
