@@ -196,6 +196,13 @@ button{cursor:pointer;font:inherit}
 .footer{padding:18px 0 22px;display:block}.footer span{display:block;margin-top:4px}
 }
 @media(max-width:360px){.feature .copy{max-width:70%}.tenderness .phone1{max-height:180px}.tenderness .phone2{max-height:155px}.feature h3,.feature.grao h3{font-size:27px}.about-grid{grid-template-columns:100px 1fr}.about-photo{height:157px}.masthead h1{font-size:32px}}
+.mobile-nav-toggle{display:none;background:transparent;color:inherit;border:1px solid rgba(255,255,255,.53);width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;line-height:1;font-size:17px}
+.mobile-nav-panel[hidden]{display:none}
+.mobile-nav-panel{display:none;position:absolute;right:17px;top:61px;z-index:21;width:min(285px,calc(100vw - 34px));padding:12px 20px;background:#f6f2e9;color:#302c25;border:1px solid #e2d8c9;box-shadow:0 14px 40px rgba(14,14,12,.25);border-radius:6px}
+.mobile-nav-panel a{display:block;padding:12px 2px;border-bottom:1px solid #e4dacf;font-size:13px}
+.mobile-nav-panel a:last-child{border-bottom:0}
+@media(max-width:800px){.mobile-nav-toggle{display:inline-flex}.header-links .contact{display:none}.header-links{gap:12px}}
+@media(min-width:801px){.mobile-nav-panel{display:none!important}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 
 /* Refinamento de proporções e ritmos a partir da referência aprovada (desktop + mobile). */
@@ -326,9 +333,10 @@ button{cursor:pointer;font:inherit}
 <a class="item" href="#escritas">Escritas</a>
 <a class="item" href="#ideias">Ideias</a>
 <a class="item" href="#sobre">Sobre</a>
-<a class="contact" href="#acompanhe">Fale comigo ↗</a>
+<a class="contact" href="#acompanhe">Acompanhe ↗</a>
+<button type="button" class="mobile-nav-toggle" aria-controls="mobileNav" aria-expanded="false" aria-label="Abrir menu de navegação"><span aria-hidden="true">☰</span></button>
 <span class="header-language" aria-label="Idioma atual português">PT</span>
-</nav></div></header>
+</nav></div><nav class="mobile-nav-panel" id="mobileNav" aria-label="Navegação mobile" hidden><a href="#projetos">Projetos ↗</a><a href="#outros">Outros projetos ↗</a><a href="#ideias">Ideias ↗</a><a href="#sobre">Sobre ↗</a><a href="#acompanhe">Acompanhe ↗</a></nav></header>
 <main id="conteudo">
 <section class="masthead" aria-labelledby="hero-title">
 <img class="photo" src="/assets/emelyn.webp" alt="" fetchpriority="high">
@@ -357,7 +365,7 @@ button{cursor:pointer;font:inherit}
 </div></div></section>
 <section class="other-section" id="outros"><div class="inner">
 <div class="section-head"><h2>Outros projetos</h2><div class="slider-controls" aria-label="Navegar pelos projetos"><button type="button" id="scrollPrev" aria-label="Ver projetos anteriores">←</button><button type="button" id="scrollNext" aria-label="Ver próximos projetos">→</button></div></div>
-<div class="project-row" id="projectTrack" aria-label="Outros projetos e criações" tabindex="0">
+<div class="project-row" id="projectTrack" role="region" aria-label="Outros projetos e criações — deslize para explorar" tabindex="0">
 <article class="project-card">
 <div class="project-image bento"><img src="/home-preview/assets/bento-oficial.png" alt="Bento, o cordeirinho da coleção Histórias da Bíblia com Bento" loading="lazy"><span class="image-label">Histórias da Bíblia com Bento</span></div>
 <div class="project-body"><p>Livros e experiências bíblicas para crianças, com cuidado e linguagem infantil.</p><a class="project-link" href="https://share.google/jYHuJXqDNkUQ7qqxu" target="_blank" rel="noopener noreferrer">Conhecer ↗</a></div>
@@ -414,6 +422,20 @@ var next=document.getElementById('scrollNext');
 function move(direction){if(!track)return;var child=track.querySelector('.project-card');var step=child?child.getBoundingClientRect().width+11:230;track.scrollBy({left:direction*step,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
 if(prev)prev.addEventListener('click',function(){move(-1)});
 if(next)next.addEventListener('click',function(){move(1)});
+var toggle=document.querySelector('.mobile-nav-toggle');
+var mobile=document.getElementById('mobileNav');
+if(toggle&&mobile){
+ function closeMenu(){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Abrir menu de navegação');mobile.hidden=true;}
+ toggle.addEventListener('click',function(){
+   var isOpen=toggle.getAttribute('aria-expanded')==='true';
+   mobile.hidden=isOpen;
+   toggle.setAttribute('aria-expanded',String(!isOpen));
+   toggle.setAttribute('aria-label',isOpen?'Abrir menu de navegação':'Fechar menu de navegação');
+ });
+ mobile.querySelectorAll('a').forEach(function(link){link.addEventListener('click',closeMenu)});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
+ document.addEventListener('click',function(e){if(!mobile.hidden&&!mobile.contains(e.target)&&!toggle.contains(e.target))closeMenu()});
+}
 })();
 </script>
 </body>
