@@ -69,8 +69,8 @@ section:focus,main:focus,#outros-projetos:focus{outline:none}
 .tenderness-visual img{width:100%;max-height:306px;object-fit:contain}
 .care-interface{transform:rotate(-4deg)}
 .memory-interface{transform:rotate(4deg)}
-.grao{display:grid;grid-template-rows:auto minmax(0,1fr);min-width:0;background:#e9e5d9;border-radius:3px}
-.grao-copy{padding:24px 28px 13px}
+.grao{display:grid;grid-template-rows:auto minmax(0,1fr);min-width:0;background:#faf8f3;border-radius:3px}
+.grao-copy{padding:24px 28px 13px;color:#1f3a2e}
 .grao-heading{display:flex;align-items:center;gap:10px}
 .grao-heading svg{width:19px;height:25px;fill:var(--forest)}
 .grao h3{font-size:34px;margin:0}
@@ -167,7 +167,7 @@ section:focus,main:focus,#outros-projetos:focus{outline:none}
   .editorial-section{grid-template-columns:1fr .8fr}.editorial-aside{font-size:22px;padding-left:28px}
   .closing-section{grid-template-columns:1fr;gap:32px}.about-section{grid-template-columns:.7fr 1.3fr;gap:35px}
   .follow-section{border-left:0;border-top:1px solid var(--line);padding:25px 0 0}.follow-section h2 br{display:none}
-  .social-links{grid-template-columns:1fr 1fr 1fr;gap:25px}.social-upcoming{padding:0;border:0}
+  .social-links{grid-template-columns:1fr 1fr;gap:25px}.social-upcoming{padding:0;border:0}
 }
 /* Mobile: its own photographic crop and reading rhythm. */
 @media(max-width:700px){
@@ -179,7 +179,7 @@ section:focus,main:focus,#outros-projetos:focus{outline:none}
   .menu-label{font-size:10px}.menu-lines{width:18px;height:10px;border-top:1px solid currentColor;border-bottom:1px solid currentColor}
   .js .site-header[data-menu-open="true"]{background:#1c281b}.js .primary-nav{display:none}
   .js .primary-nav.is-open{display:grid;gap:0;padding-block:5px 15px}.js .primary-nav.is-open>a{min-height:44px;border-top:1px solid #f4efe424}
-  .hero{min-height:480px}.hero-photo img{object-position:50% 55%}
+  .hero{min-height:480px}.hero-photo{top:46%}.hero-photo img{object-position:73% 55%}.hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(#1c231b,transparent 35%)}
   .hero::after{background:linear-gradient(180deg,#11201038,transparent 55%)}
   .hero-inner{align-items:flex-start;padding-block:150px 112px}.js .hero-inner{padding-top:88px}.hero-copy{width:86%;max-width:340px}
   .hero h1{font-size:clamp(28px,8vw,34px);line-height:1.07;letter-spacing:-.025em}.desktop-break{display:none}

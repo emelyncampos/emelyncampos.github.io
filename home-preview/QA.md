@@ -2,6 +2,8 @@
 
 Branch: `home-editorial-v2`. Rota: `/home-preview/`.
 
+Atualização mais recente: hero sem pessoas, com mesa de criação e objetos; redes selecionadas: LinkedIn, Instagram, TikTok e X. LinkedIn e X aparecem como texto, sem link inventado, enquanto suas URLs estão pendentes. O símbolo improvisado de O Grão foi retirado e sua paleta oficial foi aplicada. O arquivo original do logo enviado na conversa ainda precisa ser anexado em formato utilizável para ser incorporado sem redesenho.
+
 Reconstrução estática em HTML, CSS e JavaScript mínimo. Não há framework, instalação de dependências do site ou etapa de build. O menu é uma navegação expansível, não uma janela modal: ESC devolve foco ao botão, selecionar uma âncora move foco para a seção, e sair do cabeçalho fecha o menu.
 
 ## Escopo e proteção
@@ -33,12 +35,12 @@ Foram capturadas e examinadas páginas completas em 1440 px e 390 px antes e dep
 ## Assets e lacunas
 
 - `assets/hero-workspace.webp`, já presente no repositório, não é decodificável como imagem. Foi preservado, mas não é usado pela nova página.
-- `assets/hero-reference.webp` é uma reconstrução **gerada por IA** da cena fotográfica da referência aprovada, não a fotografia original nem um retrato real de Emelyn. `assets/hero-mobile.webp` é uma edição dessa reconstrução para o mobile. A pessoa aparece de costas. A fotografia original aprovada continua sendo a substituição ideal se estiver disponível.
+- Na versão anterior, `assets/hero-reference.webp` era uma reconstrução **gerada por IA** da cena fotográfica da referência aprovada, não a fotografia original nem um retrato real de Emelyn. `assets/hero-mobile.webp` é uma edição dessa reconstrução para o mobile. A pessoa aparece de costas. Esses arquivos não são mais usados pelo hero atual. `assets/hero-still-life.webp` é uma natureza-morta **gerada por IA**, sem pessoas, com livros, caderno, notebook e plantas; representa um ambiente de criação, não uma fotografia pessoal. No mobile, a foto fica abaixo da área principal do título.
 - `assets/thoughts-landscape.webp` é uma paisagem **gerada por IA** para a pausa de ideias, seguindo a atmosfera da referência. Não é um asset oficial de nenhum projeto.
 - O Grão mantém o arquivo oficial `/o-grao/assets/ograo-editorial-manifesto.webp`; sua definição original é limitada. Não houve alteração dessa fotografia, criação de telas ou invenção de identidade.
 - Não foi encontrado um asset canônico de Até Que o Caos Nos Separe. A apresentação é temporária e tipográfica, com status “Em desenvolvimento”, sem inventar embalagem ou cartas. PARALLAX mantém sua imagem própria e aparece separado.
 - Bento, Before You Read, Tenderness, o livro e o retrato pessoal usam os arquivos existentes, sem modificar os originais.
-- Não foi encontrada uma URL confirmada para X. O link foi omitido. Substack aparece como “Em breve”, sem link fictício.
+- LinkedIn e X aguardam URLs confirmadas e estão sem links; Instagram e TikTok mantêm as URLs fornecidas. Substack foi removido da seleção a pedido da usuária.
 
 ## QA executado
 
