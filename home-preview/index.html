@@ -2,441 +2,210 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#1d231c">
-<meta name="robots" content="noindex, nofollow">
-<title>Emelyn Campos — Home editorial | Prévia</title>
-<meta name="description" content="Produtos digitais, livros, experiências, projetos e ideias de Emelyn Campos.">
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#171a15">
+<meta name="robots" content="noindex,nofollow">
+<title>Emelyn Campos — Home editorial | Preview A</title>
+<meta name="description" content="Prévia editorial da nova página pessoal de Emelyn Campos.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <style>
-:root{--paper:#f4f1e9;--paper2:#fffdf7;--ink:#272720;--muted:#655f55;--line:#d6cfc2;--olive:#586443;--clay:#b67c5e;--night:#211d19;--plum:#583346;--radius:5px}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:74px}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;font-size:15px;line-height:1.5}
+:root{
+  --paper:#f4f0e6;
+  --paper-deep:#ece5d8;
+  --ink:#26231d;
+  --muted:#726a5e;
+  --line:#cfc5b5;
+  --night:#161a15;
+  --plum:#5d3146;
+  --plum-deep:#442234;
+  --gold:#d8b475;
+  --forest:#273b2d;
+  --radius:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-a:focus-visible,button:focus-visible{outline:3px solid #d3a070;outline-offset:4px}
-img{display:block;width:100%}
-button{cursor:pointer;font:inherit}
+img{display:block;max-width:100%}
+button,a{touch-action:manipulation}
+a:focus-visible{outline:3px solid #d6a86f;outline-offset:4px}
+.skip{position:absolute;left:14px;top:-80px;z-index:100;background:white;color:#111;padding:10px 14px;border-radius:3px}.skip:focus{top:12px}
+.shell{width:min(1220px,calc(100% - 72px));margin-inline:auto}
 .serif{font-family:Georgia,"Times New Roman",serif}
-.inner{width:min(1240px,calc(100% - 76px));margin-inline:auto}
-.skip{position:absolute;z-index:99;top:-70px;left:15px;background:white;color:black;padding:10px 15px}.skip:focus{top:10px}
-.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-/* A photographic masthead, not a portfolio hero card */
-.header{position:absolute;z-index:20;inset:0 0 auto 0;color:#f7f2e8}
-.header .inner{display:flex;justify-content:space-between;align-items:center;height:72px;gap:20px}
-.logo{font-weight:590;letter-spacing:.055em;font-size:14px;white-space:nowrap}
-.header-links{display:flex;align-items:center;gap:27px;font-size:11px}
-.header-links a:not(.contact){opacity:.9}
-.header-links a:hover{text-decoration:underline;text-underline-offset:4px}
-.contact{background:rgba(202,151,102,.94);padding:11px 17px;border-radius:100px;color:#181d17;font-weight:690}
-.header-language{font-size:10px;opacity:.85;border-left:1px solid #888f84;padding-left:17px}
-.masthead{height:clamp(470px,39vw,570px);min-height:470px;position:relative;overflow:hidden;background:#181c17;color:#f5f0e5}
-.masthead .photo{position:absolute;right:0;top:0;bottom:0;width:75%;height:100%;object-fit:cover;object-position:center 34%;filter:saturate(.78) brightness(.72)}
-.masthead::before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,#151a15 0%,rgba(21,26,21,.95) 24%,rgba(21,26,21,.76) 44%,rgba(21,26,21,.14) 77%),linear-gradient(0deg,rgba(10,15,11,.34),transparent 44%)}
-.masthead-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:62px;padding-bottom:60px}
-.masthead h1{font-size:clamp(40px,4.25vw,65px);line-height:1.06;letter-spacing:-.037em;font-weight:400;margin:0;max-width:560px}
-.masthead h1 em{font-style:italic;font-weight:400}
-.masthead .smallline{font-size:11px;text-transform:uppercase;letter-spacing:.17em;color:#c5c7b9;margin-bottom:22px}
-.masthead .positioning{font-size:13px;max-width:400px;line-height:1.6;margin:24px 0 0;color:#d7d3c7}
-.masthead-aside{position:absolute;z-index:2;bottom:70px;right:max(46px,calc((100vw - 1240px)/2));display:flex;gap:18px;align-items:stretch;color:#f4f0df}
-.masthead-aside .bar{width:1px;background:#ddd6c7;opacity:.8}
-.masthead-aside .micro{font-size:10px;line-height:1.9;letter-spacing:.09em;text-transform:uppercase}
-.tearedge{position:absolute;z-index:4;left:-1px;right:-1px;bottom:-1px;height:27px;width:calc(100% + 2px);display:block}
-.page-content{background:var(--paper)}
-/* section lead-ins */
-.section{padding:53px 0 28px}
-.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:20px}
-.section-head h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;line-height:1.08;letter-spacing:-.032em;font-size:31px;margin:0}
-.section-head .section-link{font-size:10px;letter-spacing:.06em;opacity:.7;white-space:nowrap;border-bottom:1px solid #bdb4a7;padding-bottom:5px}
-.section-head .section-link:hover{opacity:1}
-.featured{display:grid;grid-template-columns:1.23fr .94fr;gap:12px}
-.feature{position:relative;min-height:357px;isolation:isolate;overflow:hidden;background:#e1dfd7;border-radius:2px}
-.feature .copy{position:relative;z-index:3;padding:31px 33px 30px;max-width:59%;height:100%;display:flex;flex-direction:column;align-items:flex-start}
-.feature .overline{font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:680}
-.feature h3{font-family:Georgia,"Times New Roman",serif;font-size:clamp(31px,3.1vw,51px);line-height:1.03;font-weight:400;letter-spacing:-.035em;margin:16px 0 12px}
-.feature p{font-size:13px;line-height:1.68;margin:0;max-width:355px}
-.feature .cta{margin-top:auto;display:inline-flex;align-items:center;gap:20px;background:#d9b984;color:#29221d;padding:10px 14px;border-radius:99px;font-size:11px;font-weight:690;transition:transform .2s}
-.feature .cta:hover{transform:translateY(-2px)}
-.feature.tenderness{background:var(--plum);color:#fff4eb}
-.tenderness .overline{color:#e2cfd6}
-.tenderness p{color:#f0dcdd}
-.tenderness .photo-tender{position:absolute;z-index:0;top:0;right:0;width:53%;height:100%;object-fit:cover;object-position:42% 35%;opacity:.57;filter:saturate(.75)}
-.tenderness::after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,var(--plum) 28%,rgba(88,51,70,.55) 56%,transparent)}
-.tenderness .phone1,.tenderness .phone2{position:absolute;z-index:2;bottom:-35px;max-height:310px;width:auto;filter:drop-shadow(0 13px 15px rgba(0,0,0,.2))}
-.tenderness .phone1{right:20%;transform:rotate(-6deg)}.tenderness .phone2{right:1%;transform:rotate(6deg);bottom:-19px;max-height:275px}
-.feature.grao{background:#dedfd6;color:#252e25}
-.grao .copy{max-width:62%}
-.grao .overline{color:#6b7a60}
-.grao p{color:#394337}
-.grao .visual{position:absolute;z-index:0;right:0;top:0;height:100%;width:67%;object-fit:cover;object-position:65% center;filter:saturate(.85)}
-.grao::after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,#e1e2da 8%,rgba(225,226,218,.98) 36%,rgba(225,226,218,.06) 91%)}
-.grao .cta{background:#344737;color:#fff}
-.feature.grao h3{font-size:44px}
-/* Not a generic portfolio grid: real visual coverage first */
-.other-section{padding:7px 0 49px}
-.other-section .section-head{margin-bottom:13px}
-.project-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:11px}
-.project-card{background:#fffcf6;display:flex;flex-direction:column;min-width:0;min-height:258px;overflow:hidden;border-radius:2px;transition:transform .2s,box-shadow .2s}
-.project-card:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(38,30,21,.07)}
-.project-image{height:142px;position:relative;overflow:hidden;background:#e7e1d4}
-.project-image img{width:100%;height:100%;object-fit:cover}
-.project-image.bento{background:#e9d9c9}
-.project-image.bento img{object-fit:contain;height:100%;width:100%;padding:4px 12px 0}
-.project-image.byr{background:#eae3d6}
-.project-image.byr img{object-fit:cover;object-position:center 50%}
-.project-image.parallax img{object-fit:cover;object-position:55% center}
-.project-image.planner img{object-fit:cover;object-position:50% 13%}
-.project-image.book img{object-fit:cover;object-position:60% 42%}
-.project-image .image-label{position:absolute;top:12px;left:13px;color:#2f2c25;font-size:13px;font-weight:730;text-shadow:0 1px 8px rgba(255,255,255,.9)}
-.project-image.parallax .image-label{color:white;text-shadow:0 1px 7px #000}
-.project-body{padding:13px 13px 14px;display:flex;flex:1;flex-direction:column}
-.project-body h3{font-size:13px;line-height:1.3;letter-spacing:-.02em;font-weight:700;margin:0 0 7px}
-.project-body p{font-size:11px;line-height:1.52;color:#71695f;margin:0}
-.project-body .project-link{font-size:10px;margin-top:auto;padding-top:11px;color:#785440;text-decoration:underline;text-underline-offset:3px}
-.project-body .coming{font-size:10px;margin-top:auto;padding-top:11px;color:#8a8075}
-.slider-controls{display:none;gap:7px}
-.slider-controls button{display:inline-grid;place-items:center;width:34px;height:34px;background:transparent;border:1px solid #b7ae9e;border-radius:100%;color:#605747;font-size:18px}
-.slider-controls button:hover{background:#eae2d4}
-/* smaller satellite projects remain visible */
-.small-projects{display:grid;grid-template-columns:1fr 1fr 1fr;gap:17px;border-top:1px solid var(--line);padding-top:22px;margin-top:24px}
-.small-projects article{display:flex;flex-direction:column;gap:5px;border-right:1px solid var(--line);padding-right:18px}
-.small-projects article:last-child{border-right:none}
-.small-projects .small-kicker{color:#8c816e;font-size:10px;letter-spacing:.07em;text-transform:uppercase}
-.small-projects h3{font-size:14px;letter-spacing:-.02em;margin:0;font-weight:700}
-.small-projects p{font-size:11px;color:#777066;line-height:1.5;margin:0}
-/* an atmospheric pause, as in the approved composition */
-.thoughts{position:relative;min-height:322px;background:#34433b;overflow:hidden;color:#fff7e9}
-.thoughts::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(20,30,23,.9),rgba(24,38,28,.48)),url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1800&q=82");background-position:center,center 55%;background-size:cover}
-.thoughts .inner{position:relative;z-index:2;min-height:322px;display:flex;align-items:center;justify-content:space-between;gap:50px}
-.thoughts-copy{width:63%;padding:45px 0 54px}
-.thoughts .eyebrow{font-size:12px;color:#d7dcc8;margin-bottom:13px}
-.thoughts blockquote{font-family:Georgia,"Times New Roman",serif;font-size:clamp(26px,2.55vw,38px);letter-spacing:-.025em;line-height:1.22;margin:0 0 23px;max-width:690px}
-.topic-row{display:flex;flex-wrap:wrap;gap:8px}
-.topic-row span{background:#f6f2e5;color:#312e24;border-radius:50px;font-size:10px;padding:7px 11px;font-weight:720}
-.thought-gallery{position:relative;min-width:290px;height:260px;flex:0 0 30%}
-.thought-gallery figure{position:absolute;background:#eee8d9;border:6px solid #f0e5d5;box-shadow:0 12px 27px rgba(0,0,0,.2);margin:0;overflow:hidden}
-.thought-gallery figure:first-child{width:65%;height:80%;left:0;top:1%;transform:rotate(-5deg)}
-.thought-gallery figure:last-child{width:63%;height:82%;right:0;bottom:-5%;transform:rotate(7deg)}
-.thought-gallery img{height:100%;object-fit:cover}
-/* human, modest about closing */
-.about{background:var(--paper);padding:45px 0 45px}
-.about-grid{display:grid;grid-template-columns:290px 1fr 1fr;gap:38px;align-items:center}
-.about-photo{height:235px;overflow:hidden}
-.about-photo img{height:100%;object-fit:cover;object-position:center 30%}
-.about-copy small,.social-title{font-size:11px;color:#6c635a}
-.about-copy h2{font-family:Georgia,"Times New Roman",serif;font-size:28px;font-weight:400;line-height:1.05;margin:9px 0 12px}
-.about-copy p{font-size:12px;color:#666057;line-height:1.68;max-width:440px;margin:0}
-.about-copy a{font-size:11px;border-bottom:1px solid #bc8b6d;padding-bottom:4px;display:inline-block;margin-top:16px;color:#7e4e36}
-.socials{border-left:1px solid var(--line);padding-left:24px}
-.socials h3{font-family:Georgia,serif;font-size:18px;font-weight:400;margin:0 0 18px}
-.social-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px 11px}
-.social-grid a,.social-grid span{border-bottom:1px solid #d6cfc2;min-height:49px;padding-bottom:7px;display:block}
-.social-grid b{font-size:12px;display:block}
-.social-grid small{font-size:10px;color:#83786c;display:block;margin-top:4px}
-.social-grid a:hover b{text-decoration:underline}
-.footer{border-top:1px solid var(--line);padding:20px 0 28px;font-size:10px;color:#8e8274;display:flex;justify-content:space-between;gap:20px}
-/* mobile is independently composed, not a desktop stack */
-@media(max-width:1120px){
-.inner{width:min(1040px,calc(100% - 52px))}
-.masthead-aside{right:30px}.featured{grid-template-columns:1fr 1fr}
-.feature .copy{padding:25px;max-width:66%}.feature h3{font-size:35px}
-.tenderness .phone1{right:15%;max-height:260px}.tenderness .phone2{right:0;max-height:230px}
-.project-image{height:120px}.about-grid{grid-template-columns:230px 1fr 1fr;gap:23px}
+.hero{position:relative;background:var(--night);color:#f8f3e9;min-height:500px;overflow:hidden}
+.site-header{position:absolute;z-index:10;inset:0 0 auto 0}
+.site-header .shell{height:72px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{font-size:13px;letter-spacing:.065em;font-weight:650;white-space:nowrap}
+.header-nav{display:flex;align-items:center;gap:28px;font-size:11px;color:#e7e0d4}
+.header-nav a{opacity:.88}.header-nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.header-nav .lang{padding-left:18px;border-left:1px solid rgba(255,255,255,.28);font-size:10px;letter-spacing:.08em}
+.hero-grid{display:grid;grid-template-columns:minmax(390px,.82fr) minmax(0,1.18fr);min-height:500px}
+.hero-copy{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:104px 45px 72px max(36px,calc((100vw - 1220px)/2));background:linear-gradient(90deg,#121610 0%,#171b15 74%,#171b15 100%)}
+.hero-eyebrow{margin:0 0 18px;text-transform:uppercase;letter-spacing:.19em;font-size:10px;color:#c8c7b6}
+.hero h1{font-size:clamp(40px,4vw,61px);line-height:1.05;letter-spacing:-.038em;font-weight:400;margin:0;max-width:520px}
+.hero h1 em{font-weight:400}
+.hero-lead{max-width:390px;margin:23px 0 0;color:#d3cec2;font-size:12px;line-height:1.65}
+.hero-media{position:relative;min-width:0;background:#d9c3a8;overflow:hidden}
+.hero-media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 48%;filter:saturate(.82) contrast(.97) brightness(.83)}
+.hero-media:before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,rgba(23,27,21,.8) 0%,rgba(23,27,21,.18) 22%,transparent 48%),linear-gradient(0deg,rgba(17,22,16,.25),transparent 45%);pointer-events:none}
+.hero-aside{position:absolute;z-index:2;right:38px;bottom:48px;display:grid;grid-template-columns:1px auto;gap:17px;color:#f3ebdc;align-items:stretch}
+.hero-aside .line{background:rgba(255,255,255,.64)}
+.hero-aside span{font-size:9px;line-height:1.85;text-transform:uppercase;letter-spacing:.12em;text-shadow:0 1px 8px rgba(0,0,0,.3)}
+.paper-edge{position:absolute;z-index:5;left:0;right:0;bottom:-1px;width:100%;height:27px}
+.projects{padding:43px 0 48px;background:radial-gradient(circle at 30% 20%,rgba(145,117,79,.035) 0 1px,transparent 1.2px) 0 0/7px 7px,var(--paper)}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:17px}
+.section-title-wrap{display:flex;align-items:center;gap:18px;min-width:0}
+.section-head h2{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:31px;line-height:1.04;letter-spacing:-.025em;margin:0;white-space:nowrap}
+.section-head .rule{height:1px;width:72px;background:var(--line)}
+.section-stage{font-size:9px;text-transform:uppercase;letter-spacing:.13em;color:#8b8173;border-bottom:1px solid var(--line);padding-bottom:5px;white-space:nowrap}
+.feature-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:12px}
+.feature-panel{min-height:354px;position:relative;overflow:hidden;border-radius:4px}
+.tenderness{background:var(--plum);color:#fff4ed;display:grid;grid-template-columns:47% 53%}
+.tender-copy{padding:29px 28px 27px;display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.tender-logo{width:min(250px,100%);height:auto;filter:brightness(0) invert(1);opacity:.96;margin:2px 0 10px}
+.tender-kicker{font-size:11px;line-height:1.4;color:#ead9df;max-width:220px;margin:0}
+.tender-copy p{font-size:12px;line-height:1.62;color:#f0e2e2;margin:18px 0 0;max-width:315px}
+.cta{margin-top:auto;display:inline-flex;align-items:center;gap:13px;font-size:10.5px;font-weight:700;border-radius:999px;padding:10px 14px;background:var(--gold);color:#251b18}
+.tender-media{position:relative;overflow:hidden;background:#8f6573;isolation:isolate}
+.tender-family{position:absolute;z-index:0;inset:0;width:100%;height:100%;object-fit:cover;object-position:48% 38%;opacity:.7;filter:saturate(.75) brightness(.88)}
+.tender-media:after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,var(--plum) 0%,rgba(93,49,70,.16) 30%,rgba(35,20,30,.05) 100%)}
+.phone{position:absolute;z-index:2;width:auto;filter:drop-shadow(0 15px 19px rgba(20,8,16,.28))}
+.phone-a{height:79%;bottom:-16%;left:3%;transform:rotate(-5deg)}
+.phone-b{height:72%;bottom:-8%;right:-7%;transform:rotate(5deg)}
+.grao{background:#e5e1d5;display:grid;grid-template-columns:45% 55%;color:#253127}
+.grao-copy{padding:31px 27px 27px;display:flex;flex-direction:column;align-items:flex-start;min-width:0;position:relative;z-index:2;background:linear-gradient(90deg,#ece8dd 0%,#ece8dd 80%,rgba(236,232,221,.83) 100%)}
+.grao-kicker{text-transform:uppercase;letter-spacing:.15em;font-size:9px;color:#7c8674}
+.grao h3{font-family:Georgia,"Times New Roman",serif;font-size:43px;line-height:1;letter-spacing:-.035em;font-weight:400;margin:17px 0 11px}
+.grao h3:before{content:"❧";font-size:.6em;color:#314736;margin-right:8px;vertical-align:middle}
+.grao-copy p{font-size:12px;line-height:1.62;color:#455044;margin:0;max-width:220px}
+.grao .cta{background:#314638;color:white}
+.grao-media{position:relative;overflow:hidden;min-width:0}
+.grao-media img{width:100%;height:100%;object-fit:cover;object-position:54% center;filter:saturate(.9) contrast(.96)}
+.grao-media:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(236,232,221,.65),transparent 30%)}
+.stage-caption{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);margin-top:18px;padding-top:14px;color:#847a6d;font-size:9.5px;line-height:1.5}
+.stage-caption strong{font-weight:650;color:#655b50}
+@media(max-width:1020px){
+.shell{width:min(920px,calc(100% - 46px))}
+.hero-grid{grid-template-columns:.88fr 1.12fr}
+.hero-copy{padding-left:26px;padding-right:28px}
+.hero h1{font-size:46px}
+.feature-grid{grid-template-columns:1fr 1fr}
+.tenderness{grid-template-columns:50% 50%}
+.tender-copy,.grao-copy{padding:24px 22px}
+.tender-copy p,.grao-copy p{font-size:11px}
+.grao{grid-template-columns:50% 50%}
+.grao h3{font-size:37px}
+.phone-a{height:71%;left:-1%}.phone-b{height:65%;right:-14%}
 }
-@media(max-width:800px){
-.header-links{gap:17px}.header-links .item{display:none}
-.masthead{height:490px;min-height:490px}
-.masthead .photo{width:83%;object-position:center center}
-.masthead::before{background:linear-gradient(90deg,#151a15 0%,rgba(21,26,21,.9) 27%,rgba(21,26,21,.48) 66%,rgba(21,26,21,.1)),linear-gradient(0deg,rgba(10,15,11,.35),transparent 50%)}
-.masthead h1{font-size:43px;max-width:430px}.masthead-aside{display:none}
-.featured{grid-template-columns:1fr}.feature{min-height:316px}.feature .copy{max-width:58%}
-.feature.grao h3{font-size:42px}
-.project-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;scrollbar-width:none;padding-bottom:3px}.project-row::-webkit-scrollbar{display:none}
-.project-card{flex:0 0 min(225px,63vw);scroll-snap-align:start}
-.project-image{height:150px}
-.slider-controls{display:flex}
-.thought-gallery{min-width:200px;flex-basis:33%}.about-grid{grid-template-columns:180px 1fr;gap:20px}.about-photo{height:210px}.socials{grid-column:1/-1;border-left:0;border-top:1px solid var(--line);padding:20px 0 0}
+@media(max-width:760px){
+.shell{width:calc(100% - 34px)}
+.site-header .shell{height:64px}
+.header-nav a:not(.lang){display:none}
+.brand{font-size:12px}
+.hero{min-height:0}
+.hero-grid{display:flex;flex-direction:column;min-height:0}
+.hero-media{order:1;height:235px}
+.hero-media>img{object-position:50% 46%}
+.hero-media:before{background:linear-gradient(0deg,rgba(20,24,18,.5),transparent 45%)}
+.hero-aside{display:none}
+.hero-copy{order:2;padding:30px 17px 48px;background:#171b15}
+.hero-eyebrow{font-size:9px;margin-bottom:13px}
+.hero h1{font-size:clamp(34px,9.2vw,45px);max-width:490px;line-height:1.08}
+.hero-lead{font-size:11px;line-height:1.58;margin-top:17px;max-width:350px}
+.paper-edge{height:19px}
+.projects{padding:31px 0 35px}
+.section-head{align-items:flex-end;margin-bottom:14px}
+.section-title-wrap{gap:10px;align-items:flex-end}
+.section-head h2{font-size:25px;white-space:normal;max-width:230px}
+.section-head .rule{width:28px;margin-bottom:5px}
+.section-stage{font-size:8px}
+.feature-grid{display:block}
+.feature-panel{min-height:0;margin-bottom:12px}
+.tenderness{display:flex;flex-direction:column}
+.tender-copy{min-height:215px;padding:22px 20px 21px}
+.tender-logo{width:215px;margin-bottom:9px}
+.tender-kicker{font-size:10px}
+.tender-copy p{font-size:11px;max-width:310px;margin-top:14px}
+.tender-media{height:245px}
+.tender-family{object-position:50% 35%}
+.phone-a{height:94%;bottom:-20%;left:13%;transform:rotate(-4deg)}
+.phone-b{height:83%;bottom:-12%;right:3%;transform:rotate(5deg)}
+.grao{display:flex;flex-direction:column}
+.grao-copy{min-height:205px;padding:22px 20px 20px;background:#ece8dd}
+.grao h3{font-size:36px;margin:13px 0 10px}
+.grao-copy p{font-size:11px;max-width:260px}
+.grao-media{height:218px}
+.grao-media:after{background:linear-gradient(0deg,rgba(236,232,221,.3),transparent 40%)}
+.stage-caption{display:block;font-size:9px;margin-top:9px}.stage-caption span{display:block;margin-top:4px}
 }
-@media(max-width:600px){
-.inner{width:calc(100% - 34px)}
-.header .inner{height:62px}.logo{font-size:12px}.header-links{gap:13px}.header-links .contact{padding:8px 12px;font-size:10px}.header-language{font-size:10px;padding-left:11px}
-.masthead{height:486px;min-height:486px}
-.masthead .photo{width:100%;opacity:.87;object-position:48% 28%}
-.masthead::before{background:linear-gradient(90deg,rgba(20,23,20,.9),rgba(21,24,21,.37)),linear-gradient(0deg,rgba(17,20,16,.75),transparent 70%)}
-.masthead-content{justify-content:flex-start;padding-top:110px;padding-bottom:50px}
-.masthead .smallline{font-size:9px;margin-bottom:13px}
-.masthead h1{font-size:clamp(33px,8.8vw,48px);line-height:1.12;max-width:330px}
-.masthead .positioning{font-size:11px;max-width:270px;margin-top:21px}
-.tearedge{height:19px}
-.section{padding:31px 0 20px}.section-head{margin-bottom:13px;align-items:end}
-.section-head h2{font-size:24px}.section-head .section-link{font-size:9px}
-.feature{min-height:355px}
-.feature .copy{max-width:65%;padding:23px 20px}
-.feature h3,.feature.grao h3{font-size:30px}
-.feature .overline{font-size:9px}
-.feature p{font-size:11px;line-height:1.57}
-.feature .cta{gap:9px;padding:9px 11px;font-size:10px}
-.tenderness .photo-tender{width:66%}.tenderness::after{background:linear-gradient(90deg,var(--plum) 19%,rgba(88,51,70,.9) 49%,rgba(88,51,70,.05))}
-.tenderness .phone1{right:15%;bottom:-19px;max-height:210px}.tenderness .phone2{right:-3%;bottom:-10px;max-height:184px}
-.grao .visual{width:80%;object-position:70% center}.grao::after{background:linear-gradient(90deg,#e1e2da 10%,rgba(225,226,218,.96) 45%,rgba(225,226,218,.15) 95%)}
-.other-section{padding:2px 0 33px}.project-card{flex-basis:214px;min-height:264px}.project-image{height:142px}
-.small-projects{grid-template-columns:1fr 1fr;gap:19px 10px;margin-top:19px;padding-top:18px}.small-projects article{padding-right:10px}.small-projects article:nth-child(2){border-right:none}.small-projects h3{font-size:12px}.small-projects p{font-size:10px}.small-projects .small-kicker{font-size:9px}
-.thoughts{min-height:440px}
-.thoughts .inner{min-height:440px;display:block;padding-top:35px;padding-bottom:17px}
-.thoughts-copy{width:100%;padding:0}
-.thoughts blockquote{font-size:25px;max-width:390px;margin-bottom:18px}
-.thoughts .eyebrow{font-size:10px}
-.topic-row{gap:6px}.topic-row span{font-size:9px;padding:7px 9px}
-.thought-gallery{height:145px;min-width:0;width:190px;margin:12px 7% 0 auto}
-.thought-gallery figure{border-width:4px}
-.about{padding:32px 0}
-.about-grid{grid-template-columns:115px 1fr;gap:17px;align-items:start}
-.about-photo{height:172px}.about-copy h2{font-size:23px}.about-copy p{font-size:11px;line-height:1.58}
-.socials{margin-top:7px;padding-top:17px}
-.footer{padding:18px 0 22px;display:block}.footer span{display:block;margin-top:4px}
+@media(max-width:390px){
+.hero-media{height:215px}
+.hero-copy{padding-bottom:43px}
+.hero h1{font-size:34px}
+.tender-copy{min-height:222px}
+.tender-media{height:232px}
+.phone-a{left:8%}.phone-b{right:-2%}
 }
-@media(max-width:360px){.feature .copy{max-width:70%}.tenderness .phone1{max-height:180px}.tenderness .phone2{max-height:155px}.feature h3,.feature.grao h3{font-size:27px}.about-grid{grid-template-columns:100px 1fr}.about-photo{height:157px}.masthead h1{font-size:32px}}
-.mobile-nav-toggle{display:none;background:transparent;color:inherit;border:1px solid rgba(255,255,255,.53);width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;line-height:1;font-size:17px}
-.mobile-nav-panel[hidden]{display:none}
-.mobile-nav-panel{display:none;position:absolute;right:17px;top:61px;z-index:21;width:min(285px,calc(100vw - 34px));padding:12px 20px;background:#f6f2e9;color:#302c25;border:1px solid #e2d8c9;box-shadow:0 14px 40px rgba(14,14,12,.25);border-radius:6px}
-.mobile-nav-panel a{display:block;padding:12px 2px;border-bottom:1px solid #e4dacf;font-size:13px}
-.mobile-nav-panel a:last-child{border-bottom:0}
-@media(max-width:800px){.mobile-nav-toggle{display:inline-flex}.header-links .contact{display:none}.header-links{gap:12px}}
-@media(min-width:801px){.mobile-nav-panel{display:none!important}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-
-/* Refinamento de proporções e ritmos a partir da referência aprovada (desktop + mobile). */
-:root{--paper:#f5f1e8}
-.page-content{background-image:radial-gradient(rgba(115,91,65,.025) .65px,transparent .65px);background-size:5px 5px}
-.masthead{height:clamp(350px,27vw,432px);min-height:350px}
-.masthead .photo{width:69%;object-position:center 30%;filter:saturate(.8) brightness(.69)}
-.masthead h1{font-size:clamp(36px,3.4vw,52px);max-width:495px;line-height:1.07}
-.masthead .positioning{font-size:12px;margin-top:15px}
-.masthead .smallline{margin-bottom:16px}
-.masthead-aside{bottom:57px}
-.section{padding-top:39px}
-.section-head{position:relative}
-.section-head h2{font-size:clamp(24px,2.15vw,32px)}
-#projetos .section-head h2:after{content:"";display:inline-block;vertical-align:middle;width:62px;border-bottom:1px solid #bcb2a0;margin-left:16px}
-.feature{min-height:328px}
-.feature .copy{padding:29px 30px;max-width:55%}
-.feature.tenderness .copy{max-width:54%}
-.feature .tender-logo{width:min(242px,100%);height:auto;object-fit:contain;filter:brightness(0) invert(1);margin:11px 0 8px}
-.tenderness .overline{font-size:11px;line-height:1.4;letter-spacing:.015em;text-transform:none;font-weight:500}
-.tenderness .copy p{font-size:12px;margin-top:12px}
-.tenderness .photo-tender{width:58%;opacity:.53;object-position:56% 33%}
-.tenderness .phone1{right:15%;max-height:295px}
-.tenderness .phone2{right:-1%;max-height:273px}
-.feature.grao{background:linear-gradient(125deg,#f1efe5,#e0dfd5);overflow:hidden}
-.grao .copy{max-width:54%}
-.grao .overline{font-size:10px}
-.grao .copy h3:before{content:"❧";font-family:Georgia,serif;color:#2b4234;display:inline-block;font-size:.64em;vertical-align:middle;margin-right:8px}
-.grao .copy p{max-width:195px}
-.grao .grao-object{position:absolute;inset:0 0 0 auto;width:70%;background:radial-gradient(ellipse at 70% 7%,rgba(48,75,44,.24),transparent 40%),linear-gradient(125deg,transparent 0%,#d8d5c8 100%)}
-.grao .grao-object:before{content:"";position:absolute;right:-8%;top:-11%;width:48%;height:58%;background:radial-gradient(ellipse at 50% 25%,rgba(65,88,56,.43) 3%,transparent 60%);filter:blur(3px);transform:rotate(-23deg)}
-.grao .grao-tablet{position:absolute;right:-9%;bottom:-27%;height:97%;width:85%;background:#252b26;border:10px solid #292c29;border-radius:23px;transform:rotate(-7deg);box-shadow:-16px 13px 35px rgba(15,28,20,.3);overflow:hidden}
-.grao .grao-tablet .visual{width:100%;height:100%;object-fit:cover;object-position:60% center;filter:saturate(1.1) sepia(.05);position:static}
-.grao:after{background:linear-gradient(90deg,#ebe9df 3%,rgba(235,233,223,.98) 30%,rgba(235,233,223,.03) 80%)}
-.other-section{padding-bottom:32px}
-.project-card{min-height:220px}
-.project-image{height:125px}
-.project-body{padding:11px 12px 12px}
-.project-body p{font-size:10.5px}
-.project-image .image-label{font-size:12px}
-.small-projects{margin-top:18px;padding-top:17px}
-.creative-strip{margin-top:24px;border-top:1px solid var(--line);padding-top:17px;display:grid;grid-template-columns:minmax(220px,.88fr) 1.4fr;gap:25px;align-items:center}
-.creative-strip-copy span{font-family:Georgia,serif;font-size:18px}
-.creative-strip-copy p{font-size:11px;line-height:1.55;color:#746b60;max-width:350px;margin:6px 0 0}
-.creative-strip-works{display:grid;grid-template-columns:1fr 1fr;gap:11px}
-.creative-strip figure{display:grid;grid-template-columns:88px 1fr;align-items:center;gap:13px;margin:0;background:rgba(255,255,255,.38);min-width:0}
-.creative-strip figure img{width:88px;height:68px;object-fit:cover}
-.creative-strip figcaption{font-size:11px;font-weight:650;line-height:1.35;padding-right:10px}
-.thoughts{min-height:285px}
-.thoughts .inner{min-height:285px}
-.thoughts-copy{padding:28px 0}
-.thoughts blockquote{font-size:clamp(25px,2.38vw,36px)}
-.about{padding:31px 0}
-.about-grid{grid-template-columns:250px minmax(0,1fr) minmax(0,1fr);gap:29px}
-.about-photo{height:212px}
-.social-grid b:before{display:inline-block;font-size:18px;font-family:Arial,sans-serif;line-height:1;margin-right:6px;vertical-align:middle}
-.social-grid a:nth-child(1) b:before{content:"◎"}
-.social-grid a:nth-child(2) b:before{content:"♪"}
-.social-grid a:nth-child(3) b:before{content:"𝕏"}
-.social-grid span b:before{content:"▣"}
-@media(max-width:1120px){
-.feature .copy{padding:24px;max-width:58%}
-.feature.tenderness .copy{max-width:57%}
-.tenderness .phone1{max-height:245px}
-.tenderness .phone2{max-height:230px}
-.about-grid{grid-template-columns:210px 1fr 1fr;gap:20px}
-}
-@media(max-width:800px){
-.masthead{height:460px;min-height:460px}
-.masthead .photo{width:83%;object-position:center 33%}
-.masthead h1{font-size:43px}
-.feature{min-height:320px}
-.feature .copy,.feature.tenderness .copy{max-width:58%}
-.grao .grao-tablet{width:72%;right:-5%}
-.project-card{min-height:235px}
-.project-image{height:143px}
-.creative-strip{grid-template-columns:1fr;gap:12px}
-.about-grid{grid-template-columns:160px 1fr;gap:20px}
-}
-@media(max-width:600px){
-.masthead{height:454px;min-height:454px}
-.masthead .photo{width:100%;object-position:67% 24%;opacity:.83}
-.masthead-content{padding-top:106px;padding-bottom:42px}
-.masthead h1{font-size:clamp(33px,8.5vw,43px);max-width:340px}
-.section{padding-top:30px}
-.section-head h2{font-size:24px}
-#projetos .section-head h2:after{width:24px;margin-left:9px}
-.feature{min-height:342px}
-.feature .copy,.feature.tenderness .copy{max-width:68%;padding:19px 17px}
-.feature .tender-logo{width:min(205px,100%);margin:3px 0 11px}
-.tenderness .overline{font-size:10px}
-.tenderness .copy p{font-size:10.5px;line-height:1.55}
-.tenderness .phone1{max-height:202px;right:15%}
-.tenderness .phone2{max-height:176px;right:-4%}
-.feature.grao .copy{max-width:58%}
-.grao .grao-object{width:79%}
-.grao .grao-tablet{height:81%;width:83%;bottom:-22%;right:-13%}
-.grao .copy p{max-width:175px}
-.project-card{min-height:245px}
-.project-image{height:136px}
-.creative-strip{margin-top:16px;padding-top:15px}
-.creative-strip-copy span{font-size:16px}
-.creative-strip-works{gap:9px}
-.creative-strip figure{display:block}
-.creative-strip figure img{width:100%;height:67px}
-.creative-strip figcaption{font-size:10px;padding:7px}
-.thoughts,.thoughts .inner{min-height:420px}
-.thoughts blockquote{font-size:24px}
-.about-grid{grid-template-columns:110px 1fr;gap:15px}
-.about-photo{height:162px}
-.about-copy h2{font-size:22px}
-.socials{padding-top:18px}
-}
-@media(max-width:360px){
-.feature .copy,.feature.tenderness .copy{max-width:73%}
-.feature .tender-logo{width:176px}
-.tenderness .phone1{max-height:181px}
-.tenderness .phone2{max-height:157px}
-}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<a href="#conteudo" class="skip">Ir para o conteúdo</a>
-<header class="header"><div class="inner">
-<a class="logo" href="/" aria-label="Emelyn Campos, página oficial">EMELYN CAMPOS</a>
-<nav class="header-links" aria-label="Navegação da proposta">
-<a class="item" href="#projetos">Projetos</a>
-<a class="item" href="#escritas">Escritas</a>
-<a class="item" href="#ideias">Ideias</a>
-<a class="item" href="#sobre">Sobre</a>
-<a class="contact" href="#acompanhe">Acompanhe ↗</a>
-<button type="button" class="mobile-nav-toggle" aria-controls="mobileNav" aria-expanded="false" aria-label="Abrir menu de navegação"><span aria-hidden="true">☰</span></button>
-<span class="header-language" aria-label="Idioma atual português">PT</span>
-</nav></div><nav class="mobile-nav-panel" id="mobileNav" aria-label="Navegação mobile" hidden><a href="#projetos">Projetos ↗</a><a href="#outros">Outros projetos ↗</a><a href="#ideias">Ideias ↗</a><a href="#sobre">Sobre ↗</a><a href="#acompanhe">Acompanhe ↗</a></nav></header>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+<header class="site-header">
+<div class="shell">
+<a class="brand" href="/" aria-label="Emelyn Campos — página oficial">EMELYN CAMPOS</a>
+<nav class="header-nav" aria-label="Navegação da prévia"><a href="#projetos">Projetos</a><span class="lang" aria-label="Idioma atual: português">PT</span></nav>
+</div>
+</header>
 <main id="conteudo">
-<section class="masthead" aria-labelledby="hero-title">
-<img class="photo" src="/assets/emelyn.webp" alt="" fetchpriority="high">
-<div class="inner masthead-content">
-<p class="smallline">Criatividade · fé · vida real · tecnologia</p>
+<section class="hero" aria-labelledby="hero-title">
+<div class="hero-grid">
+<div class="hero-copy">
+<p class="hero-eyebrow">Criatividade · fé · vida real · tecnologia</p>
 <h1 id="hero-title" class="serif">Construindo com as ferramentas do futuro sem <em>terceirizar o que nos faz humanos.</em></h1>
-<p class="positioning">Produtos, livros, experiências e ideias — feitos com tecnologia, intenção e discernimento.</p>
+<p class="hero-lead">Produtos, livros, experiências e ideias construídos com tecnologia, intenção e discernimento.</p>
 </div>
-<div class="masthead-aside" aria-hidden="true"><span class="bar"></span><span class="micro">PROJETOS<br>LIVROS<br>APLICATIVOS<br>EXPERIÊNCIAS<br>IDEIAS<br>VIDA</span></div>
-<svg class="tearedge" viewBox="0 0 1400 50" preserveAspectRatio="none" role="presentation" aria-hidden="true"><path fill="#f4f1e9" d="M0 26 L35 29 70 21 118 27 159 21 202 24 250 17 303 24 353 22 400 29 445 25 500 31 556 24 598 33 650 25 714 29 770 20 823 26 880 21 940 27 989 22 1044 27 1093 19 1145 29 1206 19 1266 25 1320 20 1400 24 1400 50 0 50Z"/></svg>
+<div class="hero-media" aria-label="Ambiente de trabalho e criação">
+<img src="/home-preview/assets/hero-workspace.webp" alt="Mesa de trabalho com notebook, livros e cadernos" fetchpriority="high">
+<div class="hero-aside" aria-hidden="true"><i class="line"></i><span>Projetos<br>Livros<br>Aplicativos<br>Experiências<br>Ideias<br>Vida</span></div>
+</div>
+</div>
+<svg class="paper-edge" viewBox="0 0 1400 42" preserveAspectRatio="none" aria-hidden="true"><path fill="#f4f0e6" d="M0 23 L37 27 82 20 126 25 170 20 217 26 268 19 314 25 361 21 409 27 456 22 505 28 551 21 603 27 650 22 697 27 744 20 792 25 840 20 890 27 940 21 991 26 1041 20 1091 26 1142 20 1194 27 1246 20 1297 25 1345 20 1400 23 1400 42 0 42Z"/></svg>
 </section>
-<div class="page-content">
-<section class="section" id="projetos"><div class="inner">
-<div class="section-head"><h2>O que estou construindo agora</h2><a class="section-link" href="#outros">VER TODOS OS PROJETOS&nbsp; ↗</a></div>
-<div class="featured">
-<article class="feature tenderness">
-<img class="photo-tender" src="/tenderness/assets/family-hero.webp" alt="" loading="lazy">
-<img class="phone1" src="/tenderness/assets/mockup-consultation.webp" alt="Exemplo ilustrativo da preparação de consultas no Tenderness" loading="lazy">
-<img class="phone2" src="/tenderness/assets/mockup-memories.webp" alt="Exemplo ilustrativo da área de memórias do Tenderness" loading="lazy">
-<div class="copy"><img class="tender-logo" src="/tenderness/assets/logo-horizontal.png" alt="" loading="lazy"><h3 class="sr-only">Tenderness</h3><span class="overline">Registro, cuidado e memórias da primeira infância</span><p>Da próxima consulta às primeiras palavras. Um lugar para organizar o que importa hoje e guardar o que você vai querer lembrar para sempre.</p><a class="cta" href="/tenderness/pt/">Conhecer o Tenderness <span aria-hidden="true">↗</span></a></div>
+<section class="projects" id="projetos" aria-labelledby="projects-title">
+<div class="shell">
+<header class="section-head">
+<div class="section-title-wrap"><h2 id="projects-title">O que estou construindo agora</h2><span class="rule" aria-hidden="true"></span></div>
+<span class="section-stage">Preview · etapa A</span>
+</header>
+<div class="feature-grid">
+<article class="feature-panel tenderness" aria-labelledby="tender-title">
+<div class="tender-copy">
+<img class="tender-logo" src="/tenderness/assets/logo-horizontal.png" alt="Tenderness" loading="lazy">
+<h3 id="tender-title" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Tenderness</h3>
+<p class="tender-kicker">Registro, cuidado e memórias da primeira infância.</p>
+<p>Da próxima consulta às primeiras palavras. Um lugar para organizar o que importa hoje e guardar o que você vai querer lembrar para sempre.</p>
+<a class="cta" href="/tenderness/pt/">Conhecer o Tenderness <span aria-hidden="true">→</span></a>
+</div>
+<div class="tender-media" aria-hidden="true">
+<img class="tender-family" src="/tenderness/assets/family-hero.webp" alt="" loading="lazy">
+<img class="phone phone-a" src="/tenderness/assets/mockup-consultation.webp" alt="" loading="lazy">
+<img class="phone phone-b" src="/tenderness/assets/mockup-memories.webp" alt="" loading="lazy">
+</div>
 </article>
-<article class="feature grao">
-<div class="grao-object" aria-hidden="true"><div class="grao-tablet"><img class="visual" src="/o-grao/assets/ograo-editorial-manifesto.webp" alt="" loading="lazy"></div></div>
-<div class="copy"><span class="overline">Leitura · contexto · fontes</span><h3>O Grão</h3><p>Explorando a Bíblia com profundidade, contexto e compreensão própria.</p><a class="cta" href="/o-grao/">Conhecer O Grão <span aria-hidden="true">↗</span></a></div>
-</article>
-</div></div></section>
-<section class="other-section" id="outros"><div class="inner">
-<div class="section-head"><h2>Outros projetos</h2><div class="slider-controls" aria-label="Navegar pelos projetos"><button type="button" id="scrollPrev" aria-label="Ver projetos anteriores">←</button><button type="button" id="scrollNext" aria-label="Ver próximos projetos">→</button></div></div>
-<div class="project-row" id="projectTrack" role="region" aria-label="Outros projetos e criações — deslize para explorar" tabindex="0">
-<article class="project-card">
-<div class="project-image bento"><img src="/home-preview/assets/bento-oficial.png" alt="Bento, o cordeirinho da coleção Histórias da Bíblia com Bento" loading="lazy"><span class="image-label">Histórias da Bíblia com Bento</span></div>
-<div class="project-body"><p>Livros e experiências bíblicas para crianças, com cuidado e linguagem infantil.</p><a class="project-link" href="https://share.google/jYHuJXqDNkUQ7qqxu" target="_blank" rel="noopener noreferrer">Conhecer ↗</a></div>
-</article>
-<article class="project-card">
-<div class="project-image byr"><img src="/before-you-read/assets/og.png" alt="Identidade visual oficial de Before You Read" loading="lazy"><span class="image-label">Before You Read</span></div>
-<div class="project-body"><p>O que os pais precisam saber antes de ler passagens difíceis com os filhos.</p><a class="project-link" href="/before-you-read/pt-br/">Conhecer ↗</a></div>
-</article>
-<article class="project-card">
-<div class="project-image parallax"><img src="/home-preview/assets/parallax-still-life.webp" alt="Composição investigativa oficial da marca PARALLAX" loading="lazy"><span class="image-label">PARALLAX</span></div>
-<div class="project-body"><p>Jogos e experiências investigativas que mudam a perspectiva.</p><span class="coming">Em desenvolvimento</span></div>
-</article>
-<article class="project-card">
-<div class="project-image planner"><img src="/planner/og.png" alt="Prévia oficial do Planner" loading="lazy"><span class="image-label">Planner</span></div>
-<div class="project-body"><p>Organização pessoal que respeita a complexidade da vida real.</p><a class="project-link" href="/planner/">Conhecer ↗</a></div>
-</article>
-<article class="project-card">
-<div class="project-image book"><img src="/e-se-voce-estiver-fazendo-a-pergunta-errada/assets/hero-mockup.jpg" alt="Mockup do livro da Casa Editorial E se...?" loading="lazy"><span class="image-label">Casa Editorial E se...?</span></div>
-<div class="project-body"><p>Livros sobre fé, perguntas importantes e profundidade bíblica.</p><a class="project-link" href="/e-se-voce-estiver-fazendo-a-pergunta-errada/">Conhecer ↗</a></div>
+<article class="feature-panel grao" aria-labelledby="grao-title">
+<div class="grao-copy">
+<span class="grao-kicker">Leitura · contexto · fontes</span>
+<h3 id="grao-title">O Grão</h3>
+<p>Explorando a Bíblia com profundidade, contexto e compreensão própria — com o texto vindo antes da resposta.</p>
+<a class="cta" href="/o-grao/">Conhecer O Grão <span aria-hidden="true">→</span></a>
+</div>
+<div class="grao-media"><img src="/o-grao/assets/ograo-editorial-manifesto.webp" alt="Paisagem em tons quentes usada na identidade editorial de O Grão" loading="lazy"></div>
 </article>
 </div>
-<div class="small-projects" aria-label="Mais projetos e experimentos">
-<article><span class="small-kicker">Editorial</span><h3>Entre Caos e Construção</h3><p>Fé aplicada à vida adulta: decisões, espera, trabalho e amadurecimento.</p></article>
-<article><span class="small-kicker">Experimento educativo</span><h3>Como as coisas funcionam</h3><p>Exploração em 3D de objetos e mecanismos. Protótipo atualmente em pausa.</p></article>
-<article><span class="small-kicker">Laboratório criativo</span><h3>Creators virtuais com IA</h3><p>Identidade, narrativa e produção de conteúdo com personas digitais.</p></article>
+<div class="stage-caption" aria-label="Escopo desta versão"><strong>Esta prévia contém somente a abertura e os dois projetos principais.</strong><span>Os demais projetos entram depois da aprovação desta direção visual.</span></div>
 </div>
-<div class="creative-strip" id="escritas" aria-label="Escritas e identidades visuais"><div class="creative-strip-copy"><span>Escritas &amp; identidade</span><p>Além dos produtos, livros, textos e linguagens visuais também fazem parte do que construo.</p></div><div class="creative-strip-works"><figure><img src="/assets/ese-painel.webp" alt="Painel de identidade visual da Casa Editorial E se...?" loading="lazy"><figcaption>Casa Editorial E se...?</figcaption></figure><figure><img src="/assets/lyn-painel.webp" alt="Painel da identidade autoral Lyn Campos" loading="lazy"><figcaption>Lyn Campos</figcaption></figure></div></div>
-</div></section>
-</div>
-<section class="thoughts" id="ideias" aria-labelledby="ideas-title">
-<div class="inner">
-<div class="thoughts-copy"><div class="eyebrow">Também estou pensando sobre...</div><blockquote id="ideas-title">“Como usar a tecnologia para construir mais sem perder o que realmente importa?”</blockquote>
-<div class="topic-row" aria-label="Assuntos que fazem parte deste espaço"><span>Fé e vida real</span><span>IA e humanidade</span><span>Maternidade</span><span>Criatividade</span><span>Construção</span><span>Autoria</span></div>
-</div>
-<div class="thought-gallery" aria-hidden="true"><figure><img src="/assets/ese-aplicacoes.webp" alt="" loading="lazy"></figure><figure><img src="/e-se-voce-estiver-fazendo-a-pergunta-errada/assets/study-mockup.jpg" alt="" loading="lazy"></figure></div>
-</div></section>
-<section class="about" id="sobre"><div class="inner about-grid">
-<div class="about-photo"><img src="/assets/emelyn.webp" alt="Emelyn Campos" loading="lazy"></div>
-<div class="about-copy"><small>Sobre mim</small><h2>Aqui é onde tudo se conecta.</h2><p>Sou Emelyn. Crio produtos digitais, livros, jogos e experiências — com fé, curiosidade e vontade de construir. Tecnologia é uma ferramenta poderosa; não substitui o que nos torna humanos.</p><a href="#acompanhe">Acompanhe meu trabalho ↗</a></div>
-<div class="socials" id="acompanhe"><h3>Acompanhe a construção</h3><div class="social-grid">
-<a href="https://www.instagram.com/emelyncbertolini/" target="_blank" rel="noopener noreferrer"><b>Instagram ↗</b><small>Vida e bastidores</small></a>
-<a href="https://www.tiktok.com/@emelyncbertolini" target="_blank" rel="noopener noreferrer"><b>TikTok ↗</b><small>Vídeos curtos</small></a>
-<a href="https://x.com/byemelyncampos" target="_blank" rel="noopener noreferrer"><b>X ↗</b><small>Ideias e processo</small></a>
-<span><b>Substack</b><small>Textos longos · em breve</small></span>
-</div></div>
-</div>
-<div class="inner footer"><span>© Emelyn Campos</span><span>Prévia para aprovação · Home oficial preservada</span></div>
 </section>
-<script>
-(function(){
-var track=document.getElementById('projectTrack');
-var prev=document.getElementById('scrollPrev');
-var next=document.getElementById('scrollNext');
-function move(direction){if(!track)return;var child=track.querySelector('.project-card');var step=child?child.getBoundingClientRect().width+11:230;track.scrollBy({left:direction*step,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
-if(prev)prev.addEventListener('click',function(){move(-1)});
-if(next)next.addEventListener('click',function(){move(1)});
-var toggle=document.querySelector('.mobile-nav-toggle');
-var mobile=document.getElementById('mobileNav');
-if(toggle&&mobile){
- function closeMenu(){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Abrir menu de navegação');mobile.hidden=true;}
- toggle.addEventListener('click',function(){
-   var isOpen=toggle.getAttribute('aria-expanded')==='true';
-   mobile.hidden=isOpen;
-   toggle.setAttribute('aria-expanded',String(!isOpen));
-   toggle.setAttribute('aria-label',isOpen?'Abrir menu de navegação':'Fechar menu de navegação');
- });
- mobile.querySelectorAll('a').forEach(function(link){link.addEventListener('click',closeMenu)});
- document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
- document.addEventListener('click',function(e){if(!mobile.hidden&&!mobile.contains(e.target)&&!toggle.contains(e.target))closeMenu()});
-}
-})();
-</script>
+</main>
 </body>
 </html>
