@@ -89,4 +89,6 @@ Se axe não estiver disponível, o relatório contém uma lista vazia em `access
 
 ## Publicação
 
+Para o visualizador de arquivos do aplicativo, que não resolve os caminhos absolutos de CSS e imagens como um servidor web, há também uma exportação autocontida. Execute `python3 home-preview/qa/export_preview.py` para gerar `/workspace/artifacts/home-editorial-v2/preview.html`. Ela incorpora CSS, JavaScript e imagens no próprio HTML, preserva as âncoras e direciona links dos projetos ao site oficial. Foi verificada em 390 e 1440 px com as requisições de rede bloqueadas: estilos e imagens carregaram, não houve overflow ou erros de JavaScript, e o menu com ESC funcionou. A exportação é uma forma de visualizar a mesma preview, não uma publicação no site.
+
 Esta entrega é uma preview na branch de trabalho. Não substitui a home oficial, não foi mesclada a `main` e não foi publicada no site. Publicar um ambiente Codex também não publica automaticamente alterações no GitHub Pages.
