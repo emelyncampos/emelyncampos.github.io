@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#17231d">
+<meta name="robots" content="noindex, nofollow">
+<title>Home V5 · estudo de direção visual — Emelyn Campos</title>
+<meta name="description" content="Estudo visual da nova página pessoal de Emelyn Campos.">
+<style>
+:root{--forest:#17231d;--forest-2:#233228;--chalk:#f7f7f2;--ivory:#edeee8;--ink:#1d261f;--clay:#c38265;--olive:#a8b4a0;--plum:#492b46;--line:#c9cec6;--sage:#d7dfd0}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--chalk);color:var(--ink);font-family:Inter,"Helvetica Neue",Arial,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}img{display:block;max-width:100%}button{font:inherit}
+a:focus-visible{outline:3px solid var(--clay);outline-offset:5px}
+::selection{background:#d9b4a1;color:var(--forest)}
+.container{width:min(1430px,calc(100% - 104px));margin:0 auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* NAV */
+header{height:84px;background:var(--chalk);display:flex;align-items:center;position:relative;z-index:10}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:32px}
+.identity{font-size:18px;font-weight:690;letter-spacing:-.055em;white-space:nowrap}
+.identity i{font-style:normal;color:var(--clay)}
+.nav-items{display:flex;align-items:center;gap:38px;font-size:12px;font-weight:560}
+.nav-items a{border-bottom:1px solid transparent;padding:8px 0;transition:border-color .2s}
+.nav-items a:hover{border-color:var(--ink)}
+.lang{border-left:1px solid var(--line);padding-left:25px;font-size:11px;color:#686c66;white-space:nowrap}
+.lang strong{color:var(--ink)}
+/* FEATURE HERO: masthead and portrait are one composition, not photo + intro card */
+.cover{min-height:620px;height:min(750px,calc(100svh - 84px));max-height:850px;position:relative;background:var(--forest);overflow:hidden;color:var(--chalk)}
+.cover-image{position:absolute;left:53%;width:47%;height:100%;top:0;overflow:hidden}
+.cover-image img{width:100%;height:100%;object-fit:cover;object-position:center 26%}
+.cover-image::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(23,35,29,.08),transparent 32%),linear-gradient(to top,rgba(0,0,0,.30),transparent 42%)}
+.cover-shape{position:absolute;inset:0 auto 0 0;width:58%;background:var(--forest);clip-path:polygon(0 0,97% 0,94% 16%,99% 34%,94% 54%,97% 73%,91% 100%,0 100%)}
+.cover-copy{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:space-between;min-height:inherit;height:100%;padding:58px 0 64px}
+.meta-row{display:flex;align-items:center;gap:16px;color:#c9d0c7;font-size:10px;letter-spacing:.21em;text-transform:uppercase;font-weight:600}
+.meta-row .dash{width:36px;height:1px;background:#a8b7a9}
+.cover-title{margin:auto 0;max-width:760px;position:relative}
+.cover-title h1{font-size:clamp(86px,10.1vw,175px);letter-spacing:-.108em;font-weight:650;line-height:.81;margin:0;text-wrap:balance}
+.cover-title h1 span{display:block}
+.cover-title h1 .last{font-weight:430;font-style:italic;font-family:Georgia,serif;color:#e2b19b;letter-spacing:-.09em;transform:translateX(6%);margin-top:15px}
+.cover-sub{display:flex;align-items:start;gap:40px;margin:26px 0 0 10px}
+.cover-sub p{max-width:370px;color:#d0d7ce;font-size:16px;line-height:1.57;margin:0}
+.cover-bottom{display:flex;align-items:end;gap:25px}
+.cover-bottom .explore{display:inline-flex;gap:34px;align-items:center;padding:15px 0;border-bottom:1px solid #78877b;font-size:12px;color:#ebefea}
+.cover-bottom .explore b{font-size:24px;font-weight:400}
+.cover-side-note{position:absolute;right:58px;bottom:37px;z-index:3;text-align:right;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#f3f1ec;text-shadow:0 1px 9px rgba(0,0,0,.35)}
+/* contextual navigation, not a decorative marquee */
+.route-bar{background:var(--chalk);border-bottom:1px solid var(--line)}
+.routes{min-height:106px;display:grid;grid-template-columns:1.18fr 1fr 1fr;align-items:stretch}
+.route{display:grid;grid-template-columns:32px 1fr 20px;gap:10px;align-items:center;padding:26px 22px;border-right:1px solid var(--line);transition:background .2s}
+.route:first-child{padding-left:0}.route:last-child{border-right:0}
+.route:hover{background:#eef0e8}
+.route-index{font-size:11px;color:#a56e59;font-weight:600}
+.route strong{display:block;font-size:14px;letter-spacing:-.025em}
+.route small{display:block;color:#747b71;font-size:11px;margin-top:4px}
+.route-arrow{font-size:20px}
+/* FEATURED STORY: use approved brand colors and REAL product visuals */
+.chapter{padding:100px 0 110px;background:var(--ivory);overflow:hidden}
+.chapter-top{display:flex;align-items:center;gap:18px;margin-bottom:34px;font-size:10px;letter-spacing:.17em;text-transform:uppercase;font-weight:660;color:#617366}
+.chapter-top::after{content:"";height:1px;flex:1;background:#c9d3c7}
+.feature{position:relative;min-height:690px;background:var(--plum);color:#fcf5f0;overflow:hidden;display:grid;grid-template-columns:.47fr .53fr}
+.feature-copy{padding:80px 12% 78px 10%;display:flex;flex-direction:column;align-items:flex-start;position:relative;z-index:2}
+.label{font-size:10px;letter-spacing:.21em;text-transform:uppercase;font-weight:650;color:#dec9d8}
+.feature h2{font-size:clamp(70px,6.1vw,112px);letter-spacing:-.085em;font-weight:630;line-height:.86;margin:52px 0 33px}
+.feature-claim{font-size:clamp(28px,2.5vw,39px);font-weight:450;letter-spacing:-.05em;line-height:1.14;max-width:440px;margin:0}
+.feature-claim em{font-family:Georgia,serif;font-style:italic;font-weight:400;color:#e9c2b8}
+.feature-desc{color:#e1d3dc;max-width:405px;font-size:15px;line-height:1.67;margin:28px 0}
+.feature-link{display:inline-flex;gap:34px;align-items:center;padding:14px 20px;background:#f3eae9;color:#422a41;font-size:12px;font-weight:650;margin-top:auto;transition:transform .2s}
+.feature-link:hover{transform:translateY(-3px)}
+.feature-link b{font-size:20px;font-weight:400}
+.feature-visual{position:relative;min-height:690px}
+.feature-visual .family{position:absolute;top:0;right:0;height:100%;width:88%;object-fit:cover;object-position:center 31%}
+.feature-visual .family-shade{position:absolute;inset:0;background:linear-gradient(90deg,var(--plum),rgba(73,43,70,.02) 32%,transparent 80%)}
+.feature-visual .phone{position:absolute;left:-11%;bottom:-7%;width:49%;max-height:75%;object-fit:contain;filter:drop-shadow(0 23px 25px rgba(0,0,0,.23));transform:rotate(-3deg)}
+.feature-visual .caption{position:absolute;top:28px;right:29px;border-top:1px solid rgba(255,255,255,.78);color:white;font-size:10px;letter-spacing:.15em;text-transform:uppercase;padding-top:8px}
+/* first glimpse of the project gallery, not a repeated card grid */
+.next{padding:106px 0 122px;background:var(--chalk)}
+.next-heading{display:grid;grid-template-columns:1fr 1fr;gap:8%;margin-bottom:62px}
+.next-heading .eyebrow{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#627865;font-weight:700}
+.next-heading h2{font-size:clamp(56px,7.8vw,120px);line-height:.9;letter-spacing:-.085em;font-weight:600;margin:13px 0 0}
+.next-heading p{align-self:end;max-width:410px;font-size:16px;line-height:1.65;color:#6d756d;margin:0}
+.case{border-top:1px solid #c7cec6;padding-top:31px;display:grid;grid-template-columns:1.12fr .88fr;gap:8%;align-items:center}
+.case-visual{height:480px;position:relative;background:#dfe5da;overflow:hidden}
+.case-visual img{height:100%;width:100%;object-fit:cover}
+.case-visual .case-number{position:absolute;top:21px;left:24px;color:#f6f3eb;background:#28352b;padding:9px 12px;font-size:10px;letter-spacing:.12em}
+.case-copy .type{font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:#6e776e}
+.case-copy h3{font-size:clamp(70px,6vw,104px);line-height:.96;letter-spacing:-.083em;font-weight:600;margin:15px 0 29px}
+.case-copy p{font-size:19px;max-width:480px;line-height:1.5;color:#4a534a}
+.case-copy a{display:inline-block;margin-top:18px;border-bottom:1px solid #708071;font-size:13px;padding-bottom:5px}
+.preview-note{border-top:1px solid var(--line);padding:26px 0 45px;color:#7d847b;font-size:11px;line-height:1.7}
+.preview-note strong{font-weight:650;color:#4e5a50}
+@media(max-width:1180px){.container{width:calc(100% - 64px)}.cover-title h1{font-size:clamp(76px,10.3vw,125px)}.cover-copy{padding:46px 0 50px}.feature{min-height:650px}.feature-copy{padding:63px 9%}.feature h2{font-size:76px}.feature-visual{min-height:650px}.feature-visual .phone{width:58%}}
+@media(max-width:760px){
+.container{width:calc(100% - 36px)}
+header{height:63px}.identity{font-size:17px}.nav-items{gap:14px;font-size:11px}.nav-items a:nth-child(2){display:none}.lang{padding-left:13px}
+.cover{height:auto;min-height:680px;max-height:none}
+.cover-image{left:25%;width:75%;top:0;height:62%}
+.cover-image img{object-position:center 27%}
+.cover-image::after{background:linear-gradient(to top,var(--forest),rgba(23,35,29,.07) 60%)}
+.cover-shape{width:100%;height:60%;clip-path:polygon(0 0,29% 0,25% 44%,40% 100%,0 100%);background:linear-gradient(90deg,var(--forest),#26352b)}
+.cover-copy{min-height:680px;padding:27px 0 38px}
+.meta-row{font-size:8px;letter-spacing:.13em;max-width:180px;align-items:flex-start;gap:9px}.meta-row .dash{width:18px;flex:none;margin-top:6px}
+.cover-title{margin:295px 0 0}
+.cover-title h1{font-size:clamp(65px,16.6vw,100px);letter-spacing:-.09em;line-height:.83}
+.cover-title h1 .last{margin-top:8px;transform:translateX(12%)}
+.cover-sub{margin:22px 0 0 0}.cover-sub p{font-size:13px;line-height:1.6;max-width:280px}
+.cover-bottom{margin-top:38px}.cover-bottom .explore{font-size:12px}
+.cover-side-note{right:18px;top:25px;bottom:auto;font-size:8px;letter-spacing:.12em}
+.routes{grid-template-columns:1fr;min-height:0}
+.route{grid-template-columns:26px 1fr 20px;padding:15px 0;border-right:0;border-bottom:1px solid var(--line)}
+.route:first-child{padding:15px 0}.route:last-child{border-bottom:0}.route strong{font-size:12px}.route small{font-size:10px}
+.chapter{padding:62px 0 72px}
+.chapter-top{font-size:9px;margin-bottom:20px}
+.feature{grid-template-columns:1fr;min-height:0;overflow:hidden}
+.feature-copy{padding:35px 28px 16px}
+.feature h2{font-size:clamp(59px,15vw,86px);margin:25px 0 18px}
+.feature-claim{font-size:29px;max-width:420px}
+.feature-desc{font-size:13px;line-height:1.62;margin:19px 0 19px}
+.feature-link{margin-top:12px;gap:26px}
+.feature-visual{min-height:365px;margin-top:23px}
+.feature-visual .family{width:88%;height:100%}
+.feature-visual .phone{width:43%;left:4%;bottom:-4%}
+.feature-visual .caption{top:15px;right:14px;font-size:8px}
+.next{padding:70px 0 84px}.next-heading{grid-template-columns:1fr;gap:20px;margin-bottom:36px}
+.next-heading h2{font-size:clamp(60px,15vw,89px)}.next-heading p{font-size:14px}
+.case{grid-template-columns:1fr;gap:29px;padding-top:18px}.case-visual{height:290px}
+.case-copy h3{font-size:76px;margin:15px 0}.case-copy p{font-size:16px}
+.preview-note{font-size:10px}
+}
+@media(max-width:390px){.cover{min-height:635px}.cover-copy{min-height:635px}.cover-title{margin-top:275px}.cover-title h1{font-size:64px}.feature h2{font-size:58px}.feature-claim{font-size:26px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<a class="sr-only" href="#conteudo">Ir para o conteúdo</a>
+<header><div class="container nav">
+<a class="identity" href="/" aria-label="Emelyn Campos — página principal">emelyn<i>.</i>campos</a>
+<nav class="nav-items" aria-label="Navegação desta proposta">
+<a href="#destaque">Em destaque</a><a href="#criando">Criações</a><a href="#contato">Contato</a><span class="lang"><strong>PT</strong> / EN</span>
+</nav></div></header>
+<main id="conteudo">
+<section class="cover" aria-label="Emelyn Campos">
+<div class="cover-image"><img src="/assets/emelyn.webp" alt="Retrato de Emelyn Campos" fetchpriority="high"></div>
+<div class="cover-shape" aria-hidden="true"></div>
+<div class="container cover-copy">
+<div class="meta-row"><span class="dash" aria-hidden="true"></span>Projetos, experiências & ideias</div>
+<div class="cover-title"><h1><span>Emelyn</span><span class="last">Campos.</span></h1>
+<div class="cover-sub"><p>Produtos digitais, fé, escrita, jogos e outras coisas em construção.</p></div></div>
+<div class="cover-bottom"><a class="explore" href="#destaque">Explore o que estou criando <b aria-hidden="true">↗</b></a></div>
+</div><div class="cover-side-note">Criação independente · Brasil</div>
+</section>
+<div class="route-bar" aria-label="Explorar a página"><div class="container routes">
+<a class="route" href="#destaque"><span class="route-index">01</span><span><strong>Tenderness</strong><small>O projeto em destaque agora</small></span><span class="route-arrow" aria-hidden="true">↗</span></a>
+<a class="route" href="#criando"><span class="route-index">02</span><span><strong>Outras criações</strong><small>Produtos, histórias e experimentos</small></span><span class="route-arrow" aria-hidden="true">↗</span></a>
+<a class="route" href="#contato"><span class="route-index">03</span><span><strong>Acompanhe</strong><small>O processo fora daqui</small></span><span class="route-arrow" aria-hidden="true">↗</span></a>
+</div></div>
+<section class="chapter" id="destaque"><div class="container">
+<div class="chapter-top">Em destaque agora <span aria-hidden="true">/</span> 01</div>
+<div class="feature">
+<div class="feature-copy"><span class="label">Um projeto para a vida real</span><h2>Tenderness</h2>
+<p class="feature-claim">Para lembrar hoje.<br><em>E guardar para sempre.</em></p>
+<p class="feature-desc">Um lugar para acompanhar o cuidado, organizar registros de saúde e guardar as memórias da infância — tudo no ritmo da vida em família.</p>
+<a class="feature-link" href="/tenderness/pt/">Conheça o Tenderness <b aria-hidden="true">↗</b></a>
+</div>
+<div class="feature-visual">
+<img class="family" src="/tenderness/assets/family-hero.webp" alt="Mãe e filha em um momento de carinho" loading="lazy">
+<div class="family-shade" aria-hidden="true"></div>
+<img class="phone" src="/tenderness/assets/mockup-consultation.webp" alt="Visual ilustrativo do Tenderness para preparar consultas" loading="lazy">
+<span class="caption">Cuidado + memórias</span>
+</div>
+</div></div></section>
+<section class="next" id="criando"><div class="container">
+<div class="next-heading"><div><div class="eyebrow">Caderno de criações</div><h2>Também por aqui.</h2></div>
+<p>Um projeto não precisa parecer com o outro para fazer parte do mesmo lugar. Cada ideia segue o seu próprio caminho.</p></div>
+<article class="case">
+<div class="case-visual"><img src="/o-grao/assets/ograo-editorial-manifesto.webp" alt="Imagem editorial oficial do projeto O Grão" loading="lazy"><span class="case-number">02 / FÉ & ESTUDO</span></div>
+<div class="case-copy"><div class="type">Em desenvolvimento · estudo bíblico</div><h3>O Grão.</h3>
+<p>Um ambiente para estudar a Bíblia com profundidade: texto, contexto e fontes, sem terceirizar a compreensão.</p>
+<a href="/o-grao/">Conhecer O Grão ↗</a></div>
+</article></div></section>
+</main>
+<footer class="preview-note" id="contato"><div class="container"><strong>Estudo visual V5.</strong> Esta é uma amostra de direção de arte e experiência, não a página final. A Home oficial permanece separada. <span aria-hidden="true"> · </span><a href="https://www.instagram.com/byemelyncampos/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></footer>
+</body></html>
