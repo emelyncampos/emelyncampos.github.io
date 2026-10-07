@@ -1,96 +1,47 @@
-# Home editorial v2 — preview
+# Home pessoal — direção editorial V3
 
-Branch: `home-editorial-v2`. Rota: `/home-preview/`.
+Branch de trabalho: `home-editorial-v2`. Rota: `/home-preview/`.
 
-Atualização mais recente: hero sem pessoas, com mesa de criação e objetos; redes selecionadas: LinkedIn, Instagram, TikTok e X. LinkedIn e X aparecem como texto, sem link inventado, enquanto suas URLs estão pendentes. O símbolo improvisado de O Grão foi retirado e sua paleta oficial foi aplicada. O arquivo original do logo enviado na conversa ainda precisa ser anexado em formato utilizável para ser incorporado sem redesenho.
+## Arquitetura e direção
 
-Reconstrução estática em HTML, CSS e JavaScript mínimo. Não há framework, instalação de dependências do site ou etapa de build. O menu é uma navegação expansível, não uma janela modal: ESC devolve foco ao botão, selecionar uma âncora move foco para a seção, e sair do cabeçalho fecha o menu.
+Capa tipográfica com três fragmentos reais: Tenderness, Bento e PARALLAX. A fotografia de mesa foi retirada. Tenderness é uma mini-landing vinho, com logo oficial, fotografia e uma interface; O Grão tem seção clara própria, nome tipográfico e paisagem canônica. O índice apresenta exatamente cinco entradas: Bento, Before You Read, PARALLAX, Até Que o Caos Nos Separe e o livro de Lyn Campos, com uma única imagem. Seguem conexão entre projetos, ideias, Sobre com a foto pessoal e quatro redes.
 
-## Escopo e proteção
+As composições preservam identidades diferentes. Não há carrossel, colagem de livros, seção Escritas & identidade, mockups novos, framework ou dependências de aplicação. No mobile o índice vira uma sequência vertical de número, imagem e texto. LinkedIn e X aparecem sem links enquanto suas URLs estão pendentes.
 
-Todos os arquivos de aplicação alterados ou adicionados estão em `home-preview/`. A home oficial e as páginas e identidades dos projetos foram preservadas. Nenhum merge ou push foi realizado.
+## Assets
 
-SHA-256 de `/index.html` antes e depois da reconstrução:
+Assets oficiais das páginas dos projetos foram reutilizados sem alteração. Bento usa `assets/bento-editorial.webp`: conversão lossless do PNG oficial, com igualdade de pixels RGBA verificada, reduzindo o arquivo de 664.506 para 396.824 bytes.
+
+**Asset oficial do logo de O Grão ainda necessário.** Até seu fornecimento, a página usa somente o nome tipográfico, sem símbolo inventado. A paisagem oficial de O Grão tem resolução original de 1000 × 585; não foi substituída por imagem genérica.
+
+Não foi encontrado asset canônico de Até Que o Caos Nos Separe; sua entrada é tipográfica e informa Em desenvolvimento. URLs de LinkedIn e X também permanecem pendentes. Instagram e TikTok usam exatamente as URLs fornecidas. O link de Bento foi preservado; sua verificação externa em rodada anterior foi bloqueada pelo proxy, portanto o destino externo não foi confirmado.
+
+Assets antigos de hero permanecem nos arquivos, mas não são utilizados. Nenhuma página original dos projetos foi editada.
+
+## QA
+
+Validação em Chromium real nas larguras 320, 375, 390, 430, 768, 1024 e 1440 px:
+
+- `document.documentElement.scrollWidth === document.documentElement.clientWidth` nas sete larguras.
+- Imagens decodificadas, sem 404; sem textos cortados, âncoras inexistentes ou erros de console.
+- Sete projetos com headings únicos, índice com cinco entradas e livro com somente uma imagem.
+- Menu com teclado, ESC e retorno de foco; âncoras movem foco à seção. Navegação disponível sem JavaScript.
+- `prefers-reduced-motion` respeitado.
+- Axe-core WCAG 2 A/AA e WCAG 2.1 A/AA: zero violações detectadas nas sete larguras.
+- Quatro destinos locais dos projetos retornaram HTTP 200.
+
+Screenshots de página inteira: `/workspace/artifacts/home-editorial-v3/home-preview-1440.png` e `home-preview-390.png`; resultados em `results.json` no mesmo diretório. Revisão visual examinou capa, ritmo, hierarquia, índice, seção pessoal e fechamento. A quebra do título mobile foi refinada para evitar uma palavra isolada. Após revisão independente sem problemas importantes, legendas de 7–8 px foram ampliadas para 9 px e os testes foram repetidos. A exportação autocontida também passou em 390 e 1440 px com rede bloqueada, imagens decodificadas, estilos, menu e ausência de overflow. No teste de template, as identidades reais na abertura e as composições distintas de Tenderness, O Grão e índice sustentam a direção de journal.
+
+## Repetir
+
+Na raiz do repositório, servir com `python3 -m http.server 8000 --bind 127.0.0.1`. Com Python Playwright e Chromium disponíveis, executar `python3 home-preview/qa/check.py`. Axe é aplicado quando `/tmp/home-preview-tools/node_modules/axe-core/axe.min.js` existe; sem esse arquivo, a auditoria adicional não é executada.
+
+`python3 home-preview/qa/export_preview.py` gera `/workspace/artifacts/home-editorial-v3/preview.html`, exportação autocontida para visualizadores de arquivos que não resolvem CSS e assets externos. A exportação incorpora imagens, CSS e JavaScript e aponta links de projetos para as páginas oficiais; não publica o site.
+
+## Escopo protegido
+
+A home oficial `/index.html` foi preservada. SHA-256 antes e depois:
 
 `c2efb7669125cd06189c978a9d3c42a4862420be8b54edd73a3e5076e5b02b0c`
 
-Projetos presentes:
-
-- Tenderness
-- O Grão
-- Histórias da Bíblia com Bento
-- Before You Read
-- PARALLAX
-- Até Que o Caos Nos Separe
-- E se você estiver fazendo a pergunta errada?
-
-## Referência e refinamento visual
-
-A referência desktop/mobile enviada na conversa orientou o hero fotográfico com texto à esquerda, as serifas e o itálico, o papel quente com bordas irregulares, a proporção entre os dois destaques, a faixa compacta de outros projetos, a pausa com paisagem e o encerramento pessoal.
-
-O briefing escrito prevaleceu sobre itens desatualizados na imagem: os cinco projetos secundários exigidos foram preservados, sem Planner, e o mobile usa uma lista sem carrossel ou itens parcialmente visíveis. As interfaces de Tenderness são assets oficiais em uma área separada do texto. O Grão usa sua fotografia canônica; o tablet da referência não foi recriado, pois o briefing proíbe interfaces e mockups inventados.
-
-Foram capturadas e examinadas páginas completas em 1440 px e 390 px antes e depois do refinamento. A rodada adicional ajustou a escala do hero, ampliou as interfaces oficiais, retirou o painel de identidade que ficava pequeno demais para leitura, aumentou a legibilidade dos textos e criou uma composição fotográfica mobile própria. O título e a linha editorial ficam na região livre da foto, acima da pessoa. A seção Lyn Campos permanece tipográfica, sem colagem ou miniaturas de materiais editoriais.
-
-## Assets e lacunas
-
-- `assets/hero-workspace.webp`, já presente no repositório, não é decodificável como imagem. Foi preservado, mas não é usado pela nova página.
-- Na versão anterior, `assets/hero-reference.webp` era uma reconstrução **gerada por IA** da cena fotográfica da referência aprovada, não a fotografia original nem um retrato real de Emelyn. `assets/hero-mobile.webp` é uma edição dessa reconstrução para o mobile. A pessoa aparece de costas. Esses arquivos não são mais usados pelo hero atual. `assets/hero-still-life.webp` é uma natureza-morta **gerada por IA**, sem pessoas, com livros, caderno, notebook e plantas; representa um ambiente de criação, não uma fotografia pessoal. No mobile, a foto fica abaixo da área principal do título.
-- `assets/thoughts-landscape.webp` é uma paisagem **gerada por IA** para a pausa de ideias, seguindo a atmosfera da referência. Não é um asset oficial de nenhum projeto.
-- O Grão mantém o arquivo oficial `/o-grao/assets/ograo-editorial-manifesto.webp`; sua definição original é limitada. Não houve alteração dessa fotografia, criação de telas ou invenção de identidade.
-- Não foi encontrado um asset canônico de Até Que o Caos Nos Separe. A apresentação é temporária e tipográfica, com status “Em desenvolvimento”, sem inventar embalagem ou cartas. PARALLAX mantém sua imagem própria e aparece separado.
-- Bento, Before You Read, Tenderness, o livro e o retrato pessoal usam os arquivos existentes, sem modificar os originais.
-- LinkedIn e X aguardam URLs confirmadas e estão sem links; Instagram e TikTok mantêm as URLs fornecidas. Substack foi removido da seleção a pedido da usuária.
-
-## QA executado
-
-Larguras: **320, 375, 390, 430, 768, 1024 e 1440 px**.
-
-Em todas: sete projetos visíveis; um único h1 e hierarquia de headings sem saltos; imagens decodificáveis; recursos locais sem respostas HTTP de erro; âncoras existentes; textos sem corte; conteúdo dentro da tela; `document.documentElement.scrollWidth === document.documentElement.clientWidth`; console sem erros.
-
-Menu: abertura, fechamento, ESC, retorno de foco, Tab/Shift+Tab, foco na seção selecionada. Navegação disponível com JavaScript desativado. `prefers-reduced-motion` respeitado.
-
-Auditoria axe-core 4.10.3 para WCAG 2 A/AA e WCAG 2.1 A/AA: **zero violações detectadas nas sete larguras**. Isso não equivale a uma certificação de acessibilidade; leitura sobre fotografias e fidelidade visual foram examinadas manualmente.
-
-Destinos locais verificados com HTTP 200:
-
-- `/tenderness/pt/`
-- `/o-grao/`
-- `/before-you-read/pt-br/`
-- `/e-se-voce-estiver-fazendo-a-pergunta-errada/`
-
-O link de Bento foi preservado exatamente como indicado: `https://share.google/jYHuJXqDNkUQ7qqxu`. A tentativa de acessá-lo retornou um bloqueio do proxy de saída (`CONNECT tunnel failed`, HTTP 403), portanto o destino externo não pôde ser confirmado neste ambiente. Não foi substituído por uma URL inventada. Instagram e TikTok usam as URLs confirmadas no briefing.
-
-Checagens adicionais: sintaxe de `assets/home.js`, `git diff --check`, hash da home oficial e revisão independente do código sem problemas críticos ou importantes.
-
-## Repetir a validação
-
-Na raiz do checkout, inicie um servidor em um terminal:
-
-```sh
-python3 -m http.server 8000 --bind 127.0.0.1
-```
-
-Em outro terminal, com Python Playwright e Chromium disponíveis:
-
-```sh
-python3 home-preview/qa/check.py
-node --check home-preview/assets/home.js
-git diff --check
-```
-
-O script grava screenshots completos e `results.json` em `/workspace/artifacts/home-editorial-v2/`. Esses arquivos são evidências de QA fora do checkout, não arquivos servidos pela aplicação.
-
-A auditoria axe é executada quando `/tmp/home-preview-tools/node_modules/axe-core/axe.min.js` existe. Para prepará-la sem adicionar dependências ao site:
-
-```sh
-npm install --prefix /tmp/home-preview-tools --cache /tmp/home-preview-npm-cache --no-package-lock --ignore-scripts --no-audit --no-fund axe-core@4.10.3
-```
-
-Se axe não estiver disponível, o relatório contém uma lista vazia em `accessibility`; isso significa que essa auditoria adicional não foi executada, não que ela passou.
-
-## Publicação
-
-Para o visualizador de arquivos do aplicativo, que não resolve os caminhos absolutos de CSS e imagens como um servidor web, há também uma exportação autocontida. Execute `python3 home-preview/qa/export_preview.py` para gerar `/workspace/artifacts/home-editorial-v2/preview.html`. Ela incorpora CSS, JavaScript e imagens no próprio HTML, preserva as âncoras e direciona links dos projetos ao site oficial. Foi verificada em 390 e 1440 px com as requisições de rede bloqueadas: estilos e imagens carregaram, não houve overflow ou erros de JavaScript, e o menu com ESC funcionou. A exportação é uma forma de visualizar a mesma preview, não uma publicação no site.
-
-Esta entrega é uma preview na branch de trabalho. Não substitui a home oficial, não foi mesclada a `main` e não foi publicada no site. Publicar um ambiente Codex também não publica automaticamente alterações no GitHub Pages.
+A comparação com o commit original `0178259`, excluindo `home-preview/**`, deve permanecer vazia. Todos os arquivos de aplicação alterados estão em `home-preview/`. Nenhum merge, push ou publicação em produção foi realizado. Entrega visual para aprovação.

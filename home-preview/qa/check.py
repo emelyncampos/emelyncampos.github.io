@@ -4,7 +4,7 @@ from pathlib import Path
 from playwright.async_api import async_playwright
 
 URL = 'http://127.0.0.1:8000/home-preview/'
-OUT = Path('/workspace/artifacts/home-editorial-v2')
+OUT = Path('/workspace/artifacts/home-editorial-v3')
 AXE = Path('/tmp/home-preview-tools/node_modules/axe-core/axe.min.js')
 WIDTHS = [320, 375, 390, 430, 768, 1024, 1440]
 PROJECTS = ['Tenderness', 'O Grão', 'Histórias da Bíblia com Bento', 'Before You Read', 'PARALLAX', 'Até Que o Caos Nos Separe', 'E se você estiver fazendo a pergunta errada?']
@@ -21,6 +21,12 @@ async def main():
         page.on('pageerror', lambda e: errors.append(str(e)))
         page.on('console', lambda m: errors.append(m.text) if m.type == 'error' else None)
         await page.goto(URL, wait_until='networkidle')
+        assert await page.get_by_role('heading', level=1, name='Construindo ideias em coisas reais.', exact=True).count() == 1, 'A capa deve apresentar a tese editorial V3'
+        index = page.get_by_role('region', name='Índice de projetos', exact=True)
+        assert await index.get_by_role('heading', level=3).count() == 5, 'O índice deve conter exatamente cinco entradas'
+        assert await page.locator('img[src*="/e-se-voce-estiver-fazendo-a-pergunta-errada/assets/"]').count() == 1, 'O livro deve ter uma única imagem'
+        assert await page.locator('.hero img[src*="hero-"]').count() == 0, 'Fotografia lifestyle não deve ser protagonista da capa'
+        assert await page.locator('#escritas').count() == 0, 'Não criar seção separada de Escritas & identidade'
         for name in PROJECTS:
             heading = page.get_by_role('heading', name=name, exact=True)
             assert await heading.count() == 1, f'Projeto ausente ou duplicado: {name}'
@@ -84,7 +90,7 @@ async def main():
             assert response.status == 200, f'Link local: {route} retornou {response.status}'
         no_js = await browser.new_page(java_script_enabled=False, viewport={'width':390,'height':844})
         await no_js.goto(URL, wait_until='networkidle')
-        for name in ['Projetos', 'Escritas', 'Ideias', 'Sobre']:
+        for name in ['Projetos', 'Ideias', 'Sobre']:
             assert await no_js.get_by_role('navigation').get_by_role('link',name=name,exact=True).is_visible(), f'Navegação sem JS: {name}'
         await no_js.close()
         await page.set_viewport_size({'width':390,'height':844})

@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = Path('/workspace/artifacts/home-editorial-v2/preview.html')
+OUT = Path('/workspace/artifacts/home-editorial-v3/preview.html')
 
 
 def embed(match):
