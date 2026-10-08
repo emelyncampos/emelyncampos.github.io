@@ -1,17 +1,22 @@
 import asyncio
 import json
+import re
 from pathlib import Path
 from playwright.async_api import async_playwright
 from cdn_bridge import prepare_browser_cdn
 
 URL = 'http://127.0.0.1:8000/home-preview/'
-OUT = Path('/workspace/artifacts/home-editorial-v4')
+OUT = Path('/workspace/artifacts/home-html-base')
 AXE = Path('/tmp/home-preview-tools/node_modules/axe-core/axe.min.js')
 WIDTHS = [320, 375, 390, 430, 768, 1024, 1440]
 PROJECTS = ['Tenderness', 'O Grão', 'Histórias da Bíblia com Bento', 'Before You Read', 'PARALLAX', 'Até Que o Caos Nos Separe', 'E se você estiver fazendo a pergunta errada?']
 
 async def main():
     OUT.mkdir(parents=True, exist_ok=True)
+    html = (Path(__file__).resolve().parents[1] / 'index.html').read_text()
+    old_terms = r'marca|branding|cliente|metodologia|imersão|Atelier Flora|Lume|Aura Wellness|Cass Amarela|Ana Luiza|design estratégico|unsplash|placehold'
+    assert not re.search(old_terms, html, re.IGNORECASE), 'Conteúdo fictício ou imagem genérica restante'
+
     async with async_playwright() as p:
         browser = await p.chromium.launch(executable_path='/usr/bin/chromium', headless=True, args=['--no-sandbox'])
         page = await browser.new_page(viewport={'width': 390, 'height': 844}, device_scale_factor=1)
@@ -25,39 +30,46 @@ async def main():
         await page.goto(URL, wait_until='networkidle')
         await page.evaluate('document.fonts.ready')
         assert await page.locator('style').evaluate_all('(styles) => styles.some(s => s.textContent.includes("tailwindcss v4.1.18"))'), 'Tailwind CDN não inicializou'
-        assert await page.evaluate('document.fonts.check("600 54px Cormorant Garamond")'), 'Fonte editorial não carregou'
-        assert await page.get_by_role('heading', level=1, name='Construindo ideias em coisas reais.', exact=True).count() == 1, 'A capa deve apresentar a tese editorial V4'
-        index = page.get_by_role('region', name='Diferentes caminhos. A mesma origem.', exact=True)
-        assert await index.get_by_role('heading', level=3).count() == 5, 'O índice deve conter exatamente cinco entradas'
+        assert await page.evaluate('document.fonts.check("300 54px Cormorant Garamond") && document.fonts.check("400 14px Plus Jakarta Sans")'), 'Fonte editorial não carregou'
+        assert await page.get_by_role('heading', level=1, name='Construindo com as ferramentas do futuro sem terceirizar o que nos faz humanos.', exact=True).count() == 1, 'A capa deve usar a mensagem pessoal do HTML-base'
+        index = page.get_by_role('region', name='O que estou construindo.', exact=True)
+        assert await index.get_by_role('heading', level=3).count() == 7, 'O grid deve conter exatamente sete projetos'
         assert await page.locator('img[src*="/e-se-voce-estiver-fazendo-a-pergunta-errada/assets/"]').count() == 1, 'O livro deve ter uma única imagem'
-        assert await page.locator('.project-cover figure').count() == 4, 'A capa mobile deve compor quatro projetos reais'
+        assert await page.locator('.hero img').count() == 1, 'A capa deve ter uma imagem forte, sem mosaico'
+        assert await page.locator('a[href="mailto:contato@emelyncampos.com.br"]').count() == 1
+        assert await page.locator('[data-pending-profile][href]').count() == 0, 'Não inventar URLs pendentes'
         assert await page.locator('#escritas').count() == 0, 'Não criar seção separada de Escritas & identidade'
         for name in PROJECTS:
             heading = page.get_by_role('heading', name=name, exact=True)
             assert await heading.count() == 1, f'Projeto ausente ou duplicado: {name}'
             assert await heading.is_visible(), f'Projeto oculto: {name}'
         assert await page.get_by_role('heading', level=1).count() == 1, 'A página deve ter um único h1'
-        assert await page.get_by_role('button', name='Abrir menu').count() == 1
-        menu = page.locator('button[aria-controls="primary-navigation"]')
+        menu = page.get_by_role('button', name='Abrir menu', exact=True)
         await menu.click()
+        overlay = page.get_by_role('dialog', name='Menu principal')
+        assert await overlay.is_visible(), 'Menu fullscreen ausente'
         assert await menu.get_attribute('aria-expanded') == 'true'
+        assert await page.locator('body').evaluate('(el) => getComputedStyle(el).overflowY') == 'hidden'
         await page.keyboard.press('Escape')
-        assert await menu.get_attribute('aria-expanded') == 'false'
-        assert await menu.evaluate('(el) => el === document.activeElement'), 'ESC deve devolver foco ao botão'
+        assert not await overlay.is_visible()
+        assert await menu.evaluate('(el) => el === document.activeElement'), 'ESC deve devolver foco'
         await menu.click()
-        await page.get_by_role('navigation', name='Navegação principal').get_by_role('link', name='Sobre', exact=True).click()
-        assert await menu.get_attribute('aria-expanded') == 'false', 'Selecionar âncora deve fechar menu'
-        assert await page.locator('#sobre').evaluate('(el) => el === document.activeElement'), 'Âncora deve mover foco para a seção'
+        await overlay.get_by_role('link', name='Sobre', exact=True).click()
+        assert not await overlay.is_visible()
+        assert await page.locator('#sobre').evaluate('(el) => el === document.activeElement')
         await menu.click()
         await page.keyboard.press('Tab')
-        focused = await page.evaluate('document.activeElement.textContent.trim()')
-        assert focused == 'Projetos', f'Ordem de foco do menu: {focused}'
+        assert await page.evaluate('document.activeElement.textContent.trim()') == 'Projetos'
+        await overlay.get_by_role('link', name='Acompanhe', exact=True).focus()
+        await page.keyboard.press('Tab')
+        assert await page.get_by_role('button', name='Fechar menu').evaluate('(el) => el === document.activeElement'), 'Foco deve ficar no overlay'
+        await page.keyboard.press('Shift+Tab')
+        assert await overlay.get_by_role('link', name='Acompanhe', exact=True).evaluate('(el) => el === document.activeElement')
         await page.keyboard.press('Escape')
         await menu.click()
-        await page.get_by_role('link', name='Projetos', exact=True).focus()
-        await page.keyboard.press('Shift+Tab')
-        assert await menu.evaluate('(el) => el === document.activeElement')
-        await page.keyboard.press('Escape')
+        await page.set_viewport_size({'width': 768, 'height': 900})
+        assert not await overlay.is_visible(), 'Resize para desktop deve fechar o menu'
+        assert await page.locator('body').evaluate('(el) => getComputedStyle(el).overflowY') != 'hidden'
         results = []
         for width in WIDTHS:
             await page.set_viewport_size({'width': width, 'height': 900 if width > 768 else 844})
@@ -97,7 +109,7 @@ async def main():
         no_js = await browser.new_page(java_script_enabled=False, viewport={'width':390,'height':844})
         await no_js.goto(URL, wait_until='networkidle')
         for name in ['Projetos', 'Ideias', 'Sobre']:
-            assert await no_js.get_by_role('navigation').get_by_role('link',name=name,exact=True).is_visible(), f'Navegação sem JS: {name}'
+            assert await no_js.get_by_role('navigation', name='Navegação principal', exact=True).get_by_role('link',name=name,exact=True).is_visible(), f'Navegação sem JS: {name}'
         await no_js.close()
         await page.set_viewport_size({'width':390,'height':844})
         await page.emulate_media(reduced_motion='reduce')

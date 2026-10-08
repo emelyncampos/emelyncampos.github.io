@@ -1,4 +1,4 @@
-"""Export V4 HTML, authentic compiled Tailwind, fonts and images in one file."""
+"""Export HTML-base HTML, authentic compiled Tailwind, fonts and images in one file."""
 import asyncio
 import base64
 import mimetypes
@@ -8,7 +8,7 @@ from playwright.async_api import async_playwright
 from cdn_bridge import prepare_browser_cdn
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = Path('/workspace/artifacts/home-editorial-v4/preview.html')
+OUT = Path('/workspace/artifacts/home-html-base/preview.html')
 URL = 'http://127.0.0.1:8000/home-preview/'
 
 
@@ -33,21 +33,25 @@ async def main():
         page = await browser.new_page()
         await prepare_browser_cdn(page)
         await page.goto(URL, wait_until='networkidle')
-        generated = await page.locator('style').evaluate_all('(styles) => styles.map(s => s.textContent).join("\\n")')
+        generated = await page.locator('style:not([type="text/tailwindcss"])').evaluate_all('(styles) => styles.map(s => s.textContent).join("\\n")')
         assert 'tailwindcss v4.1.18' in generated, 'Tailwind did not compile'
         await browser.close()
     html = (ROOT / 'home-preview/index.html').read_text()
+    html = re.sub(r'<style\b[^>]*type="text/tailwindcss"[^>]*>.*?</style>', '', html, flags=re.DOTALL)
     css = (ROOT / 'home-preview/assets/home.css').read_text()
     css = re.sub(r'url\(["\']?(/[^"\')]+)["\']?\)', lambda m: f'url("{data_uri(m[1])}")', css)
+    fa = (ROOT / 'home-preview/assets/fontawesome.css').read_text()
+    fa = re.sub(r'url\(["\']?(\./fonts/[^"\')]+)["\']?\)', lambda m: f'url("{data_uri("/home-preview/assets/" + m[1][2:])}")', fa)
+    html = re.sub(r'<link\b[^>]*href="/home-preview/assets/fontawesome.css"[^>]*>', lambda m: f'<style>{fa}</style>', html)
     js = (ROOT / 'home-preview/assets/home.js').read_text()
     html = re.sub(r'<script\b[^>]*src="https://cdn.jsdelivr.net/[^>]+></script>', '', html)
-    html = re.sub(r'<link\b[^>]*href="/home-preview/assets/home.css"[^>]*>', f'<style>\n{generated}\n</style>\n<style>\n{css}\n</style>', html)
+    html = re.sub(r'<link\b[^>]*href="/home-preview/assets/home.css"[^>]*>', lambda m: f'<style>\n{generated}\n</style>\n<style>\n{css}\n</style>', html)
     html = re.sub(r'<script\b[^>]*src="/home-preview/assets/home.js"[^>]*></script>', '', html)
     html = re.sub(r'\b(src|href)="(/[^\"]+)"', embed, html)
     html = html.replace('</body>', f'<script>\n(() => {{\n{js}\n}})();\n</script>\n</body>')
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(html)
-    print(f'Exported self-contained V4 preview: {OUT} ({OUT.stat().st_size:,} bytes)')
+    print(f'Exported self-contained HTML-base preview: {OUT} ({OUT.stat().st_size:,} bytes)')
 
 
 if __name__ == '__main__':

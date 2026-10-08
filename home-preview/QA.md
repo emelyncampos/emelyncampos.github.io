@@ -1,57 +1,52 @@
-# Emelyn Campos — Editorial / Creative Journal V4
+# Nova Home — adaptação do HTML fornecido
 
-Branch: `home-editorial-v2`. Rota de trabalho: `/home-preview/`. Esta versão substitui a composição V3 somente na preview.
+Branch `home-editorial-v2`, rota `/home-preview/`. Base de design e implementação: o HTML completo enviado pelo usuário, com conteúdo pessoal real em lugar do posicionamento fictício. Não é uma evolução da composição V3/V4.
 
-## Direção e comparação visual
+## O que foi preservado
 
-A imagem anexada ao briefing V4 é a referência principal, usada para composição, escala, serifas, tons terrosos, proporções e ritmo vertical. Não foi tratada apenas como inspiração.
+- Paleta original: pergaminho #F7F5F0, terroso #8C6D53, terrosoDark #664E3A, creme #EFECE6, cinzaTexto #5A5652 e suave #D8CEBF. Verde #28372D reservado a O Grão.
+- Google Fonts Cormorant Garamond (300/400/500 e itálico 400) e Plus Jakarta Sans (300/400/500/600), mantendo a relação serif/sans do HTML-base.
+- Cabeçalho fixo leve, menu desktop discreto, CTA contornado e menu fullscreen no mobile.
+- Hero de duas colunas, retrato 4:5 com borda clara, título serifado grande com trecho itálico/terroso e dois CTAs. A foto real `assets/emelyn.webp` mantém a proporção original sem cortar o rosto. Não há mosaico ou texto sobre a fotografia.
+- Bloco de conexão em duas colunas, com texto e fragmentos assimétricos; grid de projetos em 12 colunas, primeira linha 8/4 e segunda 4/8, continuando em 5/3/4. Mobile linear na ordem especificada.
+- Ideias em quatro colunas, agora com números e linhas; Sobre com foto/texto; encerramento com fundo terrosoDark, redes e rodapé.
 
-- Capa: mensagem grande à esquerda, destaque terroso em “coisas reais.”; quatro peças de Tenderness, O Grão, Bento e PARALLAX à direita, com bordas de papel e deslocamentos controlados. Mobile: mensagem, manifesto, CTA e quatro peças abaixo do texto.
-- Tenderness: faixa vinho com logo oficial, texto, uma interface de consulta e fotografia oficial. A interface de memórias aparece na capa. No mobile, CTA depois da dupla imagem/interface.
-- O Grão: faixa contemplativa com imagem à esquerda e texto à direita no desktop; mobile texto antes da paisagem.
-- Outros projetos: cinco peças editoriais em uma única linha a partir de 768 px; abaixo de 700 px, lista vertical legível sem carrossel.
-- Fechamento: pergunta de ideias, Sobre com retrato pessoal somente ali e quatro redes. O bloco conceitual separado da V3 foi retirado.
+## Mudanças de conteúdo e comportamento
 
-Primeira rodada de screenshots em `/workspace/artifacts/home-editorial-v4/round-1/`. Depois da comparação com a referência, a segunda rodada ajustou contraste do logo sobre o vinho, legibilidade das legendas, posição de legendas fora das sobreposições e enquadramento completo do Bento. Screenshots finais: `qa/screenshots/v4/home-preview-1440.png` e `home-preview-390.png`.
+O conteúdo apresenta Emelyn como criadora dos próprios produtos, livros, jogos e experiências. Foram removidos métricas, etapas de serviço, depoimento, nomes fictícios, referências a clientes e CTAs comerciais. A busca automatizada no HTML final verifica todos os termos antigos especificados no briefing, além de Unsplash/placehold.
 
-Os assets reais prevalecem sobre os ilustrados na referência. Bento é o personagem oficial existente, sem redesenho. PARALLAX usa seu still life oficial, não uma imagem de suspense inventada. O Grão mantém a paisagem canônica, sem substituir por fotografia genérica de Bíblia. O livro aparece somente uma vez, com um único mockup oficial.
+Os sete projetos aparecem uma vez como headings: Tenderness, O Grão, Histórias da Bíblia com Bento, Before You Read, PARALLAX, Até Que o Caos Nos Separe e E se você estiver fazendo a pergunta errada? (Lyn Campos). Tenderness mantém vinho e interfaces oficiais; O Grão tem composição contemplativa própria. O livro usa uma única imagem. Textos não dependem de hover para aparecer. Projetos com páginas reais usam links diretos; os demais preservam status/link fornecido, sem modais repetitivos.
 
-## Tecnologia
+O menu fullscreen do HTML-base usa `dialog` nativo: foco contido, ESC, botão de fechar, retorno ao acionador, seleção de âncora com foco na seção, bloqueio de rolagem e fechamento na mudança para desktop. Os links principais também ficam disponíveis sem JS.
 
-HTML5 semântico, Tailwind CSS Browser 4.1.18 via jsDelivr CDN, CSS customizado para direção de arte e responsividade, JavaScript mínimo para o menu.
+## Assets e links pendentes
 
-Google Fonts Cormorant Garamond (400/500/600) e Inter (400/500), distribuídas localmente via Fontsource 5.3.0, com licenças OFL em `assets/fonts/`. O subconjunto Latin contém os caracteres portugueses usados. O endpoint fonts.googleapis.com é bloqueado pelo proxy; servir as fontes localmente preserva a tipografia no ambiente e na preview.
+**Asset oficial do logo de O Grão ainda necessário.** Apenas o nome tipográfico é usado. Não foi encontrado asset canônico de Até Que o Caos Nos Separe; sua composição é tipográfica, sem embalagem ou cartas falsas, com status Em desenvolvimento.
 
-Chromium possui uma base de CAs separada e inicialmente recusou o certificado do proxy ao acessar o CDN. O helper `qa/cdn_bridge.py` baixa os bytes autênticos do URL fixo usando urllib, proxy e TLS verificado, e entrega a resposta ao browser para QA. A página real continua usando o CDN. A inicialização real do Tailwind é verificada pelo script de QA; não é substituído por um mock, e TLS não foi desativado.
+LinkedIn e X permanecem sem href, preparados para receber URLs confirmadas. Instagram e TikTok usam as URLs fornecidas. Email atualizado para `contato@emelyncampos.com.br`. Bento mantém o link fornecido anteriormente; a confirmação externa desse destino foi bloqueada pelo proxy na rodada anterior.
 
-## Projetos e pendências
+Todos os assets dos projetos e o retrato permanecem intactos em suas páginas originais. As fontes Google são servidas localmente via Fontsource 5.3.0/OFL porque fonts.googleapis.com é bloqueado neste ambiente. Font Awesome 6.4.0 foi preservado, com CSS, webfonts e licença locais. A aplicação não ganhou dependências além das especificadas.
 
-Os sete projetos estão presentes com headings únicos: Tenderness, O Grão, Histórias da Bíblia com Bento, Before You Read, PARALLAX, Até Que o Caos Nos Separe e E se você estiver fazendo a pergunta errada? (Lyn Campos).
+Tailwind continua via CDN (Browser 4.1.18/jsDelivr). A configuração do HTML-base foi transcrita para `@theme`, sem alterar seus tokens, para compatibilidade com esse CDN. O bridge de QA baixa os bytes reais com TLS verificado e o proxy configurado, pois a CA do ambiente não é reconhecida pelo Chromium. A página servida continua referenciando o CDN; não há mock nem desativação de TLS.
 
-**Asset oficial do logo de O Grão ainda necessário.** A página usa somente O Grão em tipografia editorial, sem símbolo improvisado.
+## Revisão visual e QA
 
-Nenhum asset canônico de Até Que o Caos Nos Separe foi encontrado. A peça é tipográfica, sem embalagem ou cartas inventadas, e informa Em desenvolvimento. URLs de LinkedIn e X continuam pendentes, sem href falso. Instagram e TikTok usam as URLs confirmadas. O link de Bento é o fornecido no briefing anterior; a verificação externa foi bloqueada pelo proxy naquela rodada.
+Primeira rodada full-page em `/workspace/artifacts/home-html-base/round-1/`. Comparação com a estrutura do HTML fornecido verificou proporções, fotografia, tipografia, respiro, grid e encerramento. A rodada de refinamento corrigiu espaçamento duplicado no hero decorrente da diferença entre versões de Tailwind e manteve as distâncias do layout-base.
 
-Nenhum arquivo ou imagem das páginas originais dos projetos foi editado.
+Screenshots finais: `qa/screenshots/html-base/home-preview-1440.png` e `home-preview-390.png`. Revisão independente confirmou fidelidade à família visual e não encontrou problemas bloqueantes. Um detalhe de ARIA no agrupamento de imagens foi corrigido.
 
-## Validação
+QA em Chromium real: 320, 375, 390, 430, 768, 1024 e 1440 px. Verifica igualdade scrollWidth/clientWidth, imagens decodificadas, ausência de 404/erros JS, textos, headings, âncoras, sete projetos, uma imagem do livro, fonte carregada, Tailwind inicializado e conteúdo fictício ausente. Menu testado com Tab/Shift+Tab/ESC, âncoras, foco, bloqueio de rolagem e resize. Navegação sem JS e prefers-reduced-motion também testados. Quatro destinos locais dos projetos retornam HTTP 200.
 
-Executar `python3 -m http.server 8000 --bind 127.0.0.1` na raiz do repositório e, em outro terminal, `python3 home-preview/qa/check.py`.
+Axe-core WCAG 2 A/AA e WCAG 2.1 A/AA registra violações e checks inconclusivos em `results.json`; zero violações detectadas nas sete larguras não equivale a certificação. Também houve revisão visual do contraste e dos enquadramentos.
 
-O QA usa Chromium real e testa 320, 375, 390, 430, 768, 1024 e 1440 px: igualdade entre scrollWidth e clientWidth, imagens decodificadas, ausência de 404/erros de console, headings e âncoras, Tailwind inicializado e fonte carregada. Menu testado com Tab, Shift+Tab, ESC e foco na seção. Navegação disponível sem JS; movimento reduzido respeitado. Quatro destinos locais dos projetos retornam HTTP 200.
+Repetir: iniciar `python3 -m http.server 8000 --bind 127.0.0.1` na raiz do checkout e executar `python3 home-preview/qa/check.py`. Axe é aplicado quando o arquivo `/tmp/home-preview-tools/node_modules/axe-core/axe.min.js` existe; sua ausência significa auditoria adicional não executada.
 
-A checagem de texto distingue overflow visível dos glifos da serif de um corte real por overflow hidden/clip; a largura continua sendo verificada. A revisão visual examina também as legendas das peças sobrepostas.
+`python3 home-preview/qa/export_preview.py` gera `/workspace/artifacts/home-html-base/preview.html`, com Tailwind compilado, Google Fonts, Font Awesome, imagens e menu incorporados. O arquivo foi validado offline em 390/1440, inclusive fontes, ícones e menu fullscreen. Não é uma publicação pública.
 
-Axe-core WCAG 2 A/AA e WCAG 2.1 A/AA: zero violações detectadas nas sete larguras; verificações incompletas de contraste/atributos são registradas no relatório. Contraste sobre fotografias e enquadramentos também são examinados visualmente. Não se trata de uma certificação de acessibilidade.
+## Proteção da Home atual
 
-`python3 home-preview/qa/export_preview.py` gera `/workspace/artifacts/home-editorial-v4/preview.html`, com CSS produzido pelo Tailwind, fontes e imagens incorporados e JS do menu inline. A exportação foi testada em 390 e 1440 px com requisições externas bloqueadas: imagens, fontes, estilos, overflow e menu. É um arquivo de avaliação; não publica a página.
-
-## Proteção da Home oficial
-
-A comparação `git diff --exit-code 0178259 -- . ':(exclude)home-preview/**'` permanece vazia. `/index.html` mantém o SHA-256 original:
+Comparação `git diff --exit-code 0178259 -- . ':(exclude)home-preview/**'` sem mudanças. SHA-256 de `/index.html` preservado:
 
 `c2efb7669125cd06189c978a9d3c42a4862420be8b54edd73a3e5076e5b02b0c`
 
-Revisão independente final sem problemas bloqueantes; conferiu também legendas e exportação offline.
-
-Nenhum merge ou publicação oficial. O push da branch de preview, autorizado anteriormente, apenas disponibiliza os arquivos e screenshots no GitHub para avaliação pelo celular; não altera `main` nem a publicação do GitHub Pages.
+Nenhum merge ou publicação oficial. O push já autorizado da branch permite acessar os screenshots pelo GitHub e não altera `main`. Uma URL pública navegável de preview ainda não está configurada; a entrega para aprovação usa os screenshots e a exportação autocontida.
