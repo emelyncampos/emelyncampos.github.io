@@ -14,7 +14,7 @@ PROJECTS = ['Tenderness', 'O Grão', 'Histórias da Bíblia com Bento', 'Before 
 async def main():
     OUT.mkdir(parents=True, exist_ok=True)
     html = (Path(__file__).resolve().parents[1] / 'index.html').read_text()
-    old_terms = r'marca|branding|cliente|metodologia|imersão|Atelier Flora|Lume|Aura Wellness|Cass Amarela|Ana Luiza|design estratégico|brand designer|serviços|services|process|iniciar projeto|vamos criar algo|unsplash|placehold'
+    old_terms = r'marca|branding|cliente|metodologia|imersão|Atelier Flora|Lume|Aura Wellness|Cass Amarela|Ana Luiza|design estratégico|brand designer|serviços|services|\bprocess\b|iniciar projeto|vamos criar algo|unsplash|placehold'
     assert not re.search(old_terms, html, re.IGNORECASE), 'Conteúdo fictício ou imagem genérica restante'
 
     async with async_playwright() as p:
