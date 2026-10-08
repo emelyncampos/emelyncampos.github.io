@@ -1,52 +1,39 @@
-# Nova Home — adaptação do HTML fornecido
+# Home V5 — sistema visual oficial
 
-Branch `home-editorial-v2`, rota `/home-preview/`. Base de design e implementação: o HTML completo enviado pelo usuário, com conteúdo pessoal real em lugar do posicionamento fictício. Não é uma evolução da composição V3/V4.
+Branch `home-editorial-v2`; rota `/home-preview/`. Reconstrução baseada na estrutura HTML fornecida e nas três referências de portfólio editorial orgânico enviadas pelo usuário. A fotografia escolhida pelo usuário foi preservada sem edição em `assets/emelyn-retrato.jpg`.
 
-## O que foi preservado
+## Composição
 
-- Paleta original: pergaminho #F7F5F0, terroso #8C6D53, terrosoDark #664E3A, creme #EFECE6, cinzaTexto #5A5652 e suave #D8CEBF. Verde #28372D reservado a O Grão.
-- Google Fonts Cormorant Garamond (300/400/500 e itálico 400) e Plus Jakarta Sans (300/400/500/600), mantendo a relação serif/sans do HTML-base.
-- Cabeçalho fixo leve, menu desktop discreto, CTA contornado e menu fullscreen no mobile.
-- Hero de duas colunas, retrato 4:5 com borda clara, título serifado grande com trecho itálico/terroso e dois CTAs. A foto real enviada na atualização está em `home-preview/assets/emelyn-retrato.jpg`, preservada sem edição. Hero e Sobre usam enquadramento 4:5, mantendo o rosto visível; o retrato oficial anterior permanece intacto. Não há mosaico ou texto sobre a fotografia.
-- Bloco de conexão em duas colunas, com texto e fragmentos assimétricos; grid de projetos em 12 colunas, primeira linha 8/4 e segunda 4/8, continuando em 5/3/4. Mobile linear na ordem especificada.
-- Ideias em quatro colunas, agora com números e linhas; Sobre com foto/texto; encerramento com fundo terrosoDark, redes e rodapé.
+Cormorant Garamond + Plus Jakarta Sans, pergaminho #F7F5F0 e creme #EFECE6, terracota #A86F55/#7B5341 e oliva #66705C/#414B3D. Hero em duas colunas com retrato em arco, contorno fino, texto separado da foto e dois CTAs. Mobile usa fotografia seguida da mensagem. O bloco de conexão tem silhueta oliva curva e elemento botânico linear discreto; não há métricas ou conteúdo comercial.
 
-## Mudanças de conteúdo e comportamento
+Tenderness e O Grão têm região própria: vinho com logo, uma fotografia e uma interface no primeiro; paisagem oficial, curva e texto contemplativo no segundo. Selected Work usa três colunas no desktop, com imagens e texto separados por linhas; a segunda linha combina composição tipográfica do jogo e livro em proporção assimétrica. No mobile, os cinco projetos formam uma sequência vertical. Ideias usa duas colunas no desktop e uma no mobile. Sobre é tipográfico para evitar repetir o retrato. Encerramento terracota inclui redes e rodapé de 2026.
 
-O conteúdo apresenta Emelyn como criadora dos próprios produtos, livros, jogos e experiências. Foram removidos métricas, etapas de serviço, depoimento, nomes fictícios, referências a clientes e CTAs comerciais. A busca automatizada no HTML final verifica todos os termos antigos especificados no briefing, além de Unsplash/placehold.
-
-Os sete projetos aparecem uma vez como headings: Tenderness, O Grão, Histórias da Bíblia com Bento, Before You Read, PARALLAX, Até Que o Caos Nos Separe e E se você estiver fazendo a pergunta errada? (Lyn Campos). Tenderness mantém vinho e interfaces oficiais; O Grão tem composição contemplativa própria. O livro usa uma única imagem. Textos não dependem de hover para aparecer. Projetos com páginas reais usam links diretos; os demais preservam status/link fornecido, sem modais repetitivos.
-
-O menu fullscreen do HTML-base usa `dialog` nativo: foco contido, ESC, botão de fechar, retorno ao acionador, seleção de âncora com foco na seção, bloqueio de rolagem e fechamento na mudança para desktop. Os links principais também ficam disponíveis sem JS.
+Projetos presentes, uma vez como headings: Tenderness; O Grão; Histórias da Bíblia com Bento; Before You Read; PARALLAX; Até Que o Caos Nos Separe; E se você estiver fazendo a pergunta errada? (Lyn Campos). Não há imagens inventadas, placeholders, pessoas fictícias, embalagens ou cartas falsas. Bento preserva o personagem oficial. O livro usa uma única imagem.
 
 ## Assets e links pendentes
 
-**Asset oficial do logo de O Grão ainda necessário.** Apenas o nome tipográfico é usado. Não foi encontrado asset canônico de Até Que o Caos Nos Separe; sua composição é tipográfica, sem embalagem ou cartas falsas, com status Em desenvolvimento.
+**Asset oficial do logo de O Grão ainda necessário.** Apenas seu nome tipográfico é usado. Não foi encontrado asset canônico de Até Que o Caos Nos Separe; a peça é tipográfica com status Em desenvolvimento.
 
-LinkedIn e X permanecem sem href, preparados para receber URLs confirmadas. Instagram e TikTok usam as URLs fornecidas. Email atualizado para `contato@emelyncampos.com.br`. Bento mantém o link fornecido anteriormente; a confirmação externa desse destino foi bloqueada pelo proxy na rodada anterior.
+LinkedIn e X permanecem visíveis sem href, aguardando URLs confirmadas. Instagram, TikTok e email usam os destinos fornecidos. Bento mantém o link fornecido; sua validação externa foi bloqueada pelo proxy na rodada anterior. Quatro páginas locais dos projetos retornaram HTTP 200.
 
-Todos os assets dos projetos e o retrato permanecem intactos em suas páginas originais. As fontes Google são servidas localmente via Fontsource 5.3.0/OFL porque fonts.googleapis.com é bloqueado neste ambiente. Font Awesome 6.4.0 foi preservado, com CSS, webfonts e licença locais. A aplicação não ganhou dependências além das especificadas.
+## QA e segunda rodada
 
-Tailwind continua via CDN (Browser 4.1.18/jsDelivr). A configuração do HTML-base foi transcrita para `@theme`, sem alterar seus tokens, para compatibilidade com esse CDN. O bridge de QA baixa os bytes reais com TLS verificado e o proxy configurado, pois a CA do ambiente não é reconhecida pelo Chromium. A página servida continua referenciando o CDN; não há mock nem desativação de TLS.
+Página real aberta em Chromium; screenshots full-page de primeira rodada em `/workspace/artifacts/home-v5/round-1/`. Comparação visual com as três referências verificou arco, curvas, paleta, ritmo editorial e hierarquia dos projetos. A segunda rodada corrigiu a ordem do Tenderness no mobile (texto/CTA antes das imagens), refinou a curva oliva e acrescentou um desenho botânico discreto. Também aumentou o contraste de duas legendas no rodapé.
 
-## Revisão visual e QA
+Screenshots finais em `qa/screenshots/v5/home-preview-1440.png` e `home-preview-390.png`. Revisão independente de código e screenshots sem problemas bloqueantes.
 
-Primeira rodada full-page em `/workspace/artifacts/home-html-base/round-1/`. Comparação com a estrutura do HTML fornecido verificou proporções, fotografia, tipografia, respiro, grid e encerramento. A rodada de refinamento corrigiu espaçamento duplicado no hero decorrente da diferença entre versões de Tailwind e manteve as distâncias do layout-base.
+`qa/results-v5.json` contém os resultados: 320, 375, 390, 430, 768, 1024 e 1440 px; igualdade scrollWidth/clientWidth em todas; nenhuma imagem quebrada, HTTP 404, erro JS, texto truncado, âncora inexistente ou projeto ausente. Fontes e Tailwind carregados. Menu nativo fullscreen testado com Tab, Shift+Tab, ESC, retorno de foco, seleção de âncora, bloqueio de rolagem e resize. Navegação sem JS e prefers-reduced-motion também passaram.
 
-Screenshots finais: `qa/screenshots/html-base/home-preview-1440.png` e `home-preview-390.png`. Revisão independente confirmou fidelidade à família visual e não encontrou problemas bloqueantes. Um detalhe de ARIA no agrupamento de imagens foi corrigido.
+Axe-core WCAG 2 A/AA e 2.1 A/AA: zero violações detectadas nas sete larguras; checks inconclusivos registrados no JSON. Isso não equivale a certificação. Revisão visual complementou contraste e enquadramentos.
 
-QA em Chromium real: 320, 375, 390, 430, 768, 1024 e 1440 px. Verifica igualdade scrollWidth/clientWidth, imagens decodificadas, ausência de 404/erros JS, textos, headings, âncoras, sete projetos, uma imagem do livro, fonte carregada, Tailwind inicializado e conteúdo fictício ausente. Menu testado com Tab/Shift+Tab/ESC, âncoras, foco, bloqueio de rolagem e resize. Navegação sem JS e prefers-reduced-motion também testados. Quatro destinos locais dos projetos retornam HTTP 200.
+Repetir: iniciar `python3 -m http.server 8000 --bind 127.0.0.1` na raiz e executar `python3 home-preview/qa/check.py`. Axe depende do pacote já instalado em `/tmp/home-preview-tools/node_modules/axe-core/axe.min.js`; se ausente, essa auditoria adicional não é executada.
 
-Axe-core WCAG 2 A/AA e WCAG 2.1 A/AA registra violações e checks inconclusivos em `results.json`; zero violações detectadas nas sete larguras não equivale a certificação. Também houve revisão visual do contraste e dos enquadramentos.
+Tailwind Browser 4.1.18 continua via CDN, com tokens @theme. Google Fonts são servidas localmente com licenças OFL porque fonts.googleapis.com é bloqueado no ambiente. Font Awesome 6.4.0 e suas licenças locais permanecem. O bridge de QA recebe bytes autênticos do CDN através do proxy/TLS verificado, sem desligar verificação de certificados.
 
-Repetir: iniciar `python3 -m http.server 8000 --bind 127.0.0.1` na raiz do checkout e executar `python3 home-preview/qa/check.py`. Axe é aplicado quando o arquivo `/tmp/home-preview-tools/node_modules/axe-core/axe.min.js` existe; sua ausência significa auditoria adicional não executada.
+`python3 home-preview/qa/export_preview.py` gera `/workspace/artifacts/home-v5/preview.html` autocontido. Exportação validada offline em 390/1440 com estilos, fontes, imagens, ícones e menu; não é uma publicação pública.
 
-`python3 home-preview/qa/export_preview.py` gera `/workspace/artifacts/home-html-base/preview.html`, com Tailwind compilado, Google Fonts, Font Awesome, imagens e menu incorporados. O arquivo foi validado offline em 390/1440, inclusive fontes, ícones e menu fullscreen. Não é uma publicação pública.
+## Proteção da Home oficial
 
-## Proteção da Home atual
+`git diff --exit-code 0178259 -- . ':(exclude)home-preview/**'` sem alterações. SHA-256 de `/index.html` preservado: `c2efb7669125cd06189c978a9d3c42a4862420be8b54edd73a3e5076e5b02b0c`.
 
-Comparação `git diff --exit-code 0178259 -- . ':(exclude)home-preview/**'` sem mudanças. SHA-256 de `/index.html` preservado:
-
-`c2efb7669125cd06189c978a9d3c42a4862420be8b54edd73a3e5076e5b02b0c`
-
-Nenhum merge ou publicação oficial. O push já autorizado da branch permite acessar os screenshots pelo GitHub e não altera `main`. Uma URL pública navegável de preview ainda não está configurada; a entrega para aprovação usa os screenshots e a exportação autocontida.
+Nenhum merge, substituição da Home ou publicação em produção. Push da branch de preview já autorizado permite acessar os screenshots no GitHub. Não há infraestrutura configurada para URL pública navegável de uma branch isolada; não foi improvisado deploy.

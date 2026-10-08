@@ -29,12 +29,12 @@
     <style type="text/tailwindcss">
       @theme {
         --color-pergaminho: #f7f5f0;
-        --color-terroso: #8c6d53;
-        --color-terrosoDark: #664e3a;
+        --color-terroso: #a86f55;
+        --color-terrosoDark: #7b5341;
         --color-creme: #efece6;
         --color-cinzaTexto: #5a5652;
         --color-suave: #d8cebf;
-        --color-verde: #28372d;
+        --color-verde: #414b3d;
         --font-serif: "Cormorant Garamond", Georgia, serif;
         --font-sans: "Plus Jakarta Sans", Arial, sans-serif;
       }
@@ -119,177 +119,93 @@
       </nav>
     </dialog>
     <main id="conteudo" tabindex="-1">
-      <section
-        class="hero pt-32 pb-20 px-6 flex items-center"
-        aria-labelledby="hero-title"
-      >
+      <section class="hero px-6" aria-labelledby="hero-title">
         <div
-          class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center"
+          class="hero-layout max-w-7xl mx-auto grid lg:grid-cols-12 items-center"
         >
-          <div class="hero-portrait lg:col-span-6 relative flex justify-center">
-            <figure
-              class="portrait-frame relative w-full max-w-md lg:max-w-lg aspect-[4/5] rounded-[1.75rem] overflow-hidden border-4 border-white/80"
-            >
+          <div class="hero-portrait lg:col-span-5">
+            <figure class="portrait-frame">
               <img
                 src="/home-preview/assets/emelyn-retrato.jpg"
                 width="720"
                 height="1280"
                 alt="Emelyn Campos, com a mão apoiada sob o rosto."
-                class="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
                 fetchpriority="high"
                 decoding="async"
               />
             </figure>
-          </div>
-          <div
-            class="hero-content lg:col-span-6 space-y-8 text-center lg:text-left"
-          >
-            <p
-              class="hero-label inline-block px-4 py-1.5 rounded-full bg-creme text-terrosoDark text-xs uppercase tracking-widest font-medium border border-suave/40"
-            >
-              Fé · vida · tecnologia · projetos
+            <p class="portrait-caption">
+              Criadora independente · Emelyn Campos
             </p>
-            <h1
-              id="hero-title"
-              class="font-serif text-5xl md:text-6xl lg:text-7xl font-light text-terrosoDark leading-[1.1]"
-            >
+          </div>
+          <div class="hero-content lg:col-span-7">
+            <p class="hero-identification">EMELYN CAMPOS</p>
+            <p class="eyebrow hero-label">Fé · vida · tecnologia · projetos</p>
+            <h1 id="hero-title">
               Construindo com as ferramentas do futuro
-              <span class="italic font-normal text-terroso"
-                >sem terceirizar o que nos faz humanos.</span
-              >
+              <span>sem terceirizar o que nos faz humanos.</span>
             </h1>
-            <p
-              class="text-base md:text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed"
-            >
+            <p class="hero-support">
               Produtos digitais, livros, jogos e experiências que nascem de
               perguntas, necessidades e coisas que acredito que valem a pena
               construir.
             </p>
-            <div
-              class="hero-actions flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2"
-            >
-              <a
-                href="#projetos"
-                class="primary-button w-full sm:w-auto px-8 py-4 rounded-full bg-terroso text-white font-medium hover:bg-terrosoDark transition-colors text-center"
-                >Explorar projetos</a
-              >
-              <a
-                href="#sobre"
-                class="w-full sm:w-auto px-8 py-4 rounded-full border border-terroso/40 text-terrosoDark hover:border-terroso hover:bg-creme/50 transition-colors text-center"
-                >Sobre mim</a
-              >
+            <div class="hero-actions">
+              <a href="#projetos" class="primary-button"
+                >Explorar projetos <span aria-hidden="true">↘</span></a
+              ><a href="#sobre" class="secondary-button">Sobre mim</a>
             </div>
           </div>
         </div>
       </section>
-
-      <section
-        id="conexao"
-        class="py-24 px-6 bg-creme/50 border-y border-creme"
-        aria-labelledby="connection-title"
-      >
-        <div
-          class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center"
-        >
-          <div class="md:col-span-6 space-y-6">
-            <p
-              class="eyebrow text-xs uppercase tracking-widest text-terrosoDark font-medium"
-            >
-              O que conecta tudo isso
-            </p>
-            <h2
-              id="connection-title"
-              class="font-serif text-4xl md:text-5xl text-terrosoDark font-light leading-tight"
-            >
-              Coisas diferentes.<br />
-              A mesma pessoa construindo.
+      <section id="conexao" aria-labelledby="connection-title">
+        <div class="connection-layout max-w-7xl mx-auto">
+          <div>
+            <p class="eyebrow">O que conecta tudo isso</p>
+            <h2 id="connection-title">
+              Coisas diferentes.<br /><em>A mesma pessoa construindo.</em>
             </h2>
-            <p class="text-base leading-relaxed">
-              Meus projetos não nasceram de um único nicho.
-            </p>
-            <p class="text-base leading-relaxed">
+          </div>
+          <svg
+            class="connection-leaf"
+            viewBox="0 0 80 140"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1"
+            aria-hidden="true"
+          >
+            <path
+              d="M25 135C22 103 47 65 55 12M35 103C13 102 9 79 9 66C27 72 36 82 35 103ZM44 74C65 71 71 51 70 35C53 40 43 53 44 74ZM51 45C32 39 32 23 34 9C48 17 55 30 51 45Z"
+            />
+          </svg>
+          <div class="connection-copy">
+            <p>Meus projetos não nasceram de um único nicho.</p>
+            <p>
               Alguns começaram em uma necessidade da vida real. Outros em uma
               pergunta. Outros em algo que eu gostaria que já existisse.
             </p>
-            <p class="text-base leading-relaxed">
+            <p>
               O que os conecta é a forma como eu gosto de construir: com
               curiosidade, tecnologia, fé e atenção ao que continua sendo
               humano.
             </p>
           </div>
-          <div
-            class="connection-spread md:col-span-6 grid grid-cols-2 gap-4"
-            role="group" aria-label="Fragmentos do cuidado e da contemplação"
-          >
-            <div class="space-y-4 pt-8">
-              <figure class="connection-care rounded-2xl">
-                <img
-                  src="/tenderness/assets/mockup-memories.webp"
-                  width="1122"
-                  height="1402"
-                  alt="Memórias de Clara na interface oficial do Tenderness."
-                  loading="lazy"
-                />
-              </figure>
-              <p
-                class="p-5 bg-pergaminho rounded-xl border border-suave/50 font-serif text-2xl text-terrosoDark leading-tight"
-              >
-                Uma necessidade<br />
-                da vida real.
-              </p>
-            </div>
-            <div class="space-y-4">
-              <p
-                class="p-5 bg-terrosoDark text-white rounded-xl font-serif text-2xl font-light leading-tight"
-              >
-                Uma pergunta<br />
-                que fica comigo.
-              </p>
-              <figure class="connection-landscape rounded-2xl overflow-hidden">
-                <img
-                  src="/o-grao/assets/ograo-editorial-manifesto.webp"
-                  width="1000"
-                  height="585"
-                  alt="Colinas ao fim da tarde na paisagem oficial de O Grão."
-                  loading="lazy"
-                />
-              </figure>
-            </div>
-          </div>
         </div>
       </section>
-
       <section
         id="projetos"
-        class="py-28 px-6"
+        class="page-section"
         aria-labelledby="projects-title"
         tabindex="-1"
       >
         <div class="max-w-7xl mx-auto">
-          <div
-            class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16"
-          >
-            <div>
-              <p
-                class="eyebrow text-xs uppercase tracking-widest text-terrosoDark font-medium mb-2"
-              >
-                Projetos
-              </p>
-              <h2
-                id="projects-title"
-                class="font-serif text-4xl md:text-5xl text-terrosoDark font-light"
-              >
-                O que estou construindo.
-              </h2>
-            </div>
-            <p class="text-sm max-w-xs font-light leading-relaxed">
-              Produtos, livros, jogos e experiências.<br />
-              Cada um com sua própria história.
-            </p>
+          <div class="section-heading">
+            <p class="eyebrow">01 / Projetos em destaque</p>
+            <h2 id="projects-title">O que estou <em>construindo.</em></h2>
           </div>
-          <div class="project-grid grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div class="featured-projects">
             <article
-              class="tenderness-project md:col-span-8 group relative rounded-2xl overflow-hidden"
+              class="tenderness-project"
               aria-labelledby="tenderness-title"
             >
               <div class="tenderness-art">
@@ -336,10 +252,7 @@
                 ></a>
               </div>
             </article>
-            <article
-              class="grao-project md:col-span-4 group rounded-xl overflow-hidden bg-creme"
-              aria-labelledby="grao-title"
-            >
+            <article class="grao-project" aria-labelledby="grao-title">
               <figure class="grao-art overflow-hidden">
                 <img
                   src="/o-grao/assets/ograo-editorial-manifesto.webp"
@@ -368,10 +281,29 @@
                 ></a>
               </div>
             </article>
-            <article
-              class="bento-project md:col-span-4 group rounded-2xl overflow-hidden bg-creme"
-              aria-labelledby="bento-title"
-            >
+          </div>
+        </div>
+      </section>
+      <section
+        id="selected-work"
+        class="page-section"
+        aria-labelledby="selected-title"
+      >
+        <div class="max-w-7xl mx-auto">
+          <div class="selected-heading">
+            <div>
+              <p class="eyebrow">02 / Outros projetos</p>
+              <h2 id="selected-title">
+                Diferentes caminhos.<br /><em>A mesma origem.</em>
+              </h2>
+            </div>
+            <p>
+              Projetos que nasceram de perguntas, problemas e interesses que
+              continuam comigo.
+            </p>
+          </div>
+          <div class="selected-grid">
+            <article class="bento-project" aria-labelledby="bento-title">
               <figure class="project-art bento-art">
                 <img
                   src="/home-preview/assets/bento-oficial.png"
@@ -404,10 +336,7 @@
                 >
               </div>
             </article>
-            <article
-              class="byr-project md:col-span-8 group rounded-xl overflow-hidden bg-creme"
-              aria-labelledby="byr-title"
-            >
+            <article class="byr-project" aria-labelledby="byr-title">
               <figure class="project-art byr-art">
                 <img
                   src="/before-you-read/assets/og.png"
@@ -435,10 +364,7 @@
                 ></a>
               </div>
             </article>
-            <article
-              class="parallax-project md:col-span-5 group overflow-hidden rounded-xl"
-              aria-labelledby="parallax-title"
-            >
+            <article class="parallax-project" aria-labelledby="parallax-title">
               <figure class="project-art parallax-art">
                 <img
                   src="/home-preview/assets/parallax-still-life.webp"
@@ -464,10 +390,7 @@
                 <p class="project-status">Em construção</p>
               </div>
             </article>
-            <article
-              class="caos-project md:col-span-3 rounded-xl overflow-hidden border border-suave/60"
-              aria-labelledby="caos-title"
-            >
+            <article class="caos-project" aria-labelledby="caos-title">
               <div class="project-art caos-art" aria-hidden="true">
                 <span class="font-serif font-light"
                   >Estratégia.<br />
@@ -489,10 +412,7 @@
                 <p class="project-status">Em desenvolvimento</p>
               </div>
             </article>
-            <article
-              class="book-project md:col-span-4 overflow-hidden rounded-2xl bg-creme"
-              aria-labelledby="book-title"
-            >
+            <article class="book-project" aria-labelledby="book-title">
               <figure class="project-art book-art">
                 <img
                   src="/e-se-voce-estiver-fazendo-a-pergunta-errada/assets/hero-mockup.jpg"
@@ -525,28 +445,18 @@
           </div>
         </div>
       </section>
-
       <section
         id="ideias"
-        class="py-24 px-6 bg-creme/50 border-y border-creme"
+        class="page-section"
         aria-labelledby="ideas-title"
         tabindex="-1"
       >
-        <div class="max-w-6xl mx-auto">
-          <div class="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-            <p
-              class="eyebrow text-xs uppercase tracking-widest text-terrosoDark font-medium mb-2"
-            >
-              Ideias
-            </p>
-            <h2
-              id="ideas-title"
-              class="font-serif text-4xl md:text-5xl text-terrosoDark font-light"
-            >
-              Ideias que continuam comigo.
-            </h2>
+        <div class="max-w-7xl mx-auto">
+          <div class="section-heading">
+            <p class="eyebrow">03 / Ideias</p>
+            <h2 id="ideas-title">Ideias que <em>continuam comigo.</em></h2>
           </div>
-          <div class="ideas-grid grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="ideas-grid">
             <div class="idea">
               <span class="idea-number">01</span>
               <h3>
@@ -569,55 +479,36 @@
           </div>
         </div>
       </section>
-
       <section
         id="sobre"
-        class="py-24 px-6"
+        class="page-section"
         aria-labelledby="about-title"
         tabindex="-1"
       >
-        <div
-          class="about-layout max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center"
-        >
-          <figure
-            class="about-portrait md:col-span-5 rounded-2xl overflow-hidden"
-          >
-            <img
-              src="/home-preview/assets/emelyn-retrato.jpg"
-              width="720"
-              height="1280"
-              alt="Retrato pessoal de Emelyn Campos."
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </figure>
-          <div class="md:col-span-7 space-y-6">
-            <p
-              class="eyebrow text-xs uppercase tracking-widest text-terrosoDark font-medium"
-            >
-              Sobre
-            </p>
-            <h2
-              id="about-title"
-              class="font-serif text-4xl md:text-5xl text-terrosoDark font-light leading-tight"
-            >
-              Aqui é onde tudo se conecta.
-            </h2>
-            <p class="font-serif text-2xl text-terrosoDark">Sou Emelyn.</p>
-            <p class="text-base font-light leading-relaxed">
+        <div class="about-layout max-w-7xl mx-auto">
+          <div>
+            <p class="eyebrow">04 / Sobre</p>
+            <h2 id="about-title">Aqui é onde<br /><em>tudo se conecta.</em></h2>
+            <p class="personal-signature font-serif">Emelyn Campos</p>
+          </div>
+          <div class="about-copy">
+            <p class="font-serif about-intro">Sou Emelyn.</p>
+            <p>
               Crio produtos digitais, livros, jogos e experiências a partir de
               coisas que me interessam de verdade: fé, família, tecnologia,
               perguntas difíceis e a vontade de transformar ideias em algo
               concreto.
             </p>
-            <p class="text-base font-light leading-relaxed">
+            <p>
               Tenho interesse tanto no que a tecnologia torna possível quanto no
               que continua dependendo de nós.
+            </p>
+            <p class="eyebrow about-pillars">
+              Fé · Família · Curiosidade · Autoria
             </p>
           </div>
         </div>
       </section>
-
       <section
         id="acompanhe"
         class="py-28 px-6 bg-terrosoDark text-white"
