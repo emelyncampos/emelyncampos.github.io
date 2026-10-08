@@ -2,9 +2,10 @@ import asyncio
 import json
 from pathlib import Path
 from playwright.async_api import async_playwright
+from cdn_bridge import prepare_browser_cdn
 
 URL = 'http://127.0.0.1:8000/home-preview/'
-OUT = Path('/workspace/artifacts/home-editorial-v3')
+OUT = Path('/workspace/artifacts/home-editorial-v4')
 AXE = Path('/tmp/home-preview-tools/node_modules/axe-core/axe.min.js')
 WIDTHS = [320, 375, 390, 430, 768, 1024, 1440]
 PROJECTS = ['Tenderness', 'O Grão', 'Histórias da Bíblia com Bento', 'Before You Read', 'PARALLAX', 'Até Que o Caos Nos Separe', 'E se você estiver fazendo a pergunta errada?']
@@ -14,6 +15,7 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch(executable_path='/usr/bin/chromium', headless=True, args=['--no-sandbox'])
         page = await browser.new_page(viewport={'width': 390, 'height': 844}, device_scale_factor=1)
+        await prepare_browser_cdn(page)
         errors = []
         failed_requests = []
         accessibility = []
@@ -21,11 +23,14 @@ async def main():
         page.on('pageerror', lambda e: errors.append(str(e)))
         page.on('console', lambda m: errors.append(m.text) if m.type == 'error' else None)
         await page.goto(URL, wait_until='networkidle')
-        assert await page.get_by_role('heading', level=1, name='Construindo ideias em coisas reais.', exact=True).count() == 1, 'A capa deve apresentar a tese editorial V3'
-        index = page.get_by_role('region', name='Índice de projetos', exact=True)
+        await page.evaluate('document.fonts.ready')
+        assert await page.locator('style').evaluate_all('(styles) => styles.some(s => s.textContent.includes("tailwindcss v4.1.18"))'), 'Tailwind CDN não inicializou'
+        assert await page.evaluate('document.fonts.check("600 54px Cormorant Garamond")'), 'Fonte editorial não carregou'
+        assert await page.get_by_role('heading', level=1, name='Construindo ideias em coisas reais.', exact=True).count() == 1, 'A capa deve apresentar a tese editorial V4'
+        index = page.get_by_role('region', name='Diferentes caminhos. A mesma origem.', exact=True)
         assert await index.get_by_role('heading', level=3).count() == 5, 'O índice deve conter exatamente cinco entradas'
         assert await page.locator('img[src*="/e-se-voce-estiver-fazendo-a-pergunta-errada/assets/"]').count() == 1, 'O livro deve ter uma única imagem'
-        assert await page.locator('.hero img[src*="hero-"]').count() == 0, 'Fotografia lifestyle não deve ser protagonista da capa'
+        assert await page.locator('.project-cover figure').count() == 4, 'A capa mobile deve compor quatro projetos reais'
         assert await page.locator('#escritas').count() == 0, 'Não criar seção separada de Escritas & identidade'
         for name in PROJECTS:
             heading = page.get_by_role('heading', name=name, exact=True)
@@ -57,13 +62,14 @@ async def main():
         for width in WIDTHS:
             await page.set_viewport_size({'width': width, 'height': 900 if width > 768 else 844})
             await page.goto(URL, wait_until='networkidle')
+            await page.evaluate('document.fonts.ready')
             await page.evaluate('async () => { for (const img of document.images) { img.loading = "eager"; } await Promise.all([...document.images].map(img => img.decode().catch(() => {}))); }')
             data = await page.evaluate('''() => ({
                 width: innerWidth, scroll: document.documentElement.scrollWidth, client: document.documentElement.clientWidth,
                 brokenImages: [...document.images].filter(i => !i.complete || !i.naturalWidth).map(i => i.getAttribute('src')),
                 brokenAnchors: [...document.querySelectorAll('a[href^="#"]')].filter(a => !document.getElementById(a.hash.slice(1))).map(a => a.hash),
                 headings: [...document.querySelectorAll('h1,h2,h3,h4')].map(h => ({level: Number(h.tagName[1]), text: h.textContent.trim()})),
-                clipped: [...document.querySelectorAll('h1,h2,h3,p,a,button')].filter(e => e.getBoundingClientRect().width && (e.scrollWidth > e.clientWidth + 2 || e.scrollHeight > e.clientHeight + 2)).map(e => e.textContent.trim()),
+                clipped: [...document.querySelectorAll('h1,h2,h3,p,a,button')].filter(e => e.getBoundingClientRect().width && (e.scrollWidth > e.clientWidth + 2 || (['hidden','clip'].includes(getComputedStyle(e).overflowY) && e.scrollHeight > e.clientHeight + 2))).map(e => e.textContent.trim()),
                 outside: [...document.querySelectorAll('h1,h2,h3,p,a,button')].filter(e => {const r=e.getBoundingClientRect(); return r.width && (r.left < -1 || r.right > innerWidth + 1);}).map(e => e.textContent.trim())
             })''')
             assert data['scroll'] == data['client'], f'Overflow horizontal a {width}px: {data}'
