@@ -7,7 +7,7 @@ Branch `home-editorial-v2`, rota `/home-preview/`. Base de design e implementaç
 - Paleta original: pergaminho #F7F5F0, terroso #8C6D53, terrosoDark #664E3A, creme #EFECE6, cinzaTexto #5A5652 e suave #D8CEBF. Verde #28372D reservado a O Grão.
 - Google Fonts Cormorant Garamond (300/400/500 e itálico 400) e Plus Jakarta Sans (300/400/500/600), mantendo a relação serif/sans do HTML-base.
 - Cabeçalho fixo leve, menu desktop discreto, CTA contornado e menu fullscreen no mobile.
-- Hero de duas colunas, retrato 4:5 com borda clara, título serifado grande com trecho itálico/terroso e dois CTAs. A foto real `assets/emelyn.webp` mantém a proporção original sem cortar o rosto. Não há mosaico ou texto sobre a fotografia.
+- Hero de duas colunas, retrato 4:5 com borda clara, título serifado grande com trecho itálico/terroso e dois CTAs. A foto real enviada na atualização está em `home-preview/assets/emelyn-retrato.jpg`, preservada sem edição. Hero e Sobre usam enquadramento 4:5, mantendo o rosto visível; o retrato oficial anterior permanece intacto. Não há mosaico ou texto sobre a fotografia.
 - Bloco de conexão em duas colunas, com texto e fragmentos assimétricos; grid de projetos em 12 colunas, primeira linha 8/4 e segunda 4/8, continuando em 5/3/4. Mobile linear na ordem especificada.
 - Ideias em quatro colunas, agora com números e linhas; Sobre com foto/texto; encerramento com fundo terrosoDark, redes e rodapé.
 
