@@ -1,3 +1,17 @@
+# Home V5.3 — aproximação da referência oliva / terracota
+
+Continuação da V5.2 orientada à referência enviada novamente pelo usuário. Sem nova direção visual, assets fictícios ou conteúdo comercial.
+
+O campo de conexão nasce da lateral da página, com oliva e curva ampla. Ideias e Sobre compartilham uma faixa integrada em terracota e sálvia (duas colunas no desktop; sequência no mobile). Acompanhe volta ao papel claro, com transição curva e rodapé verde. Hierarquia editorial dos projetos e retrato pessoal permanecem.
+
+Screenshots full-page: `qa/screenshots/v5-3/home-preview-1440.png` e `home-preview-390.png`. Primeira rodada e revisão final em `/workspace/artifacts/home-v5-3/`. Refinamento de contraste das legendas e da bio concluído após primeira inspeção. Header e hero comparados pixel a pixel com V5.2: idênticos em 1440 e 390 px, até y=852 e y=1055 respectivamente.
+
+QA passou nas sete larguras (320, 375, 390, 430, 768, 1024, 1440): sem overflow, imagens quebradas, erros HTTP/JS, texto truncado, âncoras ausentes ou projeto faltante. Menu/ESC/foco, navegação sem JS e reduced-motion preservados. Axe: zero violações detectadas; checks inconclusivos registrados em `qa/results-v5-3.json`. Exportação autocontida validada offline em 390/1440 com fontes, imagens, estilos e menu.
+
+Somente `/home-preview/` alterado. `/index.html` intacto, nenhum merge ou publicação em produção. Pendências de assets/URLs não mudaram. Comandos de QA/export atuais escrevem em `/workspace/artifacts/home-v5-3/`.
+
+---
+
 # Home V5.2 — refinamento visual
 
 Refinamento da V5, sem reconstruir o HTML ou mudar o posicionamento. Branch `home-editorial-v2`, escopo exclusivo de `/home-preview/`.

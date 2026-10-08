@@ -1372,3 +1372,224 @@ p {
     width: 94%;
   }
 }
+
+/* Reference-led continuation: one flowing publication, with joined color fields. */
+#conexao {
+  padding-left: 0;
+  padding-right: 64px;
+}
+.connection-layout {
+  max-width: 1180px;
+  margin-left: 0;
+  margin-right: auto;
+  background: var(--oliva);
+  border-radius: 0 210px 160px 0;
+  padding: 72px 125px 72px max(64px, calc((100vw - 1280px) / 2));
+  gap: 60px;
+}
+.connection-leaf {
+  right: 47px;
+  bottom: 28px;
+  width: 82px;
+  height: 125px;
+  opacity: 0.5;
+  color: var(--pergaminho);
+}
+.editorial-band {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  border-radius: 70px 0 0 0;
+  overflow: hidden;
+}
+.editorial-band #ideias {
+  background: var(--terroso-dark);
+  color: var(--pergaminho);
+  padding: 72px 55px 85px 64px;
+  border-radius: 0;
+}
+.editorial-band #ideias h2,
+.editorial-band #ideias h3 {
+  color: var(--pergaminho);
+}
+.editorial-band #ideias h2 {
+  font-size: 49px;
+}
+.editorial-band #ideias .eyebrow,
+.editorial-band .idea-number {
+  color: var(--creme);
+}
+.editorial-band .ideas-grid {
+  gap: 33px 35px;
+}
+.editorial-band .idea {
+  grid-template-columns: 23px 1fr;
+  gap: 12px;
+  border-color: #efece650;
+}
+.editorial-band .idea h3 {
+  font-size: 28px;
+}
+.editorial-band #sobre {
+  background: var(--salvia);
+  padding: 72px 64px 85px 55px;
+}
+.editorial-band #sobre .about-layout {
+  display: block;
+  padding: 0;
+  border: 0;
+}
+.editorial-band #sobre h2 {
+  font-size: 46px;
+}
+.editorial-band #sobre .about-copy {
+  margin-top: 33px;
+}
+.editorial-band #sobre .about-copy > p {
+  font-size: 13px;
+}
+.editorial-band #sobre .about-intro {
+  display: none;
+}
+.editorial-band .personal-signature {
+  font-size: 28px;
+  margin-top: 22px;
+}
+.editorial-band #sobre .eyebrow,
+.editorial-band #sobre .personal-signature {
+  color: var(--verde);
+}
+#acompanhe {
+  position: relative;
+  background: var(--pergaminho);
+  color: var(--verde);
+  margin-top: -30px;
+  border-radius: 75px 0 0 0;
+  padding-top: 95px;
+  padding-bottom: 0;
+}
+#acompanhe h2 {
+  color: var(--verde);
+}
+#acompanhe > div > p,
+#acompanhe .social-link {
+  color: var(--verde);
+}
+#acompanhe h2 .text-suave {
+  color: var(--terroso-dark);
+}
+#acompanhe .social-link {
+  border-bottom-color: var(--suave);
+}
+#acompanhe .social-pending {
+  border-bottom-color: transparent;
+}
+#acompanhe .social-link:hover {
+  color: var(--terroso-dark);
+}
+#acompanhe .social-link:focus-visible {
+  outline-color: var(--verde);
+}
+#acompanhe footer {
+  max-width: none;
+  margin-inline: -64px;
+  padding: 36px 64px;
+  background: var(--verde);
+  border: 0;
+}
+#acompanhe .footer-manifesto {
+  color: var(--creme);
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  #conexao {
+    padding-right: 36px;
+  }
+  .connection-layout {
+    padding: 55px 90px 55px 36px;
+    gap: 36px;
+    border-radius: 0 150px 120px 0;
+  }
+  .editorial-band #ideias {
+    padding: 60px 30px 70px 36px;
+  }
+  .editorial-band #sobre {
+    padding: 60px 36px 70px 30px;
+  }
+  .editorial-band #ideias h2,
+  .editorial-band #sobre h2 {
+    font-size: 41px;
+  }
+  .editorial-band .ideas-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .editorial-band .idea h3 {
+    font-size: 27px;
+  }
+  #acompanhe footer {
+    margin-inline: -36px;
+    padding-inline: 36px;
+  }
+}
+@media (max-width: 767px) {
+  #conexao {
+    padding: 0 14px 0 0;
+  }
+  .connection-layout {
+    padding: 55px 35px 55px 22px;
+    gap: 30px;
+    border-radius: 0 130px 85px 0;
+  }
+  .editorial-band {
+    display: block;
+    border-radius: 55px 0 0 0;
+  }
+  .editorial-band #ideias {
+    padding: 60px 22px 65px;
+  }
+  .editorial-band #ideias h2 {
+    font-size: 43px;
+  }
+  .editorial-band .ideas-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  .editorial-band .idea {
+    grid-template-columns: 25px 1fr;
+    gap: 15px;
+  }
+  .editorial-band .idea h3 {
+    font-size: 31px;
+  }
+  .editorial-band #sobre {
+    padding: 55px 22px 75px;
+  }
+  .editorial-band #sobre h2 {
+    font-size: 43px;
+  }
+  .editorial-band #sobre .about-copy {
+    margin-top: 28px;
+  }
+  #acompanhe {
+    border-radius: 55px 0 0 0;
+    padding-top: 65px;
+    margin-top: -25px;
+  }
+  #acompanhe footer {
+    margin-inline: -22px;
+    padding: 32px 22px;
+  }
+}
+.connection-layout .eyebrow {
+  color: var(--pergaminho);
+}
+.editorial-band #sobre {
+  color: #35332f;
+}
+.editorial-band #sobre .about-intro {
+  display: block;
+  font-size: 27px;
+  color: var(--verde);
+}
+#acompanhe > div > p.text-suave {
+  color: var(--verde);
+}

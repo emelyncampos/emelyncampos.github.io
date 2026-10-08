@@ -6,7 +6,7 @@ from playwright.async_api import async_playwright
 from cdn_bridge import prepare_browser_cdn
 
 URL = 'http://127.0.0.1:8000/home-preview/'
-OUT = Path('/workspace/artifacts/home-v5-2')
+OUT = Path('/workspace/artifacts/home-v5-3')
 AXE = Path('/tmp/home-preview-tools/node_modules/axe-core/axe.min.js')
 WIDTHS = [320, 375, 390, 430, 768, 1024, 1440]
 PROJECTS = ['Tenderness', 'O Grão', 'Histórias da Bíblia com Bento', 'Before You Read', 'PARALLAX', 'Até Que o Caos Nos Separe', 'E se você estiver fazendo a pergunta errada?']

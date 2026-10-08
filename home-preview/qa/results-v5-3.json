@@ -1,0 +1,687 @@
+{
+  "status": "passed",
+  "widths": [
+    320,
+    375,
+    390,
+    430,
+    768,
+    1024,
+    1440
+  ],
+  "projects": [
+    "Tenderness",
+    "O Grão",
+    "Histórias da Bíblia com Bento",
+    "Before You Read",
+    "PARALLAX",
+    "Até Que o Caos Nos Separe",
+    "E se você estiver fazendo a pergunta errada?"
+  ],
+  "browser_errors": [],
+  "failed_requests": [],
+  "accessibility": [
+    {
+      "width": 320,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    },
+    {
+      "width": 375,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    },
+    {
+      "width": 390,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    },
+    {
+      "width": 430,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    },
+    {
+      "width": 768,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    },
+    {
+      "width": 1024,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    },
+    {
+      "width": 1440,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    }
+  ],
+  "no_javascript_navigation": "passed",
+  "reduced_motion": "passed",
+  "results": [
+    {
+      "width": 320,
+      "scroll": 320,
+      "client": 320,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "Construindo com as ferramentas do futuro\n              sem terceirizar o que nos faz humanos."
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "O que estou construindo."
+        },
+        {
+          "level": 3,
+          "text": ""
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 2,
+          "text": "Diferentes caminhos.A mesma origem."
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo."
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisas já estão prontas.\n            Outras ainda estão tomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": []
+    },
+    {
+      "width": 375,
+      "scroll": 375,
+      "client": 375,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "Construindo com as ferramentas do futuro\n              sem terceirizar o que nos faz humanos."
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "O que estou construindo."
+        },
+        {
+          "level": 3,
+          "text": ""
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 2,
+          "text": "Diferentes caminhos.A mesma origem."
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo."
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisas já estão prontas.\n            Outras ainda estão tomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": []
+    },
+    {
+      "width": 390,
+      "scroll": 390,
+      "client": 390,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "Construindo com as ferramentas do futuro\n              sem terceirizar o que nos faz humanos."
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "O que estou construindo."
+        },
+        {
+          "level": 3,
+          "text": ""
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 2,
+          "text": "Diferentes caminhos.A mesma origem."
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo."
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisas já estão prontas.\n            Outras ainda estão tomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": []
+    },
+    {
+      "width": 430,
+      "scroll": 430,
+      "client": 430,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "Construindo com as ferramentas do futuro\n              sem terceirizar o que nos faz humanos."
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "O que estou construindo."
+        },
+        {
+          "level": 3,
+          "text": ""
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 2,
+          "text": "Diferentes caminhos.A mesma origem."
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo."
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisas já estão prontas.\n            Outras ainda estão tomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": []
+    },
+    {
+      "width": 768,
+      "scroll": 768,
+      "client": 768,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "Construindo com as ferramentas do futuro\n              sem terceirizar o que nos faz humanos."
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "O que estou construindo."
+        },
+        {
+          "level": 3,
+          "text": ""
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 2,
+          "text": "Diferentes caminhos.A mesma origem."
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo."
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisas já estão prontas.\n            Outras ainda estão tomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": []
+    },
+    {
+      "width": 1024,
+      "scroll": 1024,
+      "client": 1024,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "Construindo com as ferramentas do futuro\n              sem terceirizar o que nos faz humanos."
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "O que estou construindo."
+        },
+        {
+          "level": 3,
+          "text": ""
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 2,
+          "text": "Diferentes caminhos.A mesma origem."
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo."
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisas já estão prontas.\n            Outras ainda estão tomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": []
+    },
+    {
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "Construindo com as ferramentas do futuro\n              sem terceirizar o que nos faz humanos."
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "O que estou construindo."
+        },
+        {
+          "level": 3,
+          "text": ""
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 2,
+          "text": "Diferentes caminhos.A mesma origem."
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo."
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisas já estão prontas.\n            Outras ainda estão tomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": []
+    }
+  ]
+}
