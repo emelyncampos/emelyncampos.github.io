@@ -391,7 +391,7 @@ p {
   position: absolute;
   inset: 0 24% 0 0;
   background: var(--plum);
-  border-radius: 8px 8px 160px 8px;
+  border-radius: 44px 8px 180px 8px;
   z-index: -1;
 }
 .tenderness-copy {
@@ -454,7 +454,7 @@ p {
   height: 100%;
   object-fit: cover;
   object-position: 50% 35%;
-  border-radius: 12px;
+  border-radius: 170px 170px 12px 12px;
   float: right;
 }
 .tenderness-screen {
@@ -474,7 +474,7 @@ p {
 }
 .grao-art {
   height: 370px;
-  border-radius: 160px 8px 8px 8px;
+  border-radius: 180px 12px 140px 12px;
   overflow: hidden;
 }
 .grao-art img {
@@ -517,8 +517,9 @@ p {
 }
 .selected-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 56px 32px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 64px 32px;
+  align-items: start;
 }
 .selected-grid > article {
   min-width: 0;
@@ -595,7 +596,7 @@ p {
   align-items: center;
 }
 .book-project {
-  grid-column: span 2;
+  grid-column: span 8;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
@@ -616,6 +617,7 @@ p {
 }
 #ideias {
   background: var(--creme);
+  border-radius: 100px 0 0 0;
 }
 .ideas-grid {
   display: grid;
@@ -667,6 +669,7 @@ p {
   margin-top: 30px;
 }
 #acompanhe {
+  border-radius: 0 100px 0 0;
   background: var(--terroso-dark);
   padding: 90px 64px 40px;
 }
@@ -1151,5 +1154,221 @@ p {
   }
   .connection-leaf {
     display: none;
+  }
+}
+
+/* V5.2: distinct editorial pieces rather than equal thumbnails. */
+.selected-grid .bento-project {
+  grid-column: span 4;
+}
+.selected-grid .byr-project {
+  grid-column: 7 / span 6;
+  padding-top: 92px;
+}
+.bento-art {
+  width: 86%;
+  max-width: 310px;
+  height: 365px;
+  margin-inline: auto;
+  border-radius: 170px 170px 24px 24px;
+  background: #efeee5;
+}
+.bento-art img {
+  padding: 25px 10px 15px;
+}
+.byr-art {
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  border-radius: 2px 30px 2px 2px;
+  border: 1px solid var(--suave);
+}
+.selected-grid .byr-project .project-copy {
+  max-width: 430px;
+}
+.selected-grid .parallax-project {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: center;
+  background: #20221e;
+  border-radius: 8px 8px 100px 8px;
+  overflow: hidden;
+}
+.parallax-art {
+  height: 360px;
+  border-radius: 0;
+  background: #191a17;
+}
+.selected-grid .parallax-project .project-copy {
+  border: 0;
+  padding: 38px 44px;
+}
+.selected-grid .parallax-project h3 {
+  font-size: 48px;
+  color: var(--pergaminho);
+}
+.selected-grid .parallax-project .project-category,
+.selected-grid .parallax-project .project-status {
+  color: var(--suave);
+}
+.selected-grid .parallax-project .project-copy > p.font-serif {
+  color: var(--pergaminho);
+  font-size: 25px;
+}
+.selected-grid .parallax-project .project-description {
+  color: var(--pergaminho);
+}
+.selected-grid .caos-project {
+  grid-column: span 4;
+  padding-top: 44px;
+}
+.caos-art {
+  height: 300px;
+  border-radius: 70px 8px 105px 8px;
+  font-size: 58px;
+  padding: 36px;
+}
+.book-project {
+  padding-left: 18px;
+}
+.book-art {
+  height: 410px;
+  border: 1px solid var(--suave);
+  border-radius: 170px 170px 10px 10px;
+  padding: 10px;
+}
+.book-art img {
+  border-radius: inherit;
+  object-fit: cover;
+}
+.grao-project .project-copy {
+  border-top: 1px solid var(--suave);
+  padding-top: 32px;
+}
+#sobre .about-layout {
+  border-top: 1px solid var(--suave);
+  padding-top: 48px;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .selected-grid {
+    gap: 48px 24px;
+  }
+  .bento-art {
+    height: 315px;
+    width: 100%;
+  }
+  .selected-grid .byr-project {
+    padding-top: 65px;
+  }
+  .parallax-art {
+    height: 330px;
+  }
+  .selected-grid .parallax-project .project-copy {
+    padding: 28px;
+  }
+  .selected-grid .parallax-project h3 {
+    font-size: 38px;
+  }
+  .selected-grid .parallax-project {
+    grid-template-columns: 1.2fr 1fr;
+  }
+  .caos-art {
+    height: 265px;
+    padding: 28px;
+    font-size: 46px;
+  }
+  .book-art {
+    height: 345px;
+  }
+  .book-project {
+    padding-left: 0;
+    gap: 25px;
+  }
+}
+@media (max-width: 767px) {
+  .tenderness-project:before {
+    border-radius: 35px 8px 100px 8px;
+  }
+  .tenderness-family {
+    border-radius: 115px 115px 8px 8px;
+  }
+  .grao-art {
+    border-radius: 105px 8px 85px 8px;
+  }
+  .grao-project .project-copy {
+    padding-top: 24px;
+  }
+  .selected-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 48px;
+  }
+  .selected-grid > .bento-project,
+  .selected-grid > .byr-project,
+  .selected-grid > .parallax-project,
+  .selected-grid > .caos-project,
+  .selected-grid > .book-project {
+    grid-column: auto;
+    padding: 0;
+  }
+  .bento-art {
+    width: 78%;
+    max-width: 285px;
+    height: 330px;
+  }
+  .byr-art {
+    height: auto;
+    aspect-ratio: 1200 / 630;
+  }
+  .selected-grid .parallax-project {
+    display: block;
+    border-radius: 8px 8px 70px 8px;
+  }
+  .parallax-art {
+    height: auto;
+    aspect-ratio: 1200 / 638;
+  }
+  .selected-grid .parallax-project .project-copy {
+    padding: 27px 27px 35px;
+  }
+  .selected-grid .parallax-project h3 {
+    font-size: 43px;
+  }
+  .caos-art {
+    height: 260px;
+    font-size: 56px;
+    padding: 34px;
+    border-radius: 65px 8px 90px 8px;
+  }
+  .book-art {
+    width: 88%;
+    max-width: 330px;
+    height: 385px;
+    margin-inline: auto;
+  }
+  .book-project .project-copy {
+    padding-top: 24px;
+  }
+  #ideias {
+    border-radius: 65px 0 0 0;
+  }
+  #sobre .about-layout {
+    padding-top: 32px;
+  }
+  #acompanhe {
+    border-radius: 0 65px 0 0;
+  }
+}
+@media (max-width: 360px) {
+  .bento-art {
+    height: 295px;
+    width: 84%;
+  }
+  .caos-art {
+    height: 235px;
+    font-size: 49px;
+  }
+  .book-art {
+    height: 345px;
+    width: 94%;
   }
 }

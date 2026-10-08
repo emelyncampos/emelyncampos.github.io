@@ -1,3 +1,33 @@
+# Home V5.2 — refinamento visual
+
+Refinamento da V5, sem reconstruir o HTML ou mudar o posicionamento. Branch `home-editorial-v2`, escopo exclusivo de `/home-preview/`.
+
+## O que mudou abaixo do hero
+
+- Tenderness: base vinho com cantos variados e fotografia em arco; uma interface oficial permanece sobreposta apenas na área visual.
+- O Grão: recorte paisagístico com curvas opostas e separação por linha fina no texto.
+- Selected Work: composição em 12 colunas com pesos distintos. Bento vertical em arco; Before You Read menor, horizontal e deslocado; PARALLAX em faixa ampla escura com imagem cinematográfica e texto; jogo tipográfico em terracota com curva; livro com imagem vertical em moldura arqueada e texto separado.
+- Mobile preserva a ordem dos cinco projetos, variando largura, proporção, altura e enquadramento. Não há carrossel nem peças cortadas na lateral.
+- Ideias e encerramento ganharam uma curva discreta na transição; Sobre ganhou linha fina e respiro. Paleta, fontes, textos, sete projetos, assets e URLs permanecem.
+
+## QA da V5.2
+
+Screenshots full-page finais: `qa/screenshots/v5-2/home-preview-1440.png` e `home-preview-390.png`. Revisão de página completa e inspeção ampliada de Selected Work confirmaram hierarquia, variação de proporções e continuidade dos arcos/curvas. A área deixou de usar três thumbnails de mesma altura/peso visual. Não foram criadas imagens ou embalagens fictícias.
+
+Header e hero foram preservados integralmente: comparação pixel a pixel dos screenshots antes/depois em 1440 e 390 px não encontrou diferenças até o fim do hero. Evidência em `qa/visual-check-v5-2.json`. O HTML e o JS não foram alterados nesta rodada.
+
+QA técnico passou em 320, 375, 390, 430, 768, 1024 e 1440 px: scrollWidth/clientWidth iguais; nenhuma imagem quebrada, erro HTTP, erro JS, texto truncado ou projeto ausente; menu com teclado/ESC/foco, navegação sem JS e reduced-motion preservados. Axe detectou zero violações em todas as larguras; checks inconclusivos estão registrados em `qa/results-v5-2.json` e não equivalem a certificação de acessibilidade.
+
+A exportação autocontida foi validada offline em 390/1440, incluindo imagens, fontes, estilos, ícones e menu. Comandos atuais: `python3 home-preview/qa/check.py` e `python3 home-preview/qa/export_preview.py`, após servidor HTTP local na raiz. Saídas em `/workspace/artifacts/home-v5-2/`.
+
+Pendências mantidas: logo oficial de O Grão, asset canônico do jogo, URLs confirmadas de LinkedIn e X. Não há nova dependência, asset externo ou alteração na fotografia.
+
+`/index.html` intacto; SHA-256 `c2efb7669125cd06189c978a9d3c42a4862420be8b54edd73a3e5076e5b02b0c`. Nenhum merge ou publicação em produção. O push da branch de preview permite acessar os screenshots públicos no GitHub.
+
+---
+
+## Registro da V5 anterior
+
 # Home V5 — sistema visual oficial
 
 Branch `home-editorial-v2`; rota `/home-preview/`. Reconstrução baseada na estrutura HTML fornecida e nas três referências de portfólio editorial orgânico enviadas pelo usuário. A fotografia escolhida pelo usuário foi preservada sem edição em `assets/emelyn-retrato.jpg`.

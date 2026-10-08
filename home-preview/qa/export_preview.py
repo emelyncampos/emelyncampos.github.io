@@ -8,7 +8,7 @@ from playwright.async_api import async_playwright
 from cdn_bridge import prepare_browser_cdn
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = Path('/workspace/artifacts/home-v5/preview.html')
+OUT = Path('/workspace/artifacts/home-v5-2/preview.html')
 URL = 'http://127.0.0.1:8000/home-preview/'
 
 
