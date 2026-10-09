@@ -6,7 +6,7 @@ from playwright.async_api import async_playwright
 from cdn_bridge import prepare_browser_cdn
 
 URL = 'http://127.0.0.1:8000/home-preview/'
-OUT = Path('/workspace/artifacts/home-v7')
+OUT = Path('/workspace/artifacts/home-v8')
 AXE = Path('/tmp/home-preview-tools/node_modules/axe-core/axe.min.js')
 WIDTHS = [320, 375, 390, 430, 768, 1024, 1440]
 PROJECTS = ['Tenderness', 'O Grão', 'Histórias da Bíblia com Bento', 'Before You Read', 'PARALLAX', 'Até Que o Caos Nos Separe', 'E se você estiver fazendo a pergunta errada?']
@@ -32,11 +32,9 @@ async def main():
         await page.evaluate('document.fonts.ready')
         assert await page.locator('style').evaluate_all('(styles) => styles.some(s => s.textContent.includes("tailwindcss v4.1.18"))'), 'Tailwind CDN não inicializou'
         assert await page.evaluate('document.fonts.check("300 54px Cormorant Garamond") && document.fonts.check("400 14px Plus Jakarta Sans")'), 'Fonte editorial não carregou'
-        assert await page.get_by_role('heading', level=1, name='Construindo ideias em coisas reais.', exact=True).count() == 1, 'A capa deve usar a mensagem pessoal do HTML-base'
-        index = page.get_by_role('region', name='O que estou construindo.', exact=True)
-        assert await index.get_by_role('heading', level=3).count() == 2, 'Os protagonistas devem ter uma região própria'
-        selected = page.get_by_role('region', name='Outros projetos', exact=True)
-        assert await selected.get_by_role('heading', level=3).count() == 5, 'Selected Work deve conter cinco projetos'
+        assert await page.get_by_role('heading', level=1, name='Emelyn Campos', exact=True).count() == 1, 'A capa deve usar a mensagem pessoal do HTML-base'
+        index = page.get_by_role('region', name='Projetos selecionados', exact=True)
+        assert await index.get_by_role('heading', level=3).count() == 7, 'Curadoria compacta deve conter os sete projetos'
         assert await page.locator('img[src*="/e-se-voce-estiver-fazendo-a-pergunta-errada/assets/"]').count() == 1, 'O livro deve ter uma única imagem'
         assert await page.locator('.hero img').count() == 1, 'A capa deve ter uma imagem forte, sem mosaico'
         assert await page.locator('.social-links > a,.social-links > span').count() == 4
@@ -79,6 +77,10 @@ async def main():
             await page.goto(URL, wait_until='networkidle')
             await page.evaluate('document.fonts.ready')
             await page.evaluate('async () => { for (const img of document.images) { img.loading = "eager"; } await Promise.all([...document.images].map(img => img.decode().catch(() => {}))); }')
+            hero_link = page.locator('.hero .editorial-link')
+            await hero_link.scroll_into_view_if_needed()
+            assert await hero_link.evaluate("el => { const r=el.getBoundingClientRect(); const hit=document.elementFromPoint(r.left+r.width/2,r.top+r.height/2); return hit===el || el.contains(hit); }"), f'Link do hero encoberto a {width}px'
+            await page.evaluate('window.scrollTo(0, 0)')
             data = await page.evaluate('''() => ({
                 width: innerWidth, scroll: document.documentElement.scrollWidth, client: document.documentElement.clientWidth,
                 brokenImages: [...document.images].filter(i => !i.complete || !i.naturalWidth).map(i => i.getAttribute('src')),
@@ -106,6 +108,20 @@ async def main():
             assert not face['intrusions'], f'Elemento sobre o rosto a {width}px: {face}'
             assert await page.locator('.hero svg').count() == 0, 'Capa limpa, sem botânicos'
             data['face_safe_area'] = face
+            if width >= 768:
+                composition = await page.evaluate('''() => {
+                    const tiles = [...document.querySelectorAll('.selected-grid > article')].map(e => {
+                        const r=e.getBoundingClientRect(); return {top:r.top,left:r.left,height:r.height};
+                    });
+                    return {tiles,pageHeight:document.querySelector('.editorial-page').getBoundingClientRect().height,
+                        projectsHeight:document.querySelector('#projetos').getBoundingClientRect().height};
+                }''')
+                assert max(t['top'] for t in composition['tiles'][:4]) - min(t['top'] for t in composition['tiles'][:4]) <= 1, 'Primeira linha deve ter quatro projetos'
+                assert max(t['top'] for t in composition['tiles'][4:]) - min(t['top'] for t in composition['tiles'][4:]) <= 1, 'Segunda linha deve ter três projetos'
+                if width == 1440:
+                    assert composition['pageHeight'] < 2800, f'Densidade editorial regressiva: {composition}'
+                    assert composition['projectsHeight'] < 800, 'Projetos devem formar uma faixa compacta'
+                data['composition'] = composition
             assert data['scroll'] == data['client'], f'Overflow horizontal a {width}px: {data}'
             assert not data['brokenImages'], f'Imagens quebradas a {width}px: {data}'
             assert not data['brokenAnchors'], f'Âncoras inexistentes: {data}'

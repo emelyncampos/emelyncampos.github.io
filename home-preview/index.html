@@ -47,453 +47,406 @@
     class="bg-pergaminho text-cinzaTexto antialiased selection:bg-terroso selection:text-white"
   >
     <a href="#conteudo" class="skip-link">Ir para o conteúdo</a>
-    <header id="navbar" class="cover-navigation">
-      <div
-        class="nav-inner max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
+    <div class="editorial-page">
+      <header id="navbar" class="cover-navigation">
+        <div
+          class="nav-inner max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
+        >
+          <a
+            href="/home-preview/"
+            class="site-name font-serif text-2xl md:text-3xl tracking-widest text-terrosoDark font-medium"
+            aria-label="Emelyn Campos — início"
+            >EMELYN<br />CAMPOS</a
+          >
+          <nav
+            id="desktop-navigation"
+            aria-label="Navegação principal"
+            class="hidden md:flex items-center gap-8 lg:gap-10 text-xs tracking-widest uppercase font-medium"
+          >
+            <a href="#projetos" class="hover:text-terroso transition-colors"
+              >Projetos</a
+            >
+            <a href="#ideias" class="hover:text-terroso transition-colors"
+              >Ideias</a
+            >
+            <a href="#sobre" class="hover:text-terroso transition-colors"
+              >Sobre</a
+            >
+            <a
+              href="#acompanhe"
+              class="px-5 py-2.5 rounded-full border border-terroso text-terrosoDark hover:bg-terroso hover:text-white transition-colors"
+              >Acompanhe
+              <i class="fa-solid fa-arrow-right ml-2" aria-hidden="true"></i
+            ></a>
+          </nav>
+          <button
+            id="menu-btn"
+            class="md:hidden text-terrosoDark text-2xl"
+            aria-label="Abrir menu"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            hidden
+          >
+            <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          </button>
+        </div>
+      </header>
+      <dialog
+        id="mobile-menu"
+        aria-labelledby="menu-title"
+        class="bg-pergaminho text-terrosoDark"
       >
-        <a
-          href="/home-preview/"
-          class="site-name font-serif text-2xl md:text-3xl tracking-widest text-terrosoDark font-medium"
-          aria-label="Emelyn Campos — início"
-          >EMELYN<br />CAMPOS</a
+        <button
+          id="close-btn"
+          class="absolute top-6 right-6 text-2xl"
+          aria-label="Fechar menu"
         >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <h2 id="menu-title" class="sr-only">Menu principal</h2>
         <nav
-          id="desktop-navigation"
-          aria-label="Navegação principal"
-          class="hidden md:flex items-center gap-8 lg:gap-10 text-xs tracking-widest uppercase font-medium"
+          aria-label="Navegação mobile"
+          class="flex flex-col items-center gap-8"
         >
-          <a href="#projetos" class="hover:text-terroso transition-colors"
+          <a href="#projetos" class="mobile-link font-serif text-4xl"
             >Projetos</a
           >
-          <a href="#ideias" class="hover:text-terroso transition-colors"
-            >Ideias</a
+          <a href="#ideias" class="mobile-link font-serif text-4xl">Ideias</a>
+          <a href="#sobre" class="mobile-link font-serif text-4xl">Sobre</a>
+          <a href="#acompanhe" class="mobile-link font-serif text-4xl"
+            >Acompanhe</a
           >
-          <a href="#sobre" class="hover:text-terroso transition-colors"
-            >Sobre</a
-          >
-          <a
-            href="#acompanhe"
-            class="px-5 py-2.5 rounded-full border border-terroso text-terrosoDark hover:bg-terroso hover:text-white transition-colors"
-            >Acompanhe
-            <i class="fa-solid fa-arrow-right ml-2" aria-hidden="true"></i
-          ></a>
         </nav>
-        <button
-          id="menu-btn"
-          class="md:hidden text-terrosoDark text-2xl"
-          aria-label="Abrir menu"
-          aria-controls="mobile-menu"
-          aria-expanded="false"
-          hidden
-        >
-          <i class="fa-solid fa-bars" aria-hidden="true"></i>
-        </button>
-      </div>
-    </header>
-    <dialog
-      id="mobile-menu"
-      aria-labelledby="menu-title"
-      class="bg-pergaminho text-terrosoDark"
-    >
-      <button
-        id="close-btn"
-        class="absolute top-6 right-6 text-2xl"
-        aria-label="Fechar menu"
-      >
-        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
-      </button>
-      <h2 id="menu-title" class="sr-only">Menu principal</h2>
-      <nav
-        aria-label="Navegação mobile"
-        class="flex flex-col items-center gap-8"
-      >
-        <a href="#projetos" class="mobile-link font-serif text-4xl">Projetos</a>
-        <a href="#ideias" class="mobile-link font-serif text-4xl">Ideias</a>
-        <a href="#sobre" class="mobile-link font-serif text-4xl">Sobre</a>
-        <a href="#acompanhe" class="mobile-link font-serif text-4xl"
-          >Acompanhe</a
-        >
-      </nav>
-    </dialog>
-    <main id="conteudo" tabindex="-1">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-cover">
-          <figure class="hero-photo">
-            <img
-              src="/home-preview/assets/emelyn-retrato.webp"
-              width="720"
-              height="1280"
-              alt="Emelyn Campos, com a mão apoiada sob o rosto."
-              fetchpriority="high"
-              decoding="async"
-            />
-          </figure>
-          <div class="hero-type">
-            <p class="eyebrow">Fé · vida · tecnologia · projetos</p>
-            <h1 id="hero-title">
-              <span>Construindo</span><span>ideias em</span
-              ><em>coisas reais.</em>
-            </h1>
-            <div class="hero-notes">
+      </dialog>
+      <main id="conteudo" tabindex="-1">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-cover">
+            <figure class="hero-photo">
+              <img
+                src="/home-preview/assets/emelyn-retrato.webp"
+                width="720"
+                height="1280"
+                alt="Emelyn Campos, com a mão apoiada sob o rosto."
+                fetchpriority="high"
+                decoding="async"
+              />
+            </figure>
+            <div class="cover-type">
+              <h1 id="hero-title"><span>Emelyn</span><span>Campos</span></h1>
+              <p class="eyebrow">Fé · vida · tecnologia · projetos</p>
               <p class="hero-manifesto">
-                Construindo com as ferramentas do futuro sem terceirizar o que
-                nos faz humanos.
-              </p>
-              <p class="hero-support">
-                Produtos digitais, livros, jogos e experiências que nascem de
-                perguntas, necessidades e coisas que acredito que valem a pena
-                construir.
+                Construindo com as ferramentas do futuro<br />sem terceirizar o
+                que nos faz humanos.
               </p>
               <a class="editorial-link" href="#projetos"
-                >Explorar projetos <span aria-hidden="true">↘</span></a
+                >Explorar projetos <span aria-hidden="true">→</span></a
               >
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="conexao" aria-labelledby="connection-title">
-        <div class="connection-layout">
-          <div>
-            <p class="eyebrow">O que conecta tudo isso</p>
-            <h2 id="connection-title">
-              Coisas diferentes.<br /><em>A mesma pessoa construindo.</em>
-            </h2>
-          </div>
-          <div class="connection-copy">
-            <p>Meus projetos não nasceram de um único nicho.</p>
-            <p>
-              Alguns começaram em uma necessidade da vida real. Outros em uma
-              pergunta. Outros simplesmente na vontade de que alguma coisa
-              existisse.
-            </p>
-            <p>
-              O que conecta todos eles é a curiosidade, a fé, a tecnologia e o
-              interesse pelo que continua humano mesmo quando nossas ferramentas
-              conseguem fazer cada vez mais.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section
-        id="projetos"
-        class="paper-section"
-        aria-labelledby="projects-title"
-        tabindex="-1"
-      >
-        <div class="section-heading">
-          <p class="eyebrow">Projetos em destaque</p>
-          <h2 id="projects-title">O que estou<br /><em>construindo.</em></h2>
-        </div>
-        <div class="featured-projects">
-          <article
-            class="tenderness-project"
-            aria-labelledby="tenderness-title"
-          >
-            <div class="tenderness-art">
-              <img
-                class="tenderness-family"
-                src="/tenderness/assets/family-hero.webp"
-                width="1122"
-                height="1402"
-                alt="Uma mãe abraça sua filha na fotografia oficial do Tenderness."
-                loading="lazy"
-              /><img
-                class="tenderness-screen"
-                src="/tenderness/assets/mockup-consultation.webp"
-                width="1122"
-                height="1402"
-                alt="Resumo de uma consulta pediátrica na interface oficial do Tenderness."
-                loading="lazy"
-              />
-            </div>
-            <div class="tenderness-copy">
-              <p class="project-category">
-                Produto digital · Primeira infância
-              </p>
-              <h3 id="tenderness-title">
-                <img
-                  src="/tenderness/assets/logo-horizontal.png"
-                  width="1000"
-                  height="270"
-                  alt="Tenderness"
-                  loading="lazy"
-                />
-              </h3>
-              <p class="project-intro">
-                Registro, cuidado e memórias da primeira infância.
-              </p>
-              <p class="project-description">
-                Da próxima consulta às primeiras palavras: um lugar para
-                organizar o que importa agora e guardar o que você vai querer
-                lembrar depois.
-              </p>
-              <a href="/tenderness/pt/" class="project-link"
-                >Conhecer o Tenderness
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
-              ></a>
-            </div>
-          </article>
-          <article class="grao-project" aria-labelledby="grao-title">
-            <figure class="grao-art overflow-hidden">
-              <img
-                src="/o-grao/assets/ograo-editorial-manifesto.webp"
-                width="1000"
-                height="585"
-                alt="Paisagem editorial oficial de O Grão."
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                loading="lazy"
-              />
-            </figure>
-            <div class="project-copy">
-              <p class="project-category">Bíblia · Estudo · Contexto</p>
-              <h3 id="grao-title" class="font-serif text-4xl font-light">
-                O Grão
-              </h3>
-              <p class="project-description">
-                Explorar a Bíblia com profundidade, contexto e compreensão
-                própria.
-              </p>
-              <p class="grao-note font-serif italic text-xl">
-                O texto vem antes da resposta.
-              </p>
-              <a href="/o-grao/" class="project-link"
-                >Conhecer O Grão
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
-              ></a>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section
-        id="selected-work"
-        class="paper-section"
-        aria-labelledby="selected-title"
-      >
-        <div class="selected-heading">
-          <p class="eyebrow">Selected Work</p>
-          <h2 id="selected-title">Outros projetos</h2>
-        </div>
-        <div class="selected-grid">
-          <article class="bento-project" aria-labelledby="bento-title">
-            <figure class="project-art bento-art">
-              <img
-                src="/home-preview/assets/bento-editorial.webp"
-                width="744"
-                height="888"
-                alt="Bento, o personagem oficial das Histórias da Bíblia com Bento, sem alterações."
-                loading="lazy"
-              />
-            </figure>
-            <div class="project-copy">
-              <p class="project-category">Infância · Escrituras</p>
-              <h3
-                id="bento-title"
-                class="font-serif text-3xl font-light text-terrosoDark"
-              >
-                Histórias da Bíblia com Bento
-              </h3>
-              <p class="project-description">
-                Histórias, livros e experiências para aproximar as crianças das
-                Escrituras.
-              </p>
-              <a
-                href="https://share.google/jYHuJXqDNkUQ7qqxu"
-                class="project-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Conhecer Bento
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
-                ><span class="sr-only"> (abre em nova aba)</span></a
-              >
-            </div>
-          </article>
-          <article class="byr-project" aria-labelledby="byr-title">
-            <figure class="project-art byr-art">
-              <img
-                src="/before-you-read/assets/og.png"
-                width="1200"
-                height="630"
-                alt="Identidade oficial de Before You Read — Bible Prep for Parents."
-                loading="lazy"
-              />
-            </figure>
-            <div class="project-copy">
-              <p class="project-category">Família · Bíblia</p>
-              <h3
-                id="byr-title"
-                class="font-serif text-3xl md:text-4xl font-light text-terrosoDark"
-              >
-                Before You Read
-              </h3>
-              <p class="project-description">
-                Saiba o que importa antes de ler as partes difíceis da Bíblia
-                com seus filhos.
-              </p>
-              <a href="/before-you-read/pt-br/" class="project-link"
-                >Conhecer Before You Read
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
-              ></a>
-            </div>
-          </article>
-          <article class="parallax-project" aria-labelledby="parallax-title">
-            <figure class="project-art parallax-art">
-              <img
-                src="/home-preview/assets/parallax-still-life.webp"
-                width="1200"
-                height="638"
-                alt="Envelope, selo e documentos da identidade oficial de PARALLAX."
-                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                loading="lazy"
-              />
-            </figure>
-            <div class="project-copy">
-              <p class="project-category">Investigação · Experiência</p>
-              <h3 id="parallax-title" class="font-serif text-3xl font-light">
-                PARALLAX
-              </h3>
-              <p class="font-serif italic text-xl mb-3">Mude a perspectiva.</p>
-
-              <p class="project-status">Em construção</p>
-            </div>
-          </article>
-          <article class="caos-project" aria-labelledby="caos-title">
-            <div class="project-art caos-art" aria-hidden="true">
-              <span class="font-serif font-light"
-                >Estratégia.<br />
-                Rotina.<br /><em>Caos.</em></span
-              >
-            </div>
-            <div class="project-copy">
-              <p class="project-category">Jogo · Casais</p>
-              <h3
-                id="caos-title"
-                class="font-serif text-3xl font-light text-terrosoDark"
-              >
-                Até Que o Caos Nos Separe
-              </h3>
-              <p class="project-description">
-                Estratégia, rotina e caos doméstico na mesma mesa.
-              </p>
-              <p class="project-status">Em desenvolvimento</p>
-            </div>
-          </article>
-          <article class="book-project" aria-labelledby="book-title">
-            <figure class="project-art book-art">
-              <img
-                src="/e-se-voce-estiver-fazendo-a-pergunta-errada/assets/hero-mockup.jpg"
-                width="1122"
-                height="1402"
-                alt="Capa oficial de E se você estiver fazendo a pergunta errada?, de Lyn Campos."
-                loading="lazy"
-              />
-            </figure>
-            <div class="project-copy">
-              <p class="project-category">Livro · Lyn Campos</p>
-              <h3
-                id="book-title"
-                class="font-serif text-3xl font-light text-terrosoDark"
-              >
-                E se você estiver fazendo a pergunta errada?
-              </h3>
-              <p class="project-description">
-                Um livro sobre fé, perguntas, compreensão bíblica e o que muda
-                quando começamos pelo lugar certo.
-              </p>
-              <a
-                href="/e-se-voce-estiver-fazendo-a-pergunta-errada/"
-                class="project-link"
-                >Conhecer o livro
-                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
-              ></a>
-            </div>
-          </article>
-        </div>
-      </section>
-      <div class="editorial-band">
-        <section id="ideias" aria-labelledby="ideas-title" tabindex="-1">
-          <p class="eyebrow">Ideias que continuam comigo</p>
-          <h2 id="ideas-title">
-            Algumas perguntas<br /><em>não vão embora.</em>
-          </h2>
-          <div class="ideas-grid">
-            <div class="idea">
-              <span class="idea-number">01</span>
-              <h3>
-                O que acontece conosco quando as ferramentas conseguem fazer
-                cada vez mais?
-              </h3>
-            </div>
-            <div class="idea">
-              <span class="idea-number">02</span>
-              <h3>O que eu não terceirizaria?</h3>
-            </div>
-            <div class="idea">
-              <span class="idea-number">03</span>
-              <h3>O que vale a pena construir?</h3>
-            </div>
-            <div class="idea">
-              <span class="idea-number">04</span>
-              <h3>O que precisa continuar humano?</h3>
             </div>
           </div>
         </section>
-        <section id="sobre" aria-labelledby="about-title" tabindex="-1">
-          <p class="eyebrow">Sobre</p>
-          <h2 id="about-title">Aqui é onde<br /><em>tudo se conecta.</em></h2>
-          <div class="about-copy">
-            <p class="about-intro">Sou Emelyn.</p>
+        <section id="conexao" aria-labelledby="connection-title">
+          <svg
+            class="shape-definition"
+            width="0"
+            height="0"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <defs>
+              <clipPath id="olive-contour" clipPathUnits="objectBoundingBox">
+                <path
+                  d="M0 .02 C .20 .09 .47 -.02 .63 .10 C .81 .17 .96 .33 1 .55 C .82 .88 .71 1 .48 1 L0 1Z"
+                />
+              </clipPath>
+            </defs>
+          </svg>
+          <div class="olive-shape">
+            <div class="connection-copy">
+              <p class="eyebrow">O que conecta tudo isso</p>
+              <h2 id="connection-title">
+                Coisas diferentes.<br />A mesma pessoa construindo.
+              </h2>
+              <p>
+                Meus projetos não nasceram de um único nicho. Alguns começaram
+                numa necessidade, outros numa pergunta — ou na vontade de que
+                algo existisse.
+              </p>
+              <p>
+                O que os conecta é a curiosidade, a fé e o interesse pelo que
+                continua humano.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section id="projetos" aria-labelledby="projects-title" tabindex="-1">
+          <h2 id="projects-title" class="selected-label">
+            Projetos selecionados
+          </h2>
+          <div class="selected-grid">
+            <article
+              class="tenderness-project"
+              aria-labelledby="tenderness-title"
+            >
+              <div class="project-art tenderness-art">
+                <img
+                  class="tenderness-family"
+                  src="/tenderness/assets/family-hero.webp"
+                  width="1122"
+                  height="1402"
+                  alt="Uma mãe abraça sua filha na fotografia oficial do Tenderness."
+                  loading="lazy"
+                /><img
+                  class="tenderness-screen"
+                  src="/tenderness/assets/mockup-consultation.webp"
+                  width="1122"
+                  height="1402"
+                  alt="Resumo de uma consulta pediátrica na interface do Tenderness."
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-copy">
+                <p class="project-category">Primeira infância</p>
+                <h3 id="tenderness-title">Tenderness</h3>
+                <p class="project-description">Registro, cuidado e memórias.</p>
+                <a class="project-link" href="/tenderness/pt/"
+                  ><span aria-hidden="true">→</span
+                  ><span class="sr-only">Conhecer Tenderness</span></a
+                >
+              </div>
+            </article>
+            <article class="grao-project" aria-labelledby="grao-title">
+              <figure class="project-art">
+                <img
+                  src="/o-grao/assets/ograo-editorial-manifesto.webp"
+                  width="1000"
+                  height="585"
+                  alt="Paisagem editorial de O Grão."
+                  loading="lazy"
+                />
+              </figure>
+              <div class="project-copy">
+                <p class="project-category">Bíblia · Contexto</p>
+                <h3 id="grao-title">O Grão</h3>
+                <p class="project-description">
+                  O texto vem antes da resposta.
+                </p>
+                <a class="project-link" href="/o-grao/"
+                  ><span aria-hidden="true">→</span
+                  ><span class="sr-only">Conhecer O Grão</span></a
+                >
+              </div>
+            </article>
+            <article class="bento-project" aria-labelledby="bento-title">
+              <figure class="project-art bento-art">
+                <img
+                  src="/home-preview/assets/bento-editorial.webp"
+                  width="744"
+                  height="888"
+                  alt="Bento, o cordeiro das Histórias da Bíblia com Bento."
+                  loading="lazy"
+                />
+              </figure>
+              <div class="project-copy">
+                <p class="project-category">Infância · Escrituras</p>
+                <h3 id="bento-title">Histórias da Bíblia com Bento</h3>
+                <p class="project-description">
+                  Histórias para aproximar as crianças das Escrituras.
+                </p>
+                <a
+                  class="project-link"
+                  href="https://share.google/jYHuJXqDNkUQ7qqxu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span aria-hidden="true">→</span
+                  ><span class="sr-only"
+                    >Conhecer Histórias da Bíblia com Bento (abre em nova
+                    aba)</span
+                  ></a
+                >
+              </div>
+            </article>
+            <article class="parallax-project" aria-labelledby="parallax-title">
+              <figure class="project-art">
+                <img
+                  src="/home-preview/assets/parallax-still-life.webp"
+                  width="1200"
+                  height="638"
+                  alt="Envelope, selo e documentos da identidade de PARALLAX."
+                  loading="lazy"
+                />
+              </figure>
+              <div class="project-copy">
+                <p class="project-category">Investigação · Experiência</p>
+                <h3 id="parallax-title">PARALLAX</h3>
+                <p class="project-description">Mude a perspectiva.</p>
+                <p class="project-status">
+                  Em construção <span aria-hidden="true">→</span>
+                </p>
+              </div>
+            </article>
+            <article class="byr-project" aria-labelledby="byr-title">
+              <figure class="project-art byr-art">
+                <img
+                  src="/before-you-read/assets/og.png"
+                  width="1200"
+                  height="630"
+                  alt="Identidade oficial de Before You Read — Bible Prep for Parents."
+                  loading="lazy"
+                />
+              </figure>
+              <div class="project-copy">
+                <p class="project-category">Família · Bíblia</p>
+                <h3 id="byr-title">Before You Read</h3>
+                <p class="project-description">
+                  O que importa antes das partes difíceis.
+                </p>
+                <a class="project-link" href="/before-you-read/pt-br/"
+                  ><span aria-hidden="true">→</span
+                  ><span class="sr-only">Conhecer Before You Read</span></a
+                >
+              </div>
+            </article>
+            <article class="caos-project" aria-labelledby="caos-title">
+              <div class="project-art caos-art" aria-hidden="true">
+                <span>Estratégia.<br />Rotina.<br /><em>Caos.</em></span>
+              </div>
+              <div class="project-copy">
+                <p class="project-category">Jogo · Casais</p>
+                <h3 id="caos-title">Até Que o Caos Nos Separe</h3>
+                <p class="project-description">
+                  Estratégia, rotina e caos doméstico na mesma mesa.
+                </p>
+                <p class="project-status">
+                  Em desenvolvimento <span aria-hidden="true">→</span>
+                </p>
+              </div>
+            </article>
+            <article class="book-project" aria-labelledby="book-title">
+              <figure class="project-art book-art">
+                <img
+                  src="/e-se-voce-estiver-fazendo-a-pergunta-errada/assets/hero-mockup.jpg"
+                  width="1122"
+                  height="1402"
+                  alt="Capa de E se você estiver fazendo a pergunta errada?, de Lyn Campos."
+                  loading="lazy"
+                />
+              </figure>
+              <div class="project-copy">
+                <p class="project-category">Livro · Lyn Campos</p>
+                <h3 id="book-title">
+                  E se você estiver fazendo a pergunta errada?
+                </h3>
+                <p class="project-description">
+                  Fé, perguntas e compreensão bíblica.
+                </p>
+                <a
+                  class="project-link"
+                  href="/e-se-voce-estiver-fazendo-a-pergunta-errada/"
+                  ><span aria-hidden="true">→</span
+                  ><span class="sr-only"
+                    >Conhecer E se você estiver fazendo a pergunta errada?</span
+                  ></a
+                >
+              </div>
+            </article>
+          </div>
+        </section>
+        <div class="editorial-band">
+          <section id="ideias" aria-labelledby="ideas-title" tabindex="-1">
+            <h2 id="ideas-title" class="band-label">
+              Ideias que continuam comigo
+            </h2>
+            <div class="ideas-grid">
+              <div class="idea">
+                <span class="idea-number">01</span>
+                <h3>
+                  O que acontece conosco quando as ferramentas conseguem fazer
+                  cada vez mais?
+                </h3>
+              </div>
+              <div class="idea">
+                <span class="idea-number">02</span>
+                <h3>O que eu não terceirizaria?</h3>
+              </div>
+              <div class="idea">
+                <span class="idea-number">03</span>
+                <h3>O que vale a pena construir?</h3>
+              </div>
+              <div class="idea">
+                <span class="idea-number">04</span>
+                <h3>O que precisa continuar humano?</h3>
+              </div>
+            </div>
+          </section>
+          <section id="sobre" aria-labelledby="about-title" tabindex="-1">
+            <h2 id="about-title" class="band-label">Sobre</h2>
+            <h3 class="about-heading">Aqui é onde<br />tudo se conecta.</h3>
             <p>
-              Crio produtos digitais, livros, jogos e experiências a partir de
-              coisas que me interessam de verdade: fé, família, tecnologia,
-              perguntas difíceis e a vontade de transformar ideias em algo
-              concreto.
+              Sou Emelyn. Crio produtos digitais, livros, jogos e experiências a
+              partir de coisas que me interessam de verdade: fé, família,
+              tecnologia, perguntas difíceis e a vontade de transformar ideias
+              em algo concreto.
             </p>
             <p>
               Tenho interesse tanto no que a tecnologia torna possível quanto no
               que continua dependendo de nós.
             </p>
+          </section>
+        </div>
+        <section id="acompanhe" aria-labelledby="follow-title" tabindex="-1">
+          <div class="follow-copy">
+            <p class="eyebrow">Acompanhe a construção</p>
+            <h2 id="follow-title">
+              Algumas coisas<br />já estão prontas.<br /><em
+                >Outras ainda estão<br />tomando forma.</em
+              >
+            </h2>
+            <p>
+              Ideias, bastidores e o processo de transformar perguntas em coisas
+              reais.
+            </p>
           </div>
-          <p class="personal-signature">Emelyn Campos</p>
-        </section>
-      </div>
-      <section id="acompanhe" aria-labelledby="follow-title" tabindex="-1">
-        <div class="follow-copy">
-          <p class="eyebrow">Acompanhe a construção</p>
-          <h2 id="follow-title">
-            Algumas coisas<br />já estão prontas.<br /><em
-              >Outras ainda estão<br />tomando forma.</em
+          <figure class="closing-art">
+            <img
+              src="/o-grao/assets/ograo-editorial-manifesto.webp"
+              width="1000"
+              height="585"
+              alt="Detalhe da paisagem do projeto O Grão."
+              loading="lazy"
+            />
+          </figure>
+          <div class="follow-links">
+            <p class="contact-label">Vamos continuar por aqui</p>
+            <div class="social-links">
+              <a
+                href="https://www.instagram.com/emelyncbertolini/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Instagram <span aria-hidden="true">↗</span
+                ><span class="sr-only"> (abre em nova aba)</span></a
+              ><a
+                href="https://www.tiktok.com/@emelyncbertolini"
+                target="_blank"
+                rel="noopener noreferrer"
+                >TikTok <span aria-hidden="true">↗</span
+                ><span class="sr-only"> (abre em nova aba)</span></a
+              ><span data-pending-profile="linkedin">LinkedIn</span
+              ><span data-pending-profile="x">X</span>
+            </div>
+            <a class="contact-email" href="mailto:contato@emelyncampos.com.br"
+              >contato@emelyncampos.com.br</a
             >
-          </h2>
-          <p>
-            Compartilho ideias, bastidores e o processo de transformar perguntas
-            em coisas reais.
+          </div>
+        </section>
+        <footer class="site-footer">
+          <p>EMELYN CAMPOS</p>
+          <p class="footer-manifesto">
+            Construindo com as ferramentas do futuro<br />sem terceirizar o que
+            nos faz humanos.
           </p>
-        </div>
-        <div class="social-links">
-          <a
-            href="https://www.instagram.com/emelyncbertolini/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Instagram <span aria-hidden="true">↗</span
-            ><span class="sr-only"> (abre em nova aba)</span></a
-          ><a
-            href="https://www.tiktok.com/@emelyncbertolini"
-            target="_blank"
-            rel="noopener noreferrer"
-            >TikTok <span aria-hidden="true">↗</span
-            ><span class="sr-only"> (abre em nova aba)</span></a
-          ><span data-pending-profile="linkedin">LinkedIn</span
-          ><span data-pending-profile="x">X</span>
-        </div>
-      </section>
-      <footer class="site-footer">
-        <p class="footer-name">EMELYN CAMPOS</p>
-        <p class="footer-manifesto">
-          Construindo com as ferramentas do futuro<br />sem terceirizar o que
-          nos faz humanos.
-        </p>
-        <p>© 2026</p>
-      </footer>
-    </main>
+          <p>© 2026</p>
+        </footer>
+      </main>
+    </div>
   </body>
 </html>

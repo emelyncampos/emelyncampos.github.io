@@ -1,41 +1,35 @@
-# Home V7 — reconstrução editorial completa
+# Home V8 — referência como composição
 
-Branch `home-editorial-v2`; rota isolada `/home-preview/`. Referência-mestre: pôster editorial feminino em papel, oliva, terracota e sálvia enviado pelo usuário. A V7 substitui a composição anterior; não é um conjunto de ornamentos acrescentados à V5.
+Branch `home-editorial-v2`; rota `/home-preview/`. Reconstrução da composição V7 usando a referência-mestre como wireframe visual. Conteúdo, links, fotografia pessoal e assets reais preservados.
 
-## Direção e arquitetura
+## Composição e segunda rodada
 
-Capa com “Construindo ideias em coisas reais.” em Cormorant Garamond de grande escala, fotografia pessoal sem borda ou sombra, nome em duas linhas e navegação discreta sobre o papel. Foto protagonista integrada ao limite da página. Mobile redesenhado com navegação, fotografia limpa, headline, manifesto e link editorial. Não há botânicos, símbolos ou texto sobre a fotografia.
+Capa única com nome em grande escala (Cormorant Garamond 300), retrato real a 46% da largura direita sem card, manifesto pequeno e navegação discreta. Forma oliva parcial invade o fim da capa e termina antes da borda direita. Nenhum botânico no hero. Papel visível conecta as áreas.
 
-A curva oliva nasce da área de papel e leva ao bloco de conexão. Uma curva clara retorna aos projetos. Tenderness ocupa área vinho assimétrica integrada ao papel, com logo oficial, uma fotografia e um único mockup. O Grão contrapõe paisagem oficial e tipografia contemplativa. Selected Work tem cinco peças distintas: Bento vertical/arco, Before You Read paisagem, PARALLAX largo e cinematográfico, jogo tipográfico orgânico e livro vertical com um único mockup. Sem cinco cards iguais, bordas decorativas ou sombras repetidas.
+Sete projetos em área compacta: primeira linha Tenderness, O Grão, Bento e PARALLAX; segunda Before You Read, Até Que o Caos Nos Separe e livro. Imagens próximas em tamanho, metadados pequenos, títulos serifados, uma linha e setas. Tenderness tem uma fotografia e um mockup; O Grão usa o asset canônico; jogo apenas tipográfico; livro uma única imagem. Sem grandes cards de produto ou seções protagonistas separadas.
 
-Ideias em terracota e Sobre em sálvia formam uma faixa conjunta. Encerramento em papel com quatro redes e rodapé oliva profundo. Fontes Cormorant Garamond e Plus Jakarta Sans; paleta solicitada preservada. Textura de papel muito discreta em CSS, sem efeitos ou novas bibliotecas.
+Ideias em terracota e Sobre em sálvia formam uma faixa horizontal única. Encerramento compacto em papel, arco com paisagem real de O Grão, acompanhamento, redes e contato. Rodapé oliva profundo. Moldura suave somente no contêiner externo, sem arredondar cada seção.
 
-Todos os sete projetos presentes: Tenderness; O Grão; Histórias da Bíblia com Bento; Before You Read; PARALLAX; Até Que o Caos Nos Separe; E se você estiver fazendo a pergunta errada? (Lyn Campos).
+Comparação literal lado a lado em `qa/screenshots/v8/reference-vs-v8.png`, após duas rodadas visuais. Na segunda rodada foram refinados o contorno oliva, a integração da borda esquerda da fotografia, o enquadramento mobile e a escala do nome em tablet. A revisão independente encontrou o link do hero encoberto pela forma oliva: removida frase redundante e adicionado teste de hit testing nas sete larguras. Revisão posterior confirmou cliques reais levando a #projetos em todas elas.
 
-## Assets reais e pendências
+Desktop: contêiner 1280 × 2399 px, comparado aos cerca de 5500 px da V7. Projetos limitados a menos de 800 px, com 4+3 alinhamentos verificados. A referência foi comparada pela densidade, proporção foto/texto, quantidade de áreas coloridas, curvas e ritmo vertical. A fotografia disponível é a selfie real escolhida pela usuária; nenhuma pose ou cenário foi inventado para reproduzir a outra pessoa da referência.
 
-Foto escolhida pelo usuário em `assets/emelyn-retrato.webp`, otimizada a partir do JPEG original sem mudança de identidade/composição (70.664 bytes contra 132.805). JPEG original preservado. Bento usa o WebP lossless já existente: dimensões e pixels RGBA comparados com PNG oficial, sem diferenças. Demais imagens são assets canônicos das páginas dos projetos. Nenhuma pessoa, interface, embalagem, carta ou logo foi inventado.
+## QA
 
-**Asset oficial do logo de O Grão ainda necessário.** Seu nome é apenas tipográfico. Não existe asset canônico confirmado do jogo; composição tipográfica com status Em desenvolvimento. LinkedIn e X sem href até receber URLs oficiais. Instagram/TikTok usam os links fornecidos. Bento conserva seu destino externo fornecido; esse destino não foi validado externamente pelo proxy. Quatro páginas locais dos projetos retornam 200.
+`qa/results-v8.json`: Chromium em 320, 375, 390, 430, 768, 1024 e 1440 px. ScrollWidth/clientWidth iguais; nenhuma imagem quebrada, 404, erro JS, texto cortado, âncora inexistente ou projeto ausente. Headings, fontes, menu/Tab/Shift+Tab/ESC/foco/resize, navegação sem JS e prefers-reduced-motion aprovados. Axe WCAG 2 A/AA e 2.1 A/AA: zero violações detectadas; inconclusivos registrados, sem alegação de certificação. Quatro destinos locais retornam 200; o destino externo Bento não é tratado como verificado.
 
-## QA visual, refinamento e revisão
+Safe area calculada pelo enquadramento real: cabeça/rosto dentro da imagem nas sete larguras e sem texto ou controles sobrepostos. Screenshots full-page finais em `qa/screenshots/v8/home-preview-1440.png` e `home-preview-390.png`, inspecionados por inteiro junto da referência.
 
-Primeira rodada full-page em `/workspace/artifacts/home-v7/round-1/`; comparada com a referência-mestre: fotografia dominante, serif editorial, equilíbrio papel/oliva/terracota, peças Selected Work com pesos próprios e ausência de ornamentos arbitrários. Na segunda rodada, a curva de transição foi limitada à área de papel para não atravessar fotografia/ombros e houve ajuste de respiro da capa. A auditoria completa corrigiu o contraste da legenda Sobre, passando a oliva profundo sobre sálvia. Screenshots finais `qa/screenshots/v7/home-preview-1440.png` e `home-preview-390.png`, revisados por inteiro. Revisão independente de código e imagens sem problemas bloqueantes.
+Exportação autocontida testada offline em 390/1440, com fontes, imagens, estilos, menu e nenhum overflow. `qa/preview-v8.zip` contém apenas index.html, sem CNAME ou configuração de produção.
 
-Critérios visuais revisados: mesma família editorial da referência; fotografia protagonista; contraste de projetos respeitado; Selected Work sem grade uniforme; ornamentos removidos por não acrescentarem direção de arte; composição contínua com curvas e faixas compartilhadas. A V7 usa a foto real disponível, não reproduz a pose/cena de outra pessoa da referência.
+## Reprodução
 
-`qa/results-v7.json`: QA Chromium em 320, 375, 390, 430, 768, 1024 e 1440 px. ScrollWidth/clientWidth iguais; nenhuma imagem quebrada, 404, erro JS, texto cortado, âncora inexistente ou projeto ausente. Menu fullscreen/Tab/Shift+Tab/ESC/foco/resize, navegação sem JS e prefers-reduced-motion aprovados. Headings e fontes validados. Axe WCAG 2 A/AA e 2.1 A/AA: zero violações detectadas; inconclusivos registrados, sem alegação de certificação.
+Na raiz: `python3 -m http.server 8000 --bind 127.0.0.1`. Dependências: Python Playwright, Chromium e axe-core 4.10.3 instalado em `/tmp/home-preview-tools/node_modules/axe-core`. Rodar `python3 home-preview/qa/check.py`. A ausência de axe interrompe a execução. `python3 home-preview/qa/export_preview.py` gera `/workspace/artifacts/home-v8/preview.html` autocontido. Tailwind Browser 4.1.18 autêntico, fontes locais e Font Awesome com licenças existentes. Bridge de QA mantém verificação TLS e usa o proxy configurado.
 
-Safe area calculada a partir do enquadramento real da foto, incluindo posição e escala object-fit: face/cabeça inteira dentro da imagem nas sete larguras; nenhum título, parágrafo, link ou controle de navegação a cruza. Inspeção visual confirmou cabelo, olhos, pescoço e ombros livres. Nenhum SVG ou botânico no hero.
+## Pendências e proteção
 
-## Reprodução e entrega isolada
+Asset oficial do logo de O Grão ainda necessário; nome apenas tipográfico. Asset canônico de Até Que o Caos Nos Separe pendente; nenhum mockup inventado. LinkedIn e X visualmente presentes sem href. Instagram, TikTok e email usam os dados fornecidos.
 
-Iniciar na raiz: `python3 -m http.server 8000 --bind 127.0.0.1`. Instalar a ferramenta de auditoria: `npm install --prefix /tmp/home-preview-tools --cache /tmp/home-preview-npm-cache --no-audit --no-fund --save-exact axe-core@4.10.3`. Rodar `python3 home-preview/qa/check.py`; a ausência do axe agora interrompe a execução em vez de pular silenciosamente a auditoria. `python3 home-preview/qa/export_preview.py` gera `/workspace/artifacts/home-v7/preview.html` autocontido. Exportação validada offline em 390/1440, com imagens, fontes, estilos, menu e zero overflow. `qa/preview-v7.zip` contém apenas esse HTML como index.html, sem CNAME/DNS/configuração do site oficial, pronto para deploy em hospedagem de preview separada.
+Sem infraestrutura configurada para preview público navegável independente. Não foi improvisado túnel ou deploy, alterado GitHub Pages/DNS/main ou substituída a Home oficial. Screenshots públicos após push da branch e ZIP isolado disponíveis para avaliação; URL navegável requer hospedagem de preview separada.
 
-Tailwind Browser 4.1.18 via CDN; fontes Google e Font Awesome locais com licenças existentes. Bridge de QA baixa bytes autênticos do CDN usando TLS verificado e proxy configurado; não altera a aplicação nem desativa validação TLS.
-
-## Publicação e proteção do site
-
-Nenhuma infraestrutura de preview público independente configurada no checkout/ambiente: sem workflow de deploy, serviço de hospedagem, segredo ou identidade correspondente. Não foi criado túnel, alterado GitHub Pages, DNS ou `main`. Conforme instrução anterior de não improvisar publicação, a entrega usa screenshots públicos no GitHub e pacote isolado. URL pública navegável permanece pendente de hospedagem separada; opção segura é publicar o ZIP em um site de preview separado no Netlify/Cloudflare Pages, sem vincular o domínio oficial.
-
-Comparação `git diff --exit-code 0178259 -- . ':(exclude)home-preview/**'` sem mudanças. `/index.html` SHA-256 `c2efb7669125cd06189c978a9d3c42a4862420be8b54edd73a3e5076e5b02b0c`. Nenhum merge ou publicação em produção. Push apenas da branch de trabalho já autorizado para disponibilizar a entrega visual.
+Comparação `git diff --exit-code 0178259 -- . ':(exclude)home-preview/**'` sem mudanças. `/index.html` SHA-256 `c2efb7669125cd06189c978a9d3c42a4862420be8b54edd73a3e5076e5b02b0c`. Nenhum merge ou publicação em produção. Push apenas da branch de trabalho autorizado anteriormente.

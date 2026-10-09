@@ -1,0 +1,880 @@
+{
+  "status": "passed",
+  "widths": [
+    320,
+    375,
+    390,
+    430,
+    768,
+    1024,
+    1440
+  ],
+  "projects": [
+    "Tenderness",
+    "O Grão",
+    "Histórias da Bíblia com Bento",
+    "Before You Read",
+    "PARALLAX",
+    "Até Que o Caos Nos Separe",
+    "E se você estiver fazendo a pergunta errada?"
+  ],
+  "browser_errors": [],
+  "failed_requests": [],
+  "accessibility": [
+    {
+      "width": 320,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    },
+    {
+      "width": 375,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    },
+    {
+      "width": 390,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    },
+    {
+      "width": 430,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    },
+    {
+      "width": 768,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    },
+    {
+      "width": 1024,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    },
+    {
+      "width": 1440,
+      "violations": 0,
+      "incomplete_checks": [
+        "color-contrast"
+      ]
+    }
+  ],
+  "no_javascript_navigation": "passed",
+  "reduced_motion": "passed",
+  "results": [
+    {
+      "width": 320,
+      "scroll": 320,
+      "client": 320,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "EmelynCampos"
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "Projetos selecionados"
+        },
+        {
+          "level": 3,
+          "text": "Tenderness"
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo"
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Sobre"
+        },
+        {
+          "level": 3,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisasjá estão prontas.Outras ainda estãotomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": [],
+      "face_safe_area": {
+        "safe": {
+          "left": 74.25,
+          "top": 117.11000000000001,
+          "right": 245.75,
+          "bottom": 378.4433333333334
+        },
+        "intrusions": [],
+        "fullyWithinPhoto": true
+      }
+    },
+    {
+      "width": 375,
+      "scroll": 375,
+      "client": 375,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "EmelynCampos"
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "Projetos selecionados"
+        },
+        {
+          "level": 3,
+          "text": "Tenderness"
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo"
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Sobre"
+        },
+        {
+          "level": 3,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisasjá estão prontas.Outras ainda estãotomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": [],
+      "face_safe_area": {
+        "safe": {
+          "left": 85.70833333333333,
+          "top": 117.55166666666666,
+          "right": 289.2916666666667,
+          "bottom": 427.77388888888885
+        },
+        "intrusions": [],
+        "fullyWithinPhoto": true
+      }
+    },
+    {
+      "width": 390,
+      "scroll": 390,
+      "client": 390,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "EmelynCampos"
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "Projetos selecionados"
+        },
+        {
+          "level": 3,
+          "text": "Tenderness"
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo"
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Sobre"
+        },
+        {
+          "level": 3,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisasjá estão prontas.Outras ainda estãotomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": [],
+      "face_safe_area": {
+        "safe": {
+          "left": 88.83333333333333,
+          "top": 118.54135416666666,
+          "right": 301.16666666666663,
+          "bottom": 442.0969097222222
+        },
+        "intrusions": [],
+        "fullyWithinPhoto": true
+      }
+    },
+    {
+      "width": 430,
+      "scroll": 430,
+      "client": 430,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "EmelynCampos"
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "Projetos selecionados"
+        },
+        {
+          "level": 3,
+          "text": "Tenderness"
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo"
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Sobre"
+        },
+        {
+          "level": 3,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisasjá estão prontas.Outras ainda estãotomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": [],
+      "face_safe_area": {
+        "safe": {
+          "left": 97.16666666666667,
+          "top": 120.09333333333333,
+          "right": 332.8333333333333,
+          "bottom": 479.20444444444445
+        },
+        "intrusions": [],
+        "fullyWithinPhoto": true
+      }
+    },
+    {
+      "width": 768,
+      "scroll": 768,
+      "client": 768,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "EmelynCampos"
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "Projetos selecionados"
+        },
+        {
+          "level": 3,
+          "text": "Tenderness"
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo"
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Sobre"
+        },
+        {
+          "level": 3,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisasjá estão prontas.Outras ainda estãotomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": [],
+      "face_safe_area": {
+        "safe": {
+          "left": 483.1608072916667,
+          "top": 164.59360243055556,
+          "right": 679.0423177083333,
+          "bottom": 463.07971354166665
+        },
+        "intrusions": [],
+        "fullyWithinPhoto": true
+      },
+      "composition": {
+        "tiles": [
+          {
+            "top": 900.90625,
+            "left": 51,
+            "height": 255.5
+          },
+          {
+            "top": 900.90625,
+            "left": 222,
+            "height": 255.5
+          },
+          {
+            "top": 900.90625,
+            "left": 393,
+            "height": 317.40625
+          },
+          {
+            "top": 900.90625,
+            "left": 564,
+            "height": 259.046875
+          },
+          {
+            "top": 1240.3125,
+            "left": 51,
+            "height": 237.546875
+          },
+          {
+            "top": 1240.3125,
+            "left": 279,
+            "height": 281.59375
+          },
+          {
+            "top": 1240.3125,
+            "left": 507,
+            "height": 288.546875
+          }
+        ],
+        "pageHeight": 2321.765625,
+        "projectsHeight": 741.953125
+      }
+    },
+    {
+      "width": 1024,
+      "scroll": 1024,
+      "client": 1024,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "EmelynCampos"
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "Projetos selecionados"
+        },
+        {
+          "level": 3,
+          "text": "Tenderness"
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo"
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Sobre"
+        },
+        {
+          "level": 3,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisasjá estão prontas.Outras ainda estãotomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": [],
+      "face_safe_area": {
+        "safe": {
+          "left": 645.9420572916666,
+          "top": 158.64068576388888,
+          "right": 910.5110677083334,
+          "bottom": 561.7934635416667
+        },
+        "intrusions": [],
+        "fullyWithinPhoto": true
+      },
+      "composition": {
+        "tiles": [
+          {
+            "top": 880,
+            "left": 51,
+            "height": 255.5
+          },
+          {
+            "top": 880,
+            "left": 286,
+            "height": 255.5
+          },
+          {
+            "top": 880,
+            "left": 521,
+            "height": 293.953125
+          },
+          {
+            "top": 880,
+            "left": 755.984375,
+            "height": 259.046875
+          },
+          {
+            "top": 1195.953125,
+            "left": 51,
+            "height": 237.546875
+          },
+          {
+            "top": 1195.953125,
+            "left": 364.328125,
+            "height": 241.09375
+          },
+          {
+            "top": 1195.953125,
+            "left": 677.65625,
+            "height": 263.046875
+          }
+        ],
+        "pageHeight": 2204.875,
+        "projectsHeight": 693
+      }
+    },
+    {
+      "width": 1440,
+      "scroll": 1440,
+      "client": 1440,
+      "brokenImages": [],
+      "brokenAnchors": [],
+      "headings": [
+        {
+          "level": 2,
+          "text": "Menu principal"
+        },
+        {
+          "level": 1,
+          "text": "EmelynCampos"
+        },
+        {
+          "level": 2,
+          "text": "Coisas diferentes.A mesma pessoa construindo."
+        },
+        {
+          "level": 2,
+          "text": "Projetos selecionados"
+        },
+        {
+          "level": 3,
+          "text": "Tenderness"
+        },
+        {
+          "level": 3,
+          "text": "O Grão"
+        },
+        {
+          "level": 3,
+          "text": "Histórias da Bíblia com Bento"
+        },
+        {
+          "level": 3,
+          "text": "PARALLAX"
+        },
+        {
+          "level": 3,
+          "text": "Before You Read"
+        },
+        {
+          "level": 3,
+          "text": "Até Que o Caos Nos Separe"
+        },
+        {
+          "level": 3,
+          "text": "E se você estiver fazendo a pergunta errada?"
+        },
+        {
+          "level": 2,
+          "text": "Ideias que continuam comigo"
+        },
+        {
+          "level": 3,
+          "text": "O que acontece conosco quando as ferramentas conseguem fazer\n                  cada vez mais?"
+        },
+        {
+          "level": 3,
+          "text": "O que eu não terceirizaria?"
+        },
+        {
+          "level": 3,
+          "text": "O que vale a pena construir?"
+        },
+        {
+          "level": 3,
+          "text": "O que precisa continuar humano?"
+        },
+        {
+          "level": 2,
+          "text": "Sobre"
+        },
+        {
+          "level": 3,
+          "text": "Aqui é ondetudo se conecta."
+        },
+        {
+          "level": 2,
+          "text": "Algumas coisasjá estão prontas.Outras ainda estãotomando forma."
+        }
+      ],
+      "clipped": [],
+      "outside": [],
+      "face_safe_area": {
+        "safe": {
+          "left": 892.5182291666666,
+          "top": 173.08607638888887,
+          "right": 1233.2942708333333,
+          "bottom": 692.3638541666667
+        },
+        "intrusions": [],
+        "fullyWithinPhoto": true
+      },
+      "composition": {
+        "tiles": [
+          {
+            "top": 975,
+            "left": 133,
+            "height": 300.203125
+          },
+          {
+            "top": 975,
+            "left": 432.5,
+            "height": 300.203125
+          },
+          {
+            "top": 975,
+            "left": 732,
+            "height": 326.71875
+          },
+          {
+            "top": 975,
+            "left": 1031.5,
+            "height": 303.75
+          },
+          {
+            "top": 1327.71875,
+            "left": 133,
+            "height": 254.1875
+          },
+          {
+            "top": 1327.71875,
+            "left": 532.328125,
+            "height": 257.734375
+          },
+          {
+            "top": 1327.71875,
+            "left": 931.65625,
+            "height": 279.6875
+          }
+        ],
+        "pageHeight": 2399,
+        "projectsHeight": 746.40625
+      }
+    }
+  ]
+}
