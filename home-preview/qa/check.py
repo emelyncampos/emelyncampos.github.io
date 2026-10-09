@@ -6,12 +6,13 @@ from playwright.async_api import async_playwright
 from cdn_bridge import prepare_browser_cdn
 
 URL = 'http://127.0.0.1:8000/home-preview/'
-OUT = Path('/workspace/artifacts/home-v5-3')
+OUT = Path('/workspace/artifacts/home-v7')
 AXE = Path('/tmp/home-preview-tools/node_modules/axe-core/axe.min.js')
 WIDTHS = [320, 375, 390, 430, 768, 1024, 1440]
 PROJECTS = ['Tenderness', 'O Grão', 'Histórias da Bíblia com Bento', 'Before You Read', 'PARALLAX', 'Até Que o Caos Nos Separe', 'E se você estiver fazendo a pergunta errada?']
 
 async def main():
+    assert AXE.is_file(), 'Instale axe-core conforme QA.md antes de executar a auditoria obrigatória'
     OUT.mkdir(parents=True, exist_ok=True)
     html = (Path(__file__).resolve().parents[1] / 'index.html').read_text()
     old_terms = r'marca|branding|cliente|metodologia|imersão|Atelier Flora|Lume|Aura Wellness|Cass Amarela|Ana Luiza|design estratégico|brand designer|serviços|services|\bprocess\b|iniciar projeto|vamos criar algo|unsplash|placehold'
@@ -31,14 +32,14 @@ async def main():
         await page.evaluate('document.fonts.ready')
         assert await page.locator('style').evaluate_all('(styles) => styles.some(s => s.textContent.includes("tailwindcss v4.1.18"))'), 'Tailwind CDN não inicializou'
         assert await page.evaluate('document.fonts.check("300 54px Cormorant Garamond") && document.fonts.check("400 14px Plus Jakarta Sans")'), 'Fonte editorial não carregou'
-        assert await page.get_by_role('heading', level=1, name='Construindo com as ferramentas do futuro sem terceirizar o que nos faz humanos.', exact=True).count() == 1, 'A capa deve usar a mensagem pessoal do HTML-base'
+        assert await page.get_by_role('heading', level=1, name='Construindo ideias em coisas reais.', exact=True).count() == 1, 'A capa deve usar a mensagem pessoal do HTML-base'
         index = page.get_by_role('region', name='O que estou construindo.', exact=True)
         assert await index.get_by_role('heading', level=3).count() == 2, 'Os protagonistas devem ter uma região própria'
-        selected = page.get_by_role('region', name='Diferentes caminhos. A mesma origem.', exact=True)
+        selected = page.get_by_role('region', name='Outros projetos', exact=True)
         assert await selected.get_by_role('heading', level=3).count() == 5, 'Selected Work deve conter cinco projetos'
         assert await page.locator('img[src*="/e-se-voce-estiver-fazendo-a-pergunta-errada/assets/"]').count() == 1, 'O livro deve ter uma única imagem'
         assert await page.locator('.hero img').count() == 1, 'A capa deve ter uma imagem forte, sem mosaico'
-        assert await page.locator('a[href="mailto:contato@emelyncampos.com.br"]').count() == 1
+        assert await page.locator('.social-links > a,.social-links > span').count() == 4
         assert await page.locator('[data-pending-profile][href]').count() == 0, 'Não inventar URLs pendentes'
         assert await page.locator('#escritas').count() == 0, 'Não criar seção separada de Escritas & identidade'
         for name in PROJECTS:
@@ -86,6 +87,25 @@ async def main():
                 clipped: [...document.querySelectorAll('h1,h2,h3,p,a,button')].filter(e => e.getBoundingClientRect().width && (e.scrollWidth > e.clientWidth + 2 || (['hidden','clip'].includes(getComputedStyle(e).overflowY) && e.scrollHeight > e.clientHeight + 2))).map(e => e.textContent.trim()),
                 outside: [...document.querySelectorAll('h1,h2,h3,p,a,button')].filter(e => {const r=e.getBoundingClientRect(); return r.width && (r.left < -1 || r.right > innerWidth + 1);}).map(e => e.textContent.trim())
             })''')
+            face = await page.evaluate('''() => {
+                const photo = document.querySelector('.hero-photo img');
+                const r = photo.getBoundingClientRect();
+                const scale = Math.max(r.width / photo.naturalWidth, r.height / photo.naturalHeight);
+                const positions = getComputedStyle(photo).objectPosition.split(' ').map(parseFloat);
+                const dx = (r.width - photo.naturalWidth * scale) * positions[0] / 100;
+                const dy = (r.height - photo.naturalHeight * scale) * positions[1] / 100;
+                // Safe area mapped from the chosen portrait: head and face, not a generic center point.
+                const safe = {left:r.left + dx + 150*scale, top:r.top + dy + 130*scale,
+                    right:r.left + dx + 570*scale, bottom:r.top + dy + 770*scale};
+                const intrusions = [...document.querySelectorAll('.hero h1,.hero p,.hero a,#navbar a,#navbar button,.hero svg')]
+                    .filter(e => { const b=e.getBoundingClientRect(); return b.width && b.height && b.left<safe.right && b.right>safe.left && b.top<safe.bottom && b.bottom>safe.top; })
+                    .map(e => e.textContent.trim() || e.getAttribute('aria-label'));
+                return {safe, intrusions, fullyWithinPhoto:safe.left>=r.left && safe.right<=r.right && safe.top>=r.top && safe.bottom<=r.bottom};
+            }''')
+            assert face['fullyWithinPhoto'], f'Rosto cortado a {width}px: {face}'
+            assert not face['intrusions'], f'Elemento sobre o rosto a {width}px: {face}'
+            assert await page.locator('.hero svg').count() == 0, 'Capa limpa, sem botânicos'
+            data['face_safe_area'] = face
             assert data['scroll'] == data['client'], f'Overflow horizontal a {width}px: {data}'
             assert not data['brokenImages'], f'Imagens quebradas a {width}px: {data}'
             assert not data['brokenAnchors'], f'Âncoras inexistentes: {data}'

@@ -1,4 +1,4 @@
-"""Export V5 HTML, authentic compiled Tailwind, fonts and images in one file."""
+"""Export V7 HTML, authentic compiled Tailwind, fonts and images in one file."""
 import asyncio
 import base64
 import mimetypes
@@ -8,7 +8,7 @@ from playwright.async_api import async_playwright
 from cdn_bridge import prepare_browser_cdn
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = Path('/workspace/artifacts/home-v5-3/preview.html')
+OUT = Path('/workspace/artifacts/home-v7/preview.html')
 URL = 'http://127.0.0.1:8000/home-preview/'
 
 
@@ -51,7 +51,7 @@ async def main():
     html = html.replace('</body>', f'<script>\n(() => {{\n{js}\n}})();\n</script>\n</body>')
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(html)
-    print(f'Exported self-contained V5 preview: {OUT} ({OUT.stat().st_size:,} bytes)')
+    print(f'Exported self-contained V7 preview: {OUT} ({OUT.stat().st_size:,} bytes)')
 
 
 if __name__ == '__main__':

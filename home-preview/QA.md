@@ -1,83 +1,41 @@
-# Home V5.3 — aproximação da referência oliva / terracota
+# Home V7 — reconstrução editorial completa
 
-Continuação da V5.2 orientada à referência enviada novamente pelo usuário. Sem nova direção visual, assets fictícios ou conteúdo comercial.
+Branch `home-editorial-v2`; rota isolada `/home-preview/`. Referência-mestre: pôster editorial feminino em papel, oliva, terracota e sálvia enviado pelo usuário. A V7 substitui a composição anterior; não é um conjunto de ornamentos acrescentados à V5.
 
-O campo de conexão nasce da lateral da página, com oliva e curva ampla. Ideias e Sobre compartilham uma faixa integrada em terracota e sálvia (duas colunas no desktop; sequência no mobile). Acompanhe volta ao papel claro, com transição curva e rodapé verde. Hierarquia editorial dos projetos e retrato pessoal permanecem.
+## Direção e arquitetura
 
-Screenshots full-page: `qa/screenshots/v5-3/home-preview-1440.png` e `home-preview-390.png`. Primeira rodada e revisão final em `/workspace/artifacts/home-v5-3/`. Refinamento de contraste das legendas e da bio concluído após primeira inspeção. Header e hero comparados pixel a pixel com V5.2: idênticos em 1440 e 390 px, até y=852 e y=1055 respectivamente.
+Capa com “Construindo ideias em coisas reais.” em Cormorant Garamond de grande escala, fotografia pessoal sem borda ou sombra, nome em duas linhas e navegação discreta sobre o papel. Foto protagonista integrada ao limite da página. Mobile redesenhado com navegação, fotografia limpa, headline, manifesto e link editorial. Não há botânicos, símbolos ou texto sobre a fotografia.
 
-QA passou nas sete larguras (320, 375, 390, 430, 768, 1024, 1440): sem overflow, imagens quebradas, erros HTTP/JS, texto truncado, âncoras ausentes ou projeto faltante. Menu/ESC/foco, navegação sem JS e reduced-motion preservados. Axe: zero violações detectadas; checks inconclusivos registrados em `qa/results-v5-3.json`. Exportação autocontida validada offline em 390/1440 com fontes, imagens, estilos e menu.
+A curva oliva nasce da área de papel e leva ao bloco de conexão. Uma curva clara retorna aos projetos. Tenderness ocupa área vinho assimétrica integrada ao papel, com logo oficial, uma fotografia e um único mockup. O Grão contrapõe paisagem oficial e tipografia contemplativa. Selected Work tem cinco peças distintas: Bento vertical/arco, Before You Read paisagem, PARALLAX largo e cinematográfico, jogo tipográfico orgânico e livro vertical com um único mockup. Sem cinco cards iguais, bordas decorativas ou sombras repetidas.
 
-Somente `/home-preview/` alterado. `/index.html` intacto, nenhum merge ou publicação em produção. Pendências de assets/URLs não mudaram. Comandos de QA/export atuais escrevem em `/workspace/artifacts/home-v5-3/`.
+Ideias em terracota e Sobre em sálvia formam uma faixa conjunta. Encerramento em papel com quatro redes e rodapé oliva profundo. Fontes Cormorant Garamond e Plus Jakarta Sans; paleta solicitada preservada. Textura de papel muito discreta em CSS, sem efeitos ou novas bibliotecas.
 
----
+Todos os sete projetos presentes: Tenderness; O Grão; Histórias da Bíblia com Bento; Before You Read; PARALLAX; Até Que o Caos Nos Separe; E se você estiver fazendo a pergunta errada? (Lyn Campos).
 
-# Home V5.2 — refinamento visual
+## Assets reais e pendências
 
-Refinamento da V5, sem reconstruir o HTML ou mudar o posicionamento. Branch `home-editorial-v2`, escopo exclusivo de `/home-preview/`.
+Foto escolhida pelo usuário em `assets/emelyn-retrato.webp`, otimizada a partir do JPEG original sem mudança de identidade/composição (70.664 bytes contra 132.805). JPEG original preservado. Bento usa o WebP lossless já existente: dimensões e pixels RGBA comparados com PNG oficial, sem diferenças. Demais imagens são assets canônicos das páginas dos projetos. Nenhuma pessoa, interface, embalagem, carta ou logo foi inventado.
 
-## O que mudou abaixo do hero
+**Asset oficial do logo de O Grão ainda necessário.** Seu nome é apenas tipográfico. Não existe asset canônico confirmado do jogo; composição tipográfica com status Em desenvolvimento. LinkedIn e X sem href até receber URLs oficiais. Instagram/TikTok usam os links fornecidos. Bento conserva seu destino externo fornecido; esse destino não foi validado externamente pelo proxy. Quatro páginas locais dos projetos retornam 200.
 
-- Tenderness: base vinho com cantos variados e fotografia em arco; uma interface oficial permanece sobreposta apenas na área visual.
-- O Grão: recorte paisagístico com curvas opostas e separação por linha fina no texto.
-- Selected Work: composição em 12 colunas com pesos distintos. Bento vertical em arco; Before You Read menor, horizontal e deslocado; PARALLAX em faixa ampla escura com imagem cinematográfica e texto; jogo tipográfico em terracota com curva; livro com imagem vertical em moldura arqueada e texto separado.
-- Mobile preserva a ordem dos cinco projetos, variando largura, proporção, altura e enquadramento. Não há carrossel nem peças cortadas na lateral.
-- Ideias e encerramento ganharam uma curva discreta na transição; Sobre ganhou linha fina e respiro. Paleta, fontes, textos, sete projetos, assets e URLs permanecem.
+## QA visual, refinamento e revisão
 
-## QA da V5.2
+Primeira rodada full-page em `/workspace/artifacts/home-v7/round-1/`; comparada com a referência-mestre: fotografia dominante, serif editorial, equilíbrio papel/oliva/terracota, peças Selected Work com pesos próprios e ausência de ornamentos arbitrários. Na segunda rodada, a curva de transição foi limitada à área de papel para não atravessar fotografia/ombros e houve ajuste de respiro da capa. A auditoria completa corrigiu o contraste da legenda Sobre, passando a oliva profundo sobre sálvia. Screenshots finais `qa/screenshots/v7/home-preview-1440.png` e `home-preview-390.png`, revisados por inteiro. Revisão independente de código e imagens sem problemas bloqueantes.
 
-Screenshots full-page finais: `qa/screenshots/v5-2/home-preview-1440.png` e `home-preview-390.png`. Revisão de página completa e inspeção ampliada de Selected Work confirmaram hierarquia, variação de proporções e continuidade dos arcos/curvas. A área deixou de usar três thumbnails de mesma altura/peso visual. Não foram criadas imagens ou embalagens fictícias.
+Critérios visuais revisados: mesma família editorial da referência; fotografia protagonista; contraste de projetos respeitado; Selected Work sem grade uniforme; ornamentos removidos por não acrescentarem direção de arte; composição contínua com curvas e faixas compartilhadas. A V7 usa a foto real disponível, não reproduz a pose/cena de outra pessoa da referência.
 
-Header e hero foram preservados integralmente: comparação pixel a pixel dos screenshots antes/depois em 1440 e 390 px não encontrou diferenças até o fim do hero. Evidência em `qa/visual-check-v5-2.json`. O HTML e o JS não foram alterados nesta rodada.
+`qa/results-v7.json`: QA Chromium em 320, 375, 390, 430, 768, 1024 e 1440 px. ScrollWidth/clientWidth iguais; nenhuma imagem quebrada, 404, erro JS, texto cortado, âncora inexistente ou projeto ausente. Menu fullscreen/Tab/Shift+Tab/ESC/foco/resize, navegação sem JS e prefers-reduced-motion aprovados. Headings e fontes validados. Axe WCAG 2 A/AA e 2.1 A/AA: zero violações detectadas; inconclusivos registrados, sem alegação de certificação.
 
-QA técnico passou em 320, 375, 390, 430, 768, 1024 e 1440 px: scrollWidth/clientWidth iguais; nenhuma imagem quebrada, erro HTTP, erro JS, texto truncado ou projeto ausente; menu com teclado/ESC/foco, navegação sem JS e reduced-motion preservados. Axe detectou zero violações em todas as larguras; checks inconclusivos estão registrados em `qa/results-v5-2.json` e não equivalem a certificação de acessibilidade.
+Safe area calculada a partir do enquadramento real da foto, incluindo posição e escala object-fit: face/cabeça inteira dentro da imagem nas sete larguras; nenhum título, parágrafo, link ou controle de navegação a cruza. Inspeção visual confirmou cabelo, olhos, pescoço e ombros livres. Nenhum SVG ou botânico no hero.
 
-A exportação autocontida foi validada offline em 390/1440, incluindo imagens, fontes, estilos, ícones e menu. Comandos atuais: `python3 home-preview/qa/check.py` e `python3 home-preview/qa/export_preview.py`, após servidor HTTP local na raiz. Saídas em `/workspace/artifacts/home-v5-2/`.
+## Reprodução e entrega isolada
 
-Pendências mantidas: logo oficial de O Grão, asset canônico do jogo, URLs confirmadas de LinkedIn e X. Não há nova dependência, asset externo ou alteração na fotografia.
+Iniciar na raiz: `python3 -m http.server 8000 --bind 127.0.0.1`. Instalar a ferramenta de auditoria: `npm install --prefix /tmp/home-preview-tools --cache /tmp/home-preview-npm-cache --no-audit --no-fund --save-exact axe-core@4.10.3`. Rodar `python3 home-preview/qa/check.py`; a ausência do axe agora interrompe a execução em vez de pular silenciosamente a auditoria. `python3 home-preview/qa/export_preview.py` gera `/workspace/artifacts/home-v7/preview.html` autocontido. Exportação validada offline em 390/1440, com imagens, fontes, estilos, menu e zero overflow. `qa/preview-v7.zip` contém apenas esse HTML como index.html, sem CNAME/DNS/configuração do site oficial, pronto para deploy em hospedagem de preview separada.
 
-`/index.html` intacto; SHA-256 `c2efb7669125cd06189c978a9d3c42a4862420be8b54edd73a3e5076e5b02b0c`. Nenhum merge ou publicação em produção. O push da branch de preview permite acessar os screenshots públicos no GitHub.
+Tailwind Browser 4.1.18 via CDN; fontes Google e Font Awesome locais com licenças existentes. Bridge de QA baixa bytes autênticos do CDN usando TLS verificado e proxy configurado; não altera a aplicação nem desativa validação TLS.
 
----
+## Publicação e proteção do site
 
-## Registro da V5 anterior
+Nenhuma infraestrutura de preview público independente configurada no checkout/ambiente: sem workflow de deploy, serviço de hospedagem, segredo ou identidade correspondente. Não foi criado túnel, alterado GitHub Pages, DNS ou `main`. Conforme instrução anterior de não improvisar publicação, a entrega usa screenshots públicos no GitHub e pacote isolado. URL pública navegável permanece pendente de hospedagem separada; opção segura é publicar o ZIP em um site de preview separado no Netlify/Cloudflare Pages, sem vincular o domínio oficial.
 
-# Home V5 — sistema visual oficial
-
-Branch `home-editorial-v2`; rota `/home-preview/`. Reconstrução baseada na estrutura HTML fornecida e nas três referências de portfólio editorial orgânico enviadas pelo usuário. A fotografia escolhida pelo usuário foi preservada sem edição em `assets/emelyn-retrato.jpg`.
-
-## Composição
-
-Cormorant Garamond + Plus Jakarta Sans, pergaminho #F7F5F0 e creme #EFECE6, terracota #A86F55/#7B5341 e oliva #66705C/#414B3D. Hero em duas colunas com retrato em arco, contorno fino, texto separado da foto e dois CTAs. Mobile usa fotografia seguida da mensagem. O bloco de conexão tem silhueta oliva curva e elemento botânico linear discreto; não há métricas ou conteúdo comercial.
-
-Tenderness e O Grão têm região própria: vinho com logo, uma fotografia e uma interface no primeiro; paisagem oficial, curva e texto contemplativo no segundo. Selected Work usa três colunas no desktop, com imagens e texto separados por linhas; a segunda linha combina composição tipográfica do jogo e livro em proporção assimétrica. No mobile, os cinco projetos formam uma sequência vertical. Ideias usa duas colunas no desktop e uma no mobile. Sobre é tipográfico para evitar repetir o retrato. Encerramento terracota inclui redes e rodapé de 2026.
-
-Projetos presentes, uma vez como headings: Tenderness; O Grão; Histórias da Bíblia com Bento; Before You Read; PARALLAX; Até Que o Caos Nos Separe; E se você estiver fazendo a pergunta errada? (Lyn Campos). Não há imagens inventadas, placeholders, pessoas fictícias, embalagens ou cartas falsas. Bento preserva o personagem oficial. O livro usa uma única imagem.
-
-## Assets e links pendentes
-
-**Asset oficial do logo de O Grão ainda necessário.** Apenas seu nome tipográfico é usado. Não foi encontrado asset canônico de Até Que o Caos Nos Separe; a peça é tipográfica com status Em desenvolvimento.
-
-LinkedIn e X permanecem visíveis sem href, aguardando URLs confirmadas. Instagram, TikTok e email usam os destinos fornecidos. Bento mantém o link fornecido; sua validação externa foi bloqueada pelo proxy na rodada anterior. Quatro páginas locais dos projetos retornaram HTTP 200.
-
-## QA e segunda rodada
-
-Página real aberta em Chromium; screenshots full-page de primeira rodada em `/workspace/artifacts/home-v5/round-1/`. Comparação visual com as três referências verificou arco, curvas, paleta, ritmo editorial e hierarquia dos projetos. A segunda rodada corrigiu a ordem do Tenderness no mobile (texto/CTA antes das imagens), refinou a curva oliva e acrescentou um desenho botânico discreto. Também aumentou o contraste de duas legendas no rodapé.
-
-Screenshots finais em `qa/screenshots/v5/home-preview-1440.png` e `home-preview-390.png`. Revisão independente de código e screenshots sem problemas bloqueantes.
-
-`qa/results-v5.json` contém os resultados: 320, 375, 390, 430, 768, 1024 e 1440 px; igualdade scrollWidth/clientWidth em todas; nenhuma imagem quebrada, HTTP 404, erro JS, texto truncado, âncora inexistente ou projeto ausente. Fontes e Tailwind carregados. Menu nativo fullscreen testado com Tab, Shift+Tab, ESC, retorno de foco, seleção de âncora, bloqueio de rolagem e resize. Navegação sem JS e prefers-reduced-motion também passaram.
-
-Axe-core WCAG 2 A/AA e 2.1 A/AA: zero violações detectadas nas sete larguras; checks inconclusivos registrados no JSON. Isso não equivale a certificação. Revisão visual complementou contraste e enquadramentos.
-
-Repetir: iniciar `python3 -m http.server 8000 --bind 127.0.0.1` na raiz e executar `python3 home-preview/qa/check.py`. Axe depende do pacote já instalado em `/tmp/home-preview-tools/node_modules/axe-core/axe.min.js`; se ausente, essa auditoria adicional não é executada.
-
-Tailwind Browser 4.1.18 continua via CDN, com tokens @theme. Google Fonts são servidas localmente com licenças OFL porque fonts.googleapis.com é bloqueado no ambiente. Font Awesome 6.4.0 e suas licenças locais permanecem. O bridge de QA recebe bytes autênticos do CDN através do proxy/TLS verificado, sem desligar verificação de certificados.
-
-`python3 home-preview/qa/export_preview.py` gera `/workspace/artifacts/home-v5/preview.html` autocontido. Exportação validada offline em 390/1440 com estilos, fontes, imagens, ícones e menu; não é uma publicação pública.
-
-## Proteção da Home oficial
-
-`git diff --exit-code 0178259 -- . ':(exclude)home-preview/**'` sem alterações. SHA-256 de `/index.html` preservado: `c2efb7669125cd06189c978a9d3c42a4862420be8b54edd73a3e5076e5b02b0c`.
-
-Nenhum merge, substituição da Home ou publicação em produção. Push da branch de preview já autorizado permite acessar os screenshots no GitHub. Não há infraestrutura configurada para URL pública navegável de uma branch isolada; não foi improvisado deploy.
+Comparação `git diff --exit-code 0178259 -- . ':(exclude)home-preview/**'` sem mudanças. `/index.html` SHA-256 `c2efb7669125cd06189c978a9d3c42a4862420be8b54edd73a3e5076e5b02b0c`. Nenhum merge ou publicação em produção. Push apenas da branch de trabalho já autorizado para disponibilizar a entrega visual.
