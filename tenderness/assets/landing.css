@@ -163,3 +163,21 @@
   .memory-tape,.memory-spark{display:none}
   [data-book-step]{opacity:1!important;transform:none!important}
 }
+
+
+/* Mockup depth motion */
+.motion-ready .care-device,
+.motion-ready .memory-device{
+  will-change:transform,opacity;
+  transform-origin:50% 55%;
+  backface-visibility:hidden;
+}
+.motion-ready .care-context,
+.motion-ready .care-paper,
+.motion-ready .stage-orbit{
+  will-change:transform,opacity;
+  backface-visibility:hidden;
+}
+@media(prefers-reduced-motion:reduce){
+  .care-device,.memory-device,.care-context,.care-paper,.stage-orbit{will-change:auto}
+}
