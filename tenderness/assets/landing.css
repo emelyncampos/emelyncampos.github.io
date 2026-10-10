@@ -18,3 +18,87 @@
 /* Store identifiers paired with the existing coming-soon cards. */
 .store-row{align-items:center;gap:14px}.store-row>.store-card{display:flex;align-items:center;justify-content:flex-start;gap:12px;min-width:178px;min-height:62px;padding:10px 16px;border:1px solid #72586f;border-radius:7px;text-align:left;background:#4a2b46;color:#faf7f1}.store-icon{width:27px;height:27px;display:grid;place-items:center;flex:0 0 27px}.store-icon svg{display:block;width:27px;height:27px}.store-card>span:last-child{display:block}.store-row .store-card small{font-size:9px;letter-spacing:.13em;display:block;opacity:.82;margin-top:3px}.store-row .store-card:first-child .store-icon{color:#faf7f1}
 @media(max-width:380px){.store-row{gap:9px}.store-row>.store-card{min-width:151px;padding:10px 12px;gap:8px}}
+
+
+/* =========================================================
+   Motion V1 — existing Tenderness page, brought to life
+   Progressive enhancement: base layout above remains canonical.
+   ========================================================= */
+.hero-line{display:block}
+.opening-photo{isolation:isolate}
+.hero-shape,.hero-spark{position:absolute;pointer-events:none;z-index:-1}
+.hero-shape{border-radius:999px;filter:saturate(.9)}
+.hero-shape--lavender{width:190px;height:190px;background:#d8d2df;right:-55px;top:8%;transform:rotate(12deg)}
+.hero-shape--apricot{width:128px;height:128px;background:#efd1c5;left:-58px;bottom:12%;border-radius:42% 58% 55% 45% / 58% 42% 58% 42%}
+.hero-shape--sage{width:72px;height:72px;background:#c8d1c2;right:3%;bottom:7%;border-radius:48% 52% 38% 62% / 54% 41% 59% 46%}
+.hero-spark{width:10px;height:10px;background:var(--plum);opacity:.45;transform:rotate(45deg);border-radius:1px}
+.hero-spark--one{right:6%;top:27%}
+.hero-spark--two{left:-2%;top:18%;width:6px;height:6px;background:#9a7b91}
+.motion-ready .opening-photo .mother{will-change:transform,clip-path}
+.motion-ready .opening-copy,.motion-ready .opening-photo figcaption,.motion-ready .photo-side,.motion-ready .hero-shape,.motion-ready .hero-spark{will-change:transform,opacity}
+.motion-ready .thought>img,.motion-ready .thought h2,.motion-ready .thought p{will-change:transform,opacity}
+
+/* Care chapter: same content, transformed into a scroll-led product moment. */
+.care-scroll-progress{display:none}
+@media(min-width:900px){
+  .motion-ready .care-editorial{
+    width:min(1450px,100%);
+    max-width:1450px;
+    min-height:100svh;
+    height:100svh;
+    padding:clamp(34px,5.5vh,68px) 6%;
+    overflow:hidden;
+    align-items:center;
+    grid-template-rows:auto 1fr;
+    background:#eee7de;
+    border-radius:0;
+    isolation:isolate
+  }
+  .motion-ready .care-editorial .life-intro{align-self:end}
+  .motion-ready .care-editorial .life-stories{align-self:start;min-width:0}
+  .motion-ready .care-editorial .story-panel{min-height:230px}
+  .motion-ready .care-editorial .care-composition{height:100%;display:flex;flex-direction:column;justify-content:center}
+  .motion-ready .care-stage{height:min(69svh,680px);min-height:540px}
+  .motion-ready .care-device{width:min(43vw,590px)}
+  .motion-ready .care-context{top:3%;height:clamp(140px,18vh,190px)}
+  .motion-ready .care-paper{bottom:5%}
+  .motion-ready .stage-orbit{transform-origin:center}
+  .motion-ready .care-scroll-progress{
+    display:flex;
+    position:absolute;
+    right:22px;
+    top:50%;
+    transform:translateY(-50%);
+    flex-direction:column;
+    gap:10px;
+    z-index:8
+  }
+  .motion-ready .care-scroll-progress span{
+    width:5px;height:5px;border-radius:50%;background:#a995a1;opacity:.42;
+    transition:transform .25s ease,opacity .25s ease,background .25s ease
+  }
+  .motion-ready .care-scroll-progress span.is-active{transform:scale(1.8);opacity:1;background:var(--plum)}
+  .motion-ready .story-choice{transition:color .28s ease,border-color .28s ease,transform .28s ease,opacity .28s ease}
+  .motion-ready .story-choice[aria-pressed=true]{transform:translateX(8px)}
+  .motion-ready .choice-mark{transition:transform .3s ease}
+  .motion-ready .care-stage.is-changing .stage-orbit{filter:saturate(1.05)}
+}
+@media(min-width:900px) and (max-height:780px){
+  .motion-ready .care-editorial{padding-top:28px;padding-bottom:28px}
+  .motion-ready .care-editorial .life-intro h2{font-size:clamp(2.3rem,3.6vw,3.7rem)}
+  .motion-ready .care-editorial .life-intro p:not(.eyebrow){font-size:14px}
+  .motion-ready .care-editorial .story-panel{min-height:205px}
+  .motion-ready .care-editorial .story-detail blockquote{font-size:20px;margin-bottom:12px}
+  .motion-ready .care-editorial .story-detail p{line-height:1.65}
+  .motion-ready .care-stage{height:68svh;min-height:480px}
+}
+@media(max-width:899px){
+  .hero-shape--lavender{width:130px;height:130px;right:-38px}
+  .hero-shape--apricot{width:92px;height:92px;left:-30px}
+  .hero-shape--sage{width:54px;height:54px}
+  .hero-spark--two{left:2%}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-shape,.hero-spark{display:none}
+  .motion-ready .story-choice[aria-pressed=true]{transform:none}
+}
