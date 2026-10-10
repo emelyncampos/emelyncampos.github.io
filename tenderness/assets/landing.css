@@ -102,3 +102,64 @@
   .hero-shape,.hero-spark{display:none}
   .motion-ready .story-choice[aria-pressed=true]{transform:none}
 }
+
+
+/* =========================================================
+   Motion V2 — memories + retrospective
+   ========================================================= */
+.memory-photo{isolation:isolate}
+.memory-tape,.memory-spark{position:absolute;pointer-events:none}
+.memory-tape{
+  z-index:3;top:-7px;left:44%;width:82px;height:25px;
+  background:#e7b7a6b8;transform:rotate(-5deg);
+  box-shadow:0 5px 12px #4a2b460c
+}
+.memory-spark{z-index:3;width:9px;height:9px;background:#8e6d83;transform:rotate(45deg);border-radius:1px;opacity:.62}
+.memory-spark--one{right:2%;top:13%}
+.memory-spark--two{left:1%;bottom:18%;width:6px;height:6px;background:#a8b79f}
+.motion-ready .memory-top>*,.motion-ready .memory-photo,.motion-ready .memory-photo figcaption,.motion-ready .memory-details article,
+.motion-ready .memory-tape,.motion-ready .memory-spark{will-change:transform,opacity}
+.motion-ready [data-motion-book]>*,
+.motion-ready .memory-paper,.motion-ready .memory-device,.motion-ready .memory-snapshot,
+.motion-ready [data-book-step]{will-change:transform,opacity}
+
+@media(min-width:900px){
+  .motion-ready [data-motion-book]{
+    width:min(1450px,100%);
+    max-width:1450px;
+    min-height:100svh;
+    height:100svh;
+    padding:clamp(42px,6vh,72px) 7%;
+    overflow:hidden;
+    align-items:center;
+    isolation:isolate
+  }
+  .motion-ready [data-motion-book] ol{position:relative}
+  .motion-ready [data-book-step]{
+    opacity:.42;
+    transform:translateX(0);
+    transition:opacity .28s ease,transform .28s ease,border-color .28s ease
+  }
+  .motion-ready [data-book-step].is-active{
+    opacity:1;
+    transform:translateX(10px);
+    border-bottom-color:#c8aebf
+  }
+  .motion-ready .memory-stage{height:min(70svh,680px)}
+  .motion-ready .memory-composition{align-self:center}
+  .book-scroll-progress{
+    position:absolute;left:7%;bottom:22px;width:86%;height:1px;background:#8a708344;overflow:hidden
+  }
+  .book-scroll-progress span{
+    display:block;height:100%;width:100%;background:#d9c6d2;transform:scaleX(0);transform-origin:left
+  }
+}
+@media(max-width:899px){
+  .memory-tape{width:64px;height:21px;left:43%;top:-4px}
+  .memory-spark--one{right:4%;top:10%}
+  .memory-spark--two{left:4%;bottom:14%}
+}
+@media(prefers-reduced-motion:reduce){
+  .memory-tape,.memory-spark{display:none}
+  [data-book-step]{opacity:1!important;transform:none!important}
+}
