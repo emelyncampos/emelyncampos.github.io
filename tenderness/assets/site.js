@@ -113,10 +113,38 @@ function setupMotion(){
       onUpdate:self=>{
         const next=Math.min(choices.length-1,Math.floor(Math.min(.9999,self.progress)*choices.length));
         if(next!==activeStory)setCareMode(next,{animate:true});
-        if(orbit)gs.set(orbit,{rotation:4+self.progress*5,y:self.progress*-10});
-        if(context)gs.set(context,{y:self.progress*-24,rotation:7-self.progress*3});
+        const segment=Math.min(3,Math.floor(Math.min(.9999,self.progress)*4));
+        const local=(self.progress*4)-segment;
+        const wave=Math.sin(Math.max(0,Math.min(1,local))*Math.PI);
+        const device=careStage.querySelector('.care-device:not([hidden])');
+        const stateX=[0,-24,20,-14][segment];
+        const stateY=[0,-16,12,-10][segment];
+        const stateR=[-3,1.2,-2.2,2.2][segment];
+        const stateS=[1,1.035,.985,1.025][segment];
+
+        if(device)gs.set(device,{
+          x:stateX + wave*(segment%2===0?12:-10),
+          y:stateY - wave*12,
+          rotation:stateR + wave*(segment%2===0?1.1:-1),
+          scale:stateS + wave*.012
+        });
+        if(orbit)gs.set(orbit,{
+          rotation:4+self.progress*5-wave*1.4,
+          y:self.progress*-10+wave*5,
+          scale:1+wave*.012
+        });
+        if(context)gs.set(context,{
+          x:-stateX*.22,
+          y:self.progress*-24+wave*9,
+          rotation:7-self.progress*3-wave*.8,
+          scale:1+wave*.01
+        });
         const currentPaper=paper();
-        if(currentPaper)gs.set(currentPaper,{y:Math.sin(self.progress*Math.PI*4)*4});
+        if(currentPaper)gs.set(currentPaper,{
+          x:-stateX*.18,
+          y:Math.sin(self.progress*Math.PI*4)*4-wave*5,
+          rotation:-5+wave*(segment%2===0?1.2:-1)
+        });
         careSection.style.backgroundColor=gs.utils.interpolate('#eee7de','#f2edf1',self.progress*.55);
       }
     });
@@ -226,11 +254,15 @@ function setupBookMotion(gs,ScrollTrigger){
       .to(label,{y:0,opacity:1,duration:.1},.18)
       .to(snapshot,{x:0,y:0,rotation:-9,scale:1,opacity:1,duration:.2},.28)
       .to(caption,{y:0,opacity:1,duration:.12},.33)
-      .to(snapshot,{x:38,y:-42,rotation:-4,duration:.22,ease:'none'},.55)
-      .to(device,{y:-24,rotation:1.5,scale:1.025,duration:.24,ease:'none'},.55)
-      .to(paper,{x:-18,y:16,rotation:3.5,duration:.26,ease:'none'},.52)
-      .to(snapshot,{x:8,y:-18,rotation:-7,duration:.18,ease:'none'},.82)
-      .to(device,{y:-8,rotation:2.2,scale:1.01,duration:.18,ease:'none'},.82);
+      .to(snapshot,{x:46,y:-48,rotation:-3.5,scale:1.035,duration:.2,ease:'none'},.48)
+      .to(device,{x:-18,y:-34,rotation:.6,scale:1.045,duration:.22,ease:'none'},.48)
+      .to(paper,{x:-24,y:18,rotation:3.2,scale:1.018,duration:.24,ease:'none'},.47)
+      .to(snapshot,{x:18,y:-24,rotation:-6.5,scale:1,duration:.18,ease:'none'},.70)
+      .to(device,{x:22,y:-15,rotation:3.8,scale:1.025,duration:.18,ease:'none'},.70)
+      .to(paper,{x:10,y:4,rotation:6.5,scale:1,duration:.18,ease:'none'},.70)
+      .to(snapshot,{x:4,y:-10,rotation:-8,scale:.985,duration:.16,ease:'none'},.86)
+      .to(device,{x:0,y:-4,rotation:2.2,scale:1.008,duration:.16,ease:'none'},.86)
+      .to(paper,{x:0,y:0,rotation:6,scale:1,duration:.16,ease:'none'},.86);
   }else{
     gs.from(section.querySelectorAll(':scope > div > .eyebrow,:scope > div > h2,:scope > div > p'),{
       y:24,opacity:0,duration:.7,stagger:.08,ease:'power2.out',
@@ -243,6 +275,14 @@ function setupBookMotion(gs,ScrollTrigger){
     gs.from(steps,{
       x:-16,opacity:0,duration:.5,stagger:.09,ease:'power2.out',
       scrollTrigger:{trigger:section,start:'top 52%',once:true}
+    });
+    if(device)gs.to(device,{
+      y:-18,rotation:1.5,scale:1.012,ease:'none',
+      scrollTrigger:{trigger:section,start:'top 70%',end:'bottom 20%',scrub:.8}
+    });
+    if(snapshot)gs.to(snapshot,{
+      x:10,y:-12,rotation:-6.5,ease:'none',
+      scrollTrigger:{trigger:section,start:'top 68%',end:'bottom 18%',scrub:.9}
     });
   }
 }
