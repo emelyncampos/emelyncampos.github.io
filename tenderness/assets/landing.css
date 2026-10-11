@@ -713,3 +713,90 @@
     width:min(100%,315px)!important;
   }
 }
+
+
+/* =========================================================
+   V8 — robust mobile carousel
+   ========================================================= */
+@media(max-width:899px){
+  [data-motion-care-horizontal]{
+    overflow:clip;
+  }
+  [data-motion-care-horizontal] .care-horizontal-stage{
+    display:block;
+    width:100%;
+    max-width:100%;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:18px;
+    touch-action:pan-x;
+    padding:0 0 28px;
+  }
+  [data-motion-care-horizontal] .care-horizontal-track{
+    display:flex;
+    flex-wrap:nowrap;
+    align-items:stretch;
+    width:max-content;
+    max-width:none;
+    gap:12px;
+    padding:0 17px 14px;
+    transform:none !important;
+    will-change:auto;
+  }
+  [data-motion-care-horizontal] .care-slide{
+    flex:0 0 calc(100vw - 34px);
+    width:calc(100vw - 34px);
+    max-width:none;
+    min-width:0;
+    min-height:0;
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    opacity:1 !important;
+    transform:none !important;
+    margin:0;
+  }
+  [data-motion-care-horizontal] .care-h-visual{
+    min-height:340px;
+    height:340px;
+    overflow:hidden;
+  }
+  [data-motion-care-horizontal] .care-h-device{
+    width:auto !important;
+    max-width:92% !important;
+    max-height:330px;
+    height:auto;
+    object-fit:contain;
+    transform:none !important;
+    pointer-events:none;
+    -webkit-user-drag:none;
+    user-select:none;
+  }
+  [data-motion-care-horizontal] .care-h-context{
+    max-width:44%;
+    pointer-events:none;
+    -webkit-user-drag:none;
+    user-select:none;
+  }
+  [data-motion-care-horizontal] .care-h-note{
+    max-width:46%;
+    left:2%;
+    bottom:4%;
+  }
+  [data-motion-care-horizontal] .care-h-progress{
+    position:relative;
+    left:auto;
+    right:auto;
+    bottom:auto;
+    width:calc(100% - 34px);
+    margin:4px 17px 0;
+  }
+  [data-motion-care-horizontal] .care-h-hint{
+    position:relative;
+    right:auto;
+    bottom:auto;
+    margin:10px 17px 0;
+  }
+}
