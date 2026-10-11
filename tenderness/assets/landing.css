@@ -276,3 +276,57 @@
 @media(prefers-reduced-motion:reduce){
   .closing-shape,.closing-spark{display:none}
 }
+
+
+/* =========================================================
+   Motion V4 — rhythm pass
+   ========================================================= */
+.memory-section,
+.questions,
+.closing{
+  position:relative;
+}
+
+/* Soften the visual hand-off after the pinned care scene. */
+.memory-section::before{
+  content:'';
+  position:absolute;
+  left:0;right:0;top:0;
+  height:120px;
+  pointer-events:none;
+  background:linear-gradient(to bottom,#f2edf1 0%,rgba(242,237,241,.36) 38%,rgba(250,247,241,0) 100%);
+  opacity:.42;
+  z-index:-1;
+}
+
+/* Let the plum story release gradually into the quieter FAQ. */
+.questions::before{
+  content:'';
+  position:absolute;
+  left:0;right:0;top:-70px;
+  height:90px;
+  pointer-events:none;
+  background:linear-gradient(to bottom,rgba(74,43,70,.09),rgba(250,247,241,0));
+}
+
+/* Keep the closing visually connected, but calm. */
+.closing::before{
+  content:'';
+  position:absolute;
+  left:50%;top:-1px;
+  width:min(840px,82vw);height:1px;
+  transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,#d8cbd2,transparent);
+  z-index:1;
+}
+
+/* Slightly tighter vertical rhythm after motion sections. */
+@media(min-width:900px){
+  .memory-section{padding-top:96px}
+  .questions{padding-top:96px;padding-bottom:100px}
+}
+@media(max-width:899px){
+  .memory-section::before{height:76px;opacity:.32}
+  .questions::before{top:-42px;height:56px}
+  .questions{padding-top:58px}
+}
