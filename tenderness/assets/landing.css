@@ -800,3 +800,60 @@
     margin:10px 17px 0;
   }
 }
+
+
+/* =========================================================
+   V9 — valid, distinct UI visuals in horizontal carousel
+   ========================================================= */
+.care-h-ui{
+  height:auto;
+  max-width:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 18px 22px #4a2b4618);
+  border-radius:20px;
+  background:#fff;
+}
+.care-h-ui--consultas{
+  width:min(39vw,500px)!important;
+  transform:rotate(-1.2deg);
+}
+.care-h-ui--documentos{
+  width:min(33vw,420px)!important;
+  max-height:560px;
+  transform:rotate(1.1deg);
+}
+.care-h-ui--rotina{
+  width:min(22vw,285px)!important;
+  max-height:560px;
+  border:7px solid #342b33;
+  border-radius:30px;
+  transform:rotate(-1deg);
+}
+.care-h-ui--crescimento{
+  width:min(40vw,520px)!important;
+  transform:rotate(1deg);
+}
+@media(max-width:899px){
+  [data-motion-care-horizontal] .care-h-ui{
+    max-width:92%!important;
+    width:auto!important;
+    transform:none!important;
+  }
+  [data-motion-care-horizontal] .care-h-ui--consultas,
+  [data-motion-care-horizontal] .care-h-ui--crescimento{
+    width:92%!important;
+    max-height:300px;
+  }
+  [data-motion-care-horizontal] .care-h-ui--documentos{
+    width:auto!important;
+    max-width:78%!important;
+    max-height:300px;
+  }
+  [data-motion-care-horizontal] .care-h-ui--rotina{
+    width:auto!important;
+    max-width:58%!important;
+    max-height:315px;
+    border-width:5px;
+    border-radius:24px;
+  }
+}
