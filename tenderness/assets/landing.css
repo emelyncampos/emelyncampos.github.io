@@ -621,3 +621,22 @@
 @media(prefers-reduced-motion:reduce){
   .care-slide{opacity:1;transform:none}
 }
+
+
+/* Distinct carousel mockup framing */
+.care-slide--consultation .care-h-device{width:min(44vw,560px)}
+.care-slide--health .care-h-device{width:min(45vw,575px);transform:translateY(1%) rotate(1deg)}
+.care-slide--routine .care-h-device{width:min(44vw,560px);transform:translateY(2%) rotate(-1deg)}
+.care-slide--growth .care-h-device{width:min(46vw,590px);transform:translateY(-1%) rotate(1deg)}
+@media(max-width:899px){
+  .care-slide--consultation .care-h-device,
+  .care-slide--health .care-h-device,
+  .care-slide--routine .care-h-device,
+  .care-slide--growth .care-h-device{width:410px}
+}
+@media(max-width:430px){
+  .care-slide--consultation .care-h-device,
+  .care-slide--health .care-h-device,
+  .care-slide--routine .care-h-device,
+  .care-slide--growth .care-h-device{width:370px}
+}
