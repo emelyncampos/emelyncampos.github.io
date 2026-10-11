@@ -119,7 +119,7 @@ function setupMotion(){
     careTrigger=ScrollTrigger.create({
       trigger:careSection,
       start:'top top',
-      end:'+=2600',
+      end:'+=2100',
       pin:true,
       pinSpacing:true,
       anticipatePin:1,
@@ -183,7 +183,7 @@ function setupMotion(){
         trigger:careStage,
         start:'top 92%',
         end:'bottom 18%',
-        scrub:.7,
+        scrub:.58,
         onUpdate:self=>{
           const p=self.progress;
           const d=mobileDevice();
@@ -294,18 +294,18 @@ function setupBookMotion(gs,ScrollTrigger){
     setStep(0);
 
     const trigger=ScrollTrigger.create({
-      trigger:section,start:'top top',end:'+=1900',pin:true,pinSpacing:true,anticipatePin:1,
+      trigger:section,start:'top top',end:'+=1450',pin:true,pinSpacing:true,anticipatePin:1,
       invalidateOnRefresh:true,
       onUpdate:self=>{
         const p=self.progress;
-        const idx=p<.39?0:p<.69?1:2;
+        const idx=p<.36?0:p<.68?1:2;
         setStep(idx);
         gs.set(progress.firstElementChild,{scaleX:p});
       }
     });
 
     const tl=gs.timeline({scrollTrigger:{
-      trigger:section,start:'top top',end:()=>trigger.end,scrub:.75
+      trigger:section,start:'top top',end:()=>trigger.end,scrub:.62
     }});
     tl.to(section.querySelectorAll(':scope > div > .eyebrow,:scope > div > h2,:scope > div > p'),{y:0,opacity:1,stagger:.035,duration:.13},0)
       .to(paper,{x:0,y:0,rotation:6,scale:1,opacity:1,duration:.18},.05)
