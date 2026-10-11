@@ -54,6 +54,20 @@ choices.forEach((button,index)=>button.addEventListener('click',()=>{
     window.scrollTo({top:target,behavior:'smooth'});
   }else{
     setCareMode(index);
+    if(window.innerWidth<900&&!reduceMotion.matches&&window.gsap&&careStage){
+      const d=careStage.querySelector('.care-device:not([hidden])');
+      const cp=careStage.querySelector('.care-paper:not([hidden])');
+      const ctx=careStage.querySelector('.care-context');
+      if(d)window.gsap.fromTo(d,
+        {x:index%2===0?-22:22,y:18,rotation:index%2===0?-5:4,scale:.965},
+        {x:0,y:0,rotation:index%2===0?-2.2:1.8,scale:1,duration:.52,ease:'power3.out'});
+      if(cp)window.gsap.fromTo(cp,
+        {x:index%2===0?16:-16,y:10,opacity:.35},
+        {x:0,y:0,opacity:1,duration:.45,ease:'power2.out'});
+      if(ctx)window.gsap.fromTo(ctx,
+        {x:index%2===0?-10:10,opacity:.7},
+        {x:0,opacity:1,duration:.5,ease:'power2.out'});
+    }
   }
 }));
 
@@ -152,6 +166,49 @@ function setupMotion(){
     gs.from('.life-intro>*',{y:22,opacity:0,stagger:.07,duration:.6,ease:'power2.out',scrollTrigger:{trigger:careSection,start:'top 72%',once:true}});
     gs.from('.story-choice',{x:-18,opacity:0,stagger:.06,duration:.55,ease:'power2.out',scrollTrigger:{trigger:careSection,start:'top 70%',once:true}});
     gs.from('.care-stage',{x:35,opacity:0,duration:.75,ease:'power2.out',scrollTrigger:{trigger:careSection,start:'top 70%',once:true}});
+  }
+
+  if(careSection&&choices.length&&window.innerWidth<900){
+    const mobileDevice=()=>careStage?.querySelector('.care-device:not([hidden])');
+    const mobileContext=careStage?.querySelector('.care-context');
+    const mobilePaper=()=>careStage?.querySelector('.care-paper:not([hidden])');
+
+    if(careStage){
+      gs.from(careStage,{
+        y:46,opacity:0,duration:.8,ease:'power3.out',
+        scrollTrigger:{trigger:careStage,start:'top 86%',once:true}
+      });
+
+      ScrollTrigger.create({
+        trigger:careStage,
+        start:'top 92%',
+        end:'bottom 18%',
+        scrub:.7,
+        onUpdate:self=>{
+          const p=self.progress;
+          const d=mobileDevice();
+          const cp=mobilePaper();
+          if(d)gs.set(d,{
+            y:38-(p*76),
+            x:(p-.5)*26,
+            rotation:-4+(p*6),
+            scale:.94+(p*.10)
+          });
+          if(mobileContext)gs.set(mobileContext,{
+            y:18-(p*38),
+            x:(.5-p)*16,
+            rotation:8-(p*4),
+            scale:.98+(p*.035)
+          });
+          if(cp)gs.set(cp,{
+            y:20-(p*42),
+            x:(p-.5)*18,
+            rotation:-7+(p*4),
+            scale:.97+(p*.04)
+          });
+        }
+      });
+    }
   }
 
 
@@ -276,13 +333,20 @@ function setupBookMotion(gs,ScrollTrigger){
       x:-16,opacity:0,duration:.5,stagger:.09,ease:'power2.out',
       scrollTrigger:{trigger:section,start:'top 52%',once:true}
     });
-    if(device)gs.to(device,{
-      y:-18,rotation:1.5,scale:1.012,ease:'none',
-      scrollTrigger:{trigger:section,start:'top 70%',end:'bottom 20%',scrub:.8}
-    });
-    if(snapshot)gs.to(snapshot,{
-      x:10,y:-12,rotation:-6.5,ease:'none',
-      scrollTrigger:{trigger:section,start:'top 68%',end:'bottom 18%',scrub:.9}
-    });
+    if(device)gs.fromTo(device,
+      {y:42,x:18,rotation:6,scale:.93},
+      {y:-34,x:-14,rotation:-1.5,scale:1.045,ease:'none',
+       scrollTrigger:{trigger:section,start:'top 82%',end:'bottom 18%',scrub:.75}}
+    );
+    if(snapshot)gs.fromTo(snapshot,
+      {x:-34,y:34,rotation:-13,scale:.92},
+      {x:22,y:-22,rotation:-4.5,scale:1.035,ease:'none',
+       scrollTrigger:{trigger:section,start:'top 78%',end:'bottom 18%',scrub:.85}}
+    );
+    if(paper)gs.fromTo(paper,
+      {x:24,y:20,rotation:9,scale:.96},
+      {x:-14,y:-8,rotation:4.5,scale:1.02,ease:'none',
+       scrollTrigger:{trigger:section,start:'top 80%',end:'bottom 18%',scrub:.9}}
+    );
   }
 }
