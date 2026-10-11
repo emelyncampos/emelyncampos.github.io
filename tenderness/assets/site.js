@@ -472,17 +472,24 @@ function setupHorizontalCareMotion(gs,ScrollTrigger){
     });
   }else{
     if(hint)hint.textContent=document.documentElement.lang.startsWith('pt')?'Deslize para ver →':'Swipe to explore →';
-    stage.addEventListener('scroll',()=>{
-      const max=Math.max(1,stage.scrollWidth-stage.clientWidth);
-      const p=stage.scrollLeft/max;
-      const idx=Math.min(slides.length-1,Math.round(p*(slides.length-1)));
-      setActive(idx);
-      if(progress)progress.style.transform='scaleX('+p+')';
-    },{passive:true});
 
-    gs.from(slides,{
-      y:28,opacity:0,duration:.62,stagger:.08,ease:'power2.out',
-      scrollTrigger:{trigger:stage,start:'top 84%',once:true}
-    });
+    // Mobile: leave horizontal movement entirely to the browser/iOS.
+    // No GSAP transforms or ScrollTrigger on the track/slides.
+    gs.set(track,{clearProps:'transform,x'});
+    gs.set(slides,{clearProps:'transform,opacity,x,y,scale,rotation'});
+
+    let raf=0;
+    const syncMobileProgress=()=>{
+      cancelAnimationFrame(raf);
+      raf=requestAnimationFrame(()=>{
+        const max=Math.max(1,stage.scrollWidth-stage.clientWidth);
+        const p=Math.max(0,Math.min(1,stage.scrollLeft/max));
+        const idx=Math.min(slides.length-1,Math.round(p*(slides.length-1)));
+        setActive(idx);
+        if(progress)progress.style.transform='scaleX('+p+')';
+      });
+    };
+    stage.addEventListener('scroll',syncMobileProgress,{passive:true});
+    syncMobileProgress();
   }
 }
