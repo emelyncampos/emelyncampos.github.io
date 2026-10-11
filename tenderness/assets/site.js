@@ -131,10 +131,10 @@ function setupMotion(){
         const local=(self.progress*4)-segment;
         const wave=Math.sin(Math.max(0,Math.min(1,local))*Math.PI);
         const device=careStage.querySelector('.care-device:not([hidden])');
-        const stateX=[0,-24,20,-14][segment];
-        const stateY=[0,-16,12,-10][segment];
-        const stateR=[-3,1.2,-2.2,2.2][segment];
-        const stateS=[1,1.035,.985,1.025][segment];
+        const stateX=[-18,34,-30,24][segment];
+        const stateY=[10,-24,16,-14][segment];
+        const stateR=[-4.2,2.8,-2.8,3.2][segment];
+        const stateS=[.985,1.055,.975,1.04][segment];
 
         if(device)gs.set(device,{
           x:stateX + wave*(segment%2===0?12:-10),
@@ -189,22 +189,22 @@ function setupMotion(){
           const d=mobileDevice();
           const cp=mobilePaper();
           if(d)gs.set(d,{
-            y:38-(p*76),
-            x:(p-.5)*26,
-            rotation:-4+(p*6),
-            scale:.94+(p*.10)
+            y:48-(p*96),
+            x:(p-.5)*54,
+            rotation:-5.5+(p*8.5),
+            scale:.92+(p*.14)
           });
           if(mobileContext)gs.set(mobileContext,{
-            y:18-(p*38),
-            x:(.5-p)*16,
-            rotation:8-(p*4),
-            scale:.98+(p*.035)
+            y:24-(p*50),
+            x:(.5-p)*30,
+            rotation:8.5-(p*5.5),
+            scale:.97+(p*.055)
           });
           if(cp)gs.set(cp,{
-            y:20-(p*42),
-            x:(p-.5)*18,
-            rotation:-7+(p*4),
-            scale:.97+(p*.04)
+            y:28-(p*56),
+            x:(p-.5)*32,
+            rotation:-8+(p*6),
+            scale:.95+(p*.07)
           });
         }
       });
@@ -214,6 +214,8 @@ function setupMotion(){
 
   setupMemoryMotion(gs,ScrollTrigger);
   setupBookMotion(gs,ScrollTrigger);
+  setupFaqMotion(gs,ScrollTrigger);
+  setupClosingMotion(gs,ScrollTrigger);
 
   ScrollTrigger.refresh();
 }
@@ -349,4 +351,56 @@ function setupBookMotion(gs,ScrollTrigger){
        scrollTrigger:{trigger:section,start:'top 80%',end:'bottom 18%',scrub:.9}}
     );
   }
+}
+
+
+function setupFaqMotion(gs,ScrollTrigger){
+  const section=document.querySelector('[data-motion-faq]');
+  if(!section)return;
+  const heading=section.querySelectorAll(':scope > div:first-child > *');
+  const items=[...section.querySelectorAll('.faq-list details')];
+
+  gs.from(heading,{
+    y:24,opacity:0,duration:.65,stagger:.08,ease:'power2.out',
+    scrollTrigger:{trigger:section,start:'top 78%',once:true}
+  });
+  gs.from(items,{
+    y:18,opacity:0,duration:.52,stagger:.07,ease:'power2.out',
+    scrollTrigger:{trigger:section,start:'top 72%',once:true}
+  });
+
+  items.forEach(item=>{
+    item.addEventListener('toggle',()=>{
+      if(!item.open||reduceMotion.matches)return;
+      const content=item.querySelector('p');
+      if(content)gs.fromTo(content,{y:-8,opacity:0},{y:0,opacity:1,duration:.34,ease:'power2.out'});
+    });
+  });
+}
+
+function setupClosingMotion(gs,ScrollTrigger){
+  const section=document.querySelector('[data-motion-closing]');
+  if(!section)return;
+  const content=section.querySelectorAll(':scope > img,:scope > .eyebrow,:scope > h2,:scope > p:not(.eyebrow),:scope > .store-row,:scope > .closing-support');
+  const lavender=section.querySelector('.closing-shape--lavender');
+  const apricot=section.querySelector('.closing-shape--apricot');
+  const sparks=section.querySelectorAll('.closing-spark');
+
+  gs.from(content,{
+    y:28,opacity:0,duration:.72,stagger:.075,ease:'power2.out',
+    scrollTrigger:{trigger:section,start:'top 76%',once:true}
+  });
+  gs.from([lavender,apricot,...sparks].filter(Boolean),{
+    scale:.65,opacity:0,duration:.72,stagger:.08,ease:'power2.out',
+    scrollTrigger:{trigger:section,start:'top 80%',once:true}
+  });
+
+  if(lavender)gs.to(lavender,{
+    x:28,y:-38,rotation:7,ease:'none',
+    scrollTrigger:{trigger:section,start:'top bottom',end:'bottom top',scrub:.9}
+  });
+  if(apricot)gs.to(apricot,{
+    x:-24,y:30,rotation:-6,ease:'none',
+    scrollTrigger:{trigger:section,start:'top bottom',end:'bottom top',scrub:1}
+  });
 }
