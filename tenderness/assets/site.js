@@ -212,6 +212,7 @@ function setupMotion(){
   }
 
 
+  setupHorizontalCareMotion(gs,ScrollTrigger);
   setupMemoryMotion(gs,ScrollTrigger);
   setupBookMotion(gs,ScrollTrigger);
   setupFaqMotion(gs,ScrollTrigger);
@@ -403,4 +404,85 @@ function setupClosingMotion(gs,ScrollTrigger){
     x:-24,y:30,rotation:-6,ease:'none',
     scrollTrigger:{trigger:section,start:'top bottom',end:'bottom top',scrub:1}
   });
+}
+
+
+function setupHorizontalCareMotion(gs,ScrollTrigger){
+  const section=document.querySelector('[data-motion-care-horizontal]');
+  if(!section)return;
+  const stage=section.querySelector('.care-horizontal-stage');
+  const track=section.querySelector('.care-horizontal-track');
+  const slides=[...section.querySelectorAll('[data-care-slide]')];
+  const progress=section.querySelector('.care-h-progress span');
+  const hint=section.querySelector('.care-h-hint');
+  if(!stage||!track||!slides.length)return;
+
+  const setActive=index=>{
+    const next=Math.max(0,Math.min(slides.length-1,index));
+    slides.forEach((slide,i)=>slide.classList.toggle('is-active',i===next));
+  };
+
+  gs.from(section.querySelectorAll('.care-horizontal-intro>*'),{
+    y:24,opacity:0,duration:.68,stagger:.08,ease:'power2.out',
+    scrollTrigger:{trigger:section,start:'top 78%',once:true}
+  });
+
+  if(window.innerWidth>=900){
+    const distance=()=>Math.max(0,track.scrollWidth-stage.clientWidth);
+    const tween=gs.to(track,{
+      x:()=>-distance(),
+      ease:'none',
+      scrollTrigger:{
+        trigger:stage,
+        start:'top top',
+        end:()=>'+='+Math.max(1700,distance()*1.08),
+        pin:true,
+        pinSpacing:true,
+        scrub:.65,
+        anticipatePin:1,
+        invalidateOnRefresh:true,
+        onUpdate:self=>{
+          const idx=Math.min(slides.length-1,Math.floor(Math.min(.9999,self.progress)*slides.length));
+          setActive(idx);
+          if(progress)gs.set(progress,{scaleX:self.progress});
+          if(hint)gs.set(hint,{opacity:1-Math.min(1,self.progress*4)});
+        }
+      }
+    });
+
+    slides.forEach((slide,index)=>{
+      const device=slide.querySelector('.care-h-device');
+      const note=slide.querySelector('.care-h-note');
+      const shape=slide.querySelector('.care-h-shape');
+      if(device)gs.fromTo(device,
+        {y:36,rotation:index%2===0?-4:4,scale:.955},
+        {y:-18,rotation:index%2===0?1:-1.5,scale:1.025,ease:'none',
+         scrollTrigger:{trigger:slide,containerAnimation:tween,start:'left 90%',end:'right 20%',scrub:.8}}
+      );
+      if(note)gs.fromTo(note,
+        {x:index%2===0?-18:18,y:20,opacity:.65},
+        {x:index%2===0?16:-16,y:-12,opacity:1,ease:'none',
+         scrollTrigger:{trigger:slide,containerAnimation:tween,start:'left 92%',end:'right 25%',scrub:.9}}
+      );
+      if(shape)gs.fromTo(shape,
+        {rotation:index%2===0?-4:5,scale:.96},
+        {rotation:index%2===0?4:-3,scale:1.035,ease:'none',
+         scrollTrigger:{trigger:slide,containerAnimation:tween,start:'left 95%',end:'right 20%',scrub:1}}
+      );
+    });
+  }else{
+    if(hint)hint.textContent=document.documentElement.lang.startsWith('pt')?'Deslize para ver →':'Swipe to explore →';
+    stage.addEventListener('scroll',()=>{
+      const max=Math.max(1,stage.scrollWidth-stage.clientWidth);
+      const p=stage.scrollLeft/max;
+      const idx=Math.min(slides.length-1,Math.round(p*(slides.length-1)));
+      setActive(idx);
+      if(progress)progress.style.transform='scaleX('+p+')';
+    },{passive:true});
+
+    gs.from(slides,{
+      y:28,opacity:0,duration:.62,stagger:.08,ease:'power2.out',
+      scrollTrigger:{trigger:stage,start:'top 84%',once:true}
+    });
+  }
 }
