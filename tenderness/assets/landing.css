@@ -181,3 +181,23 @@
 @media(prefers-reduced-motion:reduce){
   .care-device,.memory-device,.care-context,.care-paper,.stage-orbit{will-change:auto}
 }
+
+
+/* Mobile mockup motion visibility */
+@media(max-width:899px){
+  .motion-ready .care-stage{
+    overflow:visible;
+    perspective:900px;
+  }
+  .motion-ready .care-device,
+  .motion-ready .memory-device{
+    transform-origin:50% 50%;
+    will-change:transform,opacity;
+  }
+  .motion-ready .care-context,
+  .motion-ready .care-paper,
+  .motion-ready .memory-paper,
+  .motion-ready .memory-snapshot{
+    will-change:transform,opacity;
+  }
+}
