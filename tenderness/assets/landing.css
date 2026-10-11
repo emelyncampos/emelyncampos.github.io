@@ -201,3 +201,78 @@
     will-change:transform,opacity;
   }
 }
+
+
+/* =========================================================
+   Motion V3 — FAQ + closing
+   ========================================================= */
+.faq-list details p{
+  transform-origin:top;
+}
+.faq-list details[open] summary::after{
+  transform:rotate(180deg);
+}
+.faq-list summary::after{
+  transition:transform .3s ease;
+}
+.motion-ready [data-motion-faq] .faq-list details{
+  will-change:transform,opacity;
+}
+
+.closing{
+  overflow:hidden;
+  isolation:isolate;
+}
+.closing > *:not(.closing-shape):not(.closing-spark){
+  position:relative;
+  z-index:2;
+}
+.closing-shape,.closing-spark{
+  position:absolute;
+  pointer-events:none;
+  z-index:0;
+}
+.closing-shape--lavender{
+  width:250px;height:250px;
+  right:-85px;top:-55px;
+  background:#d8d2df;
+  border-radius:52% 48% 42% 58% / 48% 55% 45% 52%;
+  transform:rotate(12deg);
+  opacity:.72;
+}
+.closing-shape--apricot{
+  width:180px;height:180px;
+  left:-62px;bottom:-72px;
+  background:#e7b7a6;
+  border-radius:45% 55% 60% 40% / 54% 44% 56% 46%;
+  transform:rotate(-10deg);
+  opacity:.58;
+}
+.closing-spark{
+  width:9px;height:9px;
+  background:#4a2b46;
+  transform:rotate(45deg);
+  border-radius:1px;
+  opacity:.42;
+}
+.closing-spark--one{right:14%;top:22%}
+.closing-spark--two{left:12%;top:34%;width:6px;height:6px;background:#8ea7c3}
+.motion-ready [data-motion-closing] > *{
+  will-change:transform,opacity;
+}
+
+/* Slightly bolder product motion, still tied to scroll. */
+@media(min-width:900px){
+  .motion-ready .care-stage{
+    perspective:1100px;
+  }
+}
+@media(max-width:899px){
+  .closing-shape--lavender{width:150px;height:150px;right:-58px;top:-32px}
+  .closing-shape--apricot{width:115px;height:115px;left:-46px;bottom:-46px}
+  .closing-spark--one{right:10%;top:20%}
+  .closing-spark--two{left:9%;top:28%}
+}
+@media(prefers-reduced-motion:reduce){
+  .closing-shape,.closing-spark{display:none}
+}
