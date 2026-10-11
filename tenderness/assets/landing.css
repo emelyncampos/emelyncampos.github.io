@@ -640,3 +640,76 @@
   .care-slide--routine .care-h-device,
   .care-slide--growth .care-h-device{width:370px}
 }
+
+
+/* =========================================================
+   Mobile horizontal carousel fix
+   ========================================================= */
+@media(max-width:899px){
+  .care-horizontal-stage{
+    width:100%;
+    max-width:100vw;
+    overflow-x:auto;
+    overflow-y:visible;
+    overscroll-behavior-x:contain;
+    overscroll-behavior-y:auto;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    touch-action:pan-x pan-y pinch-zoom;
+  }
+  .care-horizontal-track{
+    width:max-content;
+    max-width:none;
+    align-items:stretch;
+  }
+  .care-slide{
+    flex:0 0 calc(100vw - 44px);
+    width:calc(100vw - 44px);
+    max-width:420px;
+    scroll-snap-align:center;
+    scroll-snap-stop:always;
+    overflow:hidden;
+  }
+  .care-h-visual{
+    width:100%;
+    height:auto;
+    min-height:390px;
+    overflow:visible;
+  }
+  .care-slide--consultation .care-h-device,
+  .care-slide--health .care-h-device,
+  .care-slide--routine .care-h-device,
+  .care-slide--growth .care-h-device,
+  .care-h-device{
+    width:min(100%,340px)!important;
+    max-width:100%!important;
+    height:auto;
+    object-fit:contain;
+    transform:none;
+    pointer-events:none;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+  .care-h-context{
+    pointer-events:none;
+    user-select:none;
+    -webkit-user-drag:none;
+  }
+  .care-h-note{
+    max-width:48%;
+  }
+}
+@media(max-width:430px){
+  .care-slide{
+    flex-basis:calc(100vw - 34px);
+    width:calc(100vw - 34px);
+  }
+  .care-h-visual{min-height:360px}
+  .care-slide--consultation .care-h-device,
+  .care-slide--health .care-h-device,
+  .care-slide--routine .care-h-device,
+  .care-slide--growth .care-h-device,
+  .care-h-device{
+    width:min(100%,315px)!important;
+  }
+}
