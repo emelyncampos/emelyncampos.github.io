@@ -44,7 +44,7 @@ function doPost(e) {
 // Evita que alguém injete fórmulas na planilha (=, +, -, @ no começo da célula)
 function limpar(v) {
   var s = String(v || '').slice(0, 300);
-  return /^[=+-@]/.test(s) ? "'" + s : s;
+  return /^[=+\-@]/.test(s) ? "'" + s : s;
 }
 
 function resposta(obj) {
