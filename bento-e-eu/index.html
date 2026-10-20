@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bento e Eu</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Bento e Eu: um app cristão para crianças de 3 a 6 anos. Em cada encontro, o cordeirinho Bento vive uma emoção do dia a dia e descobre uma história da Bíblia.">
+<link rel="icon" type="image/png" href="img/favicon-64.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&family=Patrick+Hand&display=swap">
+<style>
+/* Layout: a picture book you leaf through. Paper pages with hand-written notes, the cabin's wooden
+   shelf in the middle holding the 14 mementos, and the Bento's own illustrations carrying every section.
+   One warm daylight look on purpose, like the app itself. */
+:root {
+  --paper: #fff5e6;
+  --paper-2: #fbecd2;
+  --sheet: #fffaf2;
+  --ink: #46352a;
+  --brown: #6b4423;
+  --wood: #5a3a22;
+  --wood-dark: #3b261a;
+  --honey: #f2d296;
+  --honey-2: #e8b85e;
+  --leaf: #5e7646;
+  --leaf-soft: #dfe7cf;
+  --sky: #3d6782;
+  --sky-soft: #dce8ef;
+  --clay: #c98b73;
+  --clay-soft: #f4dccf;
+  --line: #ead3ad;
+  --muted: #74583c;
+  --on-wood: #fff1d9;
+  --display: "Baloo 2", "Nunito", "Trebuchet MS", system-ui, sans-serif;
+  --body: "Nunito", "Segoe UI", system-ui, sans-serif;
+  --hand: "Patrick Hand", "Comic Sans MS", "Segoe Print", cursive;
+  --s-1: clamp(0.9rem, 0.86rem + 0.15vw, 0.97rem);
+  --s0: clamp(1.03rem, 0.98rem + 0.22vw, 1.14rem);
+  --s1: clamp(1.22rem, 1.1rem + 0.55vw, 1.5rem);
+  --s2: clamp(1.6rem, 1.3rem + 1.3vw, 2.3rem);
+  --s3: clamp(2.1rem, 1.5rem + 2.8vw, 3.6rem);
+  --gut-l: max(16px, env(safe-area-inset-left, 0px));
+  --gut-r: max(16px, env(safe-area-inset-right, 0px));
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; color: var(--ink); font: 400 var(--s0)/1.62 var(--body);
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .27 0 0 0 0 .14 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--sky); text-underline-offset: 3px; }
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 10px; }
+h1, h2, h3 { font-family: var(--display); color: var(--brown); line-height: 1.08; margin: 0; text-wrap: balance; font-weight: 800; }
+h2 { font-size: var(--s3); letter-spacing: -0.01em; }
+h3 { font-size: var(--s1); font-weight: 700; }
+p { margin: 0; }
+.wrap { width: 100%; max-width: 1180px; margin-inline: auto; padding-left: var(--gut-l); padding-right: var(--gut-r); }
+.hand { font-family: var(--hand); font-size: 1.3em; line-height: 1.15; color: var(--clay); }
+.kicker { font-family: var(--hand); font-size: var(--s1); color: var(--leaf); display: inline-flex; align-items: center; gap: 10px; }
+.kicker::before { content: ""; width: 34px; height: 2px; border-radius: 2px; background: currentColor; }
+.lede { font-size: var(--s1); line-height: 1.5; max-width: 38ch; }
+section { position: relative; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before { animation: none !important; transition: none !important; } }
+
+/* ---------- Buttons ---------- */
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 12px 28px; border-radius: 999px; font: 800 var(--s0)/1.15 var(--body); text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease; }
+.btn--go { background: linear-gradient(#a4ad51, #819033); color: #fffbe6; box-shadow: inset 0 2px 6px #ffffd24d, 0 5px 0 #4f5d1c; }
+.btn--go:hover { transform: translateY(-2px); box-shadow: inset 0 2px 6px #ffffd24d, 0 7px 0 #4f5d1c; }
+.btn--soft { background: var(--sheet); color: var(--brown); border: 2px solid var(--line); }
+.btn small { font-weight: 700; font-size: 0.78em; color: var(--muted); }
+
+/* ---------- Top bar ---------- */
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px 14px; }
+.top img { width: 132px; }
+.top span { font-family: var(--hand); font-size: var(--s1); color: var(--muted); text-align: right; }
+
+/* ---------- Hero: the cabin, then the page that opens over it ---------- */
+.hero { padding-bottom: clamp(36px, 6vw, 72px); }
+.scene { position: relative; border-radius: clamp(24px, 4vw, 48px); overflow: hidden; box-shadow: 0 30px 60px -20px #3b261a66; aspect-ratio: 1672 / 941; max-width: 100%; }
+.scene img { width: 100%; height: 100%; object-fit: cover; }
+.scene::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 52% 58%, transparent 52%, #3b261a40 100%); pointer-events: none; }
+.bubble { position: absolute; z-index: 2; left: 4%; top: 7%; max-width: min(31%, 340px); padding: clamp(10px, 1.6vw, 20px) clamp(14px, 2vw, 26px); border-radius: 26px; background: radial-gradient(ellipse, #fff7e2, #f9e2b0); border: 2px solid #fcebc0; box-shadow: 0 10px 24px #3b261a40; font: 700 clamp(0.85rem, 0.55rem + 1.3vw, 1.45rem)/1.3 var(--body); color: var(--ink); animation: pop 700ms 300ms cubic-bezier(.3,1.5,.6,1) both; }
+.bubble::after { content: ""; position: absolute; right: -18px; top: 56%; border: 12px solid transparent; border-left: 20px solid #f9e2b0; }
+@keyframes pop { from { transform: scale(.85) translateY(10px); } to { transform: none; } }
+.opening { position: relative; z-index: 3; margin: clamp(-120px, -9vw, -40px) auto 0; width: min(880px, calc(100% - 2 * clamp(12px, 4vw, 48px))); padding: clamp(24px, 4vw, 48px); border-radius: 32px; background: var(--sheet); border: 2px solid var(--line); box-shadow: 0 24px 50px -24px #6b442366; display: grid; gap: 18px; text-align: center; justify-items: center; }
+.opening h1 { font-size: var(--s3); max-width: 18ch; }
+.opening .lede { max-width: 46ch; color: var(--muted); }
+.opening .ctas { justify-content: center; }
+.ticks { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; font-weight: 700; font-size: var(--s-1); color: var(--leaf); }
+.ticks span::before { content: "✓ "; }
+
+/* ---------- The trail of feelings ---------- */
+.trail-sec { padding-block: clamp(56px, 8vw, 110px) clamp(40px, 6vw, 72px); }
+.sec-head { display: grid; gap: 12px; max-width: 760px; margin-bottom: clamp(30px, 5vw, 60px); }
+.sec-head p { color: var(--muted); max-width: 60ch; }
+.trail { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: clamp(10px, 2vw, 26px); list-style: none; margin: 0; padding: 0; }
+.trail-wrap { position: relative; }
+.trail-wrap svg.path { position: absolute; left: 6%; right: 6%; top: 18%; width: 88%; height: 120px; z-index: 0; overflow: visible; }
+.trail li { position: relative; z-index: 1; display: grid; justify-items: center; text-align: center; gap: 10px; min-width: 0; }
+.trail li:nth-child(even) { margin-top: clamp(30px, 5vw, 70px); }
+.stop { width: min(100%, 190px); aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; padding: 10%; box-shadow: inset 0 -8px 0 #00000010; }
+.stop img { max-height: 100%; width: auto; object-fit: contain; filter: drop-shadow(0 6px 6px #6b442333); }
+.trail li:nth-child(1) .stop { background: var(--sky-soft); }
+.trail li:nth-child(2) .stop { background: var(--leaf-soft); }
+.trail li:nth-child(3) .stop { background: var(--clay-soft); }
+.trail li:nth-child(4) .stop { background: #f6e6bd; }
+.trail li:nth-child(5) .stop { background: #f8dfe2; }
+.trail h3 { font-size: var(--s1); }
+.trail p { font-size: var(--s-1); color: var(--muted); max-width: 22ch; }
+.trail .hand { font-size: 1.15rem; color: var(--clay); }
+
+/* ---------- Book spread ---------- */
+.book-sec { padding-block: clamp(40px, 6vw, 80px); }
+.book-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.book-copy { display: grid; gap: 16px; min-width: 0; }
+.book-copy p { color: var(--muted); }
+.book-copy .note { display: flex; gap: 12px; align-items: flex-start; padding: 16px 18px; border-radius: 18px; background: var(--sheet); border: 1px dashed var(--honey-2); color: var(--ink); }
+.book-copy .note b { font-family: var(--display); color: var(--brown); }
+.book { position: relative; display: grid; grid-template-columns: 1fr 1fr; padding: 14px; border-radius: 18px 18px 22px 22px; background: var(--wood); box-shadow: 0 24px 40px -18px #3b261a80; transform: rotate(-1.5deg); }
+.book figure { margin: 0; position: relative; overflow: hidden; aspect-ratio: 4 / 5; background: #2c4361; }
+.book figure img { width: 100%; height: 100%; object-fit: cover; }
+.book figure:first-child { border-radius: 10px 2px 2px 10px; }
+.book figure:last-child { border-radius: 2px 10px 10px 2px; }
+.book figure:first-child::after { content: ""; position: absolute; inset: 0 0 0 auto; width: 26%; background: linear-gradient(90deg, transparent, #00000040); }
+.book figure:last-child::after { content: ""; position: absolute; inset: 0 auto 0 0; width: 22%; background: linear-gradient(270deg, transparent, #00000038); }
+.book figcaption { position: absolute; left: 10px; bottom: 10px; padding: 4px 12px; border-radius: 999px; background: #fffaf2e6; font: 700 0.85rem/1.3 var(--body); color: var(--ink); }
+.book .ref { position: absolute; right: -10px; bottom: -22px; transform: rotate(4deg); padding: 8px 16px; background: var(--honey); border-radius: 6px; font-family: var(--hand); font-size: 1.25rem; color: var(--wood-dark); box-shadow: 0 6px 14px #3b261a40; }
+
+/* ---------- The shelf of mementos ---------- */
+.shelf-sec { margin-top: clamp(30px, 5vw, 60px); background: linear-gradient(#6a4529, #5a3a22 40%, #4d311d); color: var(--on-wood); padding-block: clamp(56px, 8vw, 100px); }
+.shelf-sec::before, .shelf-sec::after { content: ""; position: absolute; left: 0; right: 0; height: 28px; background: var(--paper); }
+.shelf-sec::before { top: -1px; clip-path: polygon(0 0, 100% 0, 100% 30%, 92% 70%, 80% 35%, 66% 80%, 50% 40%, 34% 85%, 20% 40%, 8% 75%, 0 35%); }
+.shelf-sec::after { bottom: -1px; clip-path: polygon(0 65%, 10% 25%, 24% 70%, 38% 20%, 52% 65%, 68% 30%, 82% 75%, 94% 30%, 100% 60%, 100% 100%, 0 100%); }
+.shelf-sec h2 { color: var(--on-wood); }
+.shelf-sec .sec-head p { color: #ecd8bb; }
+.shelf-sec .kicker { color: var(--honey); }
+.shelves { display: grid; gap: clamp(30px, 4vw, 44px); }
+.shelf { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; align-items: end; padding: 0 clamp(8px, 2vw, 24px); }
+.shelf::after { content: ""; position: absolute; left: 0; right: 0; bottom: -18px; height: 22px; border-radius: 4px; background: linear-gradient(#c8935c, #9b6a3d 55%, #7a512d); box-shadow: 0 12px 16px -6px #00000080; }
+.shelf--four { grid-template-columns: repeat(4, minmax(0, 1fr)); padding-inline: clamp(8px, 10vw, 140px); }
+.memento { position: relative; z-index: 1; display: grid; justify-items: center; gap: 6px; text-align: center; min-width: 0; }
+.memento img { height: clamp(72px, 10vw, 128px); width: auto; max-width: 100%; object-fit: contain; filter: drop-shadow(0 8px 6px #00000055); transition: transform 220ms ease; }
+.memento:hover img { transform: translateY(-6px) rotate(-3deg); }
+.memento .tag { order: -1; display: inline-flex; gap: 6px; align-items: baseline; padding: 3px 10px; border-radius: 999px; background: #fff1d91f; border: 1px solid #fff1d940; font-size: 0.78rem; font-weight: 700; color: var(--on-wood); white-space: nowrap; max-width: 100%; overflow: hidden; text-overflow: ellipsis; }
+.memento .tag b { font-family: var(--display); color: var(--honey); font-variant-numeric: tabular-nums; }
+.memento .story { font-size: 0.8rem; line-height: 1.3; color: #e6cfae; min-height: 2.6em; }
+.shelf-foot { margin-top: clamp(40px, 5vw, 56px); text-align: center; font-family: var(--hand); font-size: var(--s1); color: var(--honey); }
+
+/* ---------- Letter to parents ---------- */
+.letter-sec { padding-block: clamp(64px, 9vw, 120px) clamp(40px, 6vw, 80px); }
+.letter-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: clamp(28px, 5vw, 64px); align-items: start; }
+.letter { position: relative; padding: clamp(28px, 4vw, 52px) clamp(24px, 4vw, 56px); background-color: var(--sheet); background-image: repeating-linear-gradient(transparent 0 33px, #ead3ad80 33px 34px); background-position: 0 14px; border-radius: 6px; box-shadow: 0 2px 0 var(--line), 0 26px 50px -26px #6b442380; min-width: 0; }
+.letter::before { content: ""; position: absolute; top: -14px; left: 50%; width: 120px; height: 30px; transform: translateX(-50%) rotate(-2deg); background: #e8b85eb3; border-radius: 3px; }
+.letter h2 { font-family: var(--hand); font-weight: 400; font-size: var(--s3); color: var(--brown); margin-bottom: 12px; }
+.letter p { line-height: 34px; margin-bottom: 0; max-width: 60ch; }
+.letter p + p { margin-top: 34px; }
+.letter .sign { margin-top: 34px; font-family: var(--hand); font-size: 1.6rem; color: var(--brown); line-height: 34px; }
+.letter .sign small { display: block; font-family: var(--body); font-size: 0.85rem; color: var(--muted); }
+.promises { display: grid; gap: 14px; }
+.promise { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 14px; align-items: center; padding: 14px 16px; border-radius: 20px; background: var(--sheet); border: 1px solid var(--line); }
+.promise img { width: 64px; height: 64px; }
+.promise h3 { font-size: 1.12rem; }
+.promise p { font-size: var(--s-1); color: var(--muted); }
+
+/* ---------- Parent card ---------- */
+.card-sec { padding-block: clamp(30px, 5vw, 60px) clamp(56px, 8vw, 100px); }
+.card-grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(28px, 5vw, 64px); align-items: center; }
+.card-copy { display: grid; gap: 14px; min-width: 0; }
+.card-copy p { color: var(--muted); }
+.pcard { position: relative; padding: clamp(22px, 3vw, 34px); border-radius: 22px; background: var(--sheet); border: 2px solid var(--line); box-shadow: 10px 12px 0 var(--honey), 0 24px 40px -20px #6b442370; transform: rotate(1.2deg); }
+.pcard header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 12px; margin-bottom: 14px; border-bottom: 2px dashed var(--line); }
+.pcard header span { font-family: var(--hand); color: var(--clay); font-size: 1.2rem; white-space: nowrap; }
+.pcard dl { display: grid; gap: 12px; margin: 0; }
+.pcard dt { font-weight: 800; font-size: 0.78rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--leaf); }
+.pcard dd { margin: 2px 0 0; }
+.pcard .q { padding: 10px 14px; border-radius: 14px; background: var(--leaf-soft); font-weight: 700; }
+
+/* ---------- Price tags ---------- */
+.price-sec { padding-block: clamp(56px, 8vw, 100px); background: linear-gradient(var(--paper), var(--paper-2)); }
+.price-sec .sec-head { justify-items: center; text-align: center; margin-inline: auto; }
+.tags { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; gap: clamp(20px, 4vw, 48px); }
+.ptag { position: relative; display: grid; gap: 12px; align-content: start; padding: 54px 28px 30px; border-radius: 20px 20px 26px 26px; background: var(--sheet); border: 2px solid var(--line); box-shadow: 0 22px 40px -24px #6b442380; text-align: center; transform-origin: 50% 0; }
+.ptag:first-child { transform: rotate(-2deg); }
+.ptag:last-child { transform: rotate(1.6deg); background: linear-gradient(#fffaf2, #fff0cf); border-color: var(--honey-2); }
+.ptag::before { content: ""; position: absolute; top: 18px; left: 50%; width: 18px; height: 18px; margin-left: -9px; border-radius: 50%; background: var(--paper-2); box-shadow: inset 0 2px 3px #6b442355; border: 2px solid var(--line); }
+.ptag::after { content: ""; position: absolute; top: -46px; left: 50%; width: 2px; height: 66px; background: var(--clay); }
+.ptag h3 { font-size: var(--s1); }
+.ptag .amount { font: 800 var(--s3)/1 var(--display); color: var(--brown); }
+.ptag .per { font-family: var(--hand); font-size: 1.3rem; color: var(--clay); }
+.ptag ul { list-style: none; margin: 6px 0 0; padding: 0; display: grid; gap: 6px; text-align: left; }
+.ptag li { padding-left: 26px; position: relative; font-size: var(--s-1); }
+.ptag li::before { content: ""; position: absolute; left: 4px; top: 0.45em; width: 10px; height: 6px; border-left: 3px solid var(--leaf); border-bottom: 3px solid var(--leaf); transform: rotate(-45deg); }
+.price-note { margin-top: 40px; text-align: center; color: var(--muted); font-size: var(--s-1); }
+
+/* ---------- Children & symbols ---------- */
+.kids { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 5vw, 64px); align-items: center; padding-block: clamp(56px, 8vw, 100px) 0; }
+.symbols { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 2vw, 22px); max-width: 420px; justify-self: center; }
+.symbols img { filter: drop-shadow(0 8px 10px #6b442340); }
+.symbols img:nth-child(odd) { transform: rotate(-4deg); }
+.symbols img:nth-child(even) { transform: translateY(14px) rotate(3deg); }
+.kids-copy { display: grid; gap: 14px; min-width: 0; }
+.kids-copy p { color: var(--muted); }
+
+/* ---------- FAQ ---------- */
+.faq-sec { padding-block: clamp(56px, 8vw, 100px); }
+.faq-grid { display: grid; grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr); gap: clamp(24px, 5vw, 64px); align-items: start; }
+.faq-grid .bento-think { width: min(240px, 70%); margin-top: 20px; }
+.faq { display: grid; gap: 10px; min-width: 0; }
+.faq details { border-radius: 18px; background: var(--sheet); border: 1px solid var(--line); padding: 2px 20px; transition: background 200ms ease; }
+.faq details[open] { background: #fff; }
+.faq summary { cursor: pointer; padding: 15px 0; font-weight: 800; color: var(--brown); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--leaf-soft); color: var(--leaf); font: 800 1.2rem/1 var(--display); }
+.faq details[open] summary::after { content: "–"; }
+.faq details p { padding-bottom: 16px; color: var(--muted); max-width: 62ch; }
+
+/* ---------- Real screens ---------- */
+.screens-sec { padding-block: clamp(20px, 4vw, 40px) clamp(40px, 6vw, 80px); }
+.screens { list-style: none; margin: 0; padding: 0 0 6px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(12px, 2vw, 22px); }
+.screens figure { margin: 0; display: grid; gap: 10px; }
+.device { padding: 8px; border-radius: 20px; background: var(--wood-dark); box-shadow: 0 16px 30px -14px #3b261a99; }
+.device img { border-radius: 13px; aspect-ratio: 1416 / 798; width: 100%; object-fit: cover; }
+.screens li:nth-child(odd) .device { transform: rotate(-1.4deg); }
+.screens li:nth-child(even) .device { transform: rotate(1.2deg) translateY(10px); }
+.screens figcaption { font-family: var(--hand); font-size: 1.15rem; color: var(--clay); text-align: center; line-height: 1.2; }
+.screens-cta { margin-top: clamp(26px, 4vw, 44px); display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.screens-cta span { color: var(--muted); font-size: var(--s-1); }
+
+/* ---------- Letter signature ---------- */
+.signature { display: flex; align-items: center; gap: 16px; margin-top: 34px; }
+.signature img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; border: 3px solid var(--sheet); box-shadow: 0 0 0 2px var(--honey-2), 0 8px 16px #6b442340; }
+.signature .sign { margin-top: 0; }
+.ptag .btn { margin-top: 10px; justify-self: center; }
+
+/* ---------- Waitlist ---------- */
+.waitlist { width: min(620px, 100%); display: grid; gap: 12px; margin-top: 6px; text-align: left; }
+.waitlist__row { display: flex; flex-wrap: wrap; gap: 10px; }
+.waitlist input[type="email"] { flex: 1 1 240px; min-width: 0; min-height: 56px; padding: 12px 20px; border-radius: 999px; border: 2px solid var(--line); background: #fff; color: var(--ink); font: 600 var(--s0)/1.2 var(--body); }
+.waitlist input[type="email"]:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; }
+.waitlist__consent { display: flex; gap: 10px; align-items: flex-start; font-size: var(--s-1); color: var(--muted); cursor: pointer; }
+.waitlist__consent input { width: 20px; height: 20px; margin-top: 2px; flex: none; accent-color: var(--leaf); }
+.waitlist__msg { min-height: 1.4em; font-weight: 700; color: var(--leaf); }
+.waitlist__msg[data-tone="error"] { color: #9a5a44; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Closing ---------- */
+.closing { position: relative; padding-block: clamp(40px, 6vw, 80px) clamp(64px, 8vw, 110px); text-align: center; overflow: hidden; }
+.closing .wrap { display: grid; justify-items: center; gap: 18px; }
+.closing .wave { width: min(220px, 50%); animation: sway 3.4s ease-in-out infinite; transform-origin: 50% 100%; }
+@keyframes sway { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-3deg); } }
+.closing .ctas { justify-content: center; }
+footer { background: var(--wood-dark); color: #e6cfae; padding-block: 28px; font-size: var(--s-1); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; }
+footer a { color: var(--honey); }
+
+/* ---------- Narrow screens ---------- */
+@media (max-width: 900px) {
+  .trail { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .trail-wrap svg.path { display: none; }
+  .trail::before { content: ""; position: absolute; left: 54px; top: 40px; bottom: 40px; border-left: 3px dashed var(--honey-2); }
+  .trail li { grid-template-columns: 110px minmax(0, 1fr); justify-items: start; text-align: left; align-items: center; column-gap: 18px; row-gap: 2px; margin-top: 0 !important; }
+  .trail li .stop { grid-row: span 3; width: 110px; }
+  .trail p { max-width: none; }
+  .book-grid, .letter-grid, .card-grid, .kids, .faq-grid { grid-template-columns: minmax(0, 1fr); }
+  .book { transform: none; }
+  .shelves { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 18px; row-gap: 40px; }
+  .shelf, .shelf--four { display: contents; }
+  .shelf::after { display: none; }
+  .memento { padding-bottom: 14px; }
+  .memento::after { content: ""; position: absolute; left: -6px; right: -6px; bottom: 0; height: 12px; border-radius: 3px; background: linear-gradient(#c8935c, #8a5d34); box-shadow: 0 8px 10px -4px #00000080; z-index: -1; }
+  .faq-grid .bento-think { display: none; }
+  .kids .symbols { order: 2; }
+}
+@media (max-width: 900px) {
+  .screens { grid-template-columns: repeat(4, minmax(240px, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 4px 18px; margin-inline: -4px; }
+  .screens li { scroll-snap-align: start; }
+}
+@media (max-width: 560px) {
+  .opening h1 { font-size: 1.85rem; }
+  .opening .lede { font-size: 1.05rem; }
+  .opening .more { display: none; }
+  .opening { gap: 14px; padding: 22px 18px; }
+  .waitlist__row .btn { width: 100%; }
+  .bubble { position: static; max-width: none; margin: 0; border-radius: 0; box-shadow: none; border: 0; border-bottom: 2px solid #fcebc0; font-size: 1rem; animation: none; }
+  .bubble::after { display: none; }
+  .scene { aspect-ratio: auto; display: flex; flex-direction: column; }
+  .scene img { aspect-ratio: 1672 / 941; height: auto; }
+  .opening { margin-top: -24px; }
+  .tags { grid-template-columns: minmax(0, 1fr); }
+  .ptag:first-child, .ptag:last-child { transform: none; }
+  .pcard { transform: none; box-shadow: 6px 8px 0 var(--honey); }
+  .btn { width: 100%; }
+  .top img { width: 104px; }
+  .memento .tag { font-size: 0.7rem; padding: 2px 8px; }
+}
+</style>
+
+<div class="wrap top">
+  <img src="img/logo_principal.webp" alt="Bento e Eu: Caminhando com Deus" width="900" height="900">
+  <span>em breve na App Store<br>e no Google Play</span>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="scene">
+      <p class="bubble">Oi! Eu sou o Bento. Quer conhecer a minha cabaninha?</p>
+      <img src="img/cabana_hero.webp" alt="A cabaninha de madeira do Bento por dentro, ao entardecer: o cordeirinho no tapete, uma Bíblia na mesinha, uma luminária acesa e lembranças por toda parte, como uma pipa, um presépio e uma mudinha na janela." width="1672" height="941">
+    </div>
+    <div class="opening">
+      <h1>Histórias da Bíblia para os pequenos sentirem, escolherem e crescerem</h1>
+      <p class="lede">O Bento é um cordeirinho que vive as mesmas situações que uma criança de 3 a 6 anos<span class="more">: um barulho que dá medo, uma pipa que rasga, um amigo que se muda</span>. Em cada encontro, ele descobre uma história da Bíblia que fala daquele sentimento.</p>
+      <div class="ctas">
+        <a class="btn btn--go" href="jogar/">Jogar o Encontro 1 agora, grátis</a>
+        <a class="btn btn--soft" href="#lista">Avise-me no lançamento</a>
+      </div>
+      <p class="ticks"><span>Sem anúncios</span><span>Sem assinatura</span><span>Funciona sem internet</span><span>Narrado para quem não lê</span></p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="trail-sec" aria-labelledby="trilha">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Como é um encontro</p>
+        <h2 id="trilha">Do medo até a paz, de mãos dadas com o Bento</h2>
+        <p>Em 5 a 7 minutos, a criança acompanha o Bento por um caminho que se repete em todo encontro. Saber o que vem depois deixa os pequenos seguros. Este é o caminho do Encontro 1, "Bento e o Barulho na Janela".</p>
+      </div>
+      <div class="trail-wrap">
+        <svg class="path" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 120 120, 200 120, 250 90 S 400 0, 500 60 S 680 130, 750 80 S 900 10, 1000 60" fill="none" stroke="#e8b85e" stroke-width="3" stroke-dasharray="2 12" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+        <ol class="trail">
+        <li><div class="stop"><img src="img/poses/assustado.webp" alt="O Bento assustado, com as orelhas para trás." width="440" height="520"></div><span class="hand">sente</span><h3>Um barulho na janela</h3><p>O Bento conta o que aconteceu e dá nome ao que sente: medo.</p></li>
+        <li><div class="stop"><img src="img/poses/respirando.webp" alt="O Bento de olhos fechados, respirando fundo." width="505" height="520"></div><span class="hand">respira</span><h3>Um jeito seguro</h3><p>A criança escolhe: acender a luminária ou chamar um adulto. As duas escolhas são boas.</p></li>
+        <li><div class="stop"><img src="img/poses/pensativo.webp" alt="O Bento pensativo, com a pata no queixo." width="469" height="520"></div><span class="hand">descobre</span><h3>Jesus acalma a tempestade</h3><p>Três cenas da Bíblia, contadas com fidelidade ao texto.</p></li>
+        <li><div class="stop"><img src="img/poses/orando.webp" alt="O Bento de patinhas juntas, orando." width="492" height="520"></div><span class="hand">conversa com Deus</span><h3>Uma oração curta</h3><p>Se a família quiser. Também dá para seguir sem orar.</p></li>
+        <li><div class="stop"><img src="img/poses/coracao.webp" alt="O Bento sorrindo, abraçando um coração." width="520" height="516"></div><span class="hand">fica em paz</span><h3>Uma lembrança na cabana</h3><p>O cantinho seguro fica na cabana para sempre. E os pais recebem um cartão.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="screens-sec" aria-labelledby="telas">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Do jeito que a criança vê</p>
+        <h2 id="telas">Telas de verdade do Encontro 1</h2>
+        <p>Botões grandes, poucas palavras na tela e tudo narrado. A criança toca no Bento, escolhe e ouve a história.</p>
+      </div>
+      <ul class="screens">
+        <li><figure><div class="device"><img src="img/telas/WINDOW_NOISE.webp" alt="Tela do app: o Bento assustado ouve um barulho na janela." width="1100" height="620"></div><figcaption>O Bento ouve um barulho e sente medo</figcaption></figure></li>
+        <li><figure><div class="device"><img src="img/telas/SAFETY_CHOICE.webp" alt="Tela do app: a criança escolhe entre acender a luminária e chamar um adulto." width="1100" height="620"></div><figcaption>A criança escolhe um jeito seguro</figcaption></figure></li>
+        <li><figure><div class="device"><img src="img/telas/STORM.webp" alt="Tela do app: a história da Bíblia, com o barco na tempestade." width="1100" height="620"></div><figcaption>A história da Bíblia, em três cenas</figcaption></figure></li>
+        <li><figure><div class="device"><img src="img/telas/SAFE_RESPONSES.webp" alt="Tela do app: três coisas que dá para fazer: contar para alguém, respirar devagar e falar com Jesus." width="1100" height="620"></div><figcaption>Três coisas para fazer na vida real</figcaption></figure></li>
+      </ul>
+      <p class="screens-cta"><a class="btn btn--go" href="jogar/">Jogar o Encontro 1 agora</a><span>Funciona no navegador do celular ou do computador, sem instalar nada.</span></p>
+    </div>
+  </section>
+
+  <section class="book-sec" aria-labelledby="biblia">
+    <div class="wrap book-grid">
+      <div class="book-copy">
+        <p class="kicker">A Bíblia no centro</p>
+        <h2 id="biblia">Cada emoção encontra uma história da Bíblia</h2>
+        <p>Os pequenos ouvem a história em três cenas ilustradas, com palavras simples e sem perder a verdade do texto. Os pais recebem a referência bíblica para ler junto depois.</p>
+        <p class="note"><span aria-hidden="true">☀</span><span><b>Deus nunca é desenhado.</b> A presença dele aparece como luz, e falamos de Deus e de Jesus sempre como a Bíblia apresenta.</span></p>
+      </div>
+      <div class="book" aria-label="Duas páginas da história de Jesus acalmando a tempestade">
+        <figure><img src="img/biblia/tempestade.webp" alt="O barco dos discípulos no meio de ondas grandes e vento forte, à noite." width="960" height="540"><figcaption>O vento e as ondas</figcaption></figure>
+        <figure><img src="img/biblia/mar_calmo.webp" alt="O mar calmo depois da tempestade, com o céu clareando." width="960" height="540"><figcaption>E veio a calma</figcaption></figure>
+        <span class="ref">Marcos 4:35–41</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="shelf-sec" id="encontros" aria-labelledby="lembrancas">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Temporada 1</p>
+        <h2 id="lembrancas">14 encontros, 14 lembranças na cabana</h2>
+        <p>Cada encontro termina com um objeto que fica na cabaninha do Bento. Com o tempo, a cabana se enche de histórias vividas, e a criança gosta de voltar para ver e rever.</p>
+      </div>
+      <div class="shelves">
+        <div class="shelf">
+          <div class="memento" title="Bento e o Barulho na Janela · Jesus acalma a tempestade"><img src="img/marcas/01.webp" alt="O cantinho seguro, com almofadas e uma manta" width="320" height="250"><span class="tag"><b>1</b> Medo</span><span class="story">Jesus acalma a tempestade</span></div>
+          <div class="memento" title="A carta do amigo que se mudou · Davi e Jônatas"><img src="img/marcas/02.webp" alt="A carta do amigo e o desenho da criança, presos na parede" width="320" height="163"><span class="tag"><b>2</b> Saudade</span><span class="story">Davi e Jônatas</span></div>
+          <div class="memento" title="A pipa rasgada · Jonas e a planta"><img src="img/marcas/03.webp" alt="A pipa consertada, com um remendo" width="153" height="320"><span class="tag"><b>3</b> Raiva</span><span class="story">Jonas e a planta</span></div>
+          <div class="memento" title="O passarinho com fome · Os pães e os peixes"><img src="img/marcas/04.webp" alt="Uma cesta com pães" width="312" height="320"><span class="tag"><b>4</b> Dividir</span><span class="story">Os pães e os peixes</span></div>
+          <div class="memento" title="A janela alta · Zaqueu"><img src="img/marcas/05.webp" alt="Um banquinho de madeira" width="320" height="273"><span class="tag"><b>5</b> Sentir-se pequeno</span><span class="story">Zaqueu</span></div>
+        </div>
+        <div class="shelf">
+          <div class="memento" title="A xícara quebrada · O filho que voltou"><img src="img/marcas/06.webp" alt="A xícara colada de volta, com linhas douradas" width="320" height="235"><span class="tag"><b>6</b> Perdão</span><span class="story">O filho que voltou</span></div>
+          <div class="memento" title="Um dia cheio de coisas boas · Noé e o arco-íris"><img src="img/marcas/07.webp" alt="Um mural de obrigado, com desenhos de sol, coração e casinha" width="320" height="314"><span class="tag"><b>7</b> Gratidão</span><span class="story">Noé e o arco-íris</span></div>
+          <div class="memento" title="A sementinha · A semente que cresce"><img src="img/marcas/08.webp" alt="Uma mudinha num vaso" width="209" height="320"><span class="tag"><b>8</b> Paciência</span><span class="story">A semente que cresce</span></div>
+          <div class="memento" title="A pilha de almofadas · A torre de Babel"><img src="img/marcas/09.webp" alt="Um cartaz com oi escrito em várias línguas" width="314" height="320"><span class="tag"><b>9</b> Humildade</span><span class="story">A torre de Babel</span></div>
+          <div class="memento" title="A regra dos brinquedos · Os dez mandamentos"><img src="img/marcas/10.webp" alt="Duas tabuinhas de pedra de brinquedo" width="300" height="247"><span class="tag"><b>10</b> Combinados</span><span class="story">Os dez mandamentos</span></div>
+        </div>
+        <div class="shelf shelf--four">
+          <div class="memento" title="O quebra-cabeça gigante · As muralhas de Jericó"><img src="img/marcas/11.webp" alt="O quebra-cabeça montado, pendurado como um quadro" width="320" height="201"><span class="tag"><b>11</b> Não desistir</span><span class="story">As muralhas de Jericó</span></div>
+          <div class="memento" title="A bola na rua · Ló e o aviso"><img src="img/marcas/12.webp" alt="A bola guardada na cesta, com a corda de pular" width="320" height="283"><span class="tag"><b>12</b> Cuidado e atenção</span><span class="story">Ló e o aviso</span></div>
+          <div class="memento" title="O passarinho machucado · A rainha Ester"><img src="img/marcas/13.webp" alt="Uma coroinha de papel dourado" width="300" height="226"><span class="tag"><b>13</b> Coragem</span><span class="story">A rainha Ester</span></div>
+          <div class="memento" title="O presente especial · O nascimento de Jesus"><img src="img/marcas/14.webp" alt="Um presépio de madeira" width="320" height="294"><span class="tag"><b>14</b> Alegria</span><span class="story">O nascimento de Jesus</span></div>
+        </div>
+      </div>
+      <p class="shelf-foot">O Encontro 1 é grátis. Os outros 13 formam a Temporada 1.</p>
+    </div>
+  </section>
+
+  <section class="letter-sec" aria-labelledby="carta">
+    <div class="wrap letter-grid">
+      <article class="letter">
+        <h2 id="carta">Para você, que cuida</h2>
+        <p>Eu sou mãe da Elisa. Criei o Bento para ensinar a Palavra para ela de um jeito lúdico, que fosse dela, que gerasse identidade. Começou com historinhas bíblicas contadas com o Bento, depois veio um joguinho de balões bíblicos, e o universo do Bento não parou mais de crescer.</p>
+        <p>O Bento e Eu é o próximo passo dessa caminhada: encontros curtos, bonitos e fiéis à Bíblia, em que a criança aprende a dar nome ao que sente e a confiar em Deus. Sem culpa, sem pontos, sem pressa, e sempre terminando numa conversa em família, longe da tela.</p>
+        <div class="signature"><img src="img/emelyn.webp" alt="Emelyn Campos, sorrindo." width="480" height="480"><p class="sign">Emelyn Campos<small>mãe da Elisa e criadora do Bento</small></p></div>
+      </article>
+      <div class="promises">
+        <div class="promise"><img src="img/perfis/sol.webp" alt="" width="360" height="360"><div><h3>Sem culpa e sem pressa</h3><p>Sem contagem de dias, sem "volte logo". O Bento só diz: que bom que você veio.</p></div></div>
+        <div class="promise"><img src="img/perfis/folha.webp" alt="" width="360" height="360"><div><h3>Seguro de verdade</h3><p>Sem anúncios, sem chat e sem links para fora. Compras e ajustes ficam atrás de uma pergunta que só um adulto responde.</p></div></div>
+        <div class="promise"><img src="img/perfis/lua.webp" alt="" width="360" height="360"><div><h3>Seus dados ficam em casa</h3><p>Sem conta, sem e-mail, sem foto. O apelido e as lembranças ficam só no aparelho.</p></div></div>
+        <div class="promise"><img src="img/perfis/estrela.webp" alt="" width="360" height="360"><div><h3>Feito para quem não lê</h3><p>Tudo é narrado e os botões são grandes, para crianças de 3 a 6 anos.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card-sec" aria-labelledby="cartao">
+    <div class="wrap card-grid">
+      <div class="card-copy">
+        <p class="kicker">No fim de cada encontro</p>
+        <h2 id="cartao">Um cartão só para os pais</h2>
+        <p>O app mostra ao adulto o que a criança viveu, a passagem da Bíblia e uma pergunta para continuar a conversa no jantar, no carro ou na hora de dormir. Este é o cartão real do Encontro 1.</p>
+      </div>
+      <article class="pcard" aria-label="Cartão para os pais do Encontro 1">
+        <header><h3>Bento e o Barulho na Janela</h3><span>Encontro 1</span></header>
+        <dl>
+          <div><dt>Hoje o Bento viveu</dt><dd>Medo diante de um barulho inesperado.</dd></div>
+          <div><dt>A Bíblia nos mostrou</dt><dd>Marcos 4:35–41. Jesus acalma a tempestade.</dd></div>
+          <div><dt>Pergunta para conversar</dt><dd class="q">Existe alguma coisa que tem deixado você com medo?</dd></div>
+          <div><dt>Para fazer juntos</dt><dd>Escolher uma pessoa segura e uma ação de proteção.</dd></div>
+          <div><dt>Um cuidado</dt><dd>Não diminuir o medo nem obrigar a criança a enfrentar uma situação insegura.</dd></div>
+        </dl>
+      </article>
+    </div>
+  </section>
+
+  <section class="price-sec" id="preco" aria-labelledby="preco-t">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Preço</p>
+        <h2 id="preco-t">Experimente de graça. Se fizer sentido, é seu para sempre.</h2>
+        <p>Sem assinatura e sem cobrança todo mês. Você paga uma vez pela temporada e ela fica com a sua família.</p>
+      </div>
+      <div class="tags">
+        <div class="ptag">
+          <h3>Encontro 1</h3>
+          <p class="amount">Grátis</p>
+          <p class="per">para conhecer o Bento</p>
+          <ul><li>"Bento e o Barulho na Janela", completo</li><li>Com o cartão para os pais</li><li>Sem cadastro e sem cartão de crédito</li></ul>
+          <a class="btn btn--go" href="jogar/">Jogar agora</a>
+        </div>
+        <div class="ptag">
+          <h3>Temporada 1</h3>
+          <p class="amount">R$ 34,90</p>
+          <p class="per">uma vez só, para sempre</p>
+          <ul><li>Os encontros 2 a 14</li><li>Para até 4 crianças do mesmo aparelho</li><li>Pode rever quantas vezes quiser</li><li>Compra pela App Store ou pelo Google Play</li></ul>
+        </div>
+      </div>
+      <p class="price-note">O valor pode variar conforme a loja. Novas temporadas serão vendidas à parte, e a Temporada 1 continua sua.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="criancas">
+    <div class="wrap kids">
+      <div class="symbols" aria-hidden="true">
+        <img src="img/perfis/sol.webp" alt="" width="360" height="360"><img src="img/perfis/lua.webp" alt="" width="360" height="360"><img src="img/perfis/flor.webp" alt="" width="360" height="360">
+        <img src="img/perfis/estrela.webp" alt="" width="360" height="360"><img src="img/perfis/arco-iris.webp" alt="" width="360" height="360"><img src="img/perfis/folha.webp" alt="" width="360" height="360">
+      </div>
+      <div class="kids-copy">
+        <p class="kicker">Para os irmãos também</p>
+        <h2 id="criancas">Cada criança com a sua cabaninha</h2>
+        <p>Até 4 crianças no mesmo aparelho, cada uma com as próprias lembranças. Quem ainda não lê escolhe um símbolo, o sol, a lua, a flor, e acha a sua cabana sozinho.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-sec" aria-labelledby="duvidas">
+    <div class="wrap faq-grid">
+      <div>
+        <p class="kicker">Dúvidas</p>
+        <h2 id="duvidas">Perguntas dos pais</h2>
+        <img class="bento-think" src="img/poses/piscando.webp" alt="O Bento piscando um olho." width="459" height="520">
+      </div>
+      <div class="faq">
+        <details><summary>Posso testar antes de comprar?</summary><p>Pode. O Encontro 1 é grátis e já dá para jogar agora no navegador, pelo botão "Jogar o Encontro 1 agora". No app, ele também é grátis.</p></details>
+        <details><summary>Para que idade é?</summary><p>De 3 a 6 anos. Tudo é narrado, então a criança não precisa saber ler. Os menores aproveitam mais com um adulto por perto.</p></details>
+        <details><summary>Precisa de internet?</summary><p>Não. Depois de instalado, o app funciona sem internet, no carro, na casa da avó ou num lugar sem Wi-Fi.</p></details>
+        <details><summary>Preciso criar conta ou dar meu e-mail?</summary><p>Não. Você só escolhe um apelido, a idade e um símbolo para cada criança. Isso fica guardado no aparelho e não é enviado para lugar nenhum.</p></details>
+        <details><summary>É para famílias evangélicas ou católicas?</summary><p>Para famílias cristãs. As histórias seguem o texto da Bíblia, com a referência indicada no cartão dos pais, e falam de Deus e de Jesus como a Bíblia apresenta.</p></details>
+        <details><summary>A criança consegue comprar algo sozinha?</summary><p>Não. Ela só vê um cadeado e um "Pedir para um adulto". O preço e a compra ficam atrás de uma pergunta que só um adulto consegue responder.</p></details>
+        <details><summary>Troquei de celular. Perco a compra?</summary><p>Não. Na área dos pais, toque em "Já comprei: restaurar", usando a mesma conta da App Store ou do Google Play.</p></details>
+        <details><summary>A oração é obrigatória?</summary><p>Não. No fim de cada encontro há uma oração curta, e a família escolhe se quer orar ou seguir.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" id="lista" aria-labelledby="fim">
+    <div class="wrap">
+      <img class="wave" src="img/poses/acenando.webp" alt="O Bento acenando." width="464" height="520">
+      <h2 id="fim">O Bento está esperando a sua visita</h2>
+      <p class="lede">O app chega em breve à App Store e ao Google Play. Deixe seu e-mail e avisamos no dia do lançamento.</p>
+      <form class="waitlist" id="waitlist" novalidate data-endpoint="">
+        <div class="waitlist__row">
+          <label class="sr-only" for="wl-email">Seu e-mail</label>
+          <input id="wl-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="seu@email.com" required>
+          <button class="btn btn--go" type="submit">Entrar na lista de espera</button>
+        </div>
+        <label class="waitlist__consent" for="wl-consent"><input id="wl-consent" name="consent" type="checkbox" required> <span>Quero receber o aviso do lançamento do Bento e Eu. Seu e-mail só será usado para isso e você pode sair quando quiser. <a href="privacidade/">Privacidade</a></span></label>
+        <p class="waitlist__msg" id="wl-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Bento e Eu · Caminhando com Deus. Criado por Emelyn Campos, publicado pela Codarme.</p>
+    <p><a href="privacidade/">Política de privacidade</a></p>
+  </div>
+</footer>
+
+<script>
+// Waitlist: the site build fills in the endpoint, a Google Apps Script that adds the e-mail to a sheet.
+(function () {
+  var form = document.getElementById('waitlist');
+  if (!form) return;
+  var msg = document.getElementById('wl-msg');
+  var say = function (text, tone) { msg.textContent = text; if (tone) msg.dataset.tone = tone; else delete msg.dataset.tone; };
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var email = form.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { say('Confira o e-mail: ele precisa ter @ e um domínio, como nome@email.com.', 'error'); form.email.focus(); return; }
+    if (!form.consent.checked) { say('Marque a caixinha para autorizar o aviso do lançamento.', 'error'); return; }
+    var url = form.dataset.endpoint;
+    if (!url || url.indexOf('__') === 0) { say('A lista de espera abre junto com o site. Volte em breve!', 'error'); return; }
+    var button = form.querySelector('button'); button.disabled = true; say('Enviando…');
+    // Apps Script does not answer cross-site requests readably, so a delivered request counts as done.
+    fetch(url, { method: 'POST', mode: 'no-cors', body: new URLSearchParams({ email: email.toLowerCase(), origem: 'site' }) }).then(function () {
+      form.reset(); say('Pronto! Você está na lista. Avisamos por e-mail no dia do lançamento.');
+    }).catch(function () {
+      say('Sem conexão no momento. Tente de novo em alguns minutos.', 'error');
+    }).then(function () { button.disabled = false; });
+  });
+})();
+</script>
+
+</html>
