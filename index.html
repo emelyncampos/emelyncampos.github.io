@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Emelyn Campos</title>
-<meta name="description" content="Sou a Emelyn — mãe, autora e cristã. Crio apps e livros para famílias e para quem quer viver a fé no dia a dia: Histórias da Bíblia com Bento, Tenderness, O Grão e o livro E se você estiver fazendo a pergunta errada?">
+<meta name="description" content="Sou a Emelyn — mãe, autora e cristã. Crio apps e livros para famílias e para quem quer viver a fé no dia a dia: Tenderness, Parallax, Histórias da Bíblia com Bento, Bento e Eu e O Grão.">
 <meta property="og:title" content="Emelyn Campos">
 <meta property="og:description" content="Apps e livros para famílias e para quem quer viver a fé no dia a dia — sem terceirizar o que deveria continuar humano.">
 <meta property="og:type" content="website">
@@ -50,6 +50,7 @@ a{color:#221D19}a:hover{color:#A9472B}
 
 /* Projetos */
 .ec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(16px,2vw,24px);align-items:stretch}
+@media (min-width:1100px){.ec-grid{grid-template-columns:repeat(6,1fr)}.ec-grid>.ec-card{grid-column:span 2}.ec-grid>.ec-card:nth-child(4){grid-column:2/span 2}}
 .ec-card{display:flex;flex-direction:column;gap:16px;box-sizing:border-box;padding:12px 12px 22px;border:1px solid #E2D9CC;border-radius:18px;background:#FFFCF7;color:#221D19;transition:box-shadow .4s ease,transform .4s ease}
 .ec-card:hover{box-shadow:0 30px 60px -40px rgba(34,29,25,.45);transform:translateY(-2px)}
 .ec-card.is-live{border-color:#B9C2A5;box-shadow:0 30px 60px -44px rgba(47,58,38,.55)}
@@ -117,7 +118,7 @@ a{color:#221D19}a:hover{color:#A9472B}
   <div style="flex: 1 1 460px; min-width: 0">
     <p class="ec-f1" style="margin: 0 0 24px; font-size: 13px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: #6E6458">Fé · Tecnologia · Humanidade</p>
     <h1 class="ec-f2" style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(38px, 5vw, 68px); line-height: 1.04; letter-spacing: -0.025em">Construindo coisas com as ferramentas do meu tempo — <span style="color: #A9472B">sem terceirizar</span> o que deveria continuar humano.</h1>
-    <p class="ec-f3" style="margin: 28px 0 0; max-width: 520px; font-size: 18px; line-height: 1.7; color: #3E362F">Sou a Emelyn — mãe, autora e cristã. Crio <strong style="font-weight: 600; color: #221D19">apps e livros para famílias</strong> e para quem quer viver a fé no dia a dia. Um projeto já está no mundo; outros três chegam em breve.</p>
+    <p class="ec-f3" style="margin: 28px 0 0; max-width: 520px; font-size: 18px; line-height: 1.7; color: #3E362F">Sou a Emelyn — mãe, autora e cristã. Crio <strong style="font-weight: 600; color: #221D19">apps e livros para famílias</strong> e para quem quer viver a fé no dia a dia. Três projetos já estão no mundo; outros dois chegam em breve.</p>
     <div class="ec-f3" style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px">
       <a class="ec-btn ec-btn-dark" href="#projetos">Ver os 4 projetos</a>
       <a class="ec-btn ec-btn-ghost" href="#novidades">Receber novidades</a>
@@ -136,49 +137,23 @@ a{color:#221D19}a:hover{color:#A9472B}
     <div style="max-width: 720px">
       <p class="sv" style="margin: 0 0 18px; font-size: 13px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: #6E6458">Projetos</p>
       <h2 class="sv" style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4.2vw, 58px); line-height: 1.05; letter-spacing: -0.025em">O que estou construindo</h2>
-      <p class="sv" style="margin: 20px 0 0; font-size: 17px; line-height: 1.7; color: #5E544A">Um já está no mundo. Os outros três estão chegando — deixe seu e-mail no que te interessar e eu aviso quando sair.</p>
+      <p class="sv" style="margin: 20px 0 0; font-size: 17px; line-height: 1.7; color: #5E544A">Três já estão no mundo. Os outros dois estão chegando — deixe seu e-mail no que te interessar e eu aviso quando sair.</p>
     </div>
 
     <div class="ec-grid" style="margin-top: clamp(36px, 5vw, 56px)">
 
-      <article class="ec-card is-live" aria-labelledby="p-bento">
-        <span class="ec-scene" aria-hidden="true"><span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(160deg, #EEF1E2 0%, #DCE3C8 100%)">
-          <span style="position: absolute; right: 8%; top: 8%; width: 30%; aspect-ratio: 1; border-radius: 999px; background: #F7EDCF"></span>
-          <span style="position: absolute; left: 7%; top: 16%; width: 64%; aspect-ratio: 1672 / 941; border-radius: 14px; border: 6px solid #3B261A; overflow: hidden; transform: rotate(-5deg); box-shadow: 0 30px 44px -18px rgba(47,58,38,0.55); background: #3B261A"><img src="home-assets/bento-e-eu-cabana.webp" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover"></span>
-          <span style="position: absolute; right: 5%; bottom: -3%; width: 44%; aspect-ratio: 1; filter: drop-shadow(0 16px 18px rgba(47,58,38,0.3))"><img src="home-assets/bento.png" alt="" style="display: block; width: 100%; height: 100%; object-fit: contain"></span>
-        </span></span>
-        <div class="ec-card-body">
-          <div class="ec-meta"><span class="ec-num">01</span><span class="ec-pill ec-pill-live">Encontro 1 grátis</span></div>
-          <h3 id="p-bento">Bento e Eu</h3>
-          <p class="ec-short">Um app para crianças de 3 a 6 anos: o cordeirinho Bento vive emoções do dia a dia e descobre, em cada encontro, uma história da Bíblia. Chega à App Store e ao Google Play em breve.</p>
-          <div class="ec-actions">
-            <a class="ec-btn ec-btn-sage" href="/bento-e-eu/" data-track="bento-e-eu">Conhecer o Bento e Eu</a>
-            <a class="ec-sec ec-ul" href="/bento-e-eu/jogar/" data-track="bento-e-eu-jogar">Jogar o Encontro 1</a>
-          </div>
-          <a href="https://www.bentocordeirinho.com.br" data-track="bento" style="display: flex; align-items: center; gap: 12px; padding: 10px 12px; border: 1px solid #E2D9CC; border-radius: 14px; background: #F7F2E8; color: #221D19; text-decoration: none; font-size: 14px; line-height: 1.35">
-            <img src="home-assets/bento-noe.jpg" alt="" style="flex: none; width: 44px; height: 44px; border-radius: 3px 8px 8px 3px; object-fit: cover; box-shadow: 0 6px 12px -6px rgba(47,58,38,0.5)">
-            <span><strong style="font-weight: 600">As historinhas do Bento</strong><br><span style="color: #5E544A">Histórias da Bíblia para os pequenos, na coleção do Bento ↗</span></span>
-          </a>
-          <details class="ec-more">
-            <summary>Como começou</summary>
-            <p class="ec-origin">Começou da vontade de ensinar a Palavra de Deus à minha filha de um jeito que fosse só dela — algo que criasse conexão e fizesse esse primeiro contato parecer, de fato, especial. Daí nasceu o Bento.</p>
-            <p class="ec-desc">O Bento é um cordeirinho que acompanha as crianças pelas histórias da Bíblia: uma referência em comum, lúdica e afetiva, para meninos e meninas de 2 a 7 anos. Já existe uma grande coleção digital — e o universo dele só está começando.</p>
-          </details>
-        </div>
-      </article>
-
-      <article class="ec-card" aria-labelledby="p-tenderness">
+      <article class="ec-card is-live" aria-labelledby="p-tenderness">
         <span class="ec-scene" aria-hidden="true"><span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(155deg, #F4E3DA 0%, #EADFCC 100%)">
           <span style="position: absolute; right: -6%; top: -18%; width: 52%; aspect-ratio: 1; border-radius: 999px; background: rgba(74,43,70,0.07)"></span>
           <span style="position: absolute; left: 15%; top: 13%; width: 33%; aspect-ratio: 9 / 19; border-radius: 22px; border: 5px solid #3A2337; overflow: hidden; transform: rotate(-7deg); box-shadow: 0 26px 40px -16px rgba(74,43,70,0.5); background: #FAF7F1"><img src="home-assets/tenderness-hoje.jpg" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: top"></span>
           <span style="position: absolute; left: 50%; top: 21%; width: 33%; aspect-ratio: 9 / 19; border-radius: 22px; border: 5px solid #3A2337; overflow: hidden; transform: rotate(5deg); box-shadow: 0 26px 40px -16px rgba(74,43,70,0.5); background: #FAF7F1"><img src="home-assets/tenderness-saude.jpg" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: top"></span>
         </span></span>
         <div class="ec-card-body">
-          <div class="ec-meta"><span class="ec-num">02</span><span class="ec-pill" style="color: #A9472B">Lançamento em breve</span></div>
+          <div class="ec-meta"><span class="ec-num">01</span><span class="ec-pill ec-pill-live">Na App Store</span></div>
           <h3 id="p-tenderness">Tenderness</h3>
-          <p class="ec-short">Tudo sobre a infância de um filho em um só lugar — do cuidado às memórias. Chega à App Store e ao Google Play nas próximas semanas.</p>
+          <p class="ec-short">Tudo sobre a infância de um filho em um só lugar — do cuidado às memórias. Já está na App Store; o Google Play chega em breve.</p>
           <div class="ec-actions">
-            <button type="button" class="ec-btn ec-btn-dark" data-lista="tenderness" data-titulo="Te aviso quando o Tenderness lançar" data-gatilho="Um e-mail no dia do lançamento. Sem spam.">Me avise no lançamento</button>
+            <a class="ec-btn ec-btn-sage" href="https://apps.apple.com/br/app/tenderness/id6821206979" data-track="tenderness-app-store">Baixar na App Store ↗</a>
             <a class="ec-sec ec-ul" href="/tenderness/pt/">Ver como é o app</a>
           </div>
           <details class="ec-more">
@@ -192,6 +167,74 @@ a{color:#221D19}a:hover{color:#A9472B}
               <li><strong>Livro do mês</strong>As memórias de cada mês viram um livro de fotos para imprimir ou compartilhar.</li>
               <li><strong>Retrospectivas</strong>A história de cada filho, revisitada por período.</li>
             </ul>
+          </details>
+        </div>
+      </article>
+
+      <article class="ec-card is-live" aria-labelledby="p-parallax">
+        <span class="ec-scene" aria-hidden="true"><span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(160deg, #EAE3D8 0%, #D3C8B8 100%)">
+          <span style="position: absolute; right: -10%; top: -16%; width: 52%; aspect-ratio: 1; border-radius: 999px; background: rgba(34,29,25,0.07)"></span>
+          <span style="position: absolute; right: 12%; top: 7%; width: 38%; aspect-ratio: 3 / 4; transform: rotate(6deg); box-shadow: 0 26px 40px -16px rgba(34,29,25,0.55)"><img src="home-assets/parallax-teresa.webp" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover"></span>
+          <span style="position: absolute; left: 3%; bottom: 6%; width: 66%; aspect-ratio: 900 / 604; transform: rotate(-4deg); filter: drop-shadow(0 22px 22px rgba(20,15,12,0.45))"><img src="home-assets/parallax-envelope.webp" alt="" style="display: block; width: 100%; height: 100%; object-fit: contain"></span>
+        </span></span>
+        <div class="ec-card-body">
+          <div class="ec-meta"><span class="ec-num">02</span><span class="ec-pill ec-pill-live">Disponível agora</span></div>
+          <h3 id="p-parallax">Parallax</h3>
+          <p class="ec-short">Casos investigativos para jogar no navegador — sozinho, a dois ou em grupo. O primeiro caso já está aberto, e o Envelope A é grátis.</p>
+          <div class="ec-actions">
+            <a class="ec-btn ec-btn-sage" href="https://parallax.emelyncampos.com.br/jogar?caso=a-foto-depois-da-meia-noite" data-track="parallax">Jogar o Envelope A grátis ↗</a>
+            <a class="ec-sec ec-ul" href="https://parallax.emelyncampos.com.br/">Conhecer o Parallax</a>
+          </div>
+          <details class="ec-more">
+            <summary>Como funciona</summary>
+            <p class="ec-desc">Você lê documentos, cruza versões dos fatos e tenta reconstruir o que realmente aconteceu. Mesmas pistas, novos pontos de vista — no celular ou no computador, sem instalar nada.</p>
+            <ul class="ec-feats">
+              <li><strong>Caso 001 · A Foto Depois da Meia-Noite</strong>Disponível agora. O Envelope A pode ser jogado de graça.</li>
+              <li><strong>Casos 002 e 003</strong>Em breve.</li>
+              <li><strong>Observe, questione, conecte, descubra</strong>As quatro etapas de cada investigação.</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+
+      <article class="ec-card is-live" aria-labelledby="p-historias">
+        <span class="ec-scene" aria-hidden="true"><span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(160deg, #EEF1E2 0%, #DCE3C8 100%)">
+          <span style="position: absolute; right: 8%; top: 8%; width: 30%; aspect-ratio: 1; border-radius: 999px; background: #F7EDCF"></span>
+          <span style="position: absolute; left: 12%; top: 14%; width: 50%; aspect-ratio: 1; border-radius: 3px 10px 10px 3px; overflow: hidden; transform: rotate(-6deg); box-shadow: 0 30px 44px -18px rgba(47,58,38,0.55), inset 0 0 0 1px rgba(0,0,0,0.04)"><img src="home-assets/bento-noe.jpg" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover"><span style="position: absolute; left: 0; top: 0; bottom: 0; width: 7%; background: linear-gradient(90deg, rgba(0,0,0,0.22), rgba(255,255,255,0.15) 60%, rgba(0,0,0,0))"></span></span>
+          <span style="position: absolute; right: 5%; bottom: -3%; width: 44%; aspect-ratio: 1; filter: drop-shadow(0 16px 18px rgba(47,58,38,0.3))"><img src="home-assets/bento.png" alt="" style="display: block; width: 100%; height: 100%; object-fit: contain"></span>
+        </span></span>
+        <div class="ec-card-body">
+          <div class="ec-meta"><span class="ec-num">03</span><span class="ec-pill ec-pill-live">Disponível agora</span></div>
+          <h3 id="p-historias">Histórias da Bíblia com Bento</h3>
+          <p class="ec-short">Histórias da Bíblia para crianças de 2 a 7 anos, com um cordeirinho como companhia.</p>
+          <div class="ec-actions">
+            <a class="ec-btn ec-btn-sage" href="https://www.bentocordeirinho.com.br" data-track="bento">Ver a coleção do Bento ↗</a>
+          </div>
+          <details class="ec-more">
+            <summary>Como começou</summary>
+            <p class="ec-origin">Começou da vontade de ensinar a Palavra de Deus à minha filha de um jeito que fosse só dela — algo que criasse conexão e fizesse esse primeiro contato parecer, de fato, especial. Daí nasceu o Bento.</p>
+            <p class="ec-desc">O Bento é um cordeirinho que acompanha as crianças pelas histórias da Bíblia: uma referência em comum, lúdica e afetiva, para meninos e meninas de 2 a 7 anos. Já existe uma grande coleção digital — e o universo dele só está começando.</p>
+          </details>
+        </div>
+      </article>
+
+      <article class="ec-card" aria-labelledby="p-bento">
+        <span class="ec-scene" aria-hidden="true"><span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(160deg, #EEF1E2 0%, #DCE3C8 100%)">
+          <span style="position: absolute; right: 8%; top: 8%; width: 30%; aspect-ratio: 1; border-radius: 999px; background: #F7EDCF"></span>
+          <span style="position: absolute; left: 7%; top: 16%; width: 64%; aspect-ratio: 1672 / 941; border-radius: 14px; border: 6px solid #3B261A; overflow: hidden; transform: rotate(-5deg); box-shadow: 0 30px 44px -18px rgba(47,58,38,0.55); background: #3B261A"><img src="home-assets/bento-e-eu-cabana.webp" alt="" style="display: block; width: 100%; height: 100%; object-fit: cover"></span>
+          <span style="position: absolute; right: 5%; bottom: -3%; width: 44%; aspect-ratio: 1; filter: drop-shadow(0 16px 18px rgba(47,58,38,0.3))"><img src="home-assets/bento.png" alt="" style="display: block; width: 100%; height: 100%; object-fit: contain"></span>
+        </span></span>
+        <div class="ec-card-body">
+          <div class="ec-meta"><span class="ec-num">04</span><span class="ec-pill" style="color: #A9472B">Em breve</span></div>
+          <h3 id="p-bento">Bento e Eu</h3>
+          <p class="ec-short">Um app para crianças de 3 a 6 anos: o cordeirinho Bento vive emoções do dia a dia e descobre, em cada encontro, uma história da Bíblia. Chega à App Store e ao Google Play em breve.</p>
+          <div class="ec-actions">
+            <button type="button" class="ec-btn ec-btn-dark" data-lista="bentoeeu" data-titulo="Te aviso quando o Bento e Eu lançar" data-gatilho="Um e-mail no dia do lançamento. Sem spam.">Me avise no lançamento</button>
+            <a class="ec-sec ec-ul" href="/bento-e-eu/" data-track="bento-e-eu">Conhecer o Bento e Eu</a>
+          </div>
+          <details class="ec-more">
+            <summary>Como é</summary>
+            <p class="ec-desc">Histórias da Bíblia para os pequenos sentirem, escolherem e crescerem. O Encontro 1 já pode ser jogado de graça na página do Bento e Eu.</p>
           </details>
         </div>
       </article>
@@ -210,7 +253,7 @@ a{color:#221D19}a:hover{color:#A9472B}
           </span>
         </span></span>
         <div class="ec-card-body">
-          <div class="ec-meta"><span class="ec-num">03</span><span class="ec-pill" style="color: #A9472B">Em desenvolvimento</span></div>
+          <div class="ec-meta"><span class="ec-num">05</span><span class="ec-pill" style="color: #A9472B">Em desenvolvimento</span></div>
           <h3 id="p-ograo">O Grão</h3>
           <p class="ec-short">Estudo bíblico, anotações e pregações em um só lugar — no celular, no tablet e na web.</p>
           <div class="ec-actions">
@@ -227,30 +270,6 @@ a{color:#221D19}a:hover{color:#A9472B}
               <li><strong>Guardar a pregação</strong>Anotações e fotos do que foi apresentado no culto.</li>
               <li><strong>Rever quando quiser</strong>Tudo sincronizado entre celular, tablet e web.</li>
             </ul>
-          </details>
-        </div>
-      </article>
-
-      <article class="ec-card" aria-labelledby="p-livro">
-        <span class="ec-scene" aria-hidden="true"><span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(160deg, #F3ECE1 0%, #E6DAC8 100%); perspective: 1100px">
-          <span style="position: absolute; left: 50%; bottom: 6%; width: 46%; height: 8%; transform: translateX(-46%); border-radius: 999px; background: radial-gradient(closest-side, rgba(60,45,30,0.35), rgba(60,45,30,0))"></span>
-          <span style="position: absolute; left: 50%; top: 8%; width: 34%; aspect-ratio: 464 / 890; transform: translateX(-40%) rotateY(24deg) rotateX(3deg); transform-style: preserve-3d">
-            <img src="home-assets/livro-capa.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 1px 4px 4px 1px; box-shadow: inset 4px 0 6px -3px rgba(0,0,0,0.25)">
-            <img src="home-assets/livro-lombada.jpg" alt="" style="position: absolute; left: -15.5%; top: 0; width: 15.5%; height: 100%; object-fit: cover; transform-origin: right center; transform: rotateY(-90deg); filter: brightness(0.9)">
-          </span>
-        </span></span>
-        <div class="ec-card-body">
-          <div class="ec-meta"><span class="ec-num">04</span><span class="ec-pill" style="color: #A9472B">Livro · em breve</span></div>
-          <h3 id="p-livro">E se você estiver fazendo a pergunta errada?</h3>
-          <p class="ec-short">Um livro sobre buscar a Deus e entender o propósito que Ele tem para nós. Na reta final de produção.</p>
-          <div class="ec-actions">
-            <button type="button" class="ec-btn ec-btn-dark" data-lista="livro" data-titulo="Te aviso quando o livro sair na Amazon" data-gatilho="Um e-mail quando o livro estiver disponível. Sem spam.">Me avise quando sair</button>
-            <a class="ec-sec ec-ul" href="/e-se-voce-estiver-fazendo-a-pergunta-errada/">Ler sobre o livro</a>
-          </div>
-          <details class="ec-more">
-            <summary>Como começou</summary>
-            <p class="ec-origin">Começou como um estudo que fiz para mim mesma, na busca por entender o meu propósito diante de Deus. Em algum momento, percebi que aquilo podia servir para outras pessoas também.</p>
-            <p class="ec-desc">Um livro para qualquer pessoa que queira buscar a Deus e entender o que Ele tem para ela. Chega em breve à Amazon.</p>
           </details>
         </div>
       </article>
@@ -285,7 +304,7 @@ a{color:#221D19}a:hover{color:#A9472B}
 <section id="novidades" style="background: #221D19; color: #F4EFE7">
   <div id="onde" style="max-width: 1240px; margin: 0 auto; padding: clamp(80px, 10vw, 120px) clamp(20px, 4vw, 48px) clamp(48px, 6vw, 72px)">
     <h2 class="sv" style="margin: 0; max-width: 820px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(34px, 4.4vw, 60px); line-height: 1.08; letter-spacing: -0.02em">Acompanhe as ideias enquanto elas ainda estão <span style="color: #E0957A">se formando.</span></h2>
-    <p class="sv" style="margin: 20px 0 0; max-width: 560px; font-size: 18px; line-height: 1.7; color: #D6CCBF">Bastidores dos projetos e os avisos de lançamento do Tenderness, d'O Grão e do livro — direto no seu e-mail, antes de aparecer em qualquer rede.</p>
+    <p class="sv" style="margin: 20px 0 0; max-width: 560px; font-size: 18px; line-height: 1.7; color: #D6CCBF">Bastidores dos projetos e os avisos de lançamento do Bento e Eu e d'O Grão — direto no seu e-mail, antes de aparecer em qualquer rede.</p>
     <div style="margin-top: 36px; max-width: 620px">
       <form class="ec-form" data-interesse="bastidores" novalidate>
         <label for="ec-email-main" style="position: absolute; left: -9999px">Seu e-mail</label>
@@ -332,7 +351,7 @@ a{color:#221D19}a:hover{color:#A9472B}
   // Cole aqui a URL do Apps Script (termina em /exec). Instruções em docs/lista-google-sheets.md
   var LISTA_URL = 'https://script.google.com/macros/s/AKfycbx_W4v82j3H7YQn79EdG_NAniuIs6yHmUhZ4I0J_5vXJzJzC7EO2nOop60TI5mCMXHA/exec';
 
-  var NOMES = { tenderness: 'o Tenderness', ograo: 'O Grão', livro: 'o livro', bastidores: 'bastidores' };
+  var NOMES = { bentoeeu: 'o Bento e Eu', tenderness: 'o Tenderness', ograo: 'O Grão', livro: 'o livro', bastidores: 'bastidores' };
   var params = new URLSearchParams(location.search);
   var origem = params.get('utm_source') || params.get('ref') || '';
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
