@@ -79,6 +79,7 @@ section { position: relative; }
 .top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px 14px; }
 .top img { width: 132px; }
 .top span { font-family: var(--hand); font-size: var(--s1); color: var(--muted); text-align: right; }
+.top span a, .closing .lede a { color: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
 
 /* ---------- Hero: the cabin, then the page that opens over it ---------- */
 .hero { padding-bottom: clamp(36px, 6vw, 72px); }
@@ -303,7 +304,7 @@ footer a { color: var(--honey); }
 
 <div class="wrap top">
   <img src="img/logo_principal.webp" alt="Bento e Eu: Caminhando com Deus" width="900" height="900">
-  <span>em breve na App Store<br>e no Google Play</span>
+  <span><a href="https://play.google.com/store/apps/details?id=br.com.emelyncampos.bentoeeu" target="_blank" rel="noopener">já disponível no Google Play</a><br>em breve na App Store</span>
 </div>
 
 <header class="hero">
@@ -317,7 +318,7 @@ footer a { color: var(--honey); }
       <p class="lede">O Bento é um cordeirinho que vive as mesmas situações que uma criança de 3 a 6 anos<span class="more">: um barulho que dá medo, uma pipa que rasga, um amigo que se muda</span>. Em cada encontro, ele descobre uma história da Bíblia que fala daquele sentimento.</p>
       <div class="ctas">
         <a class="btn btn--go" href="jogar/">Jogar o Encontro 1 agora, grátis</a>
-        <a class="btn btn--soft" href="#lista">Avise-me no lançamento</a>
+        <a class="btn btn--soft" href="https://play.google.com/store/apps/details?id=br.com.emelyncampos.bentoeeu" target="_blank" rel="noopener">Baixar no Google Play</a>
       </div>
       <p class="ticks"><span>Sem anúncios</span><span>Sem assinatura</span><span>Funciona sem internet</span><span>Narrado para quem não lê</span></p>
     </div>
@@ -512,7 +513,7 @@ footer a { color: var(--honey); }
     <div class="wrap">
       <img class="wave" src="img/poses/acenando.webp" alt="O Bento acenando." width="464" height="520">
       <h2 id="fim">O Bento está esperando a sua visita</h2>
-      <p class="lede">O app chega em breve à App Store e ao Google Play. Deixe seu e-mail e avisamos no dia do lançamento.</p>
+      <p class="lede">O app já está no <a href="https://play.google.com/store/apps/details?id=br.com.emelyncampos.bentoeeu" target="_blank" rel="noopener">Google Play</a>. No iPhone, ele chega em breve à App Store: deixe seu e-mail e avisamos no dia do lançamento.</p>
       <form class="waitlist" id="waitlist" novalidate data-endpoint="">
         <div class="waitlist__row">
           <label class="sr-only" for="wl-email">Seu e-mail</label>
@@ -557,5 +558,4 @@ footer a { color: var(--honey); }
   });
 })();
 </script>
-
 </html>
