@@ -50,7 +50,7 @@ a{color:#221D19}a:hover{color:#A9472B}
 
 /* Projetos */
 .ec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(16px,2vw,24px);align-items:stretch}
-@media (min-width:1100px){.ec-grid{grid-template-columns:repeat(6,1fr)}.ec-grid>.ec-card{grid-column:span 2}.ec-grid>.ec-card:nth-child(4){grid-column:2/span 2}}
+@media (min-width:1100px){.ec-grid{grid-template-columns:repeat(6,1fr)}.ec-grid>.ec-card{grid-column:span 2}}
 .ec-card{display:flex;flex-direction:column;gap:16px;box-sizing:border-box;padding:12px 12px 22px;border:1px solid #E2D9CC;border-radius:18px;background:#FFFCF7;color:#221D19;transition:box-shadow .4s ease,transform .4s ease}
 .ec-card:hover{box-shadow:0 30px 60px -40px rgba(34,29,25,.45);transform:translateY(-2px)}
 .ec-card.is-live{border-color:#B9C2A5;box-shadow:0 30px 60px -44px rgba(47,58,38,.55)}
@@ -137,7 +137,7 @@ a{color:#221D19}a:hover{color:#A9472B}
     <div style="max-width: 720px">
       <p class="sv" style="margin: 0 0 18px; font-size: 13px; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: #6E6458">Projetos</p>
       <h2 class="sv" style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(36px, 4.2vw, 58px); line-height: 1.05; letter-spacing: -0.025em">O que estou construindo</h2>
-      <p class="sv" style="margin: 20px 0 0; font-size: 17px; line-height: 1.7; color: #5E544A">Os cinco já estão no mundo. O Grão já abre na web — deixe seu e-mail e eu aviso quando os apps chegarem às lojas.</p>
+      <p class="sv" style="margin: 20px 0 0; font-size: 17px; line-height: 1.7; color: #5E544A">Cinco já estão no mundo, e o Tiny Home chega em breve. O Grão já abre na web — deixe seu e-mail e eu aviso quando os apps chegarem às lojas.</p>
     </div>
 
     <div class="ec-grid" style="margin-top: clamp(36px, 5vw, 56px)">
@@ -274,6 +274,31 @@ a{color:#221D19}a:hover{color:#A9472B}
         </div>
       </article>
 
+      <article class="ec-card" aria-labelledby="p-tinyhome">
+        <span class="ec-scene" aria-hidden="true"><span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(160deg, #E8EEF6 0%, #D3DEEC 100%)">
+          <img src="home-assets/tiny-home-card.webp" alt="" width="900" height="450" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 78% 55%">
+        </span></span>
+        <div class="ec-card-body">
+          <div class="ec-meta"><span class="ec-num">06</span><span class="ec-pill">Em breve</span></div>
+          <h3 id="p-tinyhome">Tiny Home</h3>
+          <p class="ec-short">Um jogo de puzzle cozy: arraste, gire e aperte TESTAR para fazer a vida inteira caber num espaço minúsculo. Chega em breve ao iPhone e ao Android.</p>
+          <div class="ec-actions">
+            <a class="ec-btn ec-btn-dark" href="/tiny-home/pt/" data-track="tinyhome">Conhecer o Tiny Home</a>
+            <button type="button" class="ec-sec ec-ul" id="ec-avise-tinyhome" data-lista="tinyhome" data-titulo="Quer saber quando o Tiny Home chegar?" data-gatilho="Aviso só no lançamento, sem spam." style="background: none; border-width: 0 0 1px; border-style: solid; border-color: currentColor; padding: 0 0 3px; cursor: pointer; font-family: inherit">Me avise no lançamento</button>
+          </div>
+          <details class="ec-more">
+            <summary>Como começou</summary>
+            <p class="ec-desc">Um puzzle espacial em 3D isométrico: cada cliente tem um pedido, e uma pessoinha entra no cômodo para testar se tudo funciona. Quando algo dá errado, você vê na cena — a porta que bate no vaso, a cadeira que não sai da mesa.</p>
+            <ul class="ec-feats">
+              <li><strong>Arrastar, girar, testar</strong>A regra se entende em segundos.</li>
+              <li><strong>Falha que ensina</strong>O problema aparece na cena, nunca só num aviso.</li>
+              <li><strong>Mais de 40 cômodos</strong>Studio, Tiny House, Trailer e Casa.</li>
+              <li><strong>Tiny Home do Dia</strong>O mesmo cômodo para todo mundo, todo dia.</li>
+            </ul>
+          </details>
+        </div>
+      </article>
+
     </div>
 
     <p class="sv" style="margin: clamp(40px, 5vw, 56px) 0 0; font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 21px; color: #6E6458">E provavelmente tem mais uma ideia chegando. <a class="ec-ul" href="#novidades" style="font-style: normal; font-family: 'Instrument Sans', 'Helvetica Neue', sans-serif; font-size: 15px; font-weight: 500; margin-left: 6px">Quero saber primeiro</a></p>
@@ -351,7 +376,7 @@ a{color:#221D19}a:hover{color:#A9472B}
   // Cole aqui a URL do Apps Script (termina em /exec). Instruções em docs/lista-google-sheets.md
   var LISTA_URL = 'https://script.google.com/macros/s/AKfycbx_W4v82j3H7YQn79EdG_NAniuIs6yHmUhZ4I0J_5vXJzJzC7EO2nOop60TI5mCMXHA/exec';
 
-  var NOMES = { bentoeeu: 'o Bento e Eu', tenderness: 'o Tenderness', ograo: 'O Grão', livro: 'o livro', bastidores: 'bastidores' };
+  var NOMES = { bentoeeu: 'o Bento e Eu', tenderness: 'o Tenderness', ograo: 'O Grão', livro: 'o livro', tinyhome: 'o Tiny Home', bastidores: 'bastidores' };
   var params = new URLSearchParams(location.search);
   var origem = params.get('utm_source') || params.get('ref') || '';
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -432,6 +457,7 @@ a{color:#221D19}a:hover{color:#A9472B}
       setTimeout(function(){ dForm.querySelector('input[type=email]').focus(); }, 30);
     });
   });
+  if (location.hash === '#avise-tinyhome') { var th = document.getElementById('ec-avise-tinyhome'); if (th) { setTimeout(function(){ th.scrollIntoView({block: 'center'}); th.click(); }, 300); } }
   dlg.querySelector('[data-close]').addEventListener('click', function(){ dlg.close(); });
   dlg.addEventListener('click', function(e){ if (e.target === dlg) dlg.close(); });
   dlg.addEventListener('close', function(){ if (opener) opener.focus(); });
