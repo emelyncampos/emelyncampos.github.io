@@ -97,6 +97,7 @@ section{padding:clamp(64px,9vw,112px) 0}
 .world q{display:block;margin-top:8px;color:var(--navy-soft);font-style:italic}
 .world q::before,.world q::after{content:none}
 .more-worlds{margin-top:22px;color:var(--navy-soft);text-align:center}
+.more-worlds.soon{margin-top:8px;font-weight:600}
 @media (max-width:760px){.worlds{grid-template-columns:1fr}}
 
 /* Modes */
